@@ -209,18 +209,38 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
               </p>
 
               {/* ───────────────── INTERVIEW WEIGHT & ON-THE-JOB WEIGHT CARDS (.lh__weights / .wc) ───────────────── */}
-              <div className="space-y-2.5">
+              <div className="space-y-3">
+                {/* Active Role Track Banner */}
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[var(--phase-br)] bg-[var(--phase-bg)]/55 px-4 py-3">
+                  <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+                    <span className="rounded-lg bg-[var(--phase-ac)] px-2.5 py-0.5 font-mono-code text-[11px] font-bold text-white">
+                      {selectedRole}
+                    </span>
+                    <span className="rounded-lg border border-[var(--phase-br)] bg-white px-2.5 py-0.5 font-mono-code text-[11px] font-bold text-[var(--phase-ac)]">
+                      {weights.studyDepth}
+                    </span>
+                    <span className="text-slate-700 font-medium">
+                      <RichText text={weights.roleFocus} />
+                    </span>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {/* Interview Weight Card */}
                   <section className="rounded-2xl border border-slate-200 border-l-4 border-l-[var(--phase-ac)] bg-white p-5 sm:p-6 shadow-2xs space-y-3.5">
                     <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 min-w-0">
                         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[var(--phase-br)] bg-[var(--phase-bg)] text-[var(--phase-ac)]">
                           <Briefcase className="h-4 w-4" />
                         </span>
-                        <span className="font-mono-code text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Interview Weight
-                        </span>
+                        <div className="min-w-0">
+                          <span className="font-mono-code text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 block">
+                            Interview Weight
+                          </span>
+                          <span className="font-mono-code text-[10px] font-bold text-[var(--phase-ac)] truncate block">
+                            Track: {selectedRole}
+                          </span>
+                        </div>
                       </div>
                       <div className="font-display text-2xl sm:text-3xl font-bold text-[var(--phase-ac)] shrink-0">
                         {weights.interviewScore}
@@ -232,7 +252,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
                     <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-[var(--phase-ac)]"
+                        className="h-full rounded-full bg-[var(--phase-ac)] transition-all duration-300"
                         style={{ width: `${weights.interviewScore * 10}%` }}
                       />
                     </div>
@@ -245,13 +265,18 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                   {/* On-The-Job Weight Card */}
                   <section className="rounded-2xl border border-slate-200 border-l-4 border-l-[var(--phase-ac)] bg-white p-5 sm:p-6 shadow-2xs space-y-3.5">
                     <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 min-w-0">
                         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[var(--phase-br)] bg-[var(--phase-bg)] text-[var(--phase-ac)]">
                           <Wrench className="h-4 w-4" />
                         </span>
-                        <span className="font-mono-code text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          On-The-Job Weight
-                        </span>
+                        <div className="min-w-0">
+                          <span className="font-mono-code text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 block">
+                            On-The-Job Weight
+                          </span>
+                          <span className="font-mono-code text-[10px] font-bold text-[var(--phase-ac)] truncate block">
+                            Track: {selectedRole}
+                          </span>
+                        </div>
                       </div>
                       <div className="font-display text-2xl sm:text-3xl font-bold text-[var(--phase-ac)] shrink-0">
                         {weights.jobScore}
@@ -263,7 +288,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
                     <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-[var(--phase-ac)]"
+                        className="h-full rounded-full bg-[var(--phase-ac)] transition-all duration-300"
                         style={{ width: `${weights.jobScore * 10}%` }}
                       />
                     </div>
