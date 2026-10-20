@@ -727,11 +727,15 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                                   (el) =>
                                     !(
                                       el.type === 'code' &&
-                                      /[─►▼┌┐└┘│]/.test(el.code) &&
-                                      !/[├└]──/.test(el.code)
+                                      /[►▼▲◄]/.test(el.code)
                                     )
                                 )
                               : sb.elements;
+                            const hasRepoTree =
+                              Boolean(mermaidChart) &&
+                              filteredElements.some(
+                                (el) => el.type === 'code' && /[├└]──/.test(el.code)
+                              );
 
                             return (
                               <div
@@ -750,7 +754,14 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                                   />
                                 )}
                                 {filteredElements.length > 0 && (
-                                  <ContentElementsView elements={filteredElements} />
+                                  <div className="space-y-2 pt-2">
+                                    {hasRepoTree && (
+                                      <h4 className="font-mono-code text-xs font-bold uppercase tracking-wider text-slate-500">
+                                        Suggested Repository Structure
+                                      </h4>
+                                    )}
+                                    <ContentElementsView elements={filteredElements} />
+                                  </div>
                                 )}
                               </div>
                             );
