@@ -5,8 +5,8 @@
     "totalPhases": 7,
     "totalLevels": 20,
     "totalSections": 187,
-    "totalModules": 487,
-    "totalCheckables": 4128,
+    "totalModules": 488,
+    "totalCheckables": 4138,
     "totalProjects": 26,
     "totalQuestions": 532
   },
@@ -10629,8 +10629,8 @@
           "difficulty": "Advanced",
           "mainProject": "**`foundation-suite`** — an applied NLP assistant and an applied vision/VLM pipeline, both with eval suites and cost models",
           "totalSections": 11,
-          "totalModules": 30,
-          "checkableCount": 246,
+          "totalModules": 31,
+          "checkableCount": 256,
           "checkableIds": [
             "level-13-sec-13-1-13-1-1-task-taxonomy-and-cheap-baselines-item-1",
             "level-13-sec-13-1-13-1-1-task-taxonomy-and-cheap-baselines-item-2",
@@ -10732,17 +10732,27 @@
             "level-13-sec-13-5-practice-practice-tasks-item-2",
             "level-13-sec-13-5-practice-practice-tasks-item-3",
             "level-13-sec-13-5-practice-practice-tasks-gate-4",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-1",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-2",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-3",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-4",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-5",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-6",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-7",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-8",
-            "level-13-sec-13-6-practice-practice-tasks-item-1",
-            "level-13-sec-13-6-practice-practice-tasks-item-2",
-            "level-13-sec-13-6-practice-practice-tasks-gate-3",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-1",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-2",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-3",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-4",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-5",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-6",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-7",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-1",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-2",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-3",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-4",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-5",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-6",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-1",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-2",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-3",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-4",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-5",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-6",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-7",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-gate-8",
             "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-1",
             "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-2",
             "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-3",
@@ -12202,17 +12212,27 @@
         "level-13-sec-13-5-practice-practice-tasks-item-2",
         "level-13-sec-13-5-practice-practice-tasks-item-3",
         "level-13-sec-13-5-practice-practice-tasks-gate-4",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-1",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-2",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-3",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-4",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-5",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-6",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-7",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-8",
-        "level-13-sec-13-6-practice-practice-tasks-item-1",
-        "level-13-sec-13-6-practice-practice-tasks-item-2",
-        "level-13-sec-13-6-practice-practice-tasks-gate-3",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-1",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-2",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-3",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-4",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-5",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-6",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-7",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-1",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-2",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-3",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-4",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-5",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-6",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-1",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-2",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-3",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-4",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-5",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-6",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-7",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-gate-8",
         "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-1",
         "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-2",
         "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-3",
@@ -55480,111 +55500,227 @@
           "objective": "Build systems that hold state and use tools without becoming unpredictable.",
           "modules": [
             {
-              "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist",
-              "code": "13.6",
-              "title": "Context, Memory and Agents — Checklist",
-              "kind": "checklist",
+              "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs",
+              "code": "13.6.1",
+              "title": "Workflows versus agents and stateful control graphs",
+              "kind": "module",
               "elements": [
                 {
                   "type": "checklist",
                   "groupType": "study",
                   "items": [
                     {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-1",
-                      "text": "Context budgets: instructions, history, retrieved documents, tool results, output."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-1",
+                      "text": "Single LLM call vs deterministic workflow/DAG vs autonomous agent loop: deciding based on path predictability, latency, and cost."
                     },
                     {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-2",
-                      "text": "Summarisation, truncation, and retrieval of history."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-2",
+                      "text": "The ReAct loop ($\\text{thought} \\rightarrow \\text{action} \\rightarrow \\text{observation}$) versus plan-and-execute architectures; implementing the loop in raw Python before using any framework."
                     },
                     {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-3",
-                      "text": "Memory designs: episodic, semantic, and scratchpad."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-3",
+                      "text": "Stateful graph orchestration (`LangGraph` / explicit state machines): typed state schemas, conditional edges, bounded retry loops, and checkpoint persistence to resume interrupted runs."
                     },
                     {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-4",
-                      "text": "Tool schemas, permissions, and sandboxing."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-4",
+                      "text": "Multi-agent decomposition (orchestrator–worker, sequential handoffs, parallel specialists) and when a single agent with well-designed tools is faster, cheaper, and more reliable."
                     },
                     {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-5",
-                      "text": "Planning loops, step limits, and cost ceilings."
-                    },
-                    {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-6",
-                      "text": "Failure recovery: retries, fallbacks, and human handoff."
-                    },
-                    {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-7",
-                      "text": "Observability: trace every step, tool call, token count, and error."
-                    },
-                    {
-                      "id": "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-8",
-                      "text": "Evaluating agents on task success, not on verbosity."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-5",
+                      "text": "Human-in-the-loop interrupts and approval gates before executing consequential or irreversible actions."
                     }
                   ]
                 },
                 {
                   "type": "math",
-                  "latex": "\\text{context} = \\text{system} + \\text{history} + \\text{retrieved} + \\text{tools} + \\text{output}\n\\le \\text{window}"
-                }
-              ],
-              "checkableIds": [
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-1",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-2",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-3",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-4",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-5",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-6",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-7",
-                "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-8"
-              ]
-            },
-            {
-              "id": "level-13-sec-13-6-practice-practice-tasks",
-              "code": "PRACTICE",
-              "title": "Practice tasks",
-              "kind": "practice",
-              "elements": [
+                  "latex": "P(\\text{success over } k \\text{ autonomous steps}) = p^k \\quad\\Rightarrow\\quad \\text{per-step reliability compounds exponentially}"
+                },
+                {
+                  "type": "subheading",
+                  "variant": "practice",
+                  "title": "Practice tasks",
+                  "subtitle": null
+                },
                 {
                   "type": "checklist",
                   "groupType": "practice",
                   "items": [
                     {
-                      "id": "level-13-sec-13-6-practice-practice-tasks-item-1",
-                      "text": "Build a tool-using agent with a step and cost ceiling; measure task success on 30 tasks."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-6",
+                      "text": "Implement the same 3-step research-and-extraction task both as a fixed DAG workflow and as an autonomous ReAct agent; compare task accuracy, p95 latency, and token cost across 30 runs."
                     },
                     {
-                      "id": "level-13-sec-13-6-practice-practice-tasks-item-2",
-                      "text": "Instrument traces and diagnose three failures from logs alone."
+                      "id": "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-7",
+                      "text": "Build a checkpointed state-machine graph that pauses for human approval before a write action and resumes cleanly from saved state after interruption."
+                    }
+                  ]
+                }
+              ],
+              "checkableIds": [
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-1",
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-2",
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-3",
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-4",
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-5",
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-6",
+                "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-7"
+              ]
+            },
+            {
+              "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec",
+              "code": "13.6.2",
+              "title": "Tool protocols (MCP), untrusted arguments, and sandboxed execution",
+              "kind": "module",
+              "elements": [
+                {
+                  "type": "checklist",
+                  "groupType": "study",
+                  "items": [
+                    {
+                      "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-1",
+                      "text": "Designing high-signal tool interfaces: unambiguous names, minimal typed parameters (`Pydantic` / JSON Schema), bounded return payloads, and actionable error messages for self-correction."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-2",
+                      "text": "Model Context Protocol (`MCP`): host $\\rightarrow$ client $\\rightarrow$ server architecture, exposing external databases/APIs as standardized tools and resources, local (`stdio`) vs remote (`SSE`/HTTP) transports, and trust boundaries."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-3",
+                      "text": "Treating all model-generated tool arguments as untrusted input: schema validation, permission scoping, read-only vs mutating tool separation, and idempotency keys so retries never duplicate side effects."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-4",
+                      "text": "Sandboxed code and command execution: running model-generated Python/Bash inside isolated containers or microVMs (`Docker`, `Modal`, `E2B`) with strict CPU, memory, timeout, filesystem, and network restrictions."
+                    }
+                  ]
+                },
+                {
+                  "type": "subheading",
+                  "variant": "practice",
+                  "title": "Practice tasks",
+                  "subtitle": null
+                },
+                {
+                  "type": "checklist",
+                  "groupType": "practice",
+                  "items": [
+                    {
+                      "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-5",
+                      "text": "Build an `MCP` server exposing a read-only query tool and a mutating action tool with strict schema validation and idempotency protection."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-6",
+                      "text": "Execute model-generated Python data-analysis snippets inside an isolated container sandbox with a 5-second timeout and no outbound network access, returning captured `stdout`/`stderr` to the loop."
+                    }
+                  ]
+                }
+              ],
+              "checkableIds": [
+                "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-1",
+                "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-2",
+                "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-3",
+                "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-4",
+                "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-5",
+                "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-6"
+              ]
+            },
+            {
+              "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati",
+              "code": "13.6.3",
+              "title": "Context compaction, memory systems, and trajectory evaluation",
+              "kind": "module",
+              "elements": [
+                {
+                  "type": "checklist",
+                  "groupType": "study",
+                  "items": [
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-1",
+                      "text": "Context budget accounting across turns: system instructions, conversation history, retrieved documents, tool schemas, tool outputs, and generation headroom."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-2",
+                      "text": "Managing context growth over long runs: sliding windows, rolling summarisation, and offloading large tool outputs out of the active prompt."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-3",
+                      "text": "Memory architectures: short-term working state (scratchpad) versus long-term persistent memory (episodic past runs, semantic user/domain facts) and the `write → retrieve → update → forget` lifecycle."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-4",
+                      "text": "End-to-end trajectory observability: tracing every model call, tool invocation, token count, latency, and retry in a single execution trace."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-5",
+                      "text": "Evaluating agents rigorously: end-to-end task success rate, $\\text{pass}@k$ vs $\\text{pass}\\text{\\textasciicircum}k$ consistency across repeated trials, tool-selection accuracy, step efficiency, and cost per solved task."
+                    }
+                  ]
+                },
+                {
+                  "type": "math",
+                  "latex": "\\text{context} = \\text{system} + \\text{history} + \\text{retrieved} + \\text{tools} + \\text{output}\n\\le \\text{window},\\qquad\n\\text{pass}\\text{\\textasciicircum}k = \\left(\\text{pass}@1\\right)^k"
+                },
+                {
+                  "type": "subheading",
+                  "variant": "practice",
+                  "title": "Practice tasks",
+                  "subtitle": null
+                },
+                {
+                  "type": "checklist",
+                  "groupType": "practice",
+                  "items": [
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-6",
+                      "text": "Build a tool-using agent with rolling context compaction, a hard step/cost ceiling, and full trace logging; diagnose three distinct failure modes from traces alone."
+                    },
+                    {
+                      "id": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-7",
+                      "text": "Evaluate your agent on a 30-task benchmark reporting $\\text{pass}@1$, $\\text{pass}\\text{\\textasciicircum}3$ reliability, average steps, and USD cost per completed task."
                     }
                   ]
                 },
                 {
                   "type": "callout",
                   "variant": "gate",
-                  "text": "**Module completion gate (13.6).** Your agent has bounded cost, a defined failure path, and is evaluated on task success.",
-                  "checkId": "level-13-sec-13-6-practice-practice-tasks-gate-3"
+                  "text": "**Module completion gate (13.6).** Your agent uses validated/sandboxed tools, has bounded context and cost, persists state across interrupts, and is evaluated on multi-trial task success ($\\text{pass}\\text{\\textasciicircum}k$).",
+                  "checkId": "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-gate-8"
                 }
               ],
               "checkableIds": [
-                "level-13-sec-13-6-practice-practice-tasks-item-1",
-                "level-13-sec-13-6-practice-practice-tasks-item-2",
-                "level-13-sec-13-6-practice-practice-tasks-gate-3"
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-1",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-2",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-3",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-4",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-5",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-6",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-7",
+                "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-gate-8"
               ]
             }
           ],
           "checkableIds": [
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-1",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-2",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-3",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-4",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-5",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-6",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-7",
-            "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-8",
-            "level-13-sec-13-6-practice-practice-tasks-item-1",
-            "level-13-sec-13-6-practice-practice-tasks-item-2",
-            "level-13-sec-13-6-practice-practice-tasks-gate-3"
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-1",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-2",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-3",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-4",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-5",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-6",
+            "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-7",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-1",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-2",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-3",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-4",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-5",
+            "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-6",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-1",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-2",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-3",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-4",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-5",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-6",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-7",
+            "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-gate-8"
           ]
         },
         {
@@ -57344,17 +57480,27 @@
         "level-13-sec-13-5-practice-practice-tasks-item-2",
         "level-13-sec-13-5-practice-practice-tasks-item-3",
         "level-13-sec-13-5-practice-practice-tasks-gate-4",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-1",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-2",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-3",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-4",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-5",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-6",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-7",
-        "level-13-sec-13-6-13-6-context-memory-and-agents-checklist-item-8",
-        "level-13-sec-13-6-practice-practice-tasks-item-1",
-        "level-13-sec-13-6-practice-practice-tasks-item-2",
-        "level-13-sec-13-6-practice-practice-tasks-gate-3",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-1",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-2",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-3",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-4",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-5",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-6",
+        "level-13-sec-13-6-13-6-1-workflows-versus-agents-and-stateful-control-graphs-item-7",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-1",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-2",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-3",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-4",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-5",
+        "level-13-sec-13-6-13-6-2-tool-protocols-mcp-untrusted-arguments-and-sandboxed-exec-item-6",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-1",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-2",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-3",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-4",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-5",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-6",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-item-7",
+        "level-13-sec-13-6-13-6-3-context-compaction-memory-systems-and-trajectory-evaluati-gate-8",
         "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-1",
         "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-2",
         "level-13-sec-13-7-13-7-1-classification-and-fine-grained-recognition-item-3",
@@ -57491,7 +57637,7 @@
         "level-13-assess-project-item-3",
         "level-13-assess-project-gate-4"
       ],
-      "totalModules": 30,
+      "totalModules": 31,
       "totalSections": 11
     },
     {

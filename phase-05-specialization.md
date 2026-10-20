@@ -350,28 +350,59 @@ $$
 
 **Objective.** Build systems that hold state and use tools without becoming unpredictable.
 
-### Checklist
+### Module 13.6.1 — Workflows versus agents and stateful control graphs
 
-- Context budgets: instructions, history, retrieved documents, tool results, output.
-- Summarisation, truncation, and retrieval of history.
-- Memory designs: episodic, semantic, and scratchpad.
-- Tool schemas, permissions, and sandboxing.
-- Planning loops, step limits, and cost ceilings.
-- Failure recovery: retries, fallbacks, and human handoff.
-- Observability: trace every step, tool call, token count, and error.
-- Evaluating agents on task success, not on verbosity.
+- Single LLM call vs deterministic workflow/DAG vs autonomous agent loop: deciding based on path predictability, latency, and cost.
+- The ReAct loop ($\text{thought} \rightarrow \text{action} \rightarrow \text{observation}$) versus plan-and-execute architectures; implementing the loop in raw Python before using any framework.
+- Stateful graph orchestration (`LangGraph` / explicit state machines): typed state schemas, conditional edges, bounded retry loops, and checkpoint persistence to resume interrupted runs.
+- Multi-agent decomposition (orchestrator–worker, sequential handoffs, parallel specialists) and when a single agent with well-designed tools is faster, cheaper, and more reliable.
+- Human-in-the-loop interrupts and approval gates before executing consequential or irreversible actions.
+
+$$
+P(\text{success over } k \text{ autonomous steps}) = p^k \quad\Rightarrow\quad \text{per-step reliability compounds exponentially}
+$$
+
+**Practice tasks**
+
+- Implement the same 3-step research-and-extraction task both as a fixed DAG workflow and as an autonomous ReAct agent; compare task accuracy, p95 latency, and token cost across 30 runs.
+- Build a checkpointed state-machine graph that pauses for human approval before a write action and resumes cleanly from saved state after interruption.
+
+---
+
+### Module 13.6.2 — Tool protocols (MCP), untrusted arguments, and sandboxed execution
+
+- Designing high-signal tool interfaces: unambiguous names, minimal typed parameters (`Pydantic` / JSON Schema), bounded return payloads, and actionable error messages for self-correction.
+- Model Context Protocol (`MCP`): host $\rightarrow$ client $\rightarrow$ server architecture, exposing external databases/APIs as standardized tools and resources, local (`stdio`) vs remote (`SSE`/HTTP) transports, and trust boundaries.
+- Treating all model-generated tool arguments as untrusted input: schema validation, permission scoping, read-only vs mutating tool separation, and idempotency keys so retries never duplicate side effects.
+- Sandboxed code and command execution: running model-generated Python/Bash inside isolated containers or microVMs (`Docker`, `Modal`, `E2B`) with strict CPU, memory, timeout, filesystem, and network restrictions.
+
+**Practice tasks**
+
+- Build an `MCP` server exposing a read-only query tool and a mutating action tool with strict schema validation and idempotency protection.
+- Execute model-generated Python data-analysis snippets inside an isolated container sandbox with a 5-second timeout and no outbound network access, returning captured `stdout`/`stderr` to the loop.
+
+---
+
+### Module 13.6.3 — Context compaction, memory systems, and trajectory evaluation
+
+- Context budget accounting across turns: system instructions, conversation history, retrieved documents, tool schemas, tool outputs, and generation headroom.
+- Managing context growth over long runs: sliding windows, rolling summarisation, and offloading large tool outputs out of the active prompt.
+- Memory architectures: short-term working state (scratchpad) versus long-term persistent memory (episodic past runs, semantic user/domain facts) and the `write → retrieve → update → forget` lifecycle.
+- End-to-end trajectory observability: tracing every model call, tool invocation, token count, latency, and retry in a single execution trace.
+- Evaluating agents rigorously: end-to-end task success rate, $\text{pass}@k$ vs $\text{pass}\text{\textasciicircum}k$ consistency across repeated trials, tool-selection accuracy, step efficiency, and cost per solved task.
 
 $$
 \text{context} = \text{system} + \text{history} + \text{retrieved} + \text{tools} + \text{output}
-\le \text{window}
+\le \text{window},\qquad
+\text{pass}\text{\textasciicircum}k = \left(\text{pass}@1\right)^k
 $$
 
-### Practice tasks
+**Practice tasks**
 
-- Build a tool-using agent with a step and cost ceiling; measure task success on 30 tasks.
-- Instrument traces and diagnose three failures from logs alone.
+- Build a tool-using agent with rolling context compaction, a hard step/cost ceiling, and full trace logging; diagnose three distinct failure modes from traces alone.
+- Evaluate your agent on a 30-task benchmark reporting $\text{pass}@1$, $\text{pass}\text{\textasciicircum}3$ reliability, average steps, and USD cost per completed task.
 
-> **Module completion gate (13.6).** Your agent has bounded cost, a defined failure path, and is evaluated on task success.
+> **Module completion gate (13.6).** Your agent uses validated/sandboxed tools, has bounded context and cost, persists state across interrupts, and is evaluated on multi-trial task success ($\text{pass}\text{\textasciicircum}k$).
 
 ---
 
