@@ -4,6 +4,7 @@ export interface LevelWeightInfo {
   interviewRationale: string;
   jobRationale: string;
   roleNote?: string;
+  isCoreForRole?: boolean;
 }
 
 export const SCORE_INTERPRETATION_NOTE =
@@ -13,6 +14,8 @@ export interface RolePriorityPath {
   role: string;
   focus: string;
   keyLevels: string;
+  coreBadges: string[];
+  scoreOverrides?: Record<string, { interviewScore: number; jobScore: number }>;
 }
 
 export const ROLE_PRIORITY_PATHS: RolePriorityPath[] = [
@@ -20,26 +23,67 @@ export const ROLE_PRIORITY_PATHS: RolePriorityPath[] = [
     role: 'General ML Engineer',
     focus: 'Prioritize Python, classical ML, evaluation, PyTorch fundamentals, deployment and system design.',
     keyLevels: 'L0, L3–L6, Bridge, L8, L15–L16',
+    coreBadges: ['0', '3', '4', '5', '6', 'B', '8', '15', '16'],
   },
   {
     role: 'LLM Engineer',
     focus: 'Prioritize transformers, NLP/LLMs, RAG, evaluation, serving and production engineering.',
-    keyLevels: 'L0, Bridge, L10, L12, L15–L16',
+    keyLevels: 'L0, Bridge, L10, L12–L13, L15–L16',
+    coreBadges: ['0', 'B', '10', '12', '13', '15', '16'],
+    scoreOverrides: {
+      '5': { interviewScore: 6, jobScore: 6 },
+      '9': { interviewScore: 4, jobScore: 5 },
+      '10': { interviewScore: 10, jobScore: 10 },
+      '12': { interviewScore: 10, jobScore: 10 },
+      '13': { interviewScore: 10, jobScore: 10 },
+      '14': { interviewScore: 6, jobScore: 6 },
+      '15': { interviewScore: 9, jobScore: 10 },
+      '16': { interviewScore: 10, jobScore: 9 },
+    },
   },
   {
     role: 'Applied Scientist',
     focus: 'Prioritize statistics, ML theory, experimental design, research reading and domain-specific mathematics.',
-    keyLevels: 'L1–L3, L5–L6, L8, L10–L13, L17',
+    keyLevels: 'L1–L3, L5–L6, L8, L10–L14, L17',
+    coreBadges: ['1', '2', '3', '5', '6', '8', '10', '11', '12', '13', '14', '17'],
+    scoreOverrides: {
+      '1': { interviewScore: 8, jobScore: 8 },
+      '2': { interviewScore: 9, jobScore: 8 },
+      '3': { interviewScore: 10, jobScore: 10 },
+      '11': { interviewScore: 8, jobScore: 8 },
+      '12': { interviewScore: 9, jobScore: 9 },
+      '14': { interviewScore: 8, jobScore: 9 },
+      '17': { interviewScore: 9, jobScore: 9 },
+    },
   },
   {
     role: 'Computer Vision Engineer',
     focus: 'Prioritize deep learning, vision architectures, data pipelines and vision evaluation.',
-    keyLevels: 'L0–L2, Bridge, L8–L11, L15',
+    keyLevels: 'L0–L2, Bridge, L8–L10, L13, L15',
+    coreBadges: ['0', '1', '2', 'B', '8', '9', '10', '13', '15'],
+    scoreOverrides: {
+      '1': { interviewScore: 8, jobScore: 8 },
+      '9': { interviewScore: 10, jobScore: 10 },
+      '10': { interviewScore: 9, jobScore: 9 },
+      '11': { interviewScore: 8, jobScore: 8 },
+      '13': { interviewScore: 9, jobScore: 10 },
+    },
   },
   {
     role: 'Research Engineer',
     focus: 'Prioritize PyTorch, optimization, reproducibility, research implementation and efficient training.',
-    keyLevels: 'L0–L2, Bridge, L8, L10–L11, L17',
+    keyLevels: 'L0–L2, Bridge, L8–L12, L14, L17',
+    coreBadges: ['0', '1', '2', 'B', '8', '9', '10', '11', '12', '14', '17'],
+    scoreOverrides: {
+      '1': { interviewScore: 8, jobScore: 9 },
+      '2': { interviewScore: 9, jobScore: 9 },
+      'B': { interviewScore: 10, jobScore: 10 },
+      '8': { interviewScore: 10, jobScore: 10 },
+      '10': { interviewScore: 9, jobScore: 9 },
+      '12': { interviewScore: 9, jobScore: 10 },
+      '14': { interviewScore: 8, jobScore: 9 },
+      '17': { interviewScore: 9, jobScore: 9 },
+    },
   },
 ];
 
@@ -211,15 +255,27 @@ export const LEVEL_WEIGHTS_BY_BADGE: Record<string, LevelWeightInfo> = {
   },
 };
 
-export function getLevelWeights(badge: string): LevelWeightInfo {
-  return (
-    LEVEL_WEIGHTS_BY_BADGE[badge] || {
-      interviewScore: 7,
-      jobScore: 8,
-      interviewRationale:
-        'Important for demonstrating **core ML concepts and practical problem-solving** during technical interviews.',
-      jobRationale:
-        'Supports **day-to-day model development, evaluation, and production engineering** on the job.',
-    }
-  );
+export function getLevelWeights(
+  badge: string,
+  selectedRole: string = 'General ML Engineer'
+): LevelWeightInfo {
+  const base = LEVEL_WEIGHTS_BY_BADGE[badge] || {
+    interviewScore: 7,
+    jobScore: 8,
+    interviewRationale:
+      'Important for demonstrating **core ML concepts and practical problem-solving** during technical interviews.',
+    jobRationale:
+      'Supports **day-to-day model development, evaluation, and production engineering** on the job.',
+  };
+
+  const roleConfig = ROLE_PRIORITY_PATHS.find((r) => r.role === selectedRole);
+  const override = roleConfig?.scoreOverrides?.[badge];
+  const isCoreForRole = roleConfig ? roleConfig.coreBadges.includes(badge) : false;
+
+  return {
+    ...base,
+    interviewScore: override ? override.interviewScore : base.interviewScore,
+    jobScore: override ? override.jobScore : base.jobScore,
+    isCoreForRole,
+  };
 }

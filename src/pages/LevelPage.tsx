@@ -25,7 +25,9 @@ import { MinimapDots } from '../components/MinimapDots';
 import { SegmentedMeter } from '../components/SegmentedMeter';
 import { ContentElementsView } from '../components/ContentElementsView';
 import { RichText } from '../components/RichText';
-import { getLevelWeights, SCORE_INTERPRETATION_NOTE } from '../data/levelWeights';
+import { MermaidDiagram } from '../components/MermaidDiagram';
+import { getLevelWeights, SCORE_INTERPRETATION_NOTE, ROLE_PRIORITY_PATHS } from '../data/levelWeights';
+import { PROJECT_MERMAID_CHARTS } from '../data/projectMermaidCharts';
 
 interface LevelPageProps {
   data: RoadmapData;
@@ -50,6 +52,8 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
   const checked = useProgressStore((s) => s.checked);
   const toggleItem = useProgressStore((s) => s.toggleItem);
   const setBatch = useProgressStore((s) => s.setBatch);
+  const selectedRole = useProgressStore((s) => s.selectedRole);
+  const setSelectedRole = useProgressStore((s) => s.setSelectedRole);
   const [searchQuery, setSearchQuery] = React.useState<string>('');
 
   // Manage open state of modules for Expand All / Collapse All
@@ -80,7 +84,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
   );
   const overallComp = computeCompletion(checked, allRoadmapIds);
 
-  const weights = getLevelWeights(level.badge);
+  const weights = getLevelWeights(level.badge, selectedRole);
 
   const rawDiff = (level.dashboard['difficulty'] || 'Intermediate').toLowerCase();
   const difficultyWeightPct = rawDiff.includes('beginner') && rawDiff.includes('intermediate')
@@ -127,7 +131,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
           {/* ───────────────── LEVEL HEADER (.lh) ───────────────── */}
           <header className="border-b border-slate-200 bg-gradient-to-b from-[var(--phase-bg)]/50 via-white to-white py-10 sm:py-14">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-7">
-              {/* Breadcrumbs */}
+              {/* Breadcrumbs + Target Role Switcher */}
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-1.5 font-mono-code text-xs text-slate-500">
                   <Link to="/#map" className="hover:text-[var(--phase-ac)] transition-colors">
@@ -138,11 +142,46 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                     Phase {level.phaseNum} · {level.phaseName}
                   </span>
                 </div>
-                {weights.roleNote && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono-code text-[11px] font-semibold text-amber-800">
-                    {weights.roleNote}
-                  </span>
-                )}
+                <div className="flex flex-wrap items-center gap-2">
+                  {weights.isCoreForRole ? (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--phase-br)] bg-[var(--phase-bg)] px-3 py-1 font-mono-code text-[11px] font-bold text-[var(--phase-ac)]">
+                      Core · {selectedRole}
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 font-mono-code text-[11px] font-medium text-slate-600">
+                      Optional · {selectedRole}
+                    </span>
+                  )}
+                  {weights.roleNote && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono-code text-[11px] font-semibold text-amber-800">
+                      {weights.roleNote}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Quick Target Role Selector Pill Strip */}
+              <div className="flex flex-wrap items-center gap-1.5 rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2">
+                <span className="font-mono-code text-[10px] font-bold uppercase tracking-wider text-slate-400 mr-1">
+                  Target Role:
+                </span>
+                {ROLE_PRIORITY_PATHS.map((r) => {
+                  const active = selectedRole === r.role;
+                  return (
+                    <button
+                      key={r.role}
+                      type="button"
+                      onClick={() => setSelectedRole(r.role)}
+                      className={`rounded-lg px-2.5 py-1 font-mono-code text-[11px] font-semibold transition-all cursor-pointer ${
+                        active
+                          ? 'bg-[var(--phase-ac)] text-white shadow-2xs'
+                          : 'text-slate-600 hover:bg-slate-100'
+                      }`}
+                    >
+                      {r.role}
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Big Level Number + Title */}
@@ -677,19 +716,45 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                         </div>
 
                         <div className="grid grid-cols-1 gap-6">
-                          {level.capstone.subBlocks.map((sb, idx) => (
-                            <div
-                              key={idx}
-                              className="rounded-2xl border border-slate-200/90 bg-white p-5 space-y-3"
-                            >
-                              {sb.title && sb.title !== 'Overview' && (
-                                <h3 className="font-display text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
-                                  <RichText text={sb.title} />
-                                </h3>
-                              )}
-                              <ContentElementsView elements={sb.elements} />
-                            </div>
-                          ))}
+                          {level.capstone.subBlocks.map((sb, idx) => {
+                            const isArch = /suggested architecture/i.test(sb.title);
+                            const mermaidChart = isArch
+                              ? PROJECT_MERMAID_CHARTS[level.capstone!.id]
+                              : undefined;
+                            // Filter out ASCII arrow diagrams when Mermaid flowchart is available
+                            const filteredElements = mermaidChart
+                              ? sb.elements.filter(
+                                  (el) =>
+                                    !(
+                                      el.type === 'code' &&
+                                      /[─►▼┌┐└┘│]/.test(el.code) &&
+                                      !/[├└]──/.test(el.code)
+                                    )
+                                )
+                              : sb.elements;
+
+                            return (
+                              <div
+                                key={idx}
+                                className="rounded-2xl border border-slate-200/90 bg-white p-5 space-y-3"
+                              >
+                                {sb.title && sb.title !== 'Overview' && (
+                                  <h3 className="font-display text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+                                    <RichText text={sb.title} />
+                                  </h3>
+                                )}
+                                {mermaidChart && (
+                                  <MermaidDiagram
+                                    chart={mermaidChart}
+                                    title={`${level.capstone!.title} — Architecture Flowchart`}
+                                  />
+                                )}
+                                {filteredElements.length > 0 && (
+                                  <ContentElementsView elements={filteredElements} />
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
                       </>
                     );

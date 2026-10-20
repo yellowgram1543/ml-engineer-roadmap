@@ -6,11 +6,13 @@ interface ProgressState {
   notes: Record<string, string>;
   searchQuery: string;
   filterStatus: 'all' | 'todo' | 'done';
+  selectedRole: string;
   toggleItem: (id: string) => void;
   setBatch: (ids: string[], value: boolean) => void;
   setNote: (id: string, note: string) => void;
   setSearchQuery: (q: string) => void;
   setFilterStatus: (status: 'all' | 'todo' | 'done') => void;
+  setSelectedRole: (role: string) => void;
   resetAll: () => void;
   importProgress: (checked: Record<string, boolean>, notes?: Record<string, string>) => void;
 }
@@ -22,6 +24,7 @@ export const useProgressStore = create<ProgressState>()(
       notes: {},
       searchQuery: '',
       filterStatus: 'all',
+      selectedRole: 'General ML Engineer',
 
       toggleItem: (id: string) =>
         set((state) => {
@@ -56,6 +59,8 @@ export const useProgressStore = create<ProgressState>()(
 
       setFilterStatus: (filterStatus: 'all' | 'todo' | 'done') => set({ filterStatus }),
 
+      setSelectedRole: (selectedRole: string) => set({ selectedRole }),
+
       resetAll: () => set({ checked: {}, notes: {} }),
 
       importProgress: (checked, notes = {}) => set({ checked, notes }),
@@ -65,6 +70,7 @@ export const useProgressStore = create<ProgressState>()(
       partialize: (state) => ({
         checked: state.checked,
         notes: state.notes,
+        selectedRole: state.selectedRole,
       }),
     }
   )

@@ -43,6 +43,8 @@ const PHASE_ICONS: Record<string, React.ReactNode> = {
 
 export const HomePage: React.FC<HomePageProps> = ({ data }) => {
   const checked = useProgressStore((s) => s.checked);
+  const selectedRole = useProgressStore((s) => s.selectedRole);
+  const setSelectedRole = useProgressStore((s) => s.setSelectedRole);
 
   const allCheckableIds = React.useMemo(
     () => data.phases.flatMap((p) => p.checkableIds),
@@ -277,13 +279,13 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
             </ul>
 
             {/* Role-Specific Priority Paths & Score Interpretation */}
-            <details className="group pt-3 border-t border-slate-100">
+            <details open className="group pt-3 border-t border-slate-100">
               <summary className="flex flex-wrap items-center justify-between gap-2 cursor-pointer list-none text-xs font-mono-code text-slate-600 hover:text-[#6c5ce7]">
                 <span className="font-semibold">
-                  How to interpret Interview &amp; On-The-Job weights · View 5 Role Specialization Paths
+                  Target Role Track: <strong className="text-[#6c5ce7]">{selectedRole}</strong> · Click a role below to adjust priority weights &amp; core levels
                 </span>
                 <span className="text-[11px] text-[#6c5ce7] font-semibold group-open:underline">
-                  Toggle role priorities ↓
+                  Toggle role selector ↓
                 </span>
               </summary>
               <div className="mt-3 space-y-3 pt-2">
@@ -291,22 +293,38 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                   {SCORE_INTERPRETATION_NOTE}
                 </p>
                 <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-5">
-                  {ROLE_PRIORITY_PATHS.map((rp) => (
-                    <div
-                      key={rp.role}
-                      className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 space-y-1"
-                    >
-                      <div className="font-display text-xs font-bold text-slate-900">
-                        {rp.role}
-                      </div>
-                      <div className="font-mono-code text-[10px] font-semibold text-[#6c5ce7]">
-                        Core: {rp.keyLevels}
-                      </div>
-                      <p className="text-[11px] text-slate-600 leading-snug">
-                        {rp.focus}
-                      </p>
-                    </div>
-                  ))}
+                  {ROLE_PRIORITY_PATHS.map((rp) => {
+                    const isActive = selectedRole === rp.role;
+                    return (
+                      <button
+                        key={rp.role}
+                        type="button"
+                        onClick={() => setSelectedRole(rp.role)}
+                        className={`text-left rounded-xl border p-3 space-y-1 transition-all cursor-pointer ${
+                          isActive
+                            ? 'border-[#6c5ce7] bg-[#6c5ce7]/5 ring-2 ring-[#6c5ce7]/20 shadow-2xs'
+                            : 'border-slate-200/80 bg-slate-50/70 hover:border-slate-300 hover:bg-white'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-1">
+                          <span className="font-display text-xs font-bold text-slate-900">
+                            {rp.role}
+                          </span>
+                          {isActive && (
+                            <span className="rounded-full bg-[#6c5ce7] px-1.5 py-0.5 font-mono-code text-[9px] font-bold uppercase text-white">
+                              Active
+                            </span>
+                          )}
+                        </div>
+                        <div className="font-mono-code text-[10px] font-semibold text-[#6c5ce7]">
+                          Core: {rp.keyLevels}
+                        </div>
+                        <p className="text-[11px] text-slate-600 leading-snug">
+                          {rp.focus}
+                        </p>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </details>
@@ -376,7 +394,7 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                       {phase.levels.map((lvl) => {
                         const lvlComp = computeCompletion(checked, lvl.checkableIds);
                         const ratio = lvlComp.total > 0 ? lvlComp.done / lvlComp.total : 0;
-                        const lvlWeights = getLevelWeights(lvl.badge);
+                        const lvlWeights = getLevelWeights(lvl.badge, selectedRole);
 
                         return (
                           <li key={lvl.id} className="relative">
@@ -407,6 +425,11 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                                         {lvl.badge === 'B' ? 'Prerequisite Bridge' : `Level ${lvl.badge}`}
                                         {lvl.duration ? ` · ${lvl.duration}` : ''}
                                       </span>
+                                      {lvlWeights.isCoreForRole && (
+                                        <span className="rounded-md border border-[#6c5ce7]/30 bg-[#6c5ce7]/10 px-1.5 py-0.5 font-mono-code text-[10px] font-bold text-[#6c5ce7]">
+                                          Core · {selectedRole}
+                                        </span>
+                                      )}
                                       {lvlWeights.roleNote && (
                                         <span className="rounded-md border border-amber-200 bg-amber-50 px-1.5 py-0.5 font-mono-code text-[10px] font-semibold text-amber-800">
                                           Role-Dependent Depth

@@ -16,6 +16,8 @@ import { useProgressStore, computeCompletion } from '../store/useProgressStore';
 import { MinimapDots } from '../components/MinimapDots';
 import { ContentElementsView } from '../components/ContentElementsView';
 import { RichText } from '../components/RichText';
+import { MermaidDiagram } from '../components/MermaidDiagram';
+import { PROJECT_MERMAID_CHARTS } from '../data/projectMermaidCharts';
 
 interface ProjectsPageProps {
   data: RoadmapData;
@@ -388,19 +390,44 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
                         </div>
 
                         <div className="space-y-4">
-                          {proj.subBlocks.map((sb, idx) => (
-                            <div
-                              key={idx}
-                              className="rounded-2xl border border-slate-200 bg-white p-5 space-y-3"
-                            >
-                              {sb.title && sb.title !== 'Overview' && (
-                                <h4 className="font-display text-base font-bold text-slate-900 border-b border-slate-100 pb-2">
-                                  <RichText text={sb.title} />
-                                </h4>
-                              )}
-                              <ContentElementsView elements={sb.elements} />
-                            </div>
-                          ))}
+                          {proj.subBlocks.map((sb, idx) => {
+                            const isArch = /suggested architecture/i.test(sb.title);
+                            const mermaidChart = isArch
+                              ? PROJECT_MERMAID_CHARTS[proj.id]
+                              : undefined;
+                            const filteredElements = mermaidChart
+                              ? sb.elements.filter(
+                                  (el) =>
+                                    !(
+                                      el.type === 'code' &&
+                                      /[─►▼┌┐└┘│]/.test(el.code) &&
+                                      !/[├└]──/.test(el.code)
+                                    )
+                                )
+                              : sb.elements;
+
+                            return (
+                              <div
+                                key={idx}
+                                className="rounded-2xl border border-slate-200 bg-white p-5 space-y-3"
+                              >
+                                {sb.title && sb.title !== 'Overview' && (
+                                  <h4 className="font-display text-base font-bold text-slate-900 border-b border-slate-100 pb-2">
+                                    <RichText text={sb.title} />
+                                  </h4>
+                                )}
+                                {mermaidChart && (
+                                  <MermaidDiagram
+                                    chart={mermaidChart}
+                                    title={`${proj.title} — Architecture Flowchart`}
+                                  />
+                                )}
+                                {filteredElements.length > 0 && (
+                                  <ContentElementsView elements={filteredElements} />
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </details>

@@ -614,14 +614,34 @@ function parseLevelBlock(levelId, levelBadge, rawTitle, phaseInfo, lines) {
       }
       sectionCheckIds.push(...modCheckIds);
 
-      modules.push({
-        id: modId,
-        code: modCode,
-        title: modName,
-        kind: modKind,
-        elements: els,
-        checkableIds: modCheckIds,
-      });
+      // If this H3 is "Practice tasks" and there is a preceding module in this section,
+      // merge the practice tasks + completion gate directly into that preceding module!
+      if (modKind === 'practice' && modules.length > 0) {
+        const prevMod = modules[modules.length - 1];
+        prevMod.elements.push(
+          {
+            type: 'subheading',
+            variant: 'practice',
+            title: 'Practice tasks',
+            subtitle: null,
+          },
+          ...els
+        );
+        prevMod.checkableIds.push(...modCheckIds);
+        if (prevMod.kind === 'checklist') {
+          prevMod.title = sectionName;
+          prevMod.kind = 'module';
+        }
+      } else {
+        modules.push({
+          id: modId,
+          code: modCode,
+          title: modKind === 'checklist' ? sectionName : modName,
+          kind: modKind === 'checklist' ? 'module' : modKind,
+          elements: els,
+          checkableIds: modCheckIds,
+        });
+      }
     }
 
     sections.push({
