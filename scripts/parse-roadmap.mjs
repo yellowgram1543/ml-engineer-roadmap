@@ -945,26 +945,110 @@ function buildRoadmapData() {
 
       // 5. Appendix / Roadmap Complete blocks
       if (/^APPENDIX|ROADMAP COMPLETE/i.test(h1Title)) {
+        if (
+          /recommended resources|\bresources\b|what comes next|what comes after|progress tracker|roadmap complete/i.test(
+            h1Title
+          )
+        ) {
+          continue;
+        }
         const appId = `phase-${pf.phaseNum}-app-${slugifyId(h1Title)}`;
         const appCheckIds = [];
         const h2s = splitByHeading(h1.lines, '##');
         const subBlocks = [];
         for (const h2 of h2s) {
-          const sId = `${appId}-${slugifyId(h2.heading || 'intro')}`;
+          const rawSubTitle = h2.heading || h1Title;
+          // Exclude Recommended Resources, What Comes Next, Progress Tracker, and Roadmap Complete summaries
+          if (
+            /recommended resources|\bresources\b|what comes next|what comes after|progress tracker|eighteen levels|three questions this roadmap/i.test(
+              rawSubTitle
+            )
+          ) {
+            continue;
+          }
+
+          // Normalize titles so each Phase clearly names its own Formula Sheet, Week Schedule, and 10 Pitfalls
+          let normalizedTitle = rawSubTitle;
+          if (/formula sheet/i.test(rawSubTitle)) {
+            normalizedTitle = `Formula Sheet — Phase ${pf.phaseNum} (${pf.shortName})`;
+          } else if (/estimation cheat sheet/i.test(rawSubTitle)) {
+            normalizedTitle = `System Design Estimation Cheat Sheet — Phase ${pf.phaseNum} (${pf.shortName})`;
+          } else if (/schedule/i.test(rawSubTitle)) {
+            const cleanDur = (CALIBRATED_PHASE_DURATIONS[pf.phaseNum] || '').split('·')[0].trim();
+            normalizedTitle = `Week-by-Week Study Schedule — Phase ${pf.phaseNum} (${cleanDur})`;
+          } else if (/most common ways to fail/i.test(rawSubTitle)) {
+            normalizedTitle = `The 10 Most Common Ways to Fail Phase ${pf.phaseNum} (${pf.shortName})`;
+          } else if (/100-question master bank/i.test(rawSubTitle)) {
+            normalizedTitle = `The 100-Question Oral Defence Master Bank — Phase ${pf.phaseNum}`;
+          } else if (/adding your own questions/i.test(rawSubTitle)) {
+            normalizedTitle = `How to Add & Track Role-Specific Questions — Phase ${pf.phaseNum}`;
+          } else if (/specialisation idea bank/i.test(rawSubTitle)) {
+            normalizedTitle = `Specialisation Thesis Idea Bank — Phase ${pf.phaseNum}`;
+          }
+
+          const sId = `${appId}-${slugifyId(rawSubTitle || 'intro')}`;
           const els = parseContentElements(h2.lines, sId, appCheckIds);
-          if (h2.heading || els.length > 0) {
+          if (els.length > 0) {
             subBlocks.push({
-              title: h2.heading || h1Title,
+              title: normalizedTitle,
               elements: els,
             });
           }
         }
-        phaseAppendix.push({
-          id: appId,
-          title: h1Title,
-          subBlocks,
-          checkableIds: appCheckIds,
-        });
+
+        // For Phase 7, add a curated Career & Interview Formula / Metrics Reference Sheet so all 7 Phases have a Formula/Reference sheet
+        if (pf.phaseNum === 7 && !phaseAppendix.some((a) => a.subBlocks.some((s) => /formula/i.test(s.title)))) {
+          subBlocks.unshift({
+            title: `Formula & Metrics Reference Sheet — Phase 7 (${pf.shortName})`,
+            elements: [
+              {
+                type: 'table',
+                headers: ['Interview Topic', 'Core Equation / Rule of Thumb', 'When Interviewers Ask It'],
+                rows: [
+                  [
+                    'Bias–Variance Decomposition',
+                    '$\\mathbb{E}[(y - \\hat{f}(x))^2] = \\text{Bias}(\\hat{f}(x))^2 + \\text{Var}(\\hat{f}(x)) + \\sigma_{\\varepsilon}^2$',
+                    'Rapid-fire ML theory & model debugging rounds',
+                  ],
+                  [
+                    'Bayes’ Theorem & Posterior Odds',
+                    '$P(Y=1\\mid X) = \\dfrac{P(X\\mid Y=1)P(Y=1)}{P(X)}$, Base-rate fallacy under low prevalence',
+                    'Fraud, medical screening & precision-at-low-prevalence questions',
+                  ],
+                  [
+                    'Sample Size for A/B Test (Two-Sample)',
+                    '$n \\approx \\dfrac{2(z_{1-\\alpha/2} + z_{1-\\beta})^2 \\sigma^2}{\\Delta^2}$',
+                    'Experimentation & product sense rounds',
+                  ],
+                  [
+                    'Scaled Dot-Product Attention & KV Cache',
+                    '$\\text{Attention}(Q,K,V)=\\text{softmax}\\!\\left(\\dfrac{QK^\\top}{\\sqrt{d_k}}\\right)V$; KV bytes $\\approx 2 \\cdot L \\cdot n_{\\text{kv}} \\cdot d_h \\cdot b_{\\text{bytes}} \\cdot B \\cdot T$',
+                    'LLM & deep learning system design rounds',
+                  ],
+                  [
+                    'Back-of-Envelope QPS & Capacity',
+                    '$\\text{Avg QPS} = \\dfrac{\\text{DAU} \\times \\text{queries/user}}{86{,}400}$, $\\text{Peak QPS} \\approx 3\\times \\text{Avg QPS}$',
+                    'Step 2 of every ML system design interview',
+                  ],
+                  [
+                    'Cost-Optimal Classification Threshold',
+                    '$\\tau^* = \\dfrac{C_{\\text{FP}}}{C_{\\text{FP}} + C_{\\text{FN}}}$ (requires calibrated probabilities)',
+                    'Business trade-off & deployment decision rounds',
+                  ],
+                ],
+              },
+            ],
+          });
+        }
+
+        if (subBlocks.length > 0) {
+          phaseAppendix.push({
+            id: appId,
+            title: h1Title,
+            subBlocks,
+            checkableIds: appCheckIds,
+          });
+        }
       }
     }
 

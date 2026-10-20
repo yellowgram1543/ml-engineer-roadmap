@@ -25,18 +25,24 @@ export const PhaseMasteryDrawer: React.FC<PhaseMasteryDrawerProps> = ({
 }) => {
   const checked = useProgressStore((s) => s.checked);
   const setBatch = useProgressStore((s) => s.setBatch);
-  const [activeTab, setActiveTab] = React.useState<'assessment' | 'playbook'>('assessment');
+  const [activeTab, setActiveTab] = React.useState<'playbook' | 'assessment'>('playbook');
 
   const assessIds = phase.assessment?.checkableIds || [];
   const assessComp = computeCompletion(checked, assessIds);
   const isAllAssessDone = assessComp.total > 0 && assessComp.done === assessComp.total;
 
-  // Flatten all appendix subBlocks for the Playbook view (excluding empty or redundant progress tables)
+  // Flatten all appendix subBlocks for the Playbook view (excluding resources, what comes next, and progress tracker)
   const playbookBlocks = React.useMemo(() => {
     const blocks: { id: string; title: string; elements: typeof phase.appendix[0]['subBlocks'][0]['elements'] }[] = [];
     for (const app of phase.appendix || []) {
       for (const sb of app.subBlocks) {
-        if (/progress tracker/i.test(sb.title)) continue;
+        if (
+          /progress tracker|recommended resources|\bresources\b|what comes next|what comes after/i.test(
+            sb.title
+          )
+        ) {
+          continue;
+        }
         if (sb.elements.length === 0) continue;
         blocks.push({
           id: `${app.id}-${sb.title}`,
@@ -81,10 +87,10 @@ export const PhaseMasteryDrawer: React.FC<PhaseMasteryDrawerProps> = ({
           </span>
           <div className="min-w-0">
             <span className="font-mono-code text-[10px] font-bold uppercase tracking-wider text-[var(--phase-ac)] block">
-              Phase {phase.phaseNum} Final Gate &amp; Engineering Playbook
+              Phase {phase.phaseNum} ({phase.name}) · Formula Sheet, Schedule &amp; Final Gate
             </span>
             <span className="font-display text-sm sm:text-base font-bold text-slate-900 truncate block">
-              Final Assessment ({assessComp.done}/{assessComp.total}) · Formula Sheet · 10 Ways to Fail · Resources
+              Phase {phase.phaseNum} Formula Sheet · Week Schedule · 10 Common Ways to Fail · Final Assessment ({assessComp.done}/{assessComp.total})
             </span>
           </div>
         </div>
@@ -92,7 +98,7 @@ export const PhaseMasteryDrawer: React.FC<PhaseMasteryDrawerProps> = ({
         <div className="flex items-center gap-2.5 shrink-0">
           {assessComp.total > 0 && (
             <span className="rounded-full border border-[var(--phase-br)] bg-[var(--phase-bg)] px-2.5 py-0.5 font-mono-code text-[11px] font-bold text-[var(--phase-ac)]">
-              Gate {assessComp.pct}%
+              Phase Gate {assessComp.pct}%
             </span>
           )}
           <ChevronDown className="h-4 w-4 text-slate-400 transition-transform group-open:rotate-180" />
@@ -103,20 +109,6 @@ export const PhaseMasteryDrawer: React.FC<PhaseMasteryDrawerProps> = ({
         {/* Sub-navigation Tabs */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
           <div className="flex items-center gap-2">
-            {phase.assessment && (
-              <button
-                type="button"
-                onClick={() => setActiveTab('assessment')}
-                className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 font-mono-code text-xs font-semibold transition-all cursor-pointer ${
-                  activeTab === 'assessment'
-                    ? 'bg-[var(--phase-ac)] text-white shadow-2xs'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <ClipboardCheck className="h-3.5 w-3.5" />
-                <span>Final Assessment ({assessComp.done}/{assessComp.total})</span>
-              </button>
-            )}
             {playbookBlocks.length > 0 && (
               <button
                 type="button"
@@ -128,7 +120,21 @@ export const PhaseMasteryDrawer: React.FC<PhaseMasteryDrawerProps> = ({
                 }`}
               >
                 <BookOpen className="h-3.5 w-3.5" />
-                <span>Formula Sheet, 10 Pitfalls &amp; Resources ({playbookBlocks.length})</span>
+                <span>Phase {phase.phaseNum} Formula Sheet, Schedule &amp; 10 Pitfalls ({playbookBlocks.length})</span>
+              </button>
+            )}
+            {phase.assessment && (
+              <button
+                type="button"
+                onClick={() => setActiveTab('assessment')}
+                className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 font-mono-code text-xs font-semibold transition-all cursor-pointer ${
+                  activeTab === 'assessment'
+                    ? 'bg-[var(--phase-ac)] text-white shadow-2xs'
+                    : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <ClipboardCheck className="h-3.5 w-3.5" />
+                <span>Phase {phase.phaseNum} Final Assessment ({assessComp.done}/{assessComp.total})</span>
               </button>
             )}
           </div>

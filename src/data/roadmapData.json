@@ -1612,7 +1612,7 @@
           "title": "APPENDIX",
           "subBlocks": [
             {
-              "title": "A. Formula sheet for Phases 1–3",
+              "title": "Formula Sheet — Phase 1 (Foundations)",
               "elements": [
                 {
                   "type": "table",
@@ -1710,7 +1710,7 @@
               ]
             },
             {
-              "title": "B. Sixteen-week schedule",
+              "title": "Week-by-Week Study Schedule — Phase 1 (12–16 weeks)",
               "elements": [
                 {
                   "type": "table",
@@ -1806,124 +1806,7 @@
               ]
             },
             {
-              "title": "C. Recommended resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Books"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Book",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "*Python Crash Course* — Matthes",
-                      "L0 if you are new to programming"
-                    ],
-                    [
-                      "*Fluent Python* — Ramalho",
-                      "L0–L1 depth on Python semantics"
-                    ],
-                    [
-                      "*Python for Data Analysis* — McKinney",
-                      "L1 Pandas, written by Pandas' author"
-                    ],
-                    [
-                      "*Mathematics for Machine Learning* — Deisenroth et al.",
-                      "L2, the primary text"
-                    ],
-                    [
-                      "*Linear Algebra Done Right* — Axler",
-                      "L2, if you want rigour"
-                    ],
-                    [
-                      "*All of Statistics* — Wasserman",
-                      "L3, concise and complete"
-                    ],
-                    [
-                      "*Statistical Inference* — Casella & Berger",
-                      "L3, deeper theory"
-                    ],
-                    [
-                      "*Trustworthy Online Controlled Experiments* — Kohavi et al.",
-                      "L3, experiments in industry"
-                    ],
-                    [
-                      "*Think Stats* / *Think Bayes* — Downey",
-                      "L3, intuition-first alternatives"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Courses"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Course",
-                    "Focus"
-                  ],
-                  "rows": [
-                    [
-                      "MIT 18.06 — Linear Algebra (Strang)",
-                      "L2 linear algebra"
-                    ],
-                    [
-                      "MIT 18.01 / 18.02 — Calculus",
-                      "L2 calculus"
-                    ],
-                    [
-                      "MIT 6.431 — Probabilistic Systems",
-                      "L3 probability"
-                    ],
-                    [
-                      "Stanford CS229 lectures 1–4",
-                      "L2–L3 applied maths for ML"
-                    ],
-                    [
-                      "fast.ai — Practical Deep Learning (first lessons)",
-                      "motivation and momentum"
-                    ],
-                    [
-                      "Kaggle Learn — Python, Pandas",
-                      "quick drills for L0–L1"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-1-app-appendix-c-recommended-resources-item-1",
-                      "text": "**LeetCode / NeetCode 150** — 25–35 problems is enough for this phase."
-                    },
-                    {
-                      "id": "phase-1-app-appendix-c-recommended-resources-item-2",
-                      "text": "**HackerRank SQL** — if joins still feel shaky."
-                    },
-                    {
-                      "id": "phase-1-app-appendix-c-recommended-resources-item-3",
-                      "text": "**Exercism Python track** — good for L0 fluency and review."
-                    },
-                    {
-                      "id": "phase-1-app-appendix-c-recommended-resources-item-4",
-                      "text": "**Papers with Code** — skim, do not study, until Level 12."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "D. The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 1 (Foundations)",
               "elements": [
                 {
                   "type": "table",
@@ -1986,116 +1869,9 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "E. Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Repo link",
-                    "Tests green",
-                    "Benchmarks recorded",
-                    "Defence rehearsed"
-                  ],
-                  "rows": [
-                    [
-                      "L0",
-                      "ML Data Quality Toolkit",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L1",
-                      "`sci-core`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L2",
-                      "`maths-engine`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L3",
-                      "`stats-infer`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "`foundations-lab`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "What comes next",
-              "elements": [
-                {
-                  "type": "subheading",
-                  "variant": "group",
-                  "title": "Phase 2 — Core ML · Levels 4–6",
-                  "subtitle": null
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Title",
-                    "What it adds"
-                  ],
-                  "rows": [
-                    [
-                      "**L4**",
-                      "Data Analysis and Feature Engineering",
-                      "Turning raw data into signal, without leakage"
-                    ],
-                    [
-                      "**L5**",
-                      "Classical Machine Learning",
-                      "The models that still win on tabular data"
-                    ],
-                    [
-                      "**L6**",
-                      "Model Evaluation and Generalization",
-                      "Proving a model actually generalises, and where it fails"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Phase 2 assumes everything in this document: you will build pipelines (L0), compute with arrays (L1), derive the losses (L2), and report metrics with intervals (L3). If any of those feels shaky, the leak will show up there."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 1 of 6 · Levels 0–3 of 18 · Foundations*"
-                }
-              ]
             }
           ],
-          "checkableIds": [
-            "phase-1-app-appendix-c-recommended-resources-item-1",
-            "phase-1-app-appendix-c-recommended-resources-item-2",
-            "phase-1-app-appendix-c-recommended-resources-item-3",
-            "phase-1-app-appendix-c-recommended-resources-item-4"
-          ]
+          "checkableIds": []
         }
       ],
       "checkableIds": [
@@ -4403,7 +4179,7 @@
           "title": "APPENDIX",
           "subBlocks": [
             {
-              "title": "A. Formula sheet for Phase 2",
+              "title": "Formula Sheet — Phase 2 (Core ML)",
               "elements": [
                 {
                   "type": "table",
@@ -4529,7 +4305,7 @@
               ]
             },
             {
-              "title": "B. Twelve-week schedule",
+              "title": "Week-by-Week Study Schedule — Phase 2 (9–12 weeks)",
               "elements": [
                 {
                   "type": "table",
@@ -4610,113 +4386,7 @@
               ]
             },
             {
-              "title": "C. Recommended resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Books"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Book",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "*An Introduction to Statistical Learning* — James et al.",
-                      "L5 models with labs"
-                    ],
-                    [
-                      "*The Elements of Statistical Learning* — Hastie et al.",
-                      "L5–L6 reference depth"
-                    ],
-                    [
-                      "*Hands-On Machine Learning* — Géron",
-                      "L4–L5 practical pipelines"
-                    ],
-                    [
-                      "*Feature Engineering for Machine Learning* — Zheng & Casari",
-                      "L4 feature craft"
-                    ],
-                    [
-                      "*Interpretable Machine Learning* — Molnar",
-                      "L5.9 explanations"
-                    ],
-                    [
-                      "*Trustworthy Online Controlled Experiments* — Kohavi et al.",
-                      "L6.10 deployment evaluation"
-                    ],
-                    [
-                      "*Designing Machine Learning Systems* — Huyen",
-                      "bridge to Levels 15–16"
-                    ],
-                    [
-                      "*Fairness and Machine Learning* — Barocas et al.",
-                      "L6.8 fairness"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Documentation and references"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-1",
-                      "text": "scikit-learn user guide — pipelines, model selection, calibration (read it properly; it is excellent)."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-2",
-                      "text": "XGBoost, LightGBM, CatBoost parameter documentation."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-3",
-                      "text": "SHAP documentation and the original TreeSHAP paper."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-4",
-                      "text": "`mapie` documentation for conformal prediction."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-5",
-                      "text": "Pandera and Great Expectations documentation for data validation."
-                    }
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-6",
-                      "text": "**Kaggle tabular competitions** — one per level; write up your validation strategy, not just your score."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-7",
-                      "text": "**OpenML** — many small datasets, good for protocol practice."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-8",
-                      "text": "**UCI repository** — messy data, real pitfalls."
-                    },
-                    {
-                      "id": "phase-2-app-appendix-c-recommended-resources-item-9",
-                      "text": "**Your own past analyses** — re-audit an old notebook for leakage. It is uncomfortable and extremely educational."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "D. The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 2 (Core ML)",
               "elements": [
                 {
                   "type": "table",
@@ -4779,113 +4449,9 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "E. Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Repo link",
-                    "Tests green",
-                    "Key metric + interval",
-                    "Defence rehearsed"
-                  ],
-                  "rows": [
-                    [
-                      "L4",
-                      "`feature-forge`",
-                      "",
-                      "☐",
-                      "",
-                      "☐"
-                    ],
-                    [
-                      "L5",
-                      "`tabular-arena`",
-                      "",
-                      "☐",
-                      "",
-                      "☐"
-                    ],
-                    [
-                      "L6",
-                      "`eval-forge`",
-                      "",
-                      "☐",
-                      "",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "Tabular decision system",
-                      "",
-                      "☐",
-                      "",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "What comes next",
-              "elements": [
-                {
-                  "type": "subheading",
-                  "variant": "group",
-                  "title": "Phase 3 — Deep Learning · Levels 7–9",
-                  "subtitle": null
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Title",
-                    "What it adds"
-                  ],
-                  "rows": [
-                    [
-                      "**L7**",
-                      "Neural Networks from First Principles",
-                      "Backprop, autograd, MLPs, and the training loop implemented by you"
-                    ],
-                    [
-                      "**L8**",
-                      "Optimization and Training Dynamics",
-                      "Why networks train, why they fail, and how to make them converge"
-                    ],
-                    [
-                      "**L9**",
-                      "Deep Learning Architectures",
-                      "CNNs, RNNs, transformers, and how to choose an architecture"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Phase 3 assumes everything here: you will train on datasets you have validated (L4), compare against tabular baselines you can defend (L5), and evaluate every experiment with intervals, slices, and honest splits (L6). A deep-learning result without that discipline is a number looking for a story."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 2 of 6 · Levels 4–6 of 18 · Core ML*"
-                }
-              ]
             }
           ],
-          "checkableIds": [
-            "phase-2-app-appendix-c-recommended-resources-item-1",
-            "phase-2-app-appendix-c-recommended-resources-item-2",
-            "phase-2-app-appendix-c-recommended-resources-item-3",
-            "phase-2-app-appendix-c-recommended-resources-item-4",
-            "phase-2-app-appendix-c-recommended-resources-item-5",
-            "phase-2-app-appendix-c-recommended-resources-item-6",
-            "phase-2-app-appendix-c-recommended-resources-item-7",
-            "phase-2-app-appendix-c-recommended-resources-item-8",
-            "phase-2-app-appendix-c-recommended-resources-item-9"
-          ]
+          "checkableIds": []
         }
       ],
       "checkableIds": [
@@ -6942,7 +6508,7 @@
           "title": "APPENDIX",
           "subBlocks": [
             {
-              "title": "A. Formula sheet for Phase 3",
+              "title": "Formula Sheet — Phase 3 (Deep Learning)",
               "elements": [
                 {
                   "type": "table",
@@ -7084,7 +6650,7 @@
               ]
             },
             {
-              "title": "B. Twelve-week schedule",
+              "title": "Week-by-Week Study Schedule — Phase 3 (10–14 weeks)",
               "elements": [
                 {
                   "type": "callout",
@@ -7171,170 +6737,7 @@
               ]
             },
             {
-              "title": "C. Recommended resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Courses"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Course",
-                    "Focus"
-                  ],
-                  "rows": [
-                    [
-                      "Stanford CS231n",
-                      "computer vision and CNNs"
-                    ],
-                    [
-                      "Stanford CS224n",
-                      "NLP and transformers"
-                    ],
-                    [
-                      "MIT 6.S191",
-                      "fast overview of DL building blocks"
-                    ],
-                    [
-                      "fast.ai — Practical Deep Learning",
-                      "top-down, engineering-first"
-                    ],
-                    [
-                      "DeepLearning.AI — Deep Learning Specialisation",
-                      "structured fundamentals"
-                    ],
-                    [
-                      "Karpathy's \"Neural Networks: Zero to Hero\"",
-                      "build backprop and GPT from scratch"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Books and references"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Resource",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "*Dive into Deep Learning* (d2l.ai)",
-                      "executable textbook for L7–L9"
-                    ],
-                    [
-                      "*Deep Learning* — Goodfellow et al.",
-                      "reference depth"
-                    ],
-                    [
-                      "*Understanding Deep Learning* — Prince",
-                      "modern, clear, free"
-                    ],
-                    [
-                      "PyTorch documentation and tutorials",
-                      "source of truth for mechanics"
-                    ],
-                    [
-                      "The Annotated Transformer",
-                      "line-by-line transformer implementation"
-                    ],
-                    [
-                      "Lil'Log (Lilian Weng)",
-                      "optimisation, diffusion, attention surveys"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Papers worth reading at this level"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-1",
-                      "text": "\"Attention Is All You Need\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-2",
-                      "text": "\"Deep Residual Learning for Image Recognition\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-3",
-                      "text": "\"Adam: A Method for Stochastic Optimization\" and \"Decoupled Weight Decay Regularization\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-4",
-                      "text": "\"Batch Normalization\" and \"Layer Normalization\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-5",
-                      "text": "\"On the difficulty of training recurrent neural networks\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-6",
-                      "text": "\"Neural Networks and the Bias/Variance Dilemma\" and \"Deep Double Descent\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-7",
-                      "text": "\"Denoising Diffusion Probabilistic Models\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-8",
-                      "text": "\"Generative Adversarial Networks\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-9",
-                      "text": "\"Auto-Encoding Variational Bayes\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-10",
-                      "text": "\"Semi-Supervised Classification with Graph Convolutional Networks\""
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-11",
-                      "text": "\"Training Compute-Optimal Large Language Models\" (Chinchilla)"
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-12",
-                      "text": "\"FlashAttention\""
-                    }
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-13",
-                      "text": "**Kaggle** — one small vision competition with a fixed protocol."
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-14",
-                      "text": "**`timm`** — train several backbones with identical recipes; the comparison is the lesson."
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-15",
-                      "text": "**NanoGPT-style reproductions** — implement, then diff against a reference."
-                    },
-                    {
-                      "id": "phase-3-app-appendix-c-recommended-resources-item-16",
-                      "text": "**Papers with Code** — pick one architecture paper and re-implement its block."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "D. The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 3 (Deep Learning)",
               "elements": [
                 {
                   "type": "table",
@@ -7397,125 +6800,9 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "E. Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Repo link",
-                    "Parity/grad checks",
-                    "Key metric + spread",
-                    "Cost measured",
-                    "Defence rehearsed"
-                  ],
-                  "rows": [
-                    [
-                      "L7",
-                      "`mlp-lab`",
-                      "",
-                      "☐",
-                      "",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L8",
-                      "`dynamics-lab`",
-                      "",
-                      "☐",
-                      "",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L9",
-                      "`arch-zoo`",
-                      "",
-                      "☐",
-                      "",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "`deep-bench`",
-                      "",
-                      "☐",
-                      "",
-                      "☐",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "What comes next",
-              "elements": [
-                {
-                  "type": "subheading",
-                  "variant": "group",
-                  "title": "Phase 4 — Advanced ML and Research · Levels 10–12",
-                  "subtitle": null
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Title",
-                    "What it adds"
-                  ],
-                  "rows": [
-                    [
-                      "**L10**",
-                      "Representation and Self-Supervised Learning",
-                      "Learning without labels: contrastive, masked, and transfer methods"
-                    ],
-                    [
-                      "**L11**",
-                      "Advanced ML Methods",
-                      "Probabilistic, causal, and modern hybrid methods beyond the standard toolbox"
-                    ],
-                    [
-                      "**L12**",
-                      "Research Methods and Experimental Science",
-                      "Reading, reproducing, and critiquing research with rigour"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Phase 4 assumes everything here: you can build a model from scratch (L7), train it stably and efficiently (L8), choose and compress an architecture (L9), and — critically — evaluate any of it with the protocol discipline from Phase 2. Research is where weak evaluation gets published; your job is to be the person who does not do that."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 3 of 6 · Levels 7–9 of 18 · Deep Learning*"
-                }
-              ]
             }
           ],
-          "checkableIds": [
-            "phase-3-app-appendix-c-recommended-resources-item-1",
-            "phase-3-app-appendix-c-recommended-resources-item-2",
-            "phase-3-app-appendix-c-recommended-resources-item-3",
-            "phase-3-app-appendix-c-recommended-resources-item-4",
-            "phase-3-app-appendix-c-recommended-resources-item-5",
-            "phase-3-app-appendix-c-recommended-resources-item-6",
-            "phase-3-app-appendix-c-recommended-resources-item-7",
-            "phase-3-app-appendix-c-recommended-resources-item-8",
-            "phase-3-app-appendix-c-recommended-resources-item-9",
-            "phase-3-app-appendix-c-recommended-resources-item-10",
-            "phase-3-app-appendix-c-recommended-resources-item-11",
-            "phase-3-app-appendix-c-recommended-resources-item-12",
-            "phase-3-app-appendix-c-recommended-resources-item-13",
-            "phase-3-app-appendix-c-recommended-resources-item-14",
-            "phase-3-app-appendix-c-recommended-resources-item-15",
-            "phase-3-app-appendix-c-recommended-resources-item-16"
-          ]
+          "checkableIds": []
         }
       ],
       "checkableIds": [
@@ -9477,7 +8764,7 @@
           "title": "APPENDIX",
           "subBlocks": [
             {
-              "title": "A. Formula sheet for Phase 4",
+              "title": "Formula Sheet — Phase 4 (Advanced ML & Research)",
               "elements": [
                 {
                   "type": "table",
@@ -9583,7 +8870,7 @@
               ]
             },
             {
-              "title": "B. Fourteen-week schedule",
+              "title": "Week-by-Week Study Schedule — Phase 4 (9–12 weeks)",
               "elements": [
                 {
                   "type": "table",
@@ -9674,136 +8961,7 @@
               ]
             },
             {
-              "title": "C. Recommended resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Papers to read at this level"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Area",
-                    "Paper"
-                  ],
-                  "rows": [
-                    [
-                      "SSL — contrastive",
-                      "\"SimCLR\", \"MoCo\", \"InfoNCE / CPC\""
-                    ],
-                    [
-                      "SSL — non-contrastive",
-                      "\"BYOL\", \"SimSiam\", \"Barlow Twins\", \"VICReg\", \"DINO\""
-                    ],
-                    [
-                      "SSL — masked",
-                      "\"BERT\", \"Masked Autoencoders\", \"MAE follow-ups\""
-                    ],
-                    [
-                      "Multimodal",
-                      "\"CLIP\", \"ALIGN\", \"SigLIP\""
-                    ],
-                    [
-                      "Uncertainty",
-                      "\"Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles\", \"Dropout as a Bayesian Approximation\", \"Conformal Prediction\" surveys"
-                    ],
-                    [
-                      "Causality",
-                      "\"Double/Debiased Machine Learning\", \"Causal Forests\", \"Metalearners for CATE\""
-                    ],
-                    [
-                      "Decisions",
-                      "\"Thompson Sampling\", \"Off-Policy Evaluation\" surveys"
-                    ],
-                    [
-                      "Shift",
-                      "\"When does label shift matter\", \"Domain Generalisation\" surveys"
-                    ],
-                    [
-                      "Method critique",
-                      "\"A Metric Learning Reality Check\", \"Deep Learning has a huge carbon footprint\", \"Leakage and the Reproducibility Crisis in ML\""
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Books and references"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Resource",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "*Causality* — Pearl",
-                      "DAGs and identification"
-                    ],
-                    [
-                      "*Elements of Causal Inference* — Peters et al.",
-                      "practical causal ML"
-                    ],
-                    [
-                      "*Gaussian Processes for Machine Learning* — Rasmussen & Williams",
-                      "GPs in depth"
-                    ],
-                    [
-                      "*Forecasting: Principles and Practice* — Hyndman & Athanasopoulos",
-                      "time series"
-                    ],
-                    [
-                      "*Designing Machine Learning Systems* — Huyen",
-                      "production framing for advanced methods"
-                    ],
-                    [
-                      "*The Craft of Research* — Booth et al.",
-                      "research questions and arguments"
-                    ],
-                    [
-                      "*Writing Science* — Schimel",
-                      "technical writing structure"
-                    ],
-                    [
-                      "NeurIPS/ICML author guides and checklists",
-                      "reporting standards"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-4-app-appendix-c-recommended-resources-item-1",
-                      "text": "**Papers with Code** — pick one paper per month and reproduce one table."
-                    },
-                    {
-                      "id": "phase-4-app-appendix-c-recommended-resources-item-2",
-                      "text": "**OpenReview** — read reviews before the papers; learn what reviewers attack."
-                    },
-                    {
-                      "id": "phase-4-app-appendix-c-recommended-resources-item-3",
-                      "text": "**ReScience / ML Reproducibility Challenge** — structured reproduction practice."
-                    },
-                    {
-                      "id": "phase-4-app-appendix-c-recommended-resources-item-4",
-                      "text": "**Kaggle write-ups** — good examples of claim-plus-evidence communication."
-                    },
-                    {
-                      "id": "phase-4-app-appendix-c-recommended-resources-item-5",
-                      "text": "**Your own failures** — keep a log; it is the richest research material you have."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "D. The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 4 (Advanced ML & Research)",
               "elements": [
                 {
                   "type": "table",
@@ -9866,109 +9024,9 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "E. Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Repo link",
-                    "Protocol pre-registered",
-                    "Seeds ≥ 3",
-                    "Compute reported",
-                    "Defence rehearsed"
-                  ],
-                  "rows": [
-                    [
-                      "L10",
-                      "`repr-lab`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L11",
-                      "`adv-ml-lab`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L12",
-                      "`research-repro`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "Research sprint",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "What comes next",
-              "elements": [
-                {
-                  "type": "subheading",
-                  "variant": "group",
-                  "title": "Phase 5 — Specialization · Levels 13–14",
-                  "subtitle": null
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Title",
-                    "What it adds"
-                  ],
-                  "rows": [
-                    [
-                      "**L13**",
-                      "NLP, Computer Vision, and Foundation Models",
-                      "The applied frontier: language, vision, multimodality, and the systems around them"
-                    ],
-                    [
-                      "**L14**",
-                      "Applied ML Research Specialization",
-                      "A focused research contribution in your chosen area"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Phase 5 is where you stop being general and start being known for something. Everything in Phase 4 is the toolkit you will use to earn that."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 4 of 6 · Levels 10–12 of 18 · Advanced ML and Research*"
-                }
-              ]
             }
           ],
-          "checkableIds": [
-            "phase-4-app-appendix-c-recommended-resources-item-1",
-            "phase-4-app-appendix-c-recommended-resources-item-2",
-            "phase-4-app-appendix-c-recommended-resources-item-3",
-            "phase-4-app-appendix-c-recommended-resources-item-4",
-            "phase-4-app-appendix-c-recommended-resources-item-5"
-          ]
+          "checkableIds": []
         }
       ],
       "checkableIds": [
@@ -11539,7 +10597,7 @@
           "title": "APPENDIX",
           "subBlocks": [
             {
-              "title": "A. Formula sheet for Phase 5",
+              "title": "Formula Sheet — Phase 5 (Specialization)",
               "elements": [
                 {
                   "type": "table",
@@ -11629,7 +10687,7 @@
               ]
             },
             {
-              "title": "B. Twenty-week schedule",
+              "title": "Week-by-Week Study Schedule — Phase 5 (8–12 weeks)",
               "elements": [
                 {
                   "type": "table",
@@ -11750,136 +10808,7 @@
               ]
             },
             {
-              "title": "C. Recommended resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Courses and references"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Resource",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "Hugging Face NLP course and `transformers` docs",
-                      "L13 engineering"
-                    ],
-                    [
-                      "`peft`, `trl`, `accelerate` documentation",
-                      "adaptation and training at scale"
-                    ],
-                    [
-                      "vLLM documentation and papers",
-                      "serving and throughput"
-                    ],
-                    [
-                      "`timm`, `ultralytics`, SAM, GroundingDINO docs",
-                      "vision systems"
-                    ],
-                    [
-                      "`diffusers` documentation",
-                      "generative media"
-                    ],
-                    [
-                      "OpenAI/Anthropic prompt engineering and eval guides",
-                      "prompting and evaluation practice"
-                    ],
-                    [
-                      "`lm-evaluation-harness`",
-                      "standardised evaluation"
-                    ],
-                    [
-                      "arXiv, OpenReview, Papers with Code",
-                      "literature command"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Papers worth knowing in Phase 5"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Area",
-                    "Paper"
-                  ],
-                  "rows": [
-                    [
-                      "Encoders",
-                      "\"BERT\", \"RoBERTa\", \"DeBERTa\", \"E5\", \"BGE\""
-                    ],
-                    [
-                      "Adaptation",
-                      "\"LoRA\", \"QLoRA\", \"InstructGPT\", \"DPO\""
-                    ],
-                    [
-                      "Retrieval",
-                      "\"DPR\", \"ColBERT\", \"RAG\", \"Self-RAG\""
-                    ],
-                    [
-                      "Agents",
-                      "\"ReAct\", \"Toolformer\", \"Reflexion\""
-                    ],
-                    [
-                      "Evaluation",
-                      "\"Judging LLM-as-a-Judge\", \"Chatbot Arena\""
-                    ],
-                    [
-                      "Vision",
-                      "\"DETR\", \"YOLO family\", \"SAM\", \"CLIP\", \"SigLIP\", \"LLaVA\""
-                    ],
-                    [
-                      "Generative",
-                      "\"Latent Diffusion\", \"ControlNet\", \"SDXL\", \"DreamBooth\""
-                    ],
-                    [
-                      "Efficiency",
-                      "\"FlashAttention\", \"vLLM / PagedAttention\", \"GPTQ\", \"AWQ\""
-                    ],
-                    [
-                      "Safety",
-                      "\"Universal and Transferable Adversarial Attacks\", \"Indirect Prompt Injection\""
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-5-app-appendix-c-recommended-resources-item-1",
-                      "text": "**Hugging Face Hub** — publish a model or dataset; read the cards critically."
-                    },
-                    {
-                      "id": "phase-5-app-appendix-c-recommended-resources-item-2",
-                      "text": "**Kaggle** — one multimodal competition with a strict protocol."
-                    },
-                    {
-                      "id": "phase-5-app-appendix-c-recommended-resources-item-3",
-                      "text": "**OpenReview** — review two papers in your specialisation."
-                    },
-                    {
-                      "id": "phase-5-app-appendix-c-recommended-resources-item-4",
-                      "text": "**Workshop deadlines** — set a real one; the deadline is the method."
-                    },
-                    {
-                      "id": "phase-5-app-appendix-c-recommended-resources-item-5",
-                      "text": "**Your own eval set** — the most valuable private asset you will build."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "D. The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 5 (Specialization)",
               "elements": [
                 {
                   "type": "table",
@@ -11944,53 +10873,7 @@
               ]
             },
             {
-              "title": "E. Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Public link",
-                    "Eval suite size",
-                    "Cost measured",
-                    "Seeds ≥ 3",
-                    "Defence rehearsed"
-                  ],
-                  "rows": [
-                    [
-                      "L13",
-                      "`foundation-suite`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L14",
-                      "`specialist-thesis`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "Specialization thesis",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "F. Specialisation idea bank",
+              "title": "Specialisation Thesis Idea Bank — Phase 5",
               "elements": [
                 {
                   "type": "paragraph",
@@ -12061,54 +10944,9 @@
                   "text": "**How to use this table.** Score each row on data access (1–5), compute cost (inverted), career demand, and your genuine interest. Pick the highest total, then write the one-sentence specialisation statement and the three open problems before starting Level 14."
                 }
               ]
-            },
-            {
-              "title": "What comes next",
-              "elements": [
-                {
-                  "type": "subheading",
-                  "variant": "group",
-                  "title": "Phase 6 — Engineering · Levels 15–16",
-                  "subtitle": null
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Title",
-                    "What it adds"
-                  ],
-                  "rows": [
-                    [
-                      "**L15**",
-                      "End-to-End ML Engineering and MLOps",
-                      "Taking models and foundation-model systems into reliable production"
-                    ],
-                    [
-                      "**L16**",
-                      "ML Systems and Scalability",
-                      "Designing systems that survive traffic, failure, and growth"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Phase 6 assumes you can build the thing well. It is about making it survive contact with users, budgets, and 2 a.m. incidents."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 5 of 6 · Levels 13–14 of 18 · Specialization*"
-                }
-              ]
             }
           ],
-          "checkableIds": [
-            "phase-5-app-appendix-c-recommended-resources-item-1",
-            "phase-5-app-appendix-c-recommended-resources-item-2",
-            "phase-5-app-appendix-c-recommended-resources-item-3",
-            "phase-5-app-appendix-c-recommended-resources-item-4",
-            "phase-5-app-appendix-c-recommended-resources-item-5"
-          ]
+          "checkableIds": []
         }
       ],
       "checkableIds": [
@@ -13495,7 +12333,7 @@
           "title": "APPENDIX",
           "subBlocks": [
             {
-              "title": "A. Estimation cheat sheet",
+              "title": "System Design Estimation Cheat Sheet — Phase 6 (Engineering)",
               "elements": [
                 {
                   "type": "table",
@@ -13575,7 +12413,7 @@
               ]
             },
             {
-              "title": "B. Formula sheet for Phase 6",
+              "title": "Formula Sheet — Phase 6 (Engineering)",
               "elements": [
                 {
                   "type": "table",
@@ -13633,7 +12471,7 @@
               ]
             },
             {
-              "title": "C. Twelve-week schedule",
+              "title": "Week-by-Week Study Schedule — Phase 6 (7–10 weeks)",
               "elements": [
                 {
                   "type": "table",
@@ -13714,125 +12552,7 @@
               ]
             },
             {
-              "title": "D. Recommended resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Books"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Book",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "*Designing Machine Learning Systems* — Huyen",
-                      "the canonical ML systems text"
-                    ],
-                    [
-                      "*Machine Learning Engineering* — Burkov",
-                      "end-to-end engineering practice"
-                    ],
-                    [
-                      "*Designing Data-Intensive Applications* — Kleppmann",
-                      "storage, replication, streams"
-                    ],
-                    [
-                      "*Site Reliability Engineering* — Google",
-                      "SLOs, error budgets, on-call"
-                    ],
-                    [
-                      "*The Site Reliability Workbook*",
-                      "practical SLO and incident practice"
-                    ],
-                    [
-                      "*Release It!* — Nygard",
-                      "circuit breakers and stability patterns"
-                    ],
-                    [
-                      "*Building Machine Learning Pipelines* — Hapke & Nelson",
-                      "pipeline and CI/CD patterns"
-                    ],
-                    [
-                      "*Fundamentals of Software Architecture* — Richards & Ford",
-                      "trade-off reasoning"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Documentation and references"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-1",
-                      "text": "MLflow, DVC, and feature-store documentation."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-2",
-                      "text": "Kubernetes and Terraform official tutorials (enough to read manifests)."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-3",
-                      "text": "Prometheus and Grafana getting-started guides."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-4",
-                      "text": "OpenTelemetry specification for traces and spans."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-5",
-                      "text": "vLLM and Triton serving documentation."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-6",
-                      "text": "Cloud pricing calculators for cost modelling."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-7",
-                      "text": "Google SRE workbook chapters on SLOs and alerting."
-                    }
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-8",
-                      "text": "**Load test everything** — k6 or Locust on your own service."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-9",
-                      "text": "**Chaos drills** — kill a pod, break a schema, expire a credential; watch what fires."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-10",
-                      "text": "**Cost modelling** — reproduce a real cloud bill for your service."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-11",
-                      "text": "**Design rehearsals** — record yourself; the recording is the feedback."
-                    },
-                    {
-                      "id": "phase-6-app-appendix-d-recommended-resources-item-12",
-                      "text": "**Post-incident reviews** — write one for every self-induced failure."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "E. The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 6 (Engineering)",
               "elements": [
                 {
                   "type": "table",
@@ -13895,111 +12615,9 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "F. Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Deployed URL",
-                    "p95 measured",
-                    "Canary + rollback",
-                    "Cost/1k",
-                    "Incident reviewed",
-                    "Handover done"
-                  ],
-                  "rows": [
-                    [
-                      "L15",
-                      "`mlops-platform`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "L16",
-                      "`system-design-vault`",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "Production ML system",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "What comes next",
-              "elements": [
-                {
-                  "type": "subheading",
-                  "variant": "group",
-                  "title": "Phase 7 — Career preparation · Levels 17–18",
-                  "subtitle": null
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Title",
-                    "What it adds"
-                  ],
-                  "rows": [
-                    [
-                      "**L17**",
-                      "Portfolio and Research Capstone",
-                      "Turning 17 levels of work into three defensible artefacts and a narrative"
-                    ],
-                    [
-                      "**L18**",
-                      "Interview Preparation",
-                      "Loops, drills, mock interviews, negotiation"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Phase 6 is the last phase where you build something new. Phase 7 is about making everything you have built legible to the people who hire and promote."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 6 of 6 · Levels 15–16 of 18 · Engineering*"
-                }
-              ]
             }
           ],
-          "checkableIds": [
-            "phase-6-app-appendix-d-recommended-resources-item-1",
-            "phase-6-app-appendix-d-recommended-resources-item-2",
-            "phase-6-app-appendix-d-recommended-resources-item-3",
-            "phase-6-app-appendix-d-recommended-resources-item-4",
-            "phase-6-app-appendix-d-recommended-resources-item-5",
-            "phase-6-app-appendix-d-recommended-resources-item-6",
-            "phase-6-app-appendix-d-recommended-resources-item-7",
-            "phase-6-app-appendix-d-recommended-resources-item-8",
-            "phase-6-app-appendix-d-recommended-resources-item-9",
-            "phase-6-app-appendix-d-recommended-resources-item-10",
-            "phase-6-app-appendix-d-recommended-resources-item-11",
-            "phase-6-app-appendix-d-recommended-resources-item-12"
-          ]
+          "checkableIds": []
         }
       ],
       "checkableIds": [
@@ -15285,7 +13903,52 @@
           "title": "APPENDIX A — The 100-question master bank",
           "subBlocks": [
             {
-              "title": "APPENDIX A — The 100-question master bank",
+              "title": "Formula & Metrics Reference Sheet — Phase 7 (Career Preparation)",
+              "elements": [
+                {
+                  "type": "table",
+                  "headers": [
+                    "Interview Topic",
+                    "Core Equation / Rule of Thumb",
+                    "When Interviewers Ask It"
+                  ],
+                  "rows": [
+                    [
+                      "Bias–Variance Decomposition",
+                      "$\\mathbb{E}[(y - \\hat{f}(x))^2] = \\text{Bias}(\\hat{f}(x))^2 + \\text{Var}(\\hat{f}(x)) + \\sigma_{\\varepsilon}^2$",
+                      "Rapid-fire ML theory & model debugging rounds"
+                    ],
+                    [
+                      "Bayes’ Theorem & Posterior Odds",
+                      "$P(Y=1\\mid X) = \\dfrac{P(X\\mid Y=1)P(Y=1)}{P(X)}$, Base-rate fallacy under low prevalence",
+                      "Fraud, medical screening & precision-at-low-prevalence questions"
+                    ],
+                    [
+                      "Sample Size for A/B Test (Two-Sample)",
+                      "$n \\approx \\dfrac{2(z_{1-\\alpha/2} + z_{1-\\beta})^2 \\sigma^2}{\\Delta^2}$",
+                      "Experimentation & product sense rounds"
+                    ],
+                    [
+                      "Scaled Dot-Product Attention & KV Cache",
+                      "$\\text{Attention}(Q,K,V)=\\text{softmax}\\!\\left(\\dfrac{QK^\\top}{\\sqrt{d_k}}\\right)V$; KV bytes $\\approx 2 \\cdot L \\cdot n_{\\text{kv}} \\cdot d_h \\cdot b_{\\text{bytes}} \\cdot B \\cdot T$",
+                      "LLM & deep learning system design rounds"
+                    ],
+                    [
+                      "Back-of-Envelope QPS & Capacity",
+                      "$\\text{Avg QPS} = \\dfrac{\\text{DAU} \\times \\text{queries/user}}{86{,}400}$, $\\text{Peak QPS} \\approx 3\\times \\text{Avg QPS}$",
+                      "Step 2 of every ML system design interview"
+                    ],
+                    [
+                      "Cost-Optimal Classification Threshold",
+                      "$\\tau^* = \\dfrac{C_{\\text{FP}}}{C_{\\text{FP}} + C_{\\text{FN}}}$ (requires calibrated probabilities)",
+                      "Business trade-off & deployment decision rounds"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The 100-Question Oral Defence Master Bank — Phase 7",
               "elements": [
                 {
                   "type": "paragraph",
@@ -15379,23 +14042,23 @@
                   "groupType": "study",
                   "items": [
                     {
-                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-1",
+                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-1",
                       "text": "Load all 100 into your ledger on day one of Level 18."
                     },
                     {
-                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-2",
+                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-2",
                       "text": "Rate confidence 1–5 on the first pass; do not stop to study."
                     },
                     {
-                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-3",
+                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-3",
                       "text": "Study only items at 1–2, in area order, ten per day."
                     },
                     {
-                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-4",
+                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-4",
                       "text": "Re-rate weekly; anything below 4 returns to the queue."
                     },
                     {
-                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-5",
+                      "id": "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-5",
                       "text": "Before a real loop, drill only 1–3s and your weakest three areas."
                     }
                   ]
@@ -15403,7 +14066,7 @@
               ]
             },
             {
-              "title": "A. Adding your own questions",
+              "title": "How to Add & Track Role-Specific Questions — Phase 7",
               "elements": [
                 {
                   "type": "paragraph",
@@ -15446,11 +14109,11 @@
             }
           ],
           "checkableIds": [
-            "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-1",
-            "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-2",
-            "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-3",
-            "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-4",
-            "phase-7-app-appendix-a-the-100-question-master-bank-intro-item-5"
+            "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-1",
+            "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-2",
+            "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-3",
+            "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-4",
+            "phase-7-app-appendix-a-the-100-question-master-bank-appendix-a-the-100-question-master-bank-item-5"
           ]
         },
         {
@@ -15458,7 +14121,7 @@
           "title": "APPENDIX B — Eight-week preparation schedule",
           "subBlocks": [
             {
-              "title": "APPENDIX B — Eight-week preparation schedule",
+              "title": "Week-by-Week Study Schedule — Phase 7 (5–7 weeks)",
               "elements": [
                 {
                   "type": "table",
@@ -15522,96 +14185,11 @@
           "checkableIds": []
         },
         {
-          "id": "phase-7-app-appendix-c-resources",
-          "title": "APPENDIX C — Resources",
-          "subBlocks": [
-            {
-              "title": "APPENDIX C — Resources",
-              "elements": [
-                {
-                  "type": "paragraph",
-                  "text": "### Books"
-                },
-                {
-                  "type": "table",
-                  "headers": [
-                    "Book",
-                    "Use it for"
-                  ],
-                  "rows": [
-                    [
-                      "*Cracking the Coding Interview* / *Elements of Programming Interviews*",
-                      "coding rounds"
-                    ],
-                    [
-                      "*Machine Learning Interviews* (Khang)",
-                      "ML-specific rounds"
-                    ],
-                    [
-                      "*Designing Machine Learning Systems* (Huyen)",
-                      "system design depth"
-                    ],
-                    [
-                      "*Trustworthy Online Controlled Experiments*",
-                      "statistics rounds"
-                    ],
-                    [
-                      "*Never Split the Difference*",
-                      "negotiation practice"
-                    ],
-                    [
-                      "*So Good They Can't Ignore You*",
-                      "positioning and career narrative"
-                    ]
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "### Practice"
-                },
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-7-app-appendix-c-resources-intro-item-1",
-                      "text": "**NeetCode 150** — coding pattern coverage."
-                    },
-                    {
-                      "id": "phase-7-app-appendix-c-resources-intro-item-2",
-                      "text": "**StrataScratch / DataLemur** — SQL for product data questions."
-                    },
-                    {
-                      "id": "phase-7-app-appendix-c-resources-intro-item-3",
-                      "text": "**Pramp / interviewing.io** — peer and expert mocks."
-                    },
-                    {
-                      "id": "phase-7-app-appendix-c-resources-intro-item-4",
-                      "text": "**Your own recordings** — the highest-value, lowest-cost feedback."
-                    },
-                    {
-                      "id": "phase-7-app-appendix-c-resources-intro-item-5",
-                      "text": "**OpenReview reviews** — learn what critics attack, then pre-empt it."
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "checkableIds": [
-            "phase-7-app-appendix-c-resources-intro-item-1",
-            "phase-7-app-appendix-c-resources-intro-item-2",
-            "phase-7-app-appendix-c-resources-intro-item-3",
-            "phase-7-app-appendix-c-resources-intro-item-4",
-            "phase-7-app-appendix-c-resources-intro-item-5"
-          ]
-        },
-        {
           "id": "phase-7-app-appendix-d-the-ten-most-common-ways-to-fail-this-phase",
           "title": "APPENDIX D — The ten most common ways to fail this phase",
           "subBlocks": [
             {
-              "title": "APPENDIX D — The ten most common ways to fail this phase",
+              "title": "The 10 Most Common Ways to Fail Phase 7 (Career Preparation)",
               "elements": [
                 {
                   "type": "table",
@@ -15677,270 +14255,6 @@
             }
           ],
           "checkableIds": []
-        },
-        {
-          "id": "phase-7-app-appendix-e-progress-tracker",
-          "title": "APPENDIX E — Progress tracker",
-          "subBlocks": [
-            {
-              "title": "APPENDIX E — Progress tracker",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Level",
-                    "Capstone",
-                    "Public link",
-                    "Reviewers said \"interview\"",
-                    "Mock score (rounds ≥ 4/5)",
-                    "Offer framework"
-                  ],
-                  "rows": [
-                    [
-                      "L17",
-                      "`portfolio-pack`",
-                      "",
-                      "☐",
-                      "—",
-                      "—"
-                    ],
-                    [
-                      "L18",
-                      "`interview-war-room`",
-                      "",
-                      "—",
-                      "☐",
-                      "☐"
-                    ],
-                    [
-                      "Phase",
-                      "Career launch pack",
-                      "",
-                      "☐",
-                      "☐",
-                      "☐"
-                    ]
-                  ]
-                }
-              ]
-            }
-          ],
-          "checkableIds": []
-        },
-        {
-          "id": "phase-7-app-roadmap-complete",
-          "title": "ROADMAP COMPLETE",
-          "subBlocks": [
-            {
-              "title": "The eighteen levels, and what each one actually bought you",
-              "elements": [
-                {
-                  "type": "table",
-                  "headers": [
-                    "Phase",
-                    "Level",
-                    "Title",
-                    "The capability you now have"
-                  ],
-                  "rows": [
-                    [
-                      "1 · Foundations",
-                      "L0",
-                      "Software Engineering Fundamentals",
-                      "Build, test, package, and deploy code"
-                    ],
-                    [
-                      "",
-                      "L1",
-                      "Python and Scientific Computing",
-                      "Compute correctly and fast"
-                    ],
-                    [
-                      "",
-                      "L2",
-                      "Mathematics for Machine Learning",
-                      "Derive and implement the maths"
-                    ],
-                    [
-                      "",
-                      "L3",
-                      "Probability and Statistics",
-                      "Make claims with honest uncertainty"
-                    ],
-                    [
-                      "2 · Core ML",
-                      "L4",
-                      "Data Analysis and Feature Engineering",
-                      "Turn raw data into trustworthy signal"
-                    ],
-                    [
-                      "",
-                      "L5",
-                      "Classical Machine Learning",
-                      "Model tabular problems and explain them"
-                    ],
-                    [
-                      "",
-                      "L6",
-                      "Model Evaluation and Generalization",
-                      "Prove a model generalises, and where it fails"
-                    ],
-                    [
-                      "3 · Deep Learning",
-                      "L7",
-                      "Neural Networks from First Principles",
-                      "Implement backprop and train from scratch"
-                    ],
-                    [
-                      "",
-                      "L8",
-                      "Optimization and Training Dynamics",
-                      "Make training fast, stable, reproducible"
-                    ],
-                    [
-                      "",
-                      "L9",
-                      "Deep Learning Architectures",
-                      "Choose, build, and compress architectures"
-                    ],
-                    [
-                      "4 · Advanced ML & Research",
-                      "L10",
-                      "Representation and Self-Supervised Learning",
-                      "Pretrain and evaluate representations"
-                    ],
-                    [
-                      "",
-                      "L11",
-                      "Advanced ML Methods",
-                      "Apply uncertainty, causality, sequences, decisions"
-                    ],
-                    [
-                      "",
-                      "L12",
-                      "Research Methods and Experimental Science",
-                      "Produce knowledge others can verify"
-                    ],
-                    [
-                      "5 · Specialization",
-                      "L13",
-                      "NLP, Computer Vision, and Foundation Models",
-                      "Ship foundation-model systems with cost and safety"
-                    ],
-                    [
-                      "",
-                      "L14",
-                      "Applied ML Research Specialization",
-                      "Own a specialisation and publish a contribution"
-                    ],
-                    [
-                      "6 · Engineering",
-                      "L15",
-                      "End-to-End ML Engineering and MLOps",
-                      "Operate a model in production"
-                    ],
-                    [
-                      "",
-                      "L16",
-                      "ML Systems and Scalability",
-                      "Design systems that survive scale"
-                    ],
-                    [
-                      "7 · Career",
-                      "L17",
-                      "Portfolio and Research Capstone",
-                      "Make your work legible and credible"
-                    ],
-                    [
-                      "",
-                      "L18",
-                      "Interview Preparation",
-                      "Convert capability into offers"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The three questions this roadmap was built to answer",
-              "elements": [
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-7-app-roadmap-complete-the-three-questions-this-roadmap-was-built-to-answer-item-1",
-                      "text": "**Can you build it?** Levels 0, 1, 7, 9, 13, 15 — demonstrated by capstones that run."
-                    },
-                    {
-                      "id": "phase-7-app-roadmap-complete-the-three-questions-this-roadmap-was-built-to-answer-item-2",
-                      "text": "**Can you prove it works?** Levels 3, 6, 10, 12 — demonstrated by intervals, seeds, controls, and pre-registration."
-                    },
-                    {
-                      "id": "phase-7-app-roadmap-complete-the-three-questions-this-roadmap-was-built-to-answer-item-3",
-                      "text": "**Can you explain it?** Levels 14, 17, 18 — demonstrated by papers, case studies, and loops passed."
-                    }
-                  ]
-                },
-                {
-                  "type": "paragraph",
-                  "text": "If you can answer all three with artefacts, you are not a candidate who took a course. You are an applied scientist."
-                }
-              ]
-            },
-            {
-              "title": "What comes after the roadmap",
-              "elements": [
-                {
-                  "type": "checklist",
-                  "groupType": "study",
-                  "items": [
-                    {
-                      "id": "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-1",
-                      "text": "**Pick a cadence and keep it.** One artefact a month: a reproduction, an eval suite, a system improvement, a write-up."
-                    },
-                    {
-                      "id": "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-2",
-                      "text": "**Re-run your portfolio review every six months.** The bar rises; so should your work."
-                    },
-                    {
-                      "id": "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-3",
-                      "text": "**Teach.** Explaining something well is the final proof of understanding, and it compounds."
-                    },
-                    {
-                      "id": "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-4",
-                      "text": "**Re-read your own failure logs.** They are the most accurate map of what you actually learned."
-                    },
-                    {
-                      "id": "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-5",
-                      "text": "**Update the roadmap.** The tools in Levels 9, 13, and 15 will age fastest; the discipline in Levels 3, 6, and 12 will not."
-                    }
-                  ]
-                },
-                {
-                  "type": "callout",
-                  "variant": "gate",
-                  "text": "**The roadmap is complete when you stop following it.** Everything here was scaffolding for one habit: build something real, measure it honestly, and be able to defend it. Keep that habit and the levels stop mattering.",
-                  "checkId": "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-gate-6"
-                },
-                {
-                  "type": "paragraph",
-                  "text": "*Phase 7 of 7 · Levels 17–18 of 18 · Career Preparation · Roadmap complete*"
-                }
-              ]
-            }
-          ],
-          "checkableIds": [
-            "phase-7-app-roadmap-complete-the-three-questions-this-roadmap-was-built-to-answer-item-1",
-            "phase-7-app-roadmap-complete-the-three-questions-this-roadmap-was-built-to-answer-item-2",
-            "phase-7-app-roadmap-complete-the-three-questions-this-roadmap-was-built-to-answer-item-3",
-            "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-1",
-            "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-2",
-            "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-3",
-            "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-4",
-            "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-item-5",
-            "phase-7-app-roadmap-complete-what-comes-after-the-roadmap-gate-6"
-          ]
         }
       ],
       "checkableIds": [

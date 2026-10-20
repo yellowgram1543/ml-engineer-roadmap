@@ -501,6 +501,14 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                       Final Assessment ↓
                     </a>
                   )}
+                  {phase && (
+                    <a
+                      href="#phase-playbook"
+                      className="text-[var(--phase-ac)] hover:underline font-semibold"
+                    >
+                      Phase {phase.phaseNum} Formula &amp; Playbook ↓
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -968,15 +976,14 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
             </section>
           )}
 
-          {/* ───────────────── PHASE FINAL GATE & PLAYBOOK ON LAST LEVEL OF PHASE ───────────────── */}
-          {phase &&
-            phase.levels[phase.levels.length - 1]?.id === level.id && (
-              <section className="py-6 sm:py-8">
-                <div className="mx-auto max-w-6xl px-4 sm:px-6">
-                  <PhaseMasteryDrawer phase={phase} />
-                </div>
-              </section>
-            )}
+          {/* ───────────────── PHASE PLAYBOOK (FORMULA SHEET, SCHEDULE, 10 PITFALLS) & PHASE FINAL GATE ───────────────── */}
+          {phase && (
+            <section id="phase-playbook" className="py-6 sm:py-8">
+              <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                <PhaseMasteryDrawer phase={phase} defaultOpen={true} />
+              </div>
+            </section>
+          )}
 
           {/* ───────────────── BOTTOM LEVEL NAVIGATION (.lnav) ───────────────── */}
           <section className="pt-8">
