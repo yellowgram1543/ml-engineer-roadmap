@@ -686,6 +686,71 @@ function buildRoadmapData() {
   const allProjects = [];
   const allInterviewGroups = [];
 
+  // Calibrated, mathematically consistent durations across Phases, Levels, and Capstones
+  // (at 15-18 hours/week part-time, or ~2x faster at 30-35 hours/week intensive)
+  const CALIBRATED_LEVEL_DURATIONS = {
+    '0': '3–4 weeks',
+    '1': '2–3 weeks',
+    '2': '4–5 weeks',
+    '3': '3–4 weeks',
+    '4': '3–4 weeks',
+    '5': '3–4 weeks',
+    '6': '3–4 weeks',
+    B: '3–5 days',
+    '7': '3–4 weeks',
+    '8': '3–4 weeks',
+    '9': '4–5 weeks',
+    '10': '3–4 weeks',
+    '11': '3–4 weeks',
+    '12': '3–4 weeks',
+    '13': '5–6 weeks',
+    '14': '4–6 weeks',
+    '15': '4–5 weeks',
+    '16': '3–5 weeks',
+    '17': '3–4 weeks',
+    '18': '2–3 weeks',
+  };
+
+  const CALIBRATED_PHASE_DURATIONS = {
+    1: '12–16 weeks · ~3–4 months',
+    2: '9–12 weeks · ~2–3 months',
+    3: '10–14 weeks · ~2.5–3.5 months',
+    4: '9–12 weeks · ~2–3 months',
+    5: '8–12 weeks · ~2–3 months (Track-Based)',
+    6: '7–10 weeks · ~2 months',
+    7: '5–7 weeks · ~1.5 months (Concurrent)',
+  };
+
+  const CALIBRATED_CAPSTONE_DURATIONS = {
+    'level-0-capstone': '4–5 days (Capstone Build)',
+    'level-1-capstone': '3–5 days (Capstone Build)',
+    'level-2-capstone': '5–7 days (Capstone Build)',
+    'level-3-capstone': '4–6 days (Capstone Build)',
+    'phase-1-capstone': '1–2 weeks (Phase Integration)',
+    'level-4-capstone': '5–7 days (Capstone Build)',
+    'level-5-capstone': '1–1.5 weeks (Capstone Build)',
+    'level-6-capstone': '5–7 days (Capstone Build)',
+    'phase-2-capstone': '1–2 weeks (Phase Integration)',
+    'bridge-capstone': '1–2 days (Warmup Build)',
+    'level-7-capstone': '1–1.5 weeks (Capstone Build)',
+    'level-8-capstone': '1–1.5 weeks (Capstone Build)',
+    'level-9-capstone': '1–2 weeks (Capstone Build)',
+    'phase-3-capstone': '1.5–2 weeks (Phase Integration)',
+    'level-10-capstone': '1–1.5 weeks (Capstone Build)',
+    'level-11-capstone': '1–1.5 weeks (Capstone Build)',
+    'level-12-capstone': '1–2 weeks (Paper Reproduction)',
+    'phase-4-capstone': '1.5–2 weeks (Research Sprint)',
+    'level-13-capstone': '2–3 weeks (Flagship System Build)',
+    'level-14-capstone': '2–3 weeks (Thesis Execution)',
+    'phase-5-capstone': '2–3 weeks (Specialization Thesis)',
+    'level-15-capstone': '1.5–2 weeks (MLOps Pipeline Build)',
+    'level-16-capstone': '1–1.5 weeks (System Design & Load Test)',
+    'phase-6-capstone': '1.5–2 weeks (Production Integration)',
+    'level-17-capstone': '1.5–2 weeks (Portfolio Packaging)',
+    'level-18-capstone': '1–2 weeks (Mock Loop Sprint)',
+    'phase-7-capstone': '1–2 weeks (Launch Readiness)',
+  };
+
   for (const pf of phaseFiles) {
     const filePath = path.join(rootDir, pf.file);
     const content = fs.readFileSync(filePath, 'utf-8').replace(/\r\n/g, '\n');
@@ -747,7 +812,8 @@ function buildRoadmapData() {
             bridgeLevel.dashboard = {
               level: 'Bridge — PyTorch Readiness (Entry Gate)',
               difficulty: 'Intermediate',
-              'suggested duration': '3–5 days at 2–3 hours/day',
+              'suggested duration': CALIBRATED_LEVEL_DURATIONS['B'],
+              'study commitment': '15–18 hrs/wk part-time (or 2–3 days intensive)',
               'core tools': 'PyTorch, torch.autograd, einops, DataLoader, torch.profiler',
               'main project': 'torch-warmup — a working training loop you can explain',
               'final outcome': 'Build an nn.Module, step an optimiser, and verify checkpoint resume before Level 7.',
@@ -765,6 +831,11 @@ function buildRoadmapData() {
         const lvlNum = lvlMatch[1];
         const lvlRawTitle = lvlMatch[2].trim();
         const lvlObj = parseLevelBlock(`level-${lvlNum}`, lvlNum, lvlRawTitle, pf, h1.lines);
+        if (CALIBRATED_LEVEL_DURATIONS[lvlNum]) {
+          lvlObj.dashboard['suggested duration'] = CALIBRATED_LEVEL_DURATIONS[lvlNum];
+        }
+        lvlObj.dashboard['study commitment'] =
+          '15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)';
         phaseLevels.push(lvlObj);
         allLevels.push(lvlObj);
 
@@ -780,7 +851,9 @@ function buildRoadmapData() {
             phaseSlug: pf.slug,
             phaseName: pf.shortName,
             difficulty: lvlObj.dashboard['difficulty'] || 'Intermediate',
-            duration: lvlObj.dashboard['suggested duration'] || '1–2 weeks',
+            duration:
+              CALIBRATED_CAPSTONE_DURATIONS[lvlObj.capstone.id] ||
+              '1–1.5 weeks (Capstone Build)',
             tools: lvlObj.dashboard['core tools'] || lvlObj.dashboard['main libraries'] || '',
             subBlocks: lvlObj.capstone.subBlocks,
             checkableIds: lvlObj.capstone.checkableIds,
@@ -835,7 +908,9 @@ function buildRoadmapData() {
           phaseSlug: pf.slug,
           phaseName: pf.shortName,
           difficulty: phaseDashboard['difficulty'] || 'Advanced',
-          duration: '1–3 weeks',
+          duration:
+            CALIBRATED_CAPSTONE_DURATIONS[capId] ||
+            '1.5–2 weeks (Phase Integration)',
           tools: phaseDashboard['core tools'] || phaseDashboard['main libraries'] || '',
           subBlocks,
           checkableIds: capCheckIds,
@@ -897,6 +972,12 @@ function buildRoadmapData() {
     for (const l of phaseLevels) phaseCheckableIds.push(...l.checkableIds);
     if (phaseCapstone) phaseCheckableIds.push(...phaseCapstone.checkableIds);
     if (phaseAssessment) phaseCheckableIds.push(...phaseAssessment.checkableIds);
+
+    if (CALIBRATED_PHASE_DURATIONS[pf.phaseNum]) {
+      phaseDashboard['suggested duration'] = CALIBRATED_PHASE_DURATIONS[pf.phaseNum];
+    }
+    phaseDashboard['study commitment'] =
+      '15–18 hrs/wk part-time · ~2× faster full-time';
 
     phases.push({
       phaseNum: pf.phaseNum,

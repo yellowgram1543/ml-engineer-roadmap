@@ -15,6 +15,8 @@ export interface RolePriorityPath {
   focus: string;
   keyLevels: string;
   coreBadges: string[];
+  partTimeTimeline: string;
+  intensiveTimeline: string;
   scoreOverrides?: Record<string, { interviewScore: number; jobScore: number }>;
 }
 
@@ -24,12 +26,16 @@ export const ROLE_PRIORITY_PATHS: RolePriorityPath[] = [
     focus: 'Prioritize Python, classical ML, evaluation, PyTorch fundamentals, deployment and system design.',
     keyLevels: 'L0, L3–L6, Bridge, L8, L15–L16',
     coreBadges: ['0', '3', '4', '5', '6', 'B', '8', '15', '16'],
+    partTimeTimeline: '26–34 weeks (~6.5–8 months @ 15–18 hrs/wk)',
+    intensiveTimeline: '13–17 weeks (~3.5–4 months full-time)',
   },
   {
     role: 'LLM Engineer',
     focus: 'Prioritize transformers, NLP/LLMs, RAG, evaluation, serving and production engineering.',
     keyLevels: 'L0, Bridge, L10, L12–L13, L15–L16',
     coreBadges: ['0', 'B', '10', '12', '13', '15', '16'],
+    partTimeTimeline: '22–29 weeks (~5.5–7 months @ 15–18 hrs/wk)',
+    intensiveTimeline: '11–15 weeks (~3–3.5 months full-time)',
     scoreOverrides: {
       '5': { interviewScore: 6, jobScore: 6 },
       '9': { interviewScore: 4, jobScore: 5 },
@@ -46,6 +52,8 @@ export const ROLE_PRIORITY_PATHS: RolePriorityPath[] = [
     focus: 'Prioritize statistics, ML theory, experimental design, research reading and domain-specific mathematics.',
     keyLevels: 'L1–L3, L5–L6, L8, L10–L14, L17',
     coreBadges: ['1', '2', '3', '5', '6', '8', '10', '11', '12', '13', '14', '17'],
+    partTimeTimeline: '38–50 weeks (~9–11.5 months @ 15–18 hrs/wk)',
+    intensiveTimeline: '19–25 weeks (~4.5–6 months full-time)',
     scoreOverrides: {
       '1': { interviewScore: 8, jobScore: 8 },
       '2': { interviewScore: 9, jobScore: 8 },
@@ -61,6 +69,8 @@ export const ROLE_PRIORITY_PATHS: RolePriorityPath[] = [
     focus: 'Prioritize deep learning, vision architectures, data pipelines and vision evaluation.',
     keyLevels: 'L0–L2, Bridge, L8–L10, L13, L15',
     coreBadges: ['0', '1', '2', 'B', '8', '9', '10', '13', '15'],
+    partTimeTimeline: '29–38 weeks (~7–9 months @ 15–18 hrs/wk)',
+    intensiveTimeline: '15–19 weeks (~3.5–4.5 months full-time)',
     scoreOverrides: {
       '1': { interviewScore: 8, jobScore: 8 },
       '9': { interviewScore: 10, jobScore: 10 },
@@ -74,6 +84,8 @@ export const ROLE_PRIORITY_PATHS: RolePriorityPath[] = [
     focus: 'Prioritize PyTorch, optimization, reproducibility, research implementation and efficient training.',
     keyLevels: 'L0–L2, Bridge, L8–L12, L14, L17',
     coreBadges: ['0', '1', '2', 'B', '8', '9', '10', '11', '12', '14', '17'],
+    partTimeTimeline: '32–43 weeks (~7.5–10 months @ 15–18 hrs/wk)',
+    intensiveTimeline: '16–22 weeks (~4–5 months full-time)',
     scoreOverrides: {
       '1': { interviewScore: 8, jobScore: 9 },
       '2': { interviewScore: 9, jobScore: 9 },

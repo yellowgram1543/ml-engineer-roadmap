@@ -122,6 +122,7 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                 <ol className="space-y-2.5 list-none m-0 p-0">
                   {data.phases.map((phase) => {
                     const phaseComp = computeCompletion(checked, phase.checkableIds);
+                    const shortDur = (phase.dashboard['suggested duration'] || '').split('·')[0].trim();
                     return (
                       <li
                         key={phase.slug}
@@ -137,6 +138,11 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                             <span className="font-display text-sm font-bold text-slate-900 truncate">
                               {phase.name}
                             </span>
+                            {shortDur && (
+                              <span className="hidden sm:inline font-mono-code text-[10px] text-slate-500">
+                                {shortDur}
+                              </span>
+                            )}
                             {phaseComp.done > 0 && (
                               <span className="font-mono-code text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/80 text-[var(--phase-ac)]">
                                 {phaseComp.pct}%
@@ -169,10 +175,29 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                   })}
                 </ol>
 
-                <p className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-mono-code text-slate-500">
-                  <ArrowDown className="h-3.5 w-3.5 text-[#6c5ce7]" />
-                  <span>Go through the phases in order · Check off every topic</span>
-                </p>
+                <div className="mt-4 pt-3 border-t border-slate-100 space-y-1 text-xs font-mono-code text-slate-500">
+                  {(() => {
+                    const activeRoleObj =
+                      ROLE_PRIORITY_PATHS.find((r) => r.role === selectedRole) ||
+                      ROLE_PRIORITY_PATHS[0];
+                    return (
+                      <>
+                        <div className="flex flex-wrap items-center justify-between gap-1">
+                          <span className="font-semibold text-slate-700">
+                            {activeRoleObj.role} Track:
+                          </span>
+                          <span className="text-[#6c5ce7] font-semibold">
+                            {activeRoleObj.partTimeTimeline.split('(')[0].trim()} part-time · {activeRoleObj.intensiveTimeline.split('(')[0].trim()} full-time
+                          </span>
+                        </div>
+                        <p className="flex items-center gap-2 text-[11px] text-slate-500">
+                          <ArrowDown className="h-3.5 w-3.5 text-[#6c5ce7] shrink-0" />
+                          <span>Full 20-level mastery: 60–83 wks part-time (30–42 wks full-time)</span>
+                        </p>
+                      </>
+                    );
+                  })()}
+                </div>
               </div>
             </div>
           </div>
@@ -318,6 +343,14 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                         </div>
                         <div className="font-mono-code text-[10px] font-semibold text-[#6c5ce7]">
                           Core: {rp.keyLevels}
+                        </div>
+                        <div className="rounded-lg bg-white/90 border border-slate-200/70 px-2 py-1 font-mono-code text-[10px] text-slate-700 space-y-0.5">
+                          <div>
+                            <strong className="text-slate-900">Part-time:</strong> {rp.partTimeTimeline}
+                          </div>
+                          <div>
+                            <strong className="text-slate-900">Intensive:</strong> {rp.intensiveTimeline}
+                          </div>
                         </div>
                         <p className="text-[11px] text-slate-600 leading-snug">
                           {rp.focus}

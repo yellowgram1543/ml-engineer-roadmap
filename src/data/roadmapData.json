@@ -23,8 +23,8 @@
         "phase": "1 — Foundations",
         "levels": "L0 · L1 · L2 · L3",
         "difficulty": "Beginner → Intermediate",
-        "suggested duration": "14–20 weeks (3.5–5 months) at 2–3 hours/day",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "12–16 weeks · ~3–4 months",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "main language": "Python 3.11+",
         "core tools": "VS Code, Git + GitHub, terminal, `uv`, `pytest`, NumPy, Pandas, Matplotlib, Jupyter",
         "capstone projects": "4 level capstones + 1 phase capstone",
@@ -36,7 +36,7 @@
           "badge": "0",
           "title": "SOFTWARE ENGINEERING FUNDAMENTALS",
           "goal": "Build the programming and software engineering skills needed to write, test, debug, and maintain real machine-learning code.",
-          "duration": "4–6 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Beginner → Intermediate",
           "mainProject": "A tested, reusable **ML Data Quality Toolkit**",
           "totalSections": 9,
@@ -404,7 +404,7 @@
           "badge": "1",
           "title": "PYTHON AND SCIENTIFIC COMPUTING",
           "goal": "Move from \"Python that runs\" to \"Python that computes correctly and fast\": array thinking, tabular wrangling, numerical stability, visualisation, profiling, and reproducibility.",
-          "duration": "3–4 weeks",
+          "duration": "2–3 weeks",
           "difficulty": "Beginner → Intermediate",
           "mainProject": "A **vectorised scientific computing library** with benchmarks",
           "totalSections": 9,
@@ -634,7 +634,7 @@
           "badge": "2",
           "title": "MATHEMATICS FOR MACHINE LEARNING",
           "goal": "Build the mathematical fluency to derive losses, read papers, debug optimisation, and answer \"why does this work?\" in an interview. You do not need to become a mathematician; you need to stop hand-waving.",
-          "duration": "4–6 weeks",
+          "duration": "4–5 weeks",
           "difficulty": "Intermediate",
           "mainProject": "**Maths Engine from Scratch** — a NumPy autodiff + PCA + optimisation library",
           "totalSections": 8,
@@ -897,7 +897,7 @@
           "badge": "3",
           "title": "PROBABILITY AND STATISTICS",
           "goal": "Go beyond formulas into statistical reasoning: model data with distributions, quantify uncertainty honestly, design experiments, and avoid the errors that make ML results irreproducible.",
-          "duration": "3–5 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Intermediate",
           "mainProject": "**Statistical Inference Toolkit** with a simulated experiment study",
           "totalSections": 8,
@@ -3167,8 +3167,8 @@
         "phase": "2 — Core ML",
         "levels": "L4 · L5 · L6",
         "difficulty": "Intermediate",
-        "suggested duration": "10–14 weeks at 2–3 hours/day",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "9–12 weeks · ~2–3 months",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "main libraries": "scikit-learn, Pandas, Polars, XGBoost, LightGBM, CatBoost, SHAP, Optuna, statsmodels",
         "capstone projects": "3 level capstones + 1 phase capstone",
         "final outcome": "Build a leakage-audited pipeline, train and tune classical models, and prove generalisation with honest validation, calibrated probabilities, and error analysis."
@@ -3422,7 +3422,7 @@
           "badge": "5",
           "title": "CLASSICAL MACHINE LEARNING",
           "goal": "Master the models that still win on tabular data, and — more importantly — learn the modelling craft: baselines, bias–variance, regularisation, tuning, calibration, and interpretation.",
-          "duration": "4–5 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Intermediate → Advanced",
           "mainProject": "A **tuned, calibrated, interpreted tabular model** that beats a strong baseline",
           "totalSections": 10,
@@ -3677,7 +3677,7 @@
           "badge": "6",
           "title": "MODEL EVALUATION AND GENERALIZATION",
           "goal": "Prove that a model will keep working on data it has never seen — and know exactly where it will not. This level converts \"my model scored 0.91\" into a defensible scientific claim.",
-          "duration": "3–5 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Advanced",
           "mainProject": "A **generalization dossier**: protocol, metrics with intervals, error taxonomy, and slice analysis",
           "totalSections": 10,
@@ -5621,8 +5621,8 @@
         "phase": "3 — Deep Learning",
         "levels": "L7 · L8 · L9",
         "difficulty": "Intermediate → Advanced",
-        "suggested duration": "12–16 weeks at 2–3 hours/day",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "10–14 weeks · ~2.5–3.5 months",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "main frameworks": "PyTorch, `torch.autograd`, `einops`, Weights & Biases / MLflow, Hugging Face `transformers` (late L9)",
         "compute": "One GPU strongly recommended (Colab/Kaggle free tiers are enough for every project here)",
         "entry requirement": "The PyTorch readiness bridge in this document — unless you already train models in PyTorch",
@@ -5635,7 +5635,7 @@
           "badge": "B",
           "title": "PyTorch Readiness Bridge",
           "goal": "Master tensors, nn.Module, the canonical training loop, DataLoaders, and device/precision discipline before starting Level 7.",
-          "duration": "3–5 days at 2–3 hours/day",
+          "duration": "3–5 days",
           "difficulty": "Intermediate",
           "mainProject": "torch-warmup — a working training loop you can explain",
           "totalSections": 1,
@@ -5686,7 +5686,7 @@
           "badge": "7",
           "title": "NEURAL NETWORKS FROM FIRST PRINCIPLES",
           "goal": "Build a neural network twice — once in NumPy with hand-derived gradients, once in PyTorch — and understand every line of the training loop. No `model.fit()`, no hidden magic.",
-          "duration": "4–5 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Intermediate → Advanced",
           "mainProject": "**`mlp-lab`** — a NumPy MLP with manual backprop, matched against a PyTorch implementation",
           "totalSections": 10,
@@ -5920,7 +5920,7 @@
           "badge": "8",
           "title": "OPTIMIZATION AND TRAINING DYNAMICS",
           "goal": "Understand why deep networks train at all, why they stop training, and how to make training faster, more stable, and more reproducible. This is the level that separates people who tune by folklore from people who diagnose by mechanism.",
-          "duration": "4–5 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Advanced",
           "mainProject": "**`dynamics-lab`** — an optimiser, schedule, and stability ablation study with a reproducible report",
           "totalSections": 10,
@@ -6162,7 +6162,7 @@
           "badge": "9",
           "title": "DEEP LEARNING ARCHITECTURES",
           "goal": "Learn the major architecture families well enough to choose one from evidence: convolutions, recurrence, attention, and generative designs. Then make them cheap enough to ship.",
-          "duration": "4–6 weeks",
+          "duration": "4–5 weeks",
           "difficulty": "Advanced",
           "mainProject": "**`arch-zoo`** — five architectures, one task, one controlled comparison",
           "totalSections": 10,
@@ -8308,8 +8308,8 @@
         "phase": "4 — Advanced ML and Research",
         "levels": "L10 · L11 · L12",
         "difficulty": "Advanced",
-        "suggested duration": "14–18 weeks at 2–3 hours/day",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "9–12 weeks · ~2–3 months",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "core tools": "PyTorch, `timm`, Hugging Face `transformers`, `scikit-learn`, `statsmodels`, PyMC/`numpyro` (optional), `DoWhy`/`EconML`, `sktime`/`statsforecast`, `wandb`",
         "capstone projects": "3 level capstones + 1 phase capstone",
         "final outcome": "Pretrain and evaluate representations, deploy at least two advanced methods correctly, and run a research-grade experiment that survives reproduction and review."
@@ -8320,7 +8320,7 @@
           "badge": "10",
           "title": "REPRESENTATION AND SELF-SUPERVISED LEARNING",
           "goal": "Understand how models learn useful features without labels, how to train such models on a modest budget, and how to prove the representation is actually good — with a frozen probe, not with vibes.",
-          "duration": "4–5 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Advanced",
           "mainProject": "**`repr-lab`** — pretrain a small encoder with SSL, evaluate it frozen, and ablate the design",
           "totalSections": 10,
@@ -8520,7 +8520,7 @@
           "badge": "11",
           "title": "ADVANCED ML METHODS",
           "goal": "Add the methods that a senior applied scientist is expected to know but that Phase 2 does not cover: uncertainty, causality, sequences, recommendation, adaptation under shift, and constrained optimisation. You will implement two of them deeply rather than skim ten.",
-          "duration": "5–7 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Advanced",
           "mainProject": "**`adv-ml-lab`** — two advanced methods implemented, benchmarked, and reported",
           "totalSections": 10,
@@ -8717,7 +8717,7 @@
           "badge": "12",
           "title": "RESEARCH METHODS AND EXPERIMENTAL SCIENCE",
           "goal": "Learn to produce knowledge, not just models: read papers critically, design experiments that can fail, reproduce results honestly, and write claims that your evidence actually supports.",
-          "duration": "4–6 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Advanced",
           "mainProject": "**`research-repro`** — reproduce a published result, ablate it, and write a 4-page report",
           "totalSections": 10,
@@ -10613,8 +10613,8 @@
         "phase": "5 — Specialization",
         "levels": "L13 · L14",
         "difficulty": "Advanced → Expert",
-        "suggested duration": "16–22 weeks at 2–3 hours/day",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "8–12 weeks · ~2–3 months (Track-Based)",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "core tools": "Hugging Face `transformers`, `datasets`, `peft`, `trl`, `accelerate`, `vLLM`, `timm`, `ultralytics`, `segment-anything`, `diffusers`, `faiss`, Weights & Biases, `lm-evaluation-harness`",
         "capstone projects": "2 level capstones + 1 phase thesis project",
         "final outcome": "Ship an applied NLP system and an applied vision/multimodal system with measured quality, latency and cost — then produce one focused research contribution in a specialisation you can defend."
@@ -10625,7 +10625,7 @@
           "badge": "13",
           "title": "NLP, COMPUTER VISION, AND FOUNDATION MODELS",
           "goal": "Build real systems on top of foundation models: fine-tune for a domain, retrieve, ground, serve within a latency and cost budget, and evaluate against a domain eval set you built yourself.",
-          "duration": "9–12 weeks",
+          "duration": "5–6 weeks",
           "difficulty": "Advanced",
           "mainProject": "**`foundation-suite`** — an applied NLP assistant and an applied vision/VLM pipeline, both with eval suites and cost models",
           "totalSections": 11,
@@ -10895,7 +10895,7 @@
           "badge": "14",
           "title": "APPLIED ML RESEARCH SPECIALIZATION",
           "goal": "Choose a specialisation, build command of its literature, produce one real contribution, and publish it in a form that survives review. This level is about becoming known for something specific.",
-          "duration": "7–10 weeks",
+          "duration": "4–6 weeks",
           "difficulty": "Expert",
           "mainProject": "**`specialist-thesis`** — a focused contribution with a public write-up, code, and eval suite",
           "totalSections": 11,
@@ -12586,8 +12586,8 @@
         "phase": "6 — Engineering",
         "levels": "L15 · L16",
         "difficulty": "Advanced → Expert",
-        "suggested duration": "12–16 weeks at 2–3 hours/day",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "7–10 weeks · ~2 months",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "core tools": "Docker, Kubernetes (or a managed runtime), PostgreSQL, Redis, Kafka or a queue, Terraform basics, Airflow/Dagster/Prefect, MLflow, Prometheus + Grafana, OpenTelemetry, vLLM/Triton, GitHub Actions",
         "capstone projects": "2 level capstones + 1 phase capstone",
         "final outcome": "Own a model in production end-to-end and design an ML system that scales, fails gracefully, and stays within a cost and latency budget."
@@ -12598,7 +12598,7 @@
           "badge": "15",
           "title": "END-TO-END ML ENGINEERING AND MLOPS",
           "goal": "Take a model you built and make it a service you can operate: reproducible training, versioned artefacts, safe deployment, real monitoring, automated retraining, and runbooks that work at 2 a.m.",
-          "duration": "6–8 weeks",
+          "duration": "4–5 weeks",
           "difficulty": "Advanced → Expert",
           "mainProject": "**`mlops-platform`** — one model, full lifecycle, operated for two weeks",
           "totalSections": 10,
@@ -12816,7 +12816,7 @@
           "badge": "16",
           "title": "ML SYSTEMS AND SCALABILITY",
           "goal": "Design ML systems that survive scale, failure, and change — and defend those designs under interview conditions. This is the level that decides senior-versus-junior in system design rounds.",
-          "duration": "6–8 weeks",
+          "duration": "3–5 weeks",
           "difficulty": "Expert",
           "mainProject": "**`system-design-vault`** — three full designs plus one load-tested implementation",
           "totalSections": 10,
@@ -14436,8 +14436,8 @@
         "phase": "7 — Career Preparation",
         "levels": "L17 · L18",
         "difficulty": "Professional",
-        "suggested duration": "8–12 weeks at 2–3 hours/day (overlaps with applications)",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "5–7 weeks · ~1.5 months (Concurrent)",
+        "study commitment": "15–18 hrs/wk part-time · ~2× faster full-time",
         "core tools": "GitHub, Hugging Face Hub, a personal site, a video recorder, a question bank, mock-interview partners",
         "capstone projects": "2 level capstones + 1 phase capstone",
         "final outcome": "A portfolio that gets callbacks, an interview loop you can pass, and an offer decision you can defend to yourself."
@@ -14448,7 +14448,7 @@
           "badge": "17",
           "title": "PORTFOLIO AND RESEARCH CAPSTONE",
           "goal": "Build a portfolio that survives the ten-minute hiring-manager scan: three projects that are each finished, measured, reproducible, and explained — plus one flagship that combines research rigour with production engineering.",
-          "duration": "4–6 weeks",
+          "duration": "3–4 weeks",
           "difficulty": "Professional",
           "mainProject": "**`portfolio-pack`** — three curated projects, three case studies, one flagship capstone, one site, one video",
           "totalSections": 9,
@@ -14634,7 +14634,7 @@
           "badge": "18",
           "title": "INTERVIEW PREPARATION",
           "goal": "Convert knowledge into performance. Learn the loop, drill the rounds, rehearse under pressure, and turn offers into a decision you can defend.",
-          "duration": "4–6 weeks",
+          "duration": "2–3 weeks",
           "difficulty": "Professional",
           "mainProject": "**`interview-war-room`** — drills, story bank, question ledger, two recorded mock loops",
           "totalSections": 11,
@@ -16352,8 +16352,8 @@
       "dashboard": {
         "level": "0 — Software Engineering Fundamentals",
         "difficulty": "Beginner → Intermediate",
-        "suggested duration": "4–6 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "main language": "Python",
         "core tools": "VS Code, Git, GitHub, terminal, `pytest`",
         "main project": "A tested, reusable **ML Data Quality Toolkit**",
@@ -20207,8 +20207,8 @@
       "dashboard": {
         "level": "1 — Python and Scientific Computing",
         "difficulty": "Beginner → Intermediate",
-        "suggested duration": "3–4 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "2–3 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "main libraries": "NumPy, Pandas, Polars, DuckDB, Matplotlib, SciPy, PyTorch (tensors only)",
         "main project": "A **vectorised scientific computing library** with benchmarks",
         "final outcome": "Write vectorised, numerically stable, reproducible scientific code that is fast enough to iterate on real datasets."
@@ -22944,8 +22944,8 @@
       "dashboard": {
         "level": "2 — Mathematics for Machine Learning",
         "difficulty": "Intermediate",
-        "suggested duration": "4–6 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "4–5 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core topics": "Linear algebra, calculus, matrix calculus, optimisation, information theory",
         "main project": "**Maths Engine from Scratch** — a NumPy autodiff + PCA + optimisation library",
         "final outcome": "Derive the maths behind standard ML models and implement it correctly."
@@ -26270,8 +26270,8 @@
       "dashboard": {
         "level": "3 — Probability and Statistics",
         "difficulty": "Intermediate",
-        "suggested duration": "3–5 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core topics": "distributions, estimation, inference, resampling, regression inference, experiment design, Bayesian thinking, causality",
         "main project": "**Statistical Inference Toolkit** with a simulated experiment study",
         "final outcome": "Make statistical claims that are correct, calibrated, and defensible."
@@ -28793,7 +28793,7 @@
         "level": "4 — Data Analysis and Feature Engineering",
         "difficulty": "Intermediate",
         "suggested duration": "3–4 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Pandas, Polars, DuckDB, scikit-learn (`Pipeline`, `ColumnTransformer`), Pandera/Great Expectations, DVC",
         "main project": "A **leak-proof, versioned feature pipeline** with a data-quality report",
         "final outcome": "Given an unfamiliar dataset, produce validated, documented, leakage-audited features that a model can consume reproducibly."
@@ -31615,8 +31615,8 @@
       "dashboard": {
         "level": "5 — Classical Machine Learning",
         "difficulty": "Intermediate → Advanced",
-        "suggested duration": "4–5 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "scikit-learn, XGBoost, LightGBM, CatBoost, statsmodels, Optuna, SHAP",
         "main project": "A **tuned, calibrated, interpreted tabular model** that beats a strong baseline",
         "final outcome": "Choose, train, tune, and explain classical models, and justify every choice with measured evidence."
@@ -34693,8 +34693,8 @@
       "dashboard": {
         "level": "6 — Model Evaluation and Generalization",
         "difficulty": "Advanced",
-        "suggested duration": "3–5 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "scikit-learn model selection, statsmodels, SciPy, `mapie` (conformal), SHAP, your L3 toolkit",
         "main project": "A **generalization dossier**: protocol, metrics with intervals, error taxonomy, and slice analysis",
         "final outcome": "Design an evaluation that would survive scrutiny, then report results that are correct, calibrated, and honest about uncertainty."
@@ -37324,7 +37324,8 @@
       "dashboard": {
         "level": "Bridge — PyTorch Readiness (Entry Gate)",
         "difficulty": "Intermediate",
-        "suggested duration": "3–5 days at 2–3 hours/day",
+        "suggested duration": "3–5 days",
+        "study commitment": "15–18 hrs/wk part-time (or 2–3 days intensive)",
         "core tools": "PyTorch, torch.autograd, einops, DataLoader, torch.profiler",
         "main project": "torch-warmup — a working training loop you can explain",
         "final outcome": "Build an nn.Module, step an optimiser, and verify checkpoint resume before Level 7."
@@ -37743,8 +37744,8 @@
       "dashboard": {
         "level": "7 — Neural Networks from First Principles",
         "difficulty": "Intermediate → Advanced",
-        "suggested duration": "4–5 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Python, NumPy, PyTorch, Matplotlib, `einops`",
         "main project": "**`mlp-lab`** — a NumPy MLP with manual backprop, matched against a PyTorch implementation",
         "final outcome": "Implement forward and backward passes for any feed-forward network, train it reliably, and debug it from first principles."
@@ -40709,8 +40710,8 @@
       "dashboard": {
         "level": "8 — Optimization and Training Dynamics",
         "difficulty": "Advanced",
-        "suggested duration": "4–5 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "PyTorch, `torch.optim`, `torch.cuda.amp`, `torch.nn.parallel.DistributedDataParallel`, W&B/MLflow, `torch.profiler`",
         "main project": "**`dynamics-lab`** — an optimiser, schedule, and stability ablation study with a reproducible report",
         "final outcome": "Explain and control the optimisation process: choose optimisers and schedules from evidence, diagnose instability, and scale training to multiple GPUs."
@@ -43689,8 +43690,8 @@
       "dashboard": {
         "level": "9 — Deep Learning Architectures",
         "difficulty": "Advanced",
-        "suggested duration": "4–6 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "4–5 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "PyTorch, `torchvision`, `timm`, `einops`, Hugging Face `transformers`, `torch.profiler`",
         "main project": "**`arch-zoo`** — five architectures, one task, one controlled comparison",
         "final outcome": "Select, implement, and ablate an architecture, then compress and serve it within a latency and memory budget."
@@ -46865,8 +46866,8 @@
       "dashboard": {
         "level": "10 — Representation and Self-Supervised Learning",
         "difficulty": "Advanced",
-        "suggested duration": "4–5 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "PyTorch, `timm`, `torchvision`, `faiss`, `scikit-learn` (probes), `umap-learn`",
         "main project": "**`repr-lab`** — pretrain a small encoder with SSL, evaluate it frozen, and ablate the design",
         "final outcome": "Train a self-supervised encoder, evaluate it without fine-tuning, detect collapse, and explain which design choice mattered."
@@ -49261,8 +49262,8 @@
       "dashboard": {
         "level": "11 — Advanced ML Methods",
         "difficulty": "Advanced",
-        "suggested duration": "5–7 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "PyTorch, `statsmodels`, `EconML`/`DoWhy`, `sktime`/`statsforecast`, `scikit-learn`, `PyMC` or `numpyro` (optional)",
         "main project": "**`adv-ml-lab`** — two advanced methods implemented, benchmarked, and reported",
         "final outcome": "Select and correctly apply advanced methods, state their assumptions, and measure whether they beat simpler alternatives."
@@ -51676,8 +51677,8 @@
       "dashboard": {
         "level": "12 — Research Methods and Experimental Science",
         "difficulty": "Advanced",
-        "suggested duration": "4–6 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Git, DVC, experiment tracking, LaTeX or Markdown, a reference manager, `pytest`, compute accounting",
         "main project": "**`research-repro`** — reproduce a published result, ablate it, and write a 4-page report",
         "final outcome": "Read, reproduce, critique, and communicate an ML result at the standard expected of an applied scientist."
@@ -54270,8 +54271,8 @@
       "dashboard": {
         "level": "13 — NLP, Computer Vision, and Foundation Models",
         "difficulty": "Advanced",
-        "suggested duration": "9–12 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "5–6 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "`transformers`, `peft`, `trl`, `datasets`, `vLLM`, `timm`, `ultralytics`, `diffusers`, `faiss`, `lm-evaluation-harness`",
         "main project": "**`foundation-suite`** — an applied NLP assistant and an applied vision/VLM pipeline, both with eval suites and cost models",
         "final outcome": "Build, evaluate, and serve foundation-model systems with measured quality, latency, and cost — and know when not to use a foundation model."
@@ -57488,8 +57489,8 @@
       "dashboard": {
         "level": "14 — Applied ML Research Specialization",
         "difficulty": "Expert",
-        "suggested duration": "7–10 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week (plus wherever your experiments run)",
+        "suggested duration": "4–6 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Git, DVC, experiment registry, LaTeX/Markdown, arXiv, OpenReview, Hugging Face Hub",
         "main project": "**`specialist-thesis`** — a focused contribution with a public write-up, code, and eval suite",
         "final outcome": "Own a specialisation: know its literature, produce a defensible result, and release it so others can build on it."
@@ -59571,8 +59572,8 @@
       "dashboard": {
         "level": "15 — End-to-End ML Engineering and MLOps",
         "difficulty": "Advanced → Expert",
-        "suggested duration": "6–8 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "4–5 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Docker, GitHub Actions, MLflow, DVC, FastAPI, PostgreSQL, Redis, Prometheus/Grafana, OpenTelemetry, Terraform basics",
         "main project": "**`mlops-platform`** — one model, full lifecycle, operated for two weeks",
         "final outcome": "Deploy, monitor, debug, retrain, and roll back a model without heroics — with evidence for each of those verbs."
@@ -62179,8 +62180,8 @@
       "dashboard": {
         "level": "16 — ML Systems and Scalability",
         "difficulty": "Expert",
-        "suggested duration": "6–8 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–5 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Whiteboard, back-of-envelope maths, queueing intuition, your L15 build as evidence",
         "main project": "**`system-design-vault`** — three full designs plus one load-tested implementation",
         "final outcome": "Produce a complete, defensible ML system design in 45 minutes, with numbers for scale, latency, cost, and failure."
@@ -64421,8 +64422,8 @@
       "dashboard": {
         "level": "17 — Portfolio and Research Capstone",
         "difficulty": "Professional",
-        "suggested duration": "4–6 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "3–4 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "GitHub, Hugging Face Hub, a static site, Loom/OBS, `pandoc`/Markdown, LinkedIn, a resume builder",
         "main project": "**`portfolio-pack`** — three curated projects, three case studies, one flagship capstone, one site, one video",
         "final outcome": "A portfolio a stranger can evaluate in ten minutes and a hiring manager can champion in a review meeting."
@@ -66576,8 +66577,8 @@
       "dashboard": {
         "level": "18 — Interview Preparation",
         "difficulty": "Professional",
-        "suggested duration": "4–6 weeks",
-        "study commitment": "2–3 hours per day, 6 days per week",
+        "suggested duration": "2–3 weeks",
+        "study commitment": "15–18 hrs/wk (2.5 hrs/day) part-time · ~2× faster full-time (30–35 hrs/wk)",
         "core tools": "Your portfolio, a question bank, a timer, a recorder, mock partners",
         "main project": "**`interview-war-room`** — drills, story bank, question ledger, two recorded mock loops",
         "final outcome": "Pass applied-science and ML-engineer loops with prepared derivations, rehearsed designs, and measured project stories."
@@ -68916,7 +68917,7 @@
       "phaseSlug": "foundations",
       "phaseName": "Foundations",
       "difficulty": "Beginner → Intermediate",
-      "duration": "4–6 weeks",
+      "duration": "4–5 days (Capstone Build)",
       "tools": "VS Code, Git, GitHub, terminal, `pytest`",
       "subBlocks": [
         {
@@ -69275,7 +69276,7 @@
       "phaseSlug": "foundations",
       "phaseName": "Foundations",
       "difficulty": "Beginner → Intermediate",
-      "duration": "3–4 weeks",
+      "duration": "3–5 days (Capstone Build)",
       "tools": "NumPy, Pandas, Polars, DuckDB, Matplotlib, SciPy, PyTorch (tensors only)",
       "subBlocks": [
         {
@@ -69583,7 +69584,7 @@
       "phaseSlug": "foundations",
       "phaseName": "Foundations",
       "difficulty": "Intermediate",
-      "duration": "4–6 weeks",
+      "duration": "5–7 days (Capstone Build)",
       "tools": "",
       "subBlocks": [
         {
@@ -69877,7 +69878,7 @@
       "phaseSlug": "foundations",
       "phaseName": "Foundations",
       "difficulty": "Intermediate",
-      "duration": "3–5 weeks",
+      "duration": "4–6 days (Capstone Build)",
       "tools": "",
       "subBlocks": [
         {
@@ -70177,7 +70178,7 @@
       "phaseSlug": "foundations",
       "phaseName": "Foundations",
       "difficulty": "Beginner → Intermediate",
-      "duration": "1–3 weeks",
+      "duration": "1–2 weeks (Phase Integration)",
       "tools": "VS Code, Git + GitHub, terminal, `uv`, `pytest`, NumPy, Pandas, Matplotlib, Jupyter",
       "subBlocks": [
         {
@@ -70436,7 +70437,7 @@
       "phaseSlug": "core-ml",
       "phaseName": "Core ML",
       "difficulty": "Intermediate",
-      "duration": "3–4 weeks",
+      "duration": "5–7 days (Capstone Build)",
       "tools": "Pandas, Polars, DuckDB, scikit-learn (`Pipeline`, `ColumnTransformer`), Pandera/Great Expectations, DVC",
       "subBlocks": [
         {
@@ -70719,7 +70720,7 @@
       "phaseSlug": "core-ml",
       "phaseName": "Core ML",
       "difficulty": "Intermediate → Advanced",
-      "duration": "4–5 weeks",
+      "duration": "1–1.5 weeks (Capstone Build)",
       "tools": "scikit-learn, XGBoost, LightGBM, CatBoost, statsmodels, Optuna, SHAP",
       "subBlocks": [
         {
@@ -70996,7 +70997,7 @@
       "phaseSlug": "core-ml",
       "phaseName": "Core ML",
       "difficulty": "Advanced",
-      "duration": "3–5 weeks",
+      "duration": "5–7 days (Capstone Build)",
       "tools": "scikit-learn model selection, statsmodels, SciPy, `mapie` (conformal), SHAP, your L3 toolkit",
       "subBlocks": [
         {
@@ -71287,7 +71288,7 @@
       "phaseSlug": "core-ml",
       "phaseName": "Core ML",
       "difficulty": "Intermediate",
-      "duration": "1–3 weeks",
+      "duration": "1–2 weeks (Phase Integration)",
       "tools": "scikit-learn, Pandas, Polars, XGBoost, LightGBM, CatBoost, SHAP, Optuna, statsmodels",
       "subBlocks": [
         {
@@ -71552,7 +71553,7 @@
       "phaseSlug": "deep-learning",
       "phaseName": "Deep Learning",
       "difficulty": "Intermediate → Advanced",
-      "duration": "4–5 weeks",
+      "duration": "1–1.5 weeks (Capstone Build)",
       "tools": "Python, NumPy, PyTorch, Matplotlib, `einops`",
       "subBlocks": [
         {
@@ -71843,7 +71844,7 @@
       "phaseSlug": "deep-learning",
       "phaseName": "Deep Learning",
       "difficulty": "Advanced",
-      "duration": "4–5 weeks",
+      "duration": "1–1.5 weeks (Capstone Build)",
       "tools": "PyTorch, `torch.optim`, `torch.cuda.amp`, `torch.nn.parallel.DistributedDataParallel`, W&B/MLflow, `torch.profiler`",
       "subBlocks": [
         {
@@ -72165,7 +72166,7 @@
       "phaseSlug": "deep-learning",
       "phaseName": "Deep Learning",
       "difficulty": "Advanced",
-      "duration": "4–6 weeks",
+      "duration": "1–2 weeks (Capstone Build)",
       "tools": "PyTorch, `torchvision`, `timm`, `einops`, Hugging Face `transformers`, `torch.profiler`",
       "subBlocks": [
         {
@@ -72470,7 +72471,7 @@
       "phaseSlug": "deep-learning",
       "phaseName": "Deep Learning",
       "difficulty": "Intermediate → Advanced",
-      "duration": "1–3 weeks",
+      "duration": "1.5–2 weeks (Phase Integration)",
       "tools": "",
       "subBlocks": [
         {
@@ -72740,7 +72741,7 @@
       "phaseSlug": "advanced-ml",
       "phaseName": "Advanced ML & Research",
       "difficulty": "Advanced",
-      "duration": "4–5 weeks",
+      "duration": "1–1.5 weeks (Capstone Build)",
       "tools": "PyTorch, `timm`, `torchvision`, `faiss`, `scikit-learn` (probes), `umap-learn`",
       "subBlocks": [
         {
@@ -73060,7 +73061,7 @@
       "phaseSlug": "advanced-ml",
       "phaseName": "Advanced ML & Research",
       "difficulty": "Advanced",
-      "duration": "5–7 weeks",
+      "duration": "1–1.5 weeks (Capstone Build)",
       "tools": "PyTorch, `statsmodels`, `EconML`/`DoWhy`, `sktime`/`statsforecast`, `scikit-learn`, `PyMC` or `numpyro` (optional)",
       "subBlocks": [
         {
@@ -73331,7 +73332,7 @@
       "phaseSlug": "advanced-ml",
       "phaseName": "Advanced ML & Research",
       "difficulty": "Advanced",
-      "duration": "4–6 weeks",
+      "duration": "1–2 weeks (Paper Reproduction)",
       "tools": "Git, DVC, experiment tracking, LaTeX or Markdown, a reference manager, `pytest`, compute accounting",
       "subBlocks": [
         {
@@ -73673,7 +73674,7 @@
       "phaseSlug": "advanced-ml",
       "phaseName": "Advanced ML & Research",
       "difficulty": "Advanced",
-      "duration": "1–3 weeks",
+      "duration": "1.5–2 weeks (Research Sprint)",
       "tools": "PyTorch, `timm`, Hugging Face `transformers`, `scikit-learn`, `statsmodels`, PyMC/`numpyro` (optional), `DoWhy`/`EconML`, `sktime`/`statsforecast`, `wandb`",
       "subBlocks": [
         {
@@ -73944,7 +73945,7 @@
       "phaseSlug": "specialization",
       "phaseName": "Specialization",
       "difficulty": "Advanced",
-      "duration": "9–12 weeks",
+      "duration": "2–3 weeks (Flagship System Build)",
       "tools": "`transformers`, `peft`, `trl`, `datasets`, `vLLM`, `timm`, `ultralytics`, `diffusers`, `faiss`, `lm-evaluation-harness`",
       "subBlocks": [
         {
@@ -74234,7 +74235,7 @@
       "phaseSlug": "specialization",
       "phaseName": "Specialization",
       "difficulty": "Expert",
-      "duration": "7–10 weeks",
+      "duration": "2–3 weeks (Thesis Execution)",
       "tools": "Git, DVC, experiment registry, LaTeX/Markdown, arXiv, OpenReview, Hugging Face Hub",
       "subBlocks": [
         {
@@ -74547,7 +74548,7 @@
       "phaseSlug": "specialization",
       "phaseName": "Specialization",
       "difficulty": "Advanced → Expert",
-      "duration": "1–3 weeks",
+      "duration": "2–3 weeks (Specialization Thesis)",
       "tools": "Hugging Face `transformers`, `datasets`, `peft`, `trl`, `accelerate`, `vLLM`, `timm`, `ultralytics`, `segment-anything`, `diffusers`, `faiss`, Weights & Biases, `lm-evaluation-harness`",
       "subBlocks": [
         {
@@ -74790,7 +74791,7 @@
       "phaseSlug": "engineering",
       "phaseName": "Engineering",
       "difficulty": "Advanced → Expert",
-      "duration": "6–8 weeks",
+      "duration": "1.5–2 weeks (MLOps Pipeline Build)",
       "tools": "Docker, GitHub Actions, MLflow, DVC, FastAPI, PostgreSQL, Redis, Prometheus/Grafana, OpenTelemetry, Terraform basics",
       "subBlocks": [
         {
@@ -75123,7 +75124,7 @@
       "phaseSlug": "engineering",
       "phaseName": "Engineering",
       "difficulty": "Expert",
-      "duration": "6–8 weeks",
+      "duration": "1–1.5 weeks (System Design & Load Test)",
       "tools": "Whiteboard, back-of-envelope maths, queueing intuition, your L15 build as evidence",
       "subBlocks": [
         {
@@ -75414,7 +75415,7 @@
       "phaseSlug": "engineering",
       "phaseName": "Engineering",
       "difficulty": "Advanced → Expert",
-      "duration": "1–3 weeks",
+      "duration": "1.5–2 weeks (Production Integration)",
       "tools": "Docker, Kubernetes (or a managed runtime), PostgreSQL, Redis, Kafka or a queue, Terraform basics, Airflow/Dagster/Prefect, MLflow, Prometheus + Grafana, OpenTelemetry, vLLM/Triton, GitHub Actions",
       "subBlocks": [
         {
@@ -75686,7 +75687,7 @@
       "phaseSlug": "career",
       "phaseName": "Career Preparation",
       "difficulty": "Professional",
-      "duration": "4–6 weeks",
+      "duration": "1.5–2 weeks (Portfolio Packaging)",
       "tools": "GitHub, Hugging Face Hub, a static site, Loom/OBS, `pandoc`/Markdown, LinkedIn, a resume builder",
       "subBlocks": [
         {
@@ -75965,7 +75966,7 @@
       "phaseSlug": "career",
       "phaseName": "Career Preparation",
       "difficulty": "Professional",
-      "duration": "4–6 weeks",
+      "duration": "1–2 weeks (Mock Loop Sprint)",
       "tools": "Your portfolio, a question bank, a timer, a recorder, mock partners",
       "subBlocks": [
         {
@@ -76271,7 +76272,7 @@
       "phaseSlug": "career",
       "phaseName": "Career Preparation",
       "difficulty": "Professional",
-      "duration": "1–3 weeks",
+      "duration": "1–2 weeks (Launch Readiness)",
       "tools": "GitHub, Hugging Face Hub, a personal site, a video recorder, a question bank, mock-interview partners",
       "subBlocks": [
         {
