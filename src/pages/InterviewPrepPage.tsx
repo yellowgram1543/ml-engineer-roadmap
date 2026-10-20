@@ -13,6 +13,7 @@ import { RoadmapData } from '../types/roadmap';
 import { useProgressStore, computeCompletion } from '../store/useProgressStore';
 import { MinimapDots } from '../components/MinimapDots';
 import { RichText } from '../components/RichText';
+import { getQuestionHint } from '../data/interviewHints';
 
 interface InterviewPrepPageProps {
   data: RoadmapData;
@@ -52,19 +53,6 @@ const BADGE_MAP: Record<string, string> = {
   Debugging: 'bg-rose-50 text-rose-700 border-rose-200',
   Design: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   Coding: 'bg-purple-50 text-purple-700 border-purple-200',
-};
-
-const ANSWER_GUIDE_MAP: Record<string, string> = {
-  Concept:
-    '1) Define the core concept in one plain sentence · 2) State the key mathematical or mechanical intuition · 3) Give a concrete ML example · 4) Name the main assumption or failure mode.',
-  Scenario:
-    '1) Clarify the objective, constraints (latency, cost, data size) · 2) Start from the simplest baseline · 3) Compare trade-offs between 2–3 candidate approaches · 4) State how you would validate the choice with an offline/online metric.',
-  Debugging:
-    '1) Formulate ranked hypotheses (data/split leakage first, then pipeline/types, then optimiser/gradients) · 2) Describe the minimal diagnostic check to isolate each · 3) Explain the fix and the regression test that prevents recurrence.',
-  Design:
-    '1) Lock functional & non-functional requirements (p95 latency, QPS, cost/1k) · 2) Define data & feature contracts · 3) Sketch baseline → retrieval/ranking/serving architecture · 4) Cover offline/online evaluation, monitoring, and fallback.',
-  Coding:
-    '1) State input/output shapes and edge cases (empty input, NaNs, duplicates) · 2) Implement cleanly with vectorised or optimal complexity · 3) State time and space Big-O complexity · 4) Walk through a small test case by hand.',
 };
 
 export const InterviewPrepPage: React.FC<InterviewPrepPageProps> = ({ data }) => {
@@ -377,22 +365,49 @@ export const InterviewPrepPage: React.FC<InterviewPrepPageProps> = ({ data }) =>
                                     <ChevronDown className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-180" />
                                   </summary>
 
-                                  <div className="border-t border-slate-100 px-4 py-3.5 pl-14 text-xs sm:text-sm text-slate-600 bg-slate-50/40 rounded-b-2xl">
-                                    <strong className="font-semibold text-slate-900">
-                                      A strong answer covers ·{' '}
-                                    </strong>
-                                    <span>
-                                      {ANSWER_GUIDE_MAP[q.type] ||
-                                        ANSWER_GUIDE_MAP.Concept}{' '}
-                                      (Topic: <em>{grp.title}</em> in{' '}
-                                      <Link
-                                        to={`/level/${bank.levelId}`}
-                                        className="font-semibold text-[var(--phase-ac)] hover:underline"
-                                      >
-                                        {bank.levelBadge}
-                                      </Link>
-                                      ).
-                                    </span>
+                                  <div className="border-t border-slate-100 px-4 py-4 pl-14 text-xs sm:text-sm text-slate-700 bg-slate-50/50 rounded-b-2xl space-y-3">
+                                    {(() => {
+                                      const hint = getQuestionHint(
+                                        q.id,
+                                        q.question,
+                                        grp.title,
+                                        q.type,
+                                        bank.levelBadge
+                                      );
+                                      return (
+                                        <>
+                                          <div className="space-y-1.5">
+                                            <div className="font-mono-code text-[11px] font-bold uppercase tracking-wider text-[var(--phase-ac)]">
+                                              💡 Clues to Form Your Answer (Think Through These)
+                                            </div>
+                                            <ul className="list-disc pl-4 space-y-1 text-slate-700 leading-relaxed">
+                                              {hint.clues.map((c, cIdx) => (
+                                                <li key={cIdx}>
+                                                  <RichText text={c} />
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
+
+                                          <div className="rounded-xl border border-slate-200/80 bg-white px-3.5 py-2.5 text-xs text-slate-600 leading-relaxed">
+                                            <strong className="font-semibold text-slate-900">
+                                              How to structure your spoken answer ·{' '}
+                                            </strong>
+                                            <RichText text={hint.howToStructure} />{' '}
+                                            <span className="text-slate-400">
+                                              (Topic: <em>{grp.title}</em> in{' '}
+                                              <Link
+                                                to={`/level/${bank.levelId}`}
+                                                className="font-semibold text-[var(--phase-ac)] hover:underline"
+                                              >
+                                                {bank.levelBadge}
+                                              </Link>
+                                              )
+                                            </span>
+                                          </div>
+                                        </>
+                                      );
+                                    })()}
                                   </div>
                                 </details>
                               );

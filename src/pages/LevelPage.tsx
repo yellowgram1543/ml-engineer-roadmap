@@ -28,6 +28,7 @@ import { RichText } from '../components/RichText';
 import { MermaidDiagram } from '../components/MermaidDiagram';
 import { getLevelWeights, SCORE_INTERPRETATION_NOTE, ROLE_PRIORITY_PATHS } from '../data/levelWeights';
 import { PROJECT_MERMAID_CHARTS } from '../data/projectMermaidCharts';
+import { getQuestionHint } from '../data/interviewHints';
 
 interface LevelPageProps {
   data: RoadmapData;
@@ -829,56 +830,90 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                               <div className="divide-y divide-slate-100 rounded-2xl border border-slate-200 overflow-hidden">
                                 {grp.questions.map((q) => {
                                   const isQDone = !!checked[q.id];
+                                  const hint = getQuestionHint(
+                                    q.id,
+                                    q.question,
+                                    grp.title,
+                                    q.type,
+                                    level.badge === 'B' ? 'Bridge' : `L${level.badge}`
+                                  );
                                   return (
-                                    <label
+                                    <details
                                       key={q.id}
-                                      className={`flex items-start gap-3.5 px-4 py-3 cursor-pointer select-none transition-colors ${
+                                      className={`group transition-colors ${
                                         isQDone
                                           ? 'bg-slate-50/90 text-slate-400'
-                                          : 'bg-white hover:bg-slate-50/70 text-slate-800'
+                                          : 'bg-white hover:bg-slate-50/50 text-slate-800'
                                       }`}
                                     >
-                                      <input
-                                        type="checkbox"
-                                        checked={isQDone}
-                                        onChange={() => toggleItem(q.id)}
-                                        className="sr-only"
-                                      />
-                                      <span
-                                        className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-all ${
-                                          isQDone
-                                            ? 'border-[var(--phase-ac)] bg-[var(--phase-ac)] text-white'
-                                            : 'border-slate-300 bg-white'
-                                        }`}
-                                      >
-                                        {isQDone && (
-                                          <Check className="h-3.5 w-3.5 stroke-[2.75]" />
-                                        )}
-                                      </span>
+                                      <summary className="flex items-start gap-3.5 px-4 py-3 cursor-pointer select-none list-none">
+                                        <button
+                                          type="button"
+                                          aria-label={`Mark question ${q.number} as mastered`}
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            toggleItem(q.id);
+                                          }}
+                                          className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-all cursor-pointer ${
+                                            isQDone
+                                              ? 'border-[var(--phase-ac)] bg-[var(--phase-ac)] text-white'
+                                              : 'border-slate-300 bg-white hover:border-[var(--phase-ac)]'
+                                          }`}
+                                        >
+                                          {isQDone && (
+                                            <Check className="h-3.5 w-3.5 stroke-[2.75]" />
+                                          )}
+                                        </button>
 
-                                      <span className="font-mono-code text-xs font-semibold text-slate-400 w-7 shrink-0 pt-0.5">
-                                        Q{q.number}
-                                      </span>
+                                        <span className="font-mono-code text-xs font-semibold text-slate-400 w-7 shrink-0 pt-0.5">
+                                          Q{q.number}
+                                        </span>
 
-                                      <span
-                                        className={`flex-1 text-sm leading-relaxed ${
-                                          isQDone
-                                            ? 'line-through text-slate-400'
-                                            : 'text-slate-800 font-medium'
-                                        }`}
-                                      >
-                                        <RichText text={q.question} />
-                                      </span>
+                                        <span
+                                          className={`flex-1 text-sm leading-relaxed ${
+                                            isQDone
+                                              ? 'line-through text-slate-400'
+                                              : 'text-slate-800 font-medium'
+                                          }`}
+                                        >
+                                          <RichText text={q.question} />
+                                        </span>
 
-                                      <span
-                                        className={`shrink-0 rounded-md border px-2 py-0.5 font-mono-code text-[10px] font-semibold uppercase ${
-                                          QUESTION_TYPE_STYLES[q.type] ||
-                                          QUESTION_TYPE_STYLES.Concept
-                                        }`}
-                                      >
-                                        {q.type}
-                                      </span>
-                                    </label>
+                                        <span
+                                          className={`shrink-0 rounded-md border px-2 py-0.5 font-mono-code text-[10px] font-semibold uppercase ${
+                                            QUESTION_TYPE_STYLES[q.type] ||
+                                            QUESTION_TYPE_STYLES.Concept
+                                          }`}
+                                        >
+                                          {q.type}
+                                        </span>
+
+                                        <ChevronDown className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-180" />
+                                      </summary>
+
+                                      <div className="border-t border-slate-100 px-4 py-3.5 pl-14 text-xs sm:text-sm text-slate-700 bg-slate-50/60 space-y-2.5">
+                                        <div className="space-y-1">
+                                          <div className="font-mono-code text-[11px] font-bold uppercase tracking-wider text-[var(--phase-ac)]">
+                                            💡 Clues to Form Your Answer
+                                          </div>
+                                          <ul className="list-disc pl-4 space-y-1 text-slate-700 leading-relaxed">
+                                            {hint.clues.map((c, cIdx) => (
+                                              <li key={cIdx}>
+                                                <RichText text={c} />
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        </div>
+
+                                        <div className="rounded-xl border border-slate-200/80 bg-white px-3 py-2 text-xs text-slate-600 leading-relaxed">
+                                          <strong className="font-semibold text-slate-900">
+                                            How to structure your spoken answer ·{' '}
+                                          </strong>
+                                          <RichText text={hint.howToStructure} />
+                                        </div>
+                                      </div>
+                                    </details>
                                   );
                                 })}
                               </div>
