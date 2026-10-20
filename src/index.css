@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+:root {
+  --cx-font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --cx-font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --cx-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --cx-ink: #0f172a;
+  --cx-g700: #334155;
+  --cx-g600: #475569;
+  --cx-g500: #64748b;
+  --cx-g400: #94a3b8;
+  --cx-bg: #fcfcfd;
+  --cx-surface: #ffffff;
+  --cx-surface-soft: #f8fafc;
+  --cx-border: #e2e8f0;
+  --cx-border-2: #cbd5e1;
+
+  --cx-purple: #6c5ce7;
+  --cx-purple-hover: #5a4ad1;
+  --cx-purple-soft: #f3f0ff;
+  --cx-purple-br: #d0bfff;
+
+  /* Phase-specific accent tokens matching CampusX aesthetic */
+  --p-foundations-ac: #5b47e0;
+  --p-foundations-bg: #f3f1ff;
+  --p-foundations-br: #d5ceff;
+
+  --p-core-ml-ac: #0284c7;
+  --p-core-ml-bg: #f0f9ff;
+  --p-core-ml-br: #bae6fd;
+
+  --p-deep-learning-ac: #d97706;
+  --p-deep-learning-bg: #fffbeb;
+  --p-deep-learning-br: #fde68a;
+
+  --p-advanced-ml-ac: #059669;
+  --p-advanced-ml-bg: #ecfdf5;
+  --p-advanced-ml-br: #a7f3d0;
+
+  --p-specialization-ac: #db2777;
+  --p-specialization-bg: #fdf2f8;
+  --p-specialization-br: #fbcfe8;
+
+  --p-engineering-ac: #2563eb;
+  --p-engineering-bg: #eff6ff;
+  --p-engineering-br: #bfdbfe;
+
+  --p-career-ac: #7c3aed;
+  --p-career-bg: #f5f3ff;
+  --p-career-br: #ddd6fe;
+
+  --phase-ac: var(--p-foundations-ac);
+  --phase-bg: var(--p-foundations-bg);
+  --phase-br: var(--p-foundations-br);
+}
+
+[data-phase="foundations"] {
+  --phase-ac: var(--p-foundations-ac);
+  --phase-bg: var(--p-foundations-bg);
+  --phase-br: var(--p-foundations-br);
+}
+[data-phase="core-ml"] {
+  --phase-ac: var(--p-core-ml-ac);
+  --phase-bg: var(--p-core-ml-bg);
+  --phase-br: var(--p-core-ml-br);
+}
+[data-phase="deep-learning"] {
+  --phase-ac: var(--p-deep-learning-ac);
+  --phase-bg: var(--p-deep-learning-bg);
+  --phase-br: var(--p-deep-learning-br);
+}
+[data-phase="advanced-ml"] {
+  --phase-ac: var(--p-advanced-ml-ac);
+  --phase-bg: var(--p-advanced-ml-bg);
+  --phase-br: var(--p-advanced-ml-br);
+}
+[data-phase="specialization"] {
+  --phase-ac: var(--p-specialization-ac);
+  --phase-bg: var(--p-specialization-bg);
+  --phase-br: var(--p-specialization-br);
+}
+[data-phase="engineering"] {
+  --phase-ac: var(--p-engineering-ac);
+  --phase-bg: var(--p-engineering-bg);
+  --phase-br: var(--p-engineering-br);
+}
+[data-phase="career"] {
+  --phase-ac: var(--p-career-ac);
+  --phase-bg: var(--p-career-bg);
+  --phase-br: var(--p-career-br);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--cx-font-body);
+  color: var(--cx-ink);
+  background-color: var(--cx-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cx-bg);
+  color: var(--cx-ink);
+  line-height: 1.6;
+}
+
+.font-display {
+  font-family: var(--cx-font-display);
+}
+
+.font-mono-code {
+  font-family: var(--cx-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-body {
+  font-family: var(--cx-font-body);
+}
+
+/* Gradient headline text matching CampusX hero */
+.grad-text {
+  background: linear-gradient(135deg, #6c5ce7 0%, #0284c7 55%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Eyebrow pill label */
+.eyebrow {
+  font-family: var(--cx-font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--phase-ac, var(--cx-purple));
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Highlighted technical terms inside checklist items */
+.term-code {
+  font-family: var(--cx-font-mono);
+  font-size: 0.875em;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 5px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+/* Segmented progress meter matching CampusX .meter */
+.meter-track {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  width: 100%;
+}
+
+.meter-seg {
+  flex: 1 1 0;
+  min-width: 3px;
+  height: 5px;
+  border-radius: 999px;
+  background-color: var(--cx-border);
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.meter-seg.is-planned {
+  background-color: var(--phase-br);
+  opacity: 0.7;
+}
+
+.meter-seg.is-done {
+  background-color: var(--phase-ac, var(--cx-purple));
+  opacity: 1;
+}
+
+/* Custom details summary marker reset */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* KaTeX overflow scroll container */
+.katex-display-wrap {
+  overflow-x: auto;
+  padding: 0.65rem 1rem;
+  margin: 0.6rem 0;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.katex-display {
+  margin: 0 !important;
+}
