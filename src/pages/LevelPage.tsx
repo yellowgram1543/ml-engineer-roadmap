@@ -86,16 +86,15 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
   const weights = getLevelWeights(level.badge, selectedRole);
 
-  const rawDiff = (level.dashboard['difficulty'] || 'Intermediate').toLowerCase();
-  const difficultyWeightPct = rawDiff.includes('beginner') && rawDiff.includes('intermediate')
-    ? 50
-    : rawDiff.includes('beginner')
-    ? 35
-    : rawDiff.includes('intermediate') && rawDiff.includes('advanced')
-    ? 85
-    : rawDiff.includes('advanced')
-    ? 100
-    : 65;
+  const rawTools =
+    level.dashboard['core tools'] ||
+    level.dashboard['main libraries'] ||
+    level.dashboard['main frameworks'] ||
+    'Python, Git, pytest';
+  const toolTags = rawTools
+    .split(/[,·]/)
+    .map((t) => t.replace(/`/g, '').trim())
+    .filter(Boolean);
 
   return (
     <div data-phase={level.phaseSlug}>
@@ -281,33 +280,39 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
               {/* Two Dashboard Cards: Study Commitment & Core Stack */}
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs space-y-3">
+                <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs space-y-3.5">
                   <div className="flex items-center justify-between gap-2">
                     <span className="flex items-center gap-2 font-display text-sm font-bold text-slate-900">
                       <Clock className="h-4 w-4 shrink-0 text-[var(--phase-ac)]" />
                       Study Commitment &amp; Pace
                     </span>
                     <span className="shrink-0 whitespace-nowrap font-mono-code text-xs font-bold text-[var(--phase-ac)] bg-[var(--phase-bg)] border border-[var(--phase-br)] px-2.5 py-0.5 rounded-full">
-                      {level.dashboard['suggested duration'] || '4–6 weeks'}
+                      {level.dashboard['suggested duration'] || '3–4 weeks'}
                     </span>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
-                    <div
-                      className="h-full bg-[var(--phase-ac)]"
-                      style={{ width: `${difficultyWeightPct}%` }}
-                    />
+
+                  {/* Structured Pill Tags for Difficulty, Part-Time, Full-Time & Items */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--phase-br)] bg-[var(--phase-bg)]/70 px-2.5 py-1 font-mono-code text-[11px] font-bold text-[var(--phase-ac)]">
+                      Difficulty · {level.dashboard['difficulty'] || 'Intermediate'}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono-code text-[11px] font-semibold text-slate-700">
+                      Part-Time · 15–18 hrs/wk (2.5 hrs/day)
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono-code text-[11px] font-semibold text-slate-700">
+                      Full-Time · 30–35 hrs/wk (~2× faster)
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono-code text-[11px] font-medium text-slate-600">
+                      {level.checkableIds.length} checklist items
+                    </span>
                   </div>
+
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    <strong className="font-semibold text-slate-900">
-                      Difficulty: {level.dashboard['difficulty'] || 'Intermediate'}.
-                    </strong>{' '}
-                    {level.dashboard['study commitment']
-                      ? `Recommended pace: ${level.dashboard['study commitment']}.`
-                      : 'Complete each section gate before moving to the next.'}
+                    Complete every section checklist, practice task, and completion gate in order before shipping the level capstone.
                   </p>
                 </section>
 
-                <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs space-y-3">
+                <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs space-y-3.5">
                   <div className="flex items-center justify-between gap-2">
                     <span className="flex items-center gap-2 font-display text-sm font-bold text-slate-900">
                       <Wrench className="h-4 w-4 shrink-0 text-[var(--phase-ac)]" />
@@ -317,19 +322,19 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                       {level.totalSections} sections · {level.totalModules} modules
                     </span>
                   </div>
-                  <p className="text-xs font-mono-code text-slate-600 leading-relaxed break-words">
-                    Tools:{' '}
-                    <span className="text-slate-900 font-semibold">
-                      <RichText
-                        text={
-                          level.dashboard['core tools'] ||
-                          level.dashboard['main libraries'] ||
-                          level.dashboard['main frameworks'] ||
-                          'Python, Git, pytest'
-                        }
-                      />
-                    </span>
-                  </p>
+
+                  {/* Tool Stack Pill Tags */}
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {toolTags.map((tool, i) => (
+                      <span
+                        key={i}
+                        className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono-code text-[11px] font-semibold text-slate-800"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     <strong className="font-semibold text-slate-900">Final outcome:</strong>{' '}
                     <RichText
