@@ -17,18 +17,22 @@ export const ContentElementsView: React.FC<ContentElementsViewProps> = ({
   const toggleItem = useProgressStore((s) => s.toggleItem);
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
+  const qTokens = normalizedQuery ? normalizedQuery.split(/\s+/).filter(Boolean) : [];
+  const matchesTokens = (text: string) => {
+    if (qTokens.length === 0) return true;
+    const lower = text.toLowerCase();
+    return qTokens.every((t) => lower.includes(t));
+  };
 
   return (
     <div className="space-y-4">
       {elements.map((el, idx) => {
         if (el.type === 'checklist') {
-          const filteredItems = normalizedQuery
-            ? el.items.filter((item) =>
-                item.text.toLowerCase().includes(normalizedQuery)
-              )
+          const filteredItems = qTokens.length > 0
+            ? el.items.filter((item) => matchesTokens(item.text))
             : el.items;
 
-          if (filteredItems.length === 0) return null;
+          const itemsToRender = filteredItems.length > 0 ? filteredItems : el.items;
 
           const isPractice = el.groupType === 'practice';
           const isGate = el.groupType === 'gate';
@@ -45,7 +49,7 @@ export const ContentElementsView: React.FC<ContentElementsViewProps> = ({
                   : ''
               }`}
             >
-              {filteredItems.map((item) => {
+              {itemsToRender.map((item) => {
                 const isDone = !!checked[item.id];
                 return (
                   <li key={item.id}>
@@ -230,9 +234,6 @@ export const ContentElementsView: React.FC<ContentElementsViewProps> = ({
         }
 
         if (el.type === 'paragraph') {
-          if (normalizedQuery && !el.text.toLowerCase().includes(normalizedQuery)) {
-            return null;
-          }
           return (
             <p key={idx} className="text-[14.5px] leading-relaxed text-slate-600">
               <RichText text={el.text} />

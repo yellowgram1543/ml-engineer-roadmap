@@ -98,6 +98,94 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
     .map((t) => t.replace(/`/g, '').trim())
     .filter(Boolean);
 
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  // Filter sections and modules when searchQuery is active
+  const filteredSections = React.useMemo(() => {
+    if (!normalizedQuery) {
+      return level.sections.map((sec) => ({
+        section: sec,
+        sectionTitleMatched: false,
+        modules: sec.modules.map((mod) => ({
+          mod,
+          modHeaderMatched: false,
+        })),
+      }));
+    }
+
+    const qTokens = normalizedQuery.split(/\s+/);
+    const matchesAllTokens = (text: string) => {
+      const hay = text.toLowerCase();
+      return qTokens.every((t) => hay.includes(t));
+    };
+
+    const elementMatches = (el: typeof level.sections[0]['modules'][0]['elements'][0]): boolean => {
+      switch (el.type) {
+        case 'checklist':
+          return el.items.some((it) => matchesAllTokens(it.text));
+        case 'paragraph':
+        case 'callout':
+          return matchesAllTokens(el.text);
+        case 'subheading':
+          return matchesAllTokens(`${el.title} ${el.subtitle || ''}`);
+        case 'code':
+          return matchesAllTokens(`${el.lang} ${el.code}`);
+        case 'math':
+          return matchesAllTokens(el.latex);
+        case 'table':
+          return (
+            el.headers.some((h) => matchesAllTokens(h)) ||
+            el.rows.some((r) => r.some((c) => matchesAllTokens(c)))
+          );
+        case 'meta':
+          return matchesAllTokens(`${el.label} ${el.value}`);
+        default:
+          return false;
+      }
+    };
+
+    const out: {
+      section: typeof level.sections[0];
+      sectionTitleMatched: boolean;
+      modules: { mod: typeof level.sections[0]['modules'][0]; modHeaderMatched: boolean }[];
+    }[] = [];
+
+    for (const sec of level.sections) {
+      const sectionTitleMatched = matchesAllTokens(
+        `${sec.code} ${sec.title} ${sec.objective || ''}`
+      );
+
+      const matchedMods: {
+        mod: typeof level.sections[0]['modules'][0];
+        modHeaderMatched: boolean;
+      }[] = [];
+
+      for (const mod of sec.modules) {
+        const modHeaderMatched =
+          sectionTitleMatched || matchesAllTokens(`${mod.code} ${mod.title}`);
+        const hasElementMatch = mod.elements.some(elementMatches);
+        if (modHeaderMatched || hasElementMatch) {
+          matchedMods.push({ mod, modHeaderMatched });
+        }
+      }
+
+      if (matchedMods.length > 0) {
+        out.push({
+          section: sec,
+          sectionTitleMatched,
+          modules: matchedMods,
+        });
+      }
+    }
+
+    return out;
+  }, [level.sections, normalizedQuery]);
+
+  const totalMatchedModules = React.useMemo(
+    () => filteredSections.reduce((acc, s) => acc + s.modules.length, 0),
+    [filteredSections]
+  );
+
   return (
     <div data-phase={level.phaseSlug}>
       {/* ───────────────── STICKY SECONDARY MINIMAP BAR (.slnav) ───────────────── */}
@@ -448,6 +536,12 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                 <span className="font-mono-code text-xs text-slate-600 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5">
                   Level items: <strong className="text-slate-900">{levelComp.done}/{levelComp.total}</strong> ({levelComp.pct}%)
                 </span>
+
+                {normalizedQuery && (
+                  <span className="font-mono-code text-xs font-semibold text-[var(--phase-ac)] bg-[var(--phase-bg)] border border-[var(--phase-br)] rounded-lg px-2.5 py-1.5">
+                    Showing {totalMatchedModules} matching {totalMatchedModules === 1 ? 'module' : 'modules'} in {filteredSections.length} {filteredSections.length === 1 ? 'section' : 'sections'}
+                  </span>
+                )}
               </div>
 
               {/* Quick Level Actions */}
@@ -539,7 +633,24 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
               {/* Render Each Numbered Section */}
               <div className="space-y-10">
-                {level.sections.map((section, sIdx) => {
+                {filteredSections.length === 0 ? (
+                  <div className="rounded-3xl border border-slate-200 bg-white p-10 text-center space-y-3">
+                    <p className="font-display text-lg font-bold text-slate-800">
+                      No topics or modules in Level {level.badge} matched "{searchQuery}"
+                    </p>
+                    <p className="text-sm text-slate-500">
+                      Try a broader keyword or press <kbd className="rounded border border-slate-200 bg-slate-50 px-1.5 py-0.5 font-mono-code text-xs">Ctrl K</kbd> in the top navbar to search across all 20 levels.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--phase-ac)] px-4 py-2 font-mono-code text-xs font-semibold text-white hover:opacity-90 cursor-pointer"
+                    >
+                      Clear level search
+                    </button>
+                  </div>
+                ) : (
+                  filteredSections.map(({ section, modules }, sIdx) => {
                   const secComp = computeCompletion(checked, section.checkableIds);
                   const allSecDone =
                     secComp.total > 0 && secComp.done === secComp.total;
@@ -597,7 +708,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
                       {/* Modules Accordion List inside Section matching CampusX .mods / details.mod */}
                       <div className="space-y-3">
-                        {section.modules.map((mod, mIdx) => {
+                        {modules.map(({ mod, modHeaderMatched }, mIdx) => {
                           const modComp = computeCompletion(
                             checked,
                             mod.checkableIds
@@ -606,11 +717,15 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                             modComp.total > 0 ? modComp.done / modComp.total : 0;
                           const isModDone =
                             modComp.total > 0 && modComp.done === modComp.total;
+                          const isOpen =
+                            Boolean(normalizedQuery) ||
+                            expandAll ||
+                            (sIdx === 0 && mIdx === 0);
 
                           return (
                             <details
-                              key={`${mod.id}-${expandAll ? 'open' : 'closed'}`}
-                              open={expandAll || (sIdx === 0 && mIdx === 0)}
+                              key={`${mod.id}-${isOpen ? 'open' : 'closed'}`}
+                              open={isOpen}
                               className={`group rounded-2xl border transition-all ${
                                 isModDone
                                   ? 'border-emerald-200/90 bg-emerald-50/15'
@@ -691,7 +806,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
 
                                 <ContentElementsView
                                   elements={mod.elements}
-                                  searchQuery={searchQuery}
+                                  searchQuery={modHeaderMatched ? '' : searchQuery}
                                 />
                               </div>
                             </details>
@@ -700,7 +815,8 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                       </div>
                     </div>
                   );
-                })}
+                })
+                )}
               </div>
             </div>
           </section>
