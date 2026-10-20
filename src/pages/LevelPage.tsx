@@ -50,15 +50,13 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
   const checked = useProgressStore((s) => s.checked);
   const toggleItem = useProgressStore((s) => s.toggleItem);
   const setBatch = useProgressStore((s) => s.setBatch);
-  const searchQuery = useProgressStore((s) => s.searchQuery);
-  const setSearchQuery = useProgressStore((s) => s.setSearchQuery);
-  const filterStatus = useProgressStore((s) => s.filterStatus);
-  const setFilterStatus = useProgressStore((s) => s.setFilterStatus);
+  const [searchQuery, setSearchQuery] = React.useState<string>('');
 
   // Manage open state of modules for Expand All / Collapse All
   const [expandAll, setExpandAll] = React.useState<boolean>(false);
 
   React.useEffect(() => {
+    setSearchQuery('');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [levelId]);
 
@@ -354,7 +352,7 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
           {/* ───────────────── INTERACTIVE FILTER & ACTION TOOLBAR ───────────────── */}
           <section className="border-b border-slate-200 bg-slate-50/70 py-3.5">
             <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 sm:px-6">
-              {/* Search & Filter */}
+              {/* Search & Level Summary */}
               <div className="flex flex-wrap items-center gap-2.5 flex-1 min-w-[260px]">
                 <div className="relative flex-1 max-w-xs">
                   <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
@@ -362,27 +360,23 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Filter checklist items in this level..."
-                    className="w-full rounded-lg border border-slate-200 bg-white pl-8 pr-3 py-1.5 text-xs text-slate-800 placeholder:text-slate-400 focus:border-[var(--phase-ac)] focus:outline-none"
+                    placeholder="Search topics in this level..."
+                    className="w-full rounded-lg border border-slate-200 bg-white pl-8 pr-14 py-1.5 text-xs text-slate-800 placeholder:text-slate-400 focus:border-[var(--phase-ac)] focus:outline-none"
                   />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 rounded px-1.5 py-0.5 font-mono-code text-[10px] font-semibold text-slate-500 hover:bg-slate-100 hover:text-slate-800 cursor-pointer"
+                    >
+                      Clear
+                    </button>
+                  )}
                 </div>
 
-                <div className="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 text-xs font-medium">
-                  {(['all', 'todo', 'done'] as const).map((st) => (
-                    <button
-                      key={st}
-                      type="button"
-                      onClick={() => setFilterStatus(st)}
-                      className={`rounded-md px-2.5 py-1 capitalize transition-colors cursor-pointer ${
-                        filterStatus === st
-                          ? 'bg-[var(--phase-ac)] text-white font-semibold'
-                          : 'text-slate-600 hover:text-slate-900'
-                      }`}
-                    >
-                      {st === 'all' ? 'All Items' : st === 'todo' ? 'Remaining' : 'Completed'}
-                    </button>
-                  ))}
-                </div>
+                <span className="font-mono-code text-xs text-slate-600 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5">
+                  Level items: <strong className="text-slate-900">{levelComp.done}/{levelComp.total}</strong> ({levelComp.pct}%)
+                </span>
               </div>
 
               {/* Quick Level Actions */}
@@ -616,7 +610,10 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
                                   </div>
                                 )}
 
-                                <ContentElementsView elements={mod.elements} />
+                                <ContentElementsView
+                                  elements={mod.elements}
+                                  searchQuery={searchQuery}
+                                />
                               </div>
                             </details>
                           );

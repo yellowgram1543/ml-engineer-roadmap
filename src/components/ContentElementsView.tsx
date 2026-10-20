@@ -6,13 +6,15 @@ import { MathBlock, RichText } from './RichText';
 
 interface ContentElementsViewProps {
   elements: ContentElement[];
+  searchQuery?: string;
 }
 
-export const ContentElementsView: React.FC<ContentElementsViewProps> = ({ elements }) => {
+export const ContentElementsView: React.FC<ContentElementsViewProps> = ({
+  elements,
+  searchQuery = '',
+}) => {
   const checked = useProgressStore((s) => s.checked);
   const toggleItem = useProgressStore((s) => s.toggleItem);
-  const filterStatus = useProgressStore((s) => s.filterStatus);
-  const searchQuery = useProgressStore((s) => s.searchQuery);
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -20,15 +22,11 @@ export const ContentElementsView: React.FC<ContentElementsViewProps> = ({ elemen
     <div className="space-y-4">
       {elements.map((el, idx) => {
         if (el.type === 'checklist') {
-          const filteredItems = el.items.filter((item) => {
-            const isChecked = !!checked[item.id];
-            if (filterStatus === 'done' && !isChecked) return false;
-            if (filterStatus === 'todo' && isChecked) return false;
-            if (normalizedQuery && !item.text.toLowerCase().includes(normalizedQuery)) {
-              return false;
-            }
-            return true;
-          });
+          const filteredItems = normalizedQuery
+            ? el.items.filter((item) =>
+                item.text.toLowerCase().includes(normalizedQuery)
+              )
+            : el.items;
 
           if (filteredItems.length === 0) return null;
 
