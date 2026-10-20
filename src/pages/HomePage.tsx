@@ -21,6 +21,7 @@ import { useProgressStore, computeCompletion } from '../store/useProgressStore';
 import { MinimapDots } from '../components/MinimapDots';
 import { SegmentedMeter } from '../components/SegmentedMeter';
 import { RichText } from '../components/RichText';
+import { PhaseMasteryDrawer } from '../components/PhaseMasteryDrawer';
 import {
   getLevelWeights,
   ROLE_PRIORITY_PATHS,
@@ -551,6 +552,9 @@ export const HomePage: React.FC<HomePageProps> = ({ data }) => {
                         <ArrowRight className="h-4 w-4 text-[var(--phase-ac)] shrink-0 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     )}
+
+                    {/* Phase Final Assessment Gate & Formula / Pitfalls Playbook Drawer */}
+                    <PhaseMasteryDrawer phase={phase} />
                   </div>
                 </section>
               );

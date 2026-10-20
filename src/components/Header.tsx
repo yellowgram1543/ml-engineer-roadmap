@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { GitCommitHorizontal, Download, Upload, RotateCcw, CheckCircle2 } from 'lucide-react';
+import { GitCommitHorizontal, Download, Upload, RotateCcw, CheckCircle2, Search } from 'lucide-react';
 import { RoadmapData } from '../types/roadmap';
 import { useProgressStore, computeCompletion } from '../store/useProgressStore';
+import { CommandPaletteModal } from './CommandPaletteModal';
 
 interface HeaderProps {
   data: RoadmapData;
@@ -15,6 +16,18 @@ export const Header: React.FC<HeaderProps> = ({ data }) => {
   const resetAll = useProgressStore((s) => s.resetAll);
   const importProgress = useProgressStore((s) => s.importProgress);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const [searchOpen, setSearchOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   const allIds = React.useMemo(
     () => data.phases.flatMap((p) => p.checkableIds),
@@ -117,8 +130,21 @@ export const Header: React.FC<HeaderProps> = ({ data }) => {
             </Link>
           </nav>
 
-          {/* Global Completion Pill & Backup Actions */}
+          {/* Global Search Trigger + Completion Pill & Backup Actions */}
           <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              title="Search entire roadmap (Ctrl+K)"
+              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/90 px-3 py-1.5 text-xs font-mono-code text-slate-600 hover:border-[#6c5ce7] hover:text-[#6c5ce7] transition-colors cursor-pointer"
+            >
+              <Search className="h-3.5 w-3.5 text-[#6c5ce7]" />
+              <span className="hidden sm:inline">Search</span>
+              <kbd className="hidden md:inline rounded border border-slate-200 bg-white px-1.5 py-0.2 text-[10px] font-semibold text-slate-400">
+                Ctrl K
+              </kbd>
+            </button>
+
             <div
               className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-mono-code text-slate-700 shadow-2xs"
               title={`${overall.done} of ${overall.total} total checklist items completed`}
@@ -170,6 +196,12 @@ export const Header: React.FC<HeaderProps> = ({ data }) => {
           </div>
         </div>
       </div>
+
+      <CommandPaletteModal
+        data={data}
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
     </header>
   );
 };

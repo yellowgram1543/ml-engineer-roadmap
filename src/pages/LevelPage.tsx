@@ -26,6 +26,7 @@ import { SegmentedMeter } from '../components/SegmentedMeter';
 import { ContentElementsView } from '../components/ContentElementsView';
 import { RichText } from '../components/RichText';
 import { MermaidDiagram } from '../components/MermaidDiagram';
+import { PhaseMasteryDrawer } from '../components/PhaseMasteryDrawer';
 import { getLevelWeights, SCORE_INTERPRETATION_NOTE, ROLE_PRIORITY_PATHS } from '../data/levelWeights';
 import { PROJECT_MERMAID_CHARTS } from '../data/projectMermaidCharts';
 import { getQuestionHint } from '../data/interviewHints';
@@ -966,6 +967,16 @@ export const LevelPage: React.FC<LevelPageProps> = ({ data }) => {
               </div>
             </section>
           )}
+
+          {/* ───────────────── PHASE FINAL GATE & PLAYBOOK ON LAST LEVEL OF PHASE ───────────────── */}
+          {phase &&
+            phase.levels[phase.levels.length - 1]?.id === level.id && (
+              <section className="py-6 sm:py-8">
+                <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                  <PhaseMasteryDrawer phase={phase} />
+                </div>
+              </section>
+            )}
 
           {/* ───────────────── BOTTOM LEVEL NAVIGATION (.lnav) ───────────────── */}
           <section className="pt-8">
