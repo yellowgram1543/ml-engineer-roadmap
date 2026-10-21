@@ -752,7 +752,10 @@ function buildRoadmapData() {
   };
 
   for (const pf of phaseFiles) {
-    const filePath = path.join(rootDir, pf.file);
+    let filePath = path.join(rootDir, pf.file);
+    if (!fs.existsSync(filePath)) {
+      filePath = path.join(rootDir, 'ml files', pf.file);
+    }
     const content = fs.readFileSync(filePath, 'utf-8').replace(/\r\n/g, '\n');
     const lines = content.split('\n');
 

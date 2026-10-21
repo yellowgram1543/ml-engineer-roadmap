@@ -50,9 +50,56 @@
   --p-career-bg: #f5f3ff;
   --p-career-br: #ddd6fe;
 
+  /* DSA Phase tokens */
+  --p-dsa-a-ac: #059669;
+  --p-dsa-a-bg: #ecfdf5;
+  --p-dsa-a-br: #a7f3d0;
+
+  --p-dsa-b-ac: #0284c7;
+  --p-dsa-b-bg: #f0f9ff;
+  --p-dsa-b-br: #bae6fd;
+
+  --p-dsa-c-ac: #7c3aed;
+  --p-dsa-c-bg: #f5f3ff;
+  --p-dsa-c-br: #ddd6fe;
+
+  --p-dsa-d-ac: #ea580c;
+  --p-dsa-d-bg: #fff7ed;
+  --p-dsa-d-br: #fed7aa;
+
+  --p-dsa-e-ac: #e11d48;
+  --p-dsa-e-bg: #fff1f2;
+  --p-dsa-e-br: #fecdd3;
+
   --phase-ac: var(--p-foundations-ac);
   --phase-bg: var(--p-foundations-bg);
   --phase-br: var(--p-foundations-br);
+}
+
+[data-phase="phase-a"] {
+  --phase-ac: var(--p-dsa-a-ac);
+  --phase-bg: var(--p-dsa-a-bg);
+  --phase-br: var(--p-dsa-a-br);
+}
+[data-phase="phase-b"] {
+  --phase-ac: var(--p-dsa-b-ac);
+  --phase-bg: var(--p-dsa-b-bg);
+  --phase-br: var(--p-dsa-b-br);
+}
+[data-phase="phase-c"] {
+  --phase-ac: var(--p-dsa-c-ac);
+  --phase-bg: var(--p-dsa-c-bg);
+  --phase-br: var(--p-dsa-c-br);
+}
+[data-phase="phase-d"] {
+  --phase-ac: var(--p-dsa-d-ac);
+  --phase-bg: var(--p-dsa-d-bg);
+  --phase-br: var(--p-dsa-d-br);
+}
+[data-phase="phase-e"] {
+  --phase-ac: var(--p-dsa-e-ac);
+  --phase-bg: var(--p-dsa-e-bg);
+  --phase-br: var(--p-dsa-e-br);
 }
 
 [data-phase="foundations"] {

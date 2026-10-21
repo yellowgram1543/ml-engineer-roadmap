@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "parse": "node scripts/parse-roadmap.mjs",
+    "parse": "node scripts/parse-roadmap.mjs && node scripts/parse-dsa-roadmap.mjs",
     "dev": "npm run parse && vite",
     "build": "npm run parse && tsc -b && vite build",
     "lint": "eslint .",
