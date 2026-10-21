@@ -489,6 +489,19 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
           </div>
         )}
 
+        {/* ───────────────── DETAILED GUIDE & LLD SPECIFICATIONS (PHASE E) ───────────────── */}
+        {currentBlock.elements && currentBlock.elements.length > 0 && currentBlock.phaseId === 'phase-e' && (
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs space-y-6">
+            <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <BookOpen className="h-5 w-5 text-emerald-600" />
+              <h2 className="font-display text-lg font-bold text-slate-900">
+                Detailed Guide &amp; Architecture Specifications
+              </h2>
+            </div>
+            <DsaContentElementsView elements={currentBlock.elements} />
+          </div>
+        )}
+
         {/* ───────────────── COMPLETION GATE ───────────────── */}
         {currentBlock.gate && (
           <div className="rounded-2xl border border-emerald-300 bg-emerald-50/60 p-6 shadow-xs space-y-4">

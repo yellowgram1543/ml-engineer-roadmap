@@ -339,6 +339,179 @@ tail.next = None              # always terminate explicitly
 return dummy.next
 ```
 
+### 2.17 Kadane's algorithm — maximum subarray
+
+```python
+def max_subarray(nums):
+    max_so_far = cur_sum = nums[0]
+    for x in nums[1:]:
+        cur_sum = max(x, cur_sum + x)      # extend or restart
+        max_so_far = max(max_so_far, cur_sum)
+    return max_so_far
+```
+
+**Variant — return subarray boundaries [start, end]:**
+
+```python
+def max_subarray_indices(nums):
+    max_so_far = cur_sum = nums[0]
+    start = end = cur_start = 0
+    for i, x in enumerate(nums[1:], 1):
+        if x > cur_sum + x:
+            cur_sum = x
+            cur_start = i
+        else:
+            cur_sum += x
+        if cur_sum > max_so_far:
+            max_so_far = cur_sum
+            start, end = cur_start, i
+    return max_so_far, start, end
+```
+
+### 2.18 Prefix sum + hash map — subarray sum equals k
+
+```python
+def subarray_sum(nums, k):
+    count = {0: 1}                         # base: empty prefix has sum 0
+    cur_sum = 0
+    ans = 0
+    for x in nums:
+        cur_sum += x
+        ans += count.get(cur_sum - k, 0)   # how many prefixes sum to (cur_sum - k)
+        count[cur_sum] = count.get(cur_sum, 0) + 1
+    return ans
+```
+
+**Variant — longest subarray with sum k (store earliest index):**
+
+```python
+def longest_subarray_sum(nums, k):
+    earliest = {0: -1}
+    cur_sum = 0
+    max_len = 0
+    for i, x in enumerate(nums):
+        cur_sum += x
+        if (cur_sum - k) in earliest:
+            max_len = max(max_len, i - earliest[cur_sum - k])
+        if cur_sum not in earliest:        # only record first occurrence
+            earliest[cur_sum] = i
+    return max_len
+```
+
+### 2.19 Fast & slow pointers — Floyd's cycle detection
+
+```python
+def detect_cycle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:                   # cycle detected
+            # find cycle entry
+            entry = head
+            while entry != slow:
+                entry = entry.next
+                slow = slow.next
+            return entry
+    return None                            # no cycle
+```
+
+### 2.20 Quickselect — kth largest element in O(n) average
+
+```python
+import random
+
+def find_kth_largest(nums, k):
+    target = len(nums) - k                 # kth largest = target-th index sorted
+
+    def select(l, r):
+        pivot_idx = random.randint(l, r)
+        nums[pivot_idx], nums[r] = nums[r], nums[pivot_idx]
+        pivot = nums[r]
+        p = l
+        for i in range(l, r):
+            if nums[i] <= pivot:
+                nums[p], nums[i] = nums[i], nums[p]
+                p += 1
+        nums[p], nums[r] = nums[r], nums[p]
+        if p == target:
+            return nums[p]
+        elif p < target:
+            return select(p + 1, r)
+        else:
+            return select(l, p - 1)
+
+    return select(0, len(nums) - 1)
+```
+
+### 2.21 LRU Cache — O(1) get & put
+
+```python
+class Node:
+    def __init__(self, key=0, val=0):
+        self.key, self.val = key, val
+        self.prev = self.next = None
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cap = capacity
+        self.cache = {}                    # key -> Node
+        self.head, self.tail = Node(), Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def _remove(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+
+    def _add_front(self, node):
+        node.next = self.head.next
+        node.prev = self.head
+        self.head.next.prev = node
+        self.head.next = node
+
+    def get(self, key: int) -> int:
+        if key not in self.cache:
+            return -1
+        node = self.cache[key]
+        self._remove(node)
+        self._add_front(node)              # mark most recently used
+        return node.val
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self._remove(self.cache[key])
+        node = Node(key, value)
+        self.cache[key] = node
+        self._add_front(node)
+        if len(self.cache) > self.cap:
+            lru = self.tail.prev           # evict least recently used
+            self._remove(lru)
+            del self.cache[lru.key]
+```
+
+### 2.22 2D Dynamic programming — Longest Common Subsequence
+
+```python
+def lcs(text1, text2):
+    m, n = len(text1), len(text2)
+    # Space-optimized 1D rolling array: O(min(m, n)) space
+    if m < n:
+        text1, text2 = text2, text1
+        m, n = n, m
+    dp = [0] * (n + 1)
+    for i in range(1, m + 1):
+        prev = 0                           # represents dp[i-1][j-1]
+        for j in range(1, n + 1):
+            temp = dp[j]
+            if text1[i - 1] == text2[j - 1]:
+                dp[j] = prev + 1
+            else:
+                dp[j] = max(dp[j], dp[j - 1])
+            prev = temp
+    return dp[n]
+```
+
 ---
 
 ## 3 — Complexity reference

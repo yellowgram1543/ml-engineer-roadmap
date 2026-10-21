@@ -27,12 +27,12 @@
 
 ### The structure of a set
 
-| Set type | Format | Purpose |
-|---|---|---|
-| **A · Pattern set** | 3 problems, 60 min, same pattern | Speed within a known shape |
-| **B · Mixed set** | 2 problems, 45 min, no topic hint | Recognition under uncertainty |
-| **C · Hard set** | 1 problem, 45 min | Depth and recovery |
-| **D · Blind set** | 2 problems, 45 min, unseen titles | Real conditions |
+| Set type | Format | Purpose | Curated problem set |
+|---|---|---|---|
+| **A · Pattern set** | 3 problems, 60 min | Speed within a known shape | 1. Longest Substring Without Repeating (15m) · 2. 3Sum (20m) · 3. Minimum Window Substring (25m) |
+| **B · Mixed set** | 2 problems, 45 min | Recognition under uncertainty | 1. Course Schedule II (20m) · 2. Lowest Common Ancestor of Binary Tree (25m) |
+| **C · Hard set** | 1 problem, 45 min | Depth, recovery & narration | Trapping Rain Water or Alien Dictionary (45m) |
+| **D · Blind set** | 2 problems, 45 min | Real screen conditions | 1. Word Break (20m) · 2. Clone Graph (25m) |
 
 Run one set per session. Four sets across four days, in the order A → B → D → C.
 
@@ -105,7 +105,205 @@ For an OOD question, never start with classes. Start with requirements.
 | 6 · Concurrency | What is shared, what lock, what the lock protects | 5 min |
 | 7 · Test scenarios | Walk one use case end to end through your classes | 5 min |
 
-**The six designs to have sketched once each:** parking lot, elevator, rate limiter, Splitwise-style ledger, a logging library, and a chess/board game. You need one clean sketch each — not memorisation, just the entity list.
+### The six low-level designs to master
+
+#### 1 · Rate Limiter (Token Bucket & Sliding Window)
+
+- **Requirements:** Limit user requests to $C$ requests per second/minute. Return HTTP 429 when exceeded. Must be thread-safe for high concurrency.
+- **Entities:** `TokenBucket`, `RateLimiterService`, `RateLimitRule`.
+- **Patterns:** Strategy Pattern (interchangeable Token Bucket vs Sliding Window Log), Factory Pattern for rule configuration.
+- **Concurrency:** `threading.Lock()` per user bucket to prevent race conditions during token replenishment.
+
+```python
+import time
+import threading
+
+class TokenBucket:
+    def __init__(self, capacity: int, refill_rate: float):
+        self.capacity = capacity
+        self.refill_rate = refill_rate  # tokens per second
+        self.tokens = capacity
+        self.last_refill = time.time()
+        self.lock = threading.Lock()
+
+    def allow_request(self, tokens_needed: int = 1) -> bool:
+        with self.lock:
+            now = time.time()
+            elapsed = now - self.last_refill
+            self.tokens = min(self.capacity, self.tokens + elapsed * self.refill_rate)
+            self.last_refill = now
+            if self.tokens >= tokens_needed:
+                self.tokens -= tokens_needed
+                return True
+            return False
+```
+
+#### 2 · LRU / LFU Cache
+
+- **Requirements:** $O(1)$ `get(key)` and $O(1)$ `put(key, value)`. When capacity is reached, evict the least recently used (LRU) or least frequently used (LFU) item.
+- **Entities:** `Node` (key, val, freq, prev, next), `DoublyLinkedList`, `LRUCache`.
+- **Patterns:** Sentinel pattern (dummy head & tail to eliminate null pointer checks).
+
+```python
+class DNode:
+    def __init__(self, k=0, v=0):
+        self.k, self.v = k, v
+        self.prev = self.next = None
+
+class LRUCache:
+    def __init__(self, cap: int):
+        self.cap, self.map = cap, {}
+        self.head, self.tail = DNode(), DNode()
+        self.head.next, self.tail.prev = self.tail, self.head
+
+    def _remove(self, n):
+        n.prev.next, n.next.prev = n.next, n.prev
+
+    def _insert_front(self, n):
+        n.next, n.prev = self.head.next, self.head
+        self.head.next.prev = n
+        self.head.next = n
+
+    def get(self, k: int) -> int:
+        if k not in self.map: return -1
+        n = self.map[k]
+        self._remove(n); self._insert_front(n)
+        return n.v
+
+    def put(self, k: int, v: int) -> None:
+        if k in self.map: self._remove(self.map[k])
+        n = DNode(k, v)
+        self.map[k] = n; self._insert_front(n)
+        if len(self.map) > self.cap:
+            lru = self.tail.prev
+            self._remove(lru); del self.map[lru.k]
+```
+
+#### 3 · Multi-Floor Parking Lot
+
+- **Requirements:** Multiple floors with spots for Motorcycles, Compact Cars, and Large Trucks. Assign nearest spot upon entry. Compute fee based on vehicle type and duration.
+- **Entities:** `Vehicle` (`Motorcycle`, `Car`, `Truck`), `ParkingSpot` (`Compact`, `Large`, `Handicapped`), `ParkingFloor`, `ParkingLot`, `Ticket`.
+- **Patterns:** Strategy Pattern for parking fee calculation (`FlatRateStrategy`, `HourlyRateStrategy`), Singleton Pattern for `ParkingLot` management instance.
+
+```python
+from enum import Enum
+import time
+
+class VehicleType(Enum):
+    MOTORCYCLE = 1
+    CAR = 2
+    TRUCK = 3
+
+class ParkingSpot:
+    def __init__(self, spot_id: str, spot_type: VehicleType, floor: int):
+        self.spot_id = spot_id
+        self.spot_type = spot_type
+        self.floor = floor
+        self.is_occupied = False
+        self.vehicle = None
+
+    def assign(self, vehicle):
+        self.is_occupied = True
+        self.vehicle = vehicle
+
+    def vacate(self):
+        self.is_occupied = False
+        self.vehicle = None
+
+class Ticket:
+    def __init__(self, ticket_id: str, spot: ParkingSpot, vehicle):
+        self.ticket_id = ticket_id
+        self.spot = spot
+        self.vehicle = vehicle
+        self.entry_time = time.time()
+```
+
+#### 4 · Elevator Controller System
+
+- **Requirements:** Manage $N$ elevator cars in an $M$-floor building. Dispatch cars to service hall calls (up/down) and internal car destination calls with minimum wait time.
+- **Entities:** `Elevator`, `Direction` (`UP`, `DOWN`, `IDLE`), `Request`, `ElevatorController`.
+- **Patterns:** State Pattern for elevator movement transitions, LOOK/SCAN disk-scheduling heuristic (service all requests in current direction before reversing).
+
+```python
+from enum import Enum
+import heapq
+
+class Direction(Enum):
+    UP = 1
+    DOWN = -1
+    IDLE = 0
+
+class Elevator:
+    def __init__(self, elevator_id: int):
+        self.id = elevator_id
+        self.current_floor = 0
+        self.direction = Direction.IDLE
+        self.up_stops = []      # min-heap
+        self.down_stops = []    # max-heap (negated)
+
+    def add_destination(self, floor: int):
+        if floor > self.current_floor:
+            heapq.heappush(self.up_stops, floor)
+        elif floor < self.current_floor:
+            heapq.heappush(self.down_stops, -floor)
+```
+
+#### 5 · Splitwise Expense Sharing Ledger
+
+- **Requirements:** Users add expenses shared across a group. Support splits: Equal, Exact amounts, or Percentages. Simplify debts so minimal transactions settle balances.
+- **Entities:** `User`, `Expense`, `Split` (`EqualSplit`, `ExactSplit`, `PercentSplit`), `ExpenseManager`.
+- **Algorithm:** Minimum Cash Flow problem (Greedy / Max-Heap + Min-Heap matching largest debtor with largest creditor).
+
+```python
+class User:
+    def __init__(self, user_id: str, name: str):
+        self.id = user_id
+        self.name = name
+
+class ExpenseManager:
+    def __init__(self):
+        # balance_sheet[u1][u2] = amount u1 owes u2
+        self.balances = {}
+
+    def add_expense(self, paid_by: str, amount: float, splits: dict[str, float]):
+        for user_id, share in splits.items():
+            if user_id == paid_by: continue
+            self.balances.setdefault(user_id, {})
+            self.balances[user_id][paid_by] = self.balances[user_id].get(paid_by, 0.0) + share
+```
+
+#### 6 · Chess / Board Game System
+
+- **Requirements:** 2-player turn-based board. 8x8 grid. Move validation per piece (King, Queen, Rook, Bishop, Knight, Pawn). Check / Checkmate detection.
+- **Entities:** `Piece` (abstract `can_move`), `Board`, `Move`, `Player`, `GameStatus` (`ACTIVE`, `CHECK`, `CHECKMATE`, `STALEMATE`), `Game`.
+- **Patterns:** Command Pattern for moves (enables undo/replay), Observer Pattern for notifying check/checkmate events.
+
+```python
+class Piece:
+    def __init__(self, color: str):
+        self.color = color  # 'white' or 'black'
+
+    def is_valid_move(self, board, start, end) -> bool:
+        raise NotImplementedError
+
+class Board:
+    def __init__(self):
+        self.grid = [[None for _ in range(8)] for _ in range(8)]
+        self._initialize_pieces()
+
+    def _initialize_pieces(self):
+        # Place standard 32 pieces
+        pass
+
+    def move_piece(self, start: tuple, end: tuple) -> bool:
+        sr, sc = start
+        piece = self.grid[sr][sc]
+        if piece and piece.is_valid_move(self, start, end):
+            self.grid[end[0]][end[1]] = piece
+            self.grid[sr][sc] = None
+            return True
+        return False
+```
 
 ### Behavioural — six stories, eight lines each
 
@@ -160,12 +358,12 @@ Prepare exactly six stories in STAR form. They cover ~90% of behavioural questio
 
 Four rounds, 45 minutes each, with breaks. Ideally with a different person per round.
 
-| Round | Content | Score out of 5 |
-|---|---|---|
-| **1 · Coding** | One medium, unseen, full narration | |
-| **2 · Coding** | One medium or hard with a follow-up twist | |
-| **3 · ML/systems** | ML theory + one ML system design, or an LLD design | |
-| **4 · Behavioural** | Three stories + "why us" | |
+| Round | Focus & Curated Challenge | Target Behavior & Pass Standard | Score (1-5) |
+|---|---|---|---|
+| **1 · Coding** | *LRU Cache* or *Number of Islands* (Medium) | State complexity in first 3 min; continuous narration; zero syntax errors | 4 / 5 |
+| **2 · Coding + Twist** | *Course Schedule II* with twist: "print all cycle nodes if impossible" | Smooth recovery when twist introduced; explain invariant changes out loud | 4 / 5 |
+| **3 · Specialist** | **SDE:** LLD *Rate Limiter* / *Parking Lot* · **ML:** *k-means from scratch* or *RecSys Design* | State trade-offs before choosing architecture; handle concurrency and latency SLOs | 4 / 5 |
+| **4 · Behavioural** | 3 STAR stories (*Technical challenge*, *Failure*, *Disagreement*) | Strict 90s limit per story; specific first-person action; quantifiable business result | 4 / 5 |
 
 **Graduation bar:** total ≥ 14/20 with no round below 3. Below that, do not start applying — do another two weeks of targeted work. A failed real interview costs more than a delayed application.
 
