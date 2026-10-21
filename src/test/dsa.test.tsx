@@ -131,4 +131,24 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
     expect(screen.getByText(/Switch Active Roadmap Track/i)).toBeInTheDocument();
     expect(screen.getByText(/DSA \+ Interview Engineering/i)).toBeInTheDocument();
   });
+
+  it('renders Checkpoints page with interactive Weakness Ledger and allows logging problems', () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/checkpoints']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole('heading', { name: /Checkpoints & Weakness Ledger/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Interactive Weakness Ledger/i)
+    ).toBeInTheDocument();
+
+    const logButton = screen.getByRole('button', { name: /Log Failed Problem/i });
+    fireEvent.click(logButton);
+
+    expect(screen.getByText(/Log a Problem to Re-Solve/i)).toBeInTheDocument();
+  });
 });

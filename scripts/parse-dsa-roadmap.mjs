@@ -135,6 +135,26 @@ function parseContentElements(lines, idPrefix, allCheckableIds) {
       continue;
     }
 
+    // Subheadings (### or ####)
+    if (trimmed.startsWith('### ') || trimmed.startsWith('#### ')) {
+      const isH4 = trimmed.startsWith('#### ');
+      const title = trimmed.replace(/^#{3,4}\s+/, '').trim();
+      elements.push({
+        type: 'subheading',
+        variant: isH4 ? 'group' : 'practice',
+        title,
+        subtitle: null,
+      });
+      i++;
+      continue;
+    }
+
+    // Skip redundant Format paragraph if present
+    if (trimmed.startsWith('**Format.**')) {
+      i++;
+      continue;
+    }
+
     // Checklist or bullet list
     if (trimmed.startsWith('- [ ]') || trimmed.startsWith('- [x]') || trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
       const items = [];

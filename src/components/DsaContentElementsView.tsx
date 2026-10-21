@@ -1,5 +1,18 @@
 import React from 'react';
-import { Check, Sparkles, Terminal, ShieldCheck, Info, Copy, CheckCheck } from 'lucide-react';
+import {
+  Check,
+  Sparkles,
+  Terminal,
+  ShieldCheck,
+  Info,
+  Copy,
+  CheckCheck,
+  HelpCircle,
+  Eye,
+  EyeOff,
+  Table as TableIcon,
+  Layers,
+} from 'lucide-react';
 import { ContentElement } from '../types/roadmap';
 import { useDsaProgressStore } from '../store/useDsaProgressStore';
 import { MathBlock, RichText } from './RichText';
@@ -16,6 +29,15 @@ export const DsaContentElementsView: React.FC<DsaContentElementsViewProps> = ({
   const checked = useDsaProgressStore((s) => s.checked);
   const toggleItem = useDsaProgressStore((s) => s.toggleItem);
   const [copiedIdx, setCopiedIdx] = React.useState<number | null>(null);
+
+  // Per-table drill reveal states
+  const [revealedRows, setRevealedRows] = React.useState<Record<string, boolean>>({});
+  // Per-table view mode ('table' vs 'drill')
+  const [drillViewMap, setDrillViewMap] = React.useState<Record<number, boolean>>({});
+
+  const toggleRowReveal = (key: string) => {
+    setRevealedRows((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   const copyCode = (code: string, idx: number) => {
     navigator.clipboard.writeText(code);
@@ -97,30 +119,17 @@ export const DsaContentElementsView: React.FC<DsaContentElementsViewProps> = ({
         }
 
         if (el.type === 'subheading') {
-          const isPractice = el.variant === 'practice';
           return (
-            <div key={idx} className="pt-2">
+            <div key={idx} className="pt-6 pb-2 border-b border-slate-200 mb-3 mt-4">
               <div className="flex items-center gap-2">
-                {isPractice ? (
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-100/80 px-2.5 py-0.5 font-mono-code text-[11px] font-semibold uppercase tracking-wider text-amber-800 border border-amber-200">
-                    <Sparkles className="h-3 w-3" />
-                    Practice
-                  </span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2.5 py-0.5 font-mono-code text-[11px] font-semibold uppercase tracking-wider text-slate-700 border border-slate-200">
-                    <Terminal className="h-3 w-3" />
-                    Core
-                  </span>
-                )}
-                <h4 className="font-display text-base font-bold text-slate-900">
+                <span className="inline-flex items-center gap-1 rounded-md bg-sky-100 text-sky-800 px-2 py-0.5 font-mono-code text-[11px] font-bold uppercase tracking-wider border border-sky-200">
+                  <Terminal className="h-3 w-3" />
+                  Section
+                </span>
+                <h4 className="font-display text-base sm:text-lg font-bold text-slate-900">
                   <RichText text={el.title} />
                 </h4>
               </div>
-              {el.subtitle && (
-                <p className="mt-1 text-xs text-slate-500 font-mono-code">
-                  <RichText text={el.subtitle} />
-                </p>
-              )}
             </div>
           );
         }
@@ -161,30 +170,129 @@ export const DsaContentElementsView: React.FC<DsaContentElementsViewProps> = ({
         }
 
         if (el.type === 'table') {
+          const isQnaTable =
+            el.headers.some((h) => /question/i.test(h)) &&
+            el.headers.some((h) => /answer/i.test(h));
+          const isDrillMode = !!drillViewMap[idx];
+
+          const qIdx = el.headers.findIndex((h) => /question/i.test(h));
+          const aIdx = el.headers.findIndex((h) => /answer/i.test(h));
+          const numIdx = el.headers.findIndex((h) => /^#$/i.test(h.trim()));
+
           return (
-            <div key={idx} className="my-3 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-xs">
-              <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
-                <thead className="bg-slate-50 text-xs uppercase tracking-wider text-slate-600 font-mono-code">
-                  <tr>
-                    {el.headers.map((h, hIdx) => (
-                      <th key={hIdx} className="px-4 py-3 font-semibold">
-                        <RichText text={h} />
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 bg-white text-slate-700 font-sans">
-                  {el.rows.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-slate-50/60 transition-colors">
-                      {row.map((cell, cIdx) => (
-                        <td key={cIdx} className="px-4 py-2.5 text-[13.5px] leading-snug">
-                          <RichText text={cell} />
-                        </td>
+            <div key={idx} className="my-4 space-y-3">
+              {/* Optional Table/Drill view switcher for Q&A tables */}
+              {isQnaTable && (
+                <div className="flex items-center justify-between bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl text-xs">
+                  <div className="flex items-center gap-1.5 font-semibold text-slate-700">
+                    <HelpCircle className="h-4 w-4 text-sky-600" />
+                    <span>Q&amp;A Interview Drill ({el.rows.length} questions)</span>
+                  </div>
+                  <div className="flex items-center gap-1 bg-white border border-slate-200 p-0.5 rounded-lg">
+                    <button
+                      type="button"
+                      onClick={() => setDrillViewMap((m) => ({ ...m, [idx]: false }))}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold transition ${
+                        !isDrillMode ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <TableIcon className="h-3 w-3" />
+                      <span>Table</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDrillViewMap((m) => ({ ...m, [idx]: true }))}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold transition ${
+                        isDrillMode ? 'bg-sky-600 text-white' : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <Eye className="h-3 w-3" />
+                      <span>Flashcard Drill</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {isQnaTable && isDrillMode ? (
+                /* Interactive Flashcard / Drill Cards */
+                <div className="space-y-3">
+                  {el.rows.map((row, rIdx) => {
+                    const rowKey = `${idx}-${rIdx}`;
+                    const isRevealed = !!revealedRows[rowKey];
+                    const qText = qIdx >= 0 ? row[qIdx] : row[0];
+                    const aText = aIdx >= 0 ? row[aIdx] : row[1];
+                    const qNum = numIdx >= 0 ? row[numIdx] : String(rIdx + 1);
+
+                    return (
+                      <div
+                        key={rIdx}
+                        className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs hover:border-slate-300 transition"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="text-sm font-semibold text-slate-900 leading-snug">
+                            <span className="font-mono-code text-xs text-sky-700 mr-2 font-bold">
+                              #{qNum}.
+                            </span>
+                            <RichText text={qText} />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => toggleRowReveal(rowKey)}
+                            className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 transition"
+                          >
+                            {isRevealed ? (
+                              <>
+                                <EyeOff className="h-3.5 w-3.5" />
+                                <span>Hide</span>
+                              </>
+                            ) : (
+                              <>
+                                <Eye className="h-3.5 w-3.5" />
+                                <span>Reveal</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
+
+                        {isRevealed && (
+                          <div className="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-[13.5px] text-emerald-950 bg-emerald-50/60 p-3 rounded-lg leading-relaxed animate-in fade-in duration-150 font-sans">
+                            <strong className="text-[11px] font-mono-code uppercase text-emerald-800 tracking-wider block mb-1">
+                              Model Answer / Key Points:
+                            </strong>
+                            <RichText text={aText} />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                /* Compact Markdown Table */
+                <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-xs">
+                  <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
+                    <thead className="bg-slate-50 text-xs uppercase tracking-wider text-slate-600 font-mono-code">
+                      <tr>
+                        {el.headers.map((h, hIdx) => (
+                          <th key={hIdx} className="px-4 py-3 font-semibold">
+                            <RichText text={h} />
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 bg-white text-slate-700 font-sans">
+                      {el.rows.map((row, rIdx) => (
+                        <tr key={rIdx} className="hover:bg-slate-50/60 transition-colors">
+                          {row.map((cell, cIdx) => (
+                            <td key={cIdx} className="px-4 py-2.5 text-[13.5px] leading-snug">
+                              <RichText text={cell} />
+                            </td>
+                          ))}
+                        </tr>
                       ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           );
         }

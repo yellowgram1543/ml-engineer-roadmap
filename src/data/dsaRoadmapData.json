@@ -403,8 +403,10 @@
               "text": "**Objective.** Restrict yourself to a deliberate subset of Python and know its costs. Interview code fails on syntax and on complexity assumptions, not on ideas."
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -468,8 +470,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -505,8 +509,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice tasks"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice tasks",
+              "subtitle": null
             },
             {
               "type": "paragraph",
@@ -786,8 +792,10 @@
               "text": "**Objective.** Own in-place manipulation and the opposite-ends two-pointer pattern. This is the highest-frequency block in screening rounds."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — opposite-ends two pointers"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — opposite-ends two pointers",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -820,8 +828,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -870,8 +880,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -907,8 +919,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -1213,8 +1227,10 @@
               "text": "**Objective.** Convert \"find X while scanning\" into O(1) lookups. Hashing is the single most reusable idea in screening interviews."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — hash map and hash set"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — hash map and hash set",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -1264,8 +1280,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -1314,8 +1332,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -1351,8 +1371,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -1641,8 +1663,10 @@
               "text": "**Objective.** Master the variable-width window — the pattern with the highest ratio of interview frequency to conceptual difficulty."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — sliding window"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — sliding window",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -1681,8 +1705,10 @@
               "checkId": null
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -1731,8 +1757,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -1768,8 +1796,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2068,8 +2098,10 @@
               "text": "**Objective.** Turn range queries into O(1) and contiguous-subarray problems into a single pass."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2113,8 +2145,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -2163,8 +2197,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2200,8 +2236,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2516,8 +2554,10 @@
               "text": "**Objective.** Never hand-roll a bisection again. One template, four variants, and the discipline to prove the invariant before coding."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — binary search"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — binary search",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2555,8 +2595,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -2610,8 +2652,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2651,8 +2695,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2957,8 +3003,10 @@
               "text": "**Objective.** Know what `sort` costs, implement merge and quickselect, and own the interval pattern that appears in every scheduling-flavoured question."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — intervals"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — intervals",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -2996,8 +3044,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -3051,8 +3101,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -3088,8 +3140,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -3380,8 +3434,10 @@
               "text": "**Objective.** Handle the string problems that are not hashing or windows: palindromes, pattern matching, and parsing."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -3419,8 +3475,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -3474,8 +3532,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -3511,8 +3571,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -4095,8 +4157,10 @@
               "text": "**Objective.** Pointer surgery with no index safety net. Every bug here is a lost reference or a wrong order of assignment."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — linked list"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — linked list",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -4144,8 +4208,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -4199,8 +4265,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -4236,8 +4304,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -4583,8 +4653,10 @@
               "text": "**Objective.** Use a stack whenever the answer depends on \"the most recent unresolved thing\" — and recognise the monotonic-stack family on sight."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — monotonic stack"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — monotonic stack",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -4633,8 +4705,10 @@
               "checkId": null
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -4688,8 +4762,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -4725,8 +4801,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5026,8 +5104,10 @@
               "text": "**Objective.** Recognise when \"shortest\" implies BFS, and use a monotonic deque for the window-maximum family."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5065,8 +5145,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -5110,8 +5192,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5143,8 +5227,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5452,8 +5538,10 @@
               "text": "**Objective.** Stop sorting when you only need the top k. Recognise the \"streaming + order\" signal that says heap."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — heap"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — heap",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5496,8 +5584,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -5551,8 +5641,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5588,8 +5680,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5938,8 +6032,10 @@
               "text": "**Objective.** The most-tested topic after arrays. Own four traversals, recursive and iterative, and the return-value discipline that makes tree recursion mechanical."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — tree recursion"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — tree recursion",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -5982,8 +6078,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -6042,8 +6140,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -6079,8 +6179,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -6419,8 +6521,10 @@
               "text": "**Objective.** Exploit the ordering invariant, and know exactly when a BST degrades to a linked list."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — BST"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — BST",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -6463,8 +6567,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -6518,8 +6624,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -6555,8 +6663,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -6876,8 +6986,10 @@
               "text": "**Objective.** One recursion template that generates every combination, permutation, and subset — with correct duplicate handling."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — backtracking"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — backtracking",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -6921,8 +7033,10 @@
               "checkId": null
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -6976,8 +7090,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -7013,8 +7129,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -7570,8 +7688,10 @@
               "text": "**Objective.** Add the last two data-structure tools: a prefix tree for string search, and the harder backtracking variants where the pruning *is* the problem."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — trie"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — trie",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -7609,8 +7729,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -7664,8 +7786,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -7701,8 +7825,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -8059,8 +8185,10 @@
               "text": "**Objective.** The core of the phase. Build the graph, choose the traversal, and know the six signals that map a problem statement to an algorithm."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — choosing the traversal"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — choosing the traversal",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -8113,8 +8241,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -8183,8 +8313,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -8224,8 +8356,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -8558,8 +8692,10 @@
               "text": "**Objective.** The structure that makes connectivity questions trivial, plus the two MST algorithms an SDE interview occasionally asks about."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — DSU"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — DSU",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -8597,8 +8733,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -8657,8 +8795,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -8694,8 +8834,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -9010,8 +9152,10 @@
               "text": "**Objective.** Pick the right shortest-path algorithm from the edge weights — the exact question an interviewer asks to separate people who memorised Dijkstra from people who understand it."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — shortest paths"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — shortest paths",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -9061,8 +9205,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -9121,8 +9267,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -9158,8 +9306,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -9536,8 +9686,10 @@
               "text": "**Objective.** Justify greedy choices with an exchange argument, and add the bit tricks that turn O(n) space into O(1)."
             },
             {
-              "type": "paragraph",
-              "text": "### Pattern card — greedy and bits"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Pattern card — greedy and bits",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -9622,8 +9774,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Learn — checklist"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Learn — checklist",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -9682,8 +9836,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Concept drill"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Concept drill",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -9719,8 +9875,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Practice ladder"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice ladder",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -10936,8 +11094,10 @@
               "text": "**Objective.** Rebuild speed on problems you already know the pattern for, then on problems you do not."
             },
             {
-              "type": "paragraph",
-              "text": "### The structure of a set"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "The structure of a set",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -10974,8 +11134,10 @@
               "text": "Run one set per session. Four sets across four days, in the order A → B → D → C."
             },
             {
-              "type": "paragraph",
-              "text": "### The coding-round script"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "The coding-round script",
+              "subtitle": null
             },
             {
               "type": "paragraph",
@@ -11043,8 +11205,10 @@
               "checkId": null
             },
             {
-              "type": "paragraph",
-              "text": "### Practice tasks"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Practice tasks",
+              "subtitle": null
             },
             {
               "type": "checklist",
@@ -11105,8 +11269,10 @@
               "text": "**Objective.** Get observed. Self-practice hides the habits that only appear when someone is watching."
             },
             {
-              "type": "paragraph",
-              "text": "### Mock schedule"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Mock schedule",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -11139,8 +11305,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Scoring rubric — use it on yourself and on your mockers"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Scoring rubric — use it on yourself and on your mockers",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -11200,8 +11368,10 @@
               "text": "**Pass:** every dimension ≥ 3, with at least two at 4 or above."
             },
             {
-              "type": "paragraph",
-              "text": "### Low-level design — the framework"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Low-level design — the framework",
+              "subtitle": null
             },
             {
               "type": "paragraph",
@@ -11257,8 +11427,10 @@
               "text": "**The six designs to have sketched once each:** parking lot, elevator, rate limiter, Splitwise-style ledger, a logging library, and a chess/board game. You need one clean sketch each — not memorisation, just the entity list."
             },
             {
-              "type": "paragraph",
-              "text": "### Behavioural — six stories, eight lines each"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Behavioural — six stories, eight lines each",
+              "subtitle": null
             },
             {
               "type": "paragraph",
@@ -11405,8 +11577,10 @@
               "text": "**Objective.** Simulate the real thing once, fully, then close the gaps it exposes."
             },
             {
-              "type": "paragraph",
-              "text": "### Day-by-day"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Day-by-day",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -11444,8 +11618,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### The simulated loop — Day 98"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "The simulated loop — Day 98",
+              "subtitle": null
             },
             {
               "type": "paragraph",
@@ -11486,8 +11662,10 @@
               "text": "**Graduation bar:** total ≥ 14/20 with no round below 3. Below that, do not start applying — do another two weeks of targeted work. A failed real interview costs more than a delayed application."
             },
             {
-              "type": "paragraph",
-              "text": "### The weakness report — write it on Day 96"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "The weakness report — write it on Day 96",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -11519,8 +11697,10 @@
               ]
             },
             {
-              "type": "paragraph",
-              "text": "### Negotiation, in one page"
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Negotiation, in one page",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -11661,12 +11841,10 @@
         "format": "45–60 minutes, shared editor or whiteboard, **no scikit-learn**, usually \"implement X from scratch\" where X is a standard algorithm. Libraries allowed: NumPy at most. The interviewer is checking mathematical fluency and vectorisation, not API recall.",
         "elements": [
           {
-            "type": "paragraph",
-            "text": "**Format.** 45–60 minutes, shared editor or whiteboard, **no scikit-learn**, usually \"implement X from scratch\" where X is a standard algorithm. Libraries allowed: NumPy at most. The interviewer is checking mathematical fluency and vectorisation, not API recall."
-          },
-          {
-            "type": "paragraph",
-            "text": "### 1.1 The twelve you must be able to write"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "1.1 The twelve you must be able to write",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -11752,8 +11930,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 1.2 The AUC formula worth memorising"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "1.2 The AUC formula worth memorising",
+            "subtitle": null
           },
           {
             "type": "paragraph",
@@ -11776,8 +11956,10 @@
             "text": "**Follow-ups they will ask:** What is AUC when the classes are perfectly separable? (1.0.) What is it for a constant predictor? (0.5.) Why is AUC a poor choice under heavy class imbalance for a decision? (It is threshold-free and global; precision at a fixed recall is what the business needs.)"
           },
           {
-            "type": "paragraph",
-            "text": "### 1.3 Adam, written out"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "1.3 Adam, written out",
+            "subtitle": null
           },
           {
             "type": "math",
@@ -11792,8 +11974,10 @@
             "text": "**The question behind the question:** why bias correction? (Because $m_0 = 0$ biases early estimates toward zero, and the $1-\\beta^t$ factor exactly cancels that.)"
           },
           {
-            "type": "paragraph",
-            "text": "### 1.4 Numerical-stability points that earn marks"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "1.4 Numerical-stability points that earn marks",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -11829,8 +12013,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 1.5 The interview loop for an ML coding question"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "1.5 The interview loop for an ML coding question",
+            "subtitle": null
           },
           {
             "type": "checklist",
@@ -11869,8 +12055,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### Practice tasks"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "Practice tasks",
+            "subtitle": null
           },
           {
             "type": "checklist",
@@ -11926,12 +12114,10 @@
         "format": "30–45 minutes, 4–8 queries, escalating. Usually a schema is given and you write queries; occasionally you are asked to design the schema first.",
         "elements": [
           {
-            "type": "paragraph",
-            "text": "**Format.** 30–45 minutes, 4–8 queries, escalating. Usually a schema is given and you write queries; occasionally you are asked to design the schema first."
-          },
-          {
-            "type": "paragraph",
-            "text": "### 2.1 The ten patterns"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "2.1 The ten patterns",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -11994,8 +12180,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 2.2 The one query you will be asked"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "2.2 The one query you will be asked",
+            "subtitle": null
           },
           {
             "type": "callout",
@@ -12013,8 +12201,10 @@
             "text": "**Follow-ups:** Why `ROW_NUMBER` and not `RANK`? (RANK returns ties, which duplicates rows.) What if you need the *second* most recent? (`rn = 2`.) What if two orders share a timestamp? (Add a deterministic tiebreaker — that is why `order_id` is in the `ORDER BY`.)"
           },
           {
-            "type": "paragraph",
-            "text": "### 2.3 Execution-order facts that separate candidates"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "2.3 Execution-order facts that separate candidates",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -12050,8 +12240,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 2.4 Practice set — 10 queries, 45 minutes"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "2.4 Practice set — 10 queries, 45 minutes",
+            "subtitle": null
           },
           {
             "type": "checklist",
@@ -12136,10 +12328,6 @@
         "title": "ML theory, rapid-fire",
         "format": "20–40 short questions, answered verbally, 30–60 seconds each. Graded on correctness plus the ability to name a tradeoff.",
         "elements": [
-          {
-            "type": "paragraph",
-            "text": "**Format.** 20–40 short questions, answered verbally, 30–60 seconds each. Graded on correctness plus the ability to name a tradeoff."
-          },
           {
             "type": "table",
             "headers": [
@@ -12351,8 +12539,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### Practice method"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "Practice method",
+            "subtitle": null
           },
           {
             "type": "paragraph",
@@ -12557,8 +12747,10 @@
             "text": "This section decides more applied-scientist offers than any algorithm question. Interviewers test whether you can design a trustworthy experiment."
           },
           {
-            "type": "paragraph",
-            "text": "### 5.1 The design checklist"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "5.1 The design checklist",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -12606,8 +12798,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 5.2 Sample size"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "5.2 Sample size",
+            "subtitle": null
           },
           {
             "type": "math",
@@ -12626,8 +12820,10 @@
             "text": "**Say this out loud:** \"For 80% power at $\\alpha = 0.05$, $z_{1-\\alpha/2} + z_{1-\\beta} \\approx 1.96 + 0.84 = 2.80$.\" Then plug in."
           },
           {
-            "type": "paragraph",
-            "text": "### 5.3 The five questions you will be asked"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "5.3 The five questions you will be asked",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -12659,8 +12855,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 5.4 CUPED in one paragraph"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "5.4 CUPED in one paragraph",
+            "subtitle": null
           },
           {
             "type": "paragraph",
@@ -12675,8 +12873,10 @@
             "text": "This removes the part of the variance explained by the pre-period, shrinking the required sample size by roughly $1 - \\rho^2$. It changes nothing about the estimand — only the variance."
           },
           {
-            "type": "paragraph",
-            "text": "### 5.5 Metric design"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "5.5 Metric design",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -12726,12 +12926,10 @@
         "format": "45–60 minutes. \"Design a system that does X.\" The interviewer scores structure, not completeness.",
         "elements": [
           {
-            "type": "paragraph",
-            "text": "**Format.** 45–60 minutes. \"Design a system that does X.\" The interviewer scores structure, not completeness."
-          },
-          {
-            "type": "paragraph",
-            "text": "### 6.1 The seven-step frame"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "6.1 The seven-step frame",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -12784,8 +12982,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 6.2 Two designs to have rehearsed"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "6.2 Two designs to have rehearsed",
+            "subtitle": null
           },
           {
             "type": "paragraph",
@@ -12919,8 +13119,10 @@
             "text": "Two rounds' worth of material. Rapid-fire, one line each."
           },
           {
-            "type": "paragraph",
-            "text": "### 7.1 Operating systems"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "7.1 Operating systems",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -12972,8 +13174,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 7.2 Databases"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "7.2 Databases",
+            "subtitle": null
           },
           {
             "type": "table",
@@ -13025,8 +13229,10 @@
             ]
           },
           {
-            "type": "paragraph",
-            "text": "### 7.3 Networking"
+            "type": "subheading",
+            "variant": "practice",
+            "title": "7.3 Networking",
+            "subtitle": null
           },
           {
             "type": "table",

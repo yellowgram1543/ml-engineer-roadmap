@@ -335,6 +335,14 @@ export const DsaHomePage: React.FC<DsaHomePageProps> = ({ data }) => {
                         <strong className="font-semibold text-slate-800">Phase Goal:</strong> {phase.goal}
                       </p>
                     )}
+
+                    {phase.code === 'D' && (
+                      <div className="mt-3 p-3 rounded-xl bg-amber-50/80 border border-amber-200/80 text-xs text-amber-900 flex items-center justify-between">
+                        <span>
+                          <strong>Note:</strong> Phase D curriculum is synthesized from the master schedule. If you add <code className="font-mono-code bg-amber-100 px-1 py-0.5 rounded">part-04-days-63-82.md</code>, running <code className="font-mono-code bg-amber-100 px-1 py-0.5 rounded">npm run parse</code> will hydrate all custom problem cards.
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Blocks Grid */}

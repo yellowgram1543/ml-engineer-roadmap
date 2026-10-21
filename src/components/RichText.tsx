@@ -27,10 +27,27 @@ export function MathBlock({ latex }: { latex: string }) {
 export function RichText({ text, className = '' }: { text: string; className?: string }) {
   const tokens = React.useMemo(() => {
     if (!text) return [];
-    // Split by inline math $...$, inline code `...`, bold **...**, italic *...*
-    const regex = /(\$\$[^$]+\$\$|\$[^$\n]+\$|`[^`]+`|\*\*[^*]+\*\*|\*[^*\n]+\*)/g;
+    // Split by inline math $...$, inline code `...`, bold **...**, italic *...*, and markdown links [text](url)
+    const regex = /(\$\$[^$]+\$\$|\$[^$\n]+\$|`[^`]+`|\*\*[^*]+\*\*|\*[^*\n]+\*|\[[^\]]+\]\([^)]+\))/g;
     const parts = text.split(regex);
     return parts.filter(Boolean).map((part, index) => {
+      // Markdown link [label](url)
+      if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+        const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (linkMatch) {
+          return (
+            <a
+              key={index}
+              href={linkMatch[2]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-600 hover:text-emerald-700 underline font-medium inline-flex items-center gap-0.5"
+            >
+              <span>{linkMatch[1]}</span>
+            </a>
+          );
+        }
+      }
       if (part.startsWith('$$') && part.endsWith('$$') && part.length > 4) {
         const math = part.slice(2, -2);
         try {
