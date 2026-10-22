@@ -5,10 +5,10 @@
     "targets": "SDE (Generalist) · ML Engineer · Applied Scientist",
     "totalPhases": 5,
     "totalBlocks": 31,
-    "totalCheckables": 515,
-    "totalProblems": 240,
+    "totalCheckables": 525,
+    "totalProblems": 269,
     "totalDrills": 135,
-    "totalPatterns": 16
+    "totalPatterns": 22
   },
   "dailyLoop": [
     {
@@ -11068,21 +11068,72 @@
           "patternCards": [],
           "checklist": [],
           "conceptDrill": [],
-          "practiceLadder": [],
-          "practiceTasks": [
+          "practiceLadder": [
             {
-              "id": "block-e1-task-1",
-              "text": "Record four sets with screen + voice. Watch them at 1.5×. You are looking for: filler silence longer than 10 seconds, unstated assumptions, and any moment you typed without saying why."
+              "id": "block-e1-ladder-1",
+              "tier": "Medium",
+              "problem": "Longest Substring Without Repeating Characters (LC 3)",
+              "cue": "Set A · Sliding window with hash map",
+              "target": "15 min"
             },
             {
-              "id": "block-e1-task-2",
-              "text": "For each set, write the one sentence you *should* have said at minute 6."
+              "id": "block-e1-ladder-2",
+              "tier": "Medium",
+              "problem": "3Sum (LC 15)",
+              "cue": "Set A · Two pointers on sorted array",
+              "target": "20 min"
             },
             {
-              "id": "block-e1-task-3",
-              "text": "Time-box strictly. If a set overruns, that is data, not failure."
+              "id": "block-e1-ladder-3",
+              "tier": "Hard",
+              "problem": "Minimum Window Substring (LC 76)",
+              "cue": "Set A · Sliding window frequency counter",
+              "target": "25 min"
+            },
+            {
+              "id": "block-e1-ladder-4",
+              "tier": "Medium",
+              "problem": "Course Schedule II (LC 210)",
+              "cue": "Set B · Kahn's topological sort",
+              "target": "20 min"
+            },
+            {
+              "id": "block-e1-ladder-5",
+              "tier": "Medium",
+              "problem": "Lowest Common Ancestor of a Binary Tree (LC 236)",
+              "cue": "Set B · Postorder tree traversal",
+              "target": "25 min"
+            },
+            {
+              "id": "block-e1-ladder-6",
+              "tier": "Hard",
+              "problem": "Trapping Rain Water (LC 42)",
+              "cue": "Set C · Two pointers max-left/max-right",
+              "target": "30 min"
+            },
+            {
+              "id": "block-e1-ladder-7",
+              "tier": "Hard",
+              "problem": "Alien Dictionary (LC 269)",
+              "cue": "Set C · Graph build + topological sort",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e1-ladder-8",
+              "tier": "Medium",
+              "problem": "Word Break (LC 139)",
+              "cue": "Set D · 1D DP with dictionary set",
+              "target": "20 min"
+            },
+            {
+              "id": "block-e1-ladder-9",
+              "tier": "Medium",
+              "problem": "Clone Graph (LC 133)",
+              "cue": "Set D · BFS / DFS hash map copy",
+              "target": "25 min"
             }
           ],
+          "practiceTasks": [],
           "gate": {
             "id": "block-e1-gate",
             "title": "Gate E1",
@@ -11137,6 +11188,77 @@
             {
               "type": "paragraph",
               "text": "Run one set per session. Four sets across four days, in the order A → B → D → C."
+            },
+            {
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Timed practice ladder",
+              "subtitle": null
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Tier",
+                "Problem",
+                "Cue / Pattern",
+                "Target"
+              ],
+              "rows": [
+                [
+                  "Medium",
+                  "Longest Substring Without Repeating Characters (LC 3)",
+                  "Set A · Sliding window with hash map",
+                  "15 min"
+                ],
+                [
+                  "Medium",
+                  "3Sum (LC 15)",
+                  "Set A · Two pointers on sorted array",
+                  "20 min"
+                ],
+                [
+                  "Hard",
+                  "Minimum Window Substring (LC 76)",
+                  "Set A · Sliding window frequency counter",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Course Schedule II (LC 210)",
+                  "Set B · Kahn's topological sort",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Lowest Common Ancestor of a Binary Tree (LC 236)",
+                  "Set B · Postorder tree traversal",
+                  "25 min"
+                ],
+                [
+                  "Hard",
+                  "Trapping Rain Water (LC 42)",
+                  "Set C · Two pointers max-left/max-right",
+                  "30 min"
+                ],
+                [
+                  "Hard",
+                  "Alien Dictionary (LC 269)",
+                  "Set C · Graph build + topological sort",
+                  "35 min"
+                ],
+                [
+                  "Medium",
+                  "Word Break (LC 139)",
+                  "Set D · 1D DP with dictionary set",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Clone Graph (LC 133)",
+                  "Set D · BFS / DFS hash map copy",
+                  "25 min"
+                ]
+              ]
             },
             {
               "type": "subheading",
@@ -11212,7 +11334,7 @@
             {
               "type": "subheading",
               "variant": "practice",
-              "title": "Practice tasks",
+              "title": "Simulation execution tasks",
               "subtitle": null
             },
             {
@@ -11220,19 +11342,19 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e1-item-1",
+                  "id": "block-e1-chk-1",
                   "text": "Record four sets with screen + voice. Watch them at 1.5×. You are looking for: filler silence longer than 10 seconds, unstated assumptions, and any moment you typed without saying why.",
-                  "kind": "bullet"
+                  "kind": "checklist"
                 },
                 {
-                  "id": "block-e1-item-2",
+                  "id": "block-e1-chk-2",
                   "text": "For each set, write the one sentence you *should* have said at minute 6.",
-                  "kind": "bullet"
+                  "kind": "checklist"
                 },
                 {
-                  "id": "block-e1-item-3",
+                  "id": "block-e1-chk-3",
                   "text": "Time-box strictly. If a set overruns, that is data, not failure.",
-                  "kind": "bullet"
+                  "kind": "checklist"
                 }
               ]
             },
@@ -11244,9 +11366,15 @@
             }
           ],
           "checkableIds": [
-            "block-e1-task-1",
-            "block-e1-task-2",
-            "block-e1-task-3",
+            "block-e1-ladder-1",
+            "block-e1-ladder-2",
+            "block-e1-ladder-3",
+            "block-e1-ladder-4",
+            "block-e1-ladder-5",
+            "block-e1-ladder-6",
+            "block-e1-ladder-7",
+            "block-e1-ladder-8",
+            "block-e1-ladder-9",
             "block-e1-gate"
           ]
         },
@@ -11261,7 +11389,78 @@
           "patternCards": [],
           "checklist": [],
           "conceptDrill": [],
-          "practiceLadder": [],
+          "practiceLadder": [
+            {
+              "id": "block-e2-ladder-1",
+              "tier": "Medium",
+              "problem": "LLD 1 — Token Bucket Rate Limiter",
+              "cue": "Sliding window + token bucket with thread safety",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e2-ladder-2",
+              "tier": "Hard",
+              "problem": "LLD 2 — LRU / LFU In-Memory Cache",
+              "cue": "Doubly linked list + freq-buckets with O(1) eviction",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e2-ladder-3",
+              "tier": "Medium",
+              "problem": "LLD 3 — Multi-Floor Parking Lot System",
+              "cue": "Vehicle hierarchy, spot allocation & fee strategy",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e2-ladder-4",
+              "tier": "Hard",
+              "problem": "LLD 4 — Elevator Controller Dispatcher",
+              "cue": "LOOK/SCAN heuristic + heap scheduling",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e2-ladder-5",
+              "tier": "Medium",
+              "problem": "LLD 5 — Splitwise Expense Sharing System",
+              "cue": "Balance sheet graph + minimum cash flow algorithm",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e2-ladder-6",
+              "tier": "Hard",
+              "problem": "LLD 6 — Chess / Board Game Engine Model",
+              "cue": "Command pattern, board state & move validation",
+              "target": "35 min"
+            },
+            {
+              "id": "block-e2-ladder-7",
+              "tier": "Medium",
+              "problem": "Mock Round 1 — Peer Coding Medium",
+              "cue": "Observed single medium with live scoring rubric",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e2-ladder-8",
+              "tier": "Hard",
+              "problem": "Mock Round 2 — Coding with Follow-up Twist",
+              "cue": "Medium problem + invariant-breaking twist",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e2-ladder-9",
+              "tier": "Hard",
+              "problem": "Mock Round 3 — Solo Camera-On Hard",
+              "cue": "Hard problem under camera with continuous narration",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e2-ladder-10",
+              "tier": "Hard",
+              "problem": "Mock Round 4 — Senior Engineer Deep-Dive",
+              "cue": "System architecture + project STAR deep-dive",
+              "target": "60 min"
+            }
+          ],
           "practiceTasks": [],
           "gate": {
             "id": "block-e2-gate",
@@ -11272,6 +11471,83 @@
             {
               "type": "paragraph",
               "text": "**Objective.** Get observed. Self-practice hides the habits that only appear when someone is watching."
+            },
+            {
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Timed practice ladder",
+              "subtitle": null
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Tier",
+                "Problem",
+                "Cue / Pattern",
+                "Target"
+              ],
+              "rows": [
+                [
+                  "Medium",
+                  "LLD 1 — Token Bucket Rate Limiter",
+                  "Sliding window + token bucket with thread safety",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "LLD 2 — LRU / LFU In-Memory Cache",
+                  "Doubly linked list + freq-buckets with O(1) eviction",
+                  "35 min"
+                ],
+                [
+                  "Medium",
+                  "LLD 3 — Multi-Floor Parking Lot System",
+                  "Vehicle hierarchy, spot allocation & fee strategy",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "LLD 4 — Elevator Controller Dispatcher",
+                  "LOOK/SCAN heuristic + heap scheduling",
+                  "35 min"
+                ],
+                [
+                  "Medium",
+                  "LLD 5 — Splitwise Expense Sharing System",
+                  "Balance sheet graph + minimum cash flow algorithm",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "LLD 6 — Chess / Board Game Engine Model",
+                  "Command pattern, board state & move validation",
+                  "35 min"
+                ],
+                [
+                  "Medium",
+                  "Mock Round 1 — Peer Coding Medium",
+                  "Observed single medium with live scoring rubric",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Mock Round 2 — Coding with Follow-up Twist",
+                  "Medium problem + invariant-breaking twist",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Mock Round 3 — Solo Camera-On Hard",
+                  "Hard problem under camera with continuous narration",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Mock Round 4 — Senior Engineer Deep-Dive",
+                  "System architecture + project STAR deep-dive",
+                  "60 min"
+                ]
+              ]
             },
             {
               "type": "subheading",
@@ -11444,22 +11720,22 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e2-item-1",
+                  "id": "block-e2-bullet-1",
                   "text": "**Requirements:** Limit user requests to $C$ requests per second/minute. Return HTTP 429 when exceeded. Must be thread-safe for high concurrency.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-2",
+                  "id": "block-e2-bullet-2",
                   "text": "**Entities:** `TokenBucket`, `RateLimiterService`, `RateLimitRule`.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-3",
+                  "id": "block-e2-bullet-3",
                   "text": "**Patterns:** Strategy Pattern (interchangeable Token Bucket vs Sliding Window Log), Factory Pattern for rule configuration.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-4",
+                  "id": "block-e2-bullet-4",
                   "text": "**Concurrency:** `threading.Lock()` per user bucket to prevent race conditions during token replenishment.",
                   "kind": "bullet"
                 }
@@ -11481,17 +11757,17 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e2-item-5",
+                  "id": "block-e2-bullet-5",
                   "text": "**Requirements:** $O(1)$ `get(key)` and $O(1)$ `put(key, value)`. When capacity is reached, evict the least recently used (LRU) or least frequently used (LFU) item.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-6",
+                  "id": "block-e2-bullet-6",
                   "text": "**Entities:** `Node` (key, val, freq, prev, next), `DoublyLinkedList`, `LRUCache`.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-7",
+                  "id": "block-e2-bullet-7",
                   "text": "**Patterns:** Sentinel pattern (dummy head & tail to eliminate null pointer checks).",
                   "kind": "bullet"
                 }
@@ -11513,17 +11789,17 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e2-item-8",
+                  "id": "block-e2-bullet-8",
                   "text": "**Requirements:** Multiple floors with spots for Motorcycles, Compact Cars, and Large Trucks. Assign nearest spot upon entry. Compute fee based on vehicle type and duration.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-9",
+                  "id": "block-e2-bullet-9",
                   "text": "**Entities:** `Vehicle` (`Motorcycle`, `Car`, `Truck`), `ParkingSpot` (`Compact`, `Large`, `Handicapped`), `ParkingFloor`, `ParkingLot`, `Ticket`.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-10",
+                  "id": "block-e2-bullet-10",
                   "text": "**Patterns:** Strategy Pattern for parking fee calculation (`FlatRateStrategy`, `HourlyRateStrategy`), Singleton Pattern for `ParkingLot` management instance.",
                   "kind": "bullet"
                 }
@@ -11545,17 +11821,17 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e2-item-11",
+                  "id": "block-e2-bullet-11",
                   "text": "**Requirements:** Manage $N$ elevator cars in an $M$-floor building. Dispatch cars to service hall calls (up/down) and internal car destination calls with minimum wait time.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-12",
+                  "id": "block-e2-bullet-12",
                   "text": "**Entities:** `Elevator`, `Direction` (`UP`, `DOWN`, `IDLE`), `Request`, `ElevatorController`.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-13",
+                  "id": "block-e2-bullet-13",
                   "text": "**Patterns:** State Pattern for elevator movement transitions, LOOK/SCAN disk-scheduling heuristic (service all requests in current direction before reversing).",
                   "kind": "bullet"
                 }
@@ -11577,17 +11853,17 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e2-item-14",
+                  "id": "block-e2-bullet-14",
                   "text": "**Requirements:** Users add expenses shared across a group. Support splits: Equal, Exact amounts, or Percentages. Simplify debts so minimal transactions settle balances.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-15",
+                  "id": "block-e2-bullet-15",
                   "text": "**Entities:** `User`, `Expense`, `Split` (`EqualSplit`, `ExactSplit`, `PercentSplit`), `ExpenseManager`.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-16",
+                  "id": "block-e2-bullet-16",
                   "text": "**Algorithm:** Minimum Cash Flow problem (Greedy / Max-Heap + Min-Heap matching largest debtor with largest creditor).",
                   "kind": "bullet"
                 }
@@ -11609,17 +11885,17 @@
               "groupType": "study",
               "items": [
                 {
-                  "id": "block-e2-item-17",
+                  "id": "block-e2-bullet-17",
                   "text": "**Requirements:** 2-player turn-based board. 8x8 grid. Move validation per piece (King, Queen, Rook, Bishop, Knight, Pawn). Check / Checkmate detection.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-18",
+                  "id": "block-e2-bullet-18",
                   "text": "**Entities:** `Piece` (abstract `can_move`), `Board`, `Move`, `Player`, `GameStatus` (`ACTIVE`, `CHECK`, `CHECKMATE`, `STALEMATE`), `Game`.",
                   "kind": "bullet"
                 },
                 {
-                  "id": "block-e2-item-19",
+                  "id": "block-e2-bullet-19",
                   "text": "**Patterns:** Command Pattern for moves (enables undo/replay), Observer Pattern for notifying check/checkmate events.",
                   "kind": "bullet"
                 }
@@ -11685,6 +11961,16 @@
             }
           ],
           "checkableIds": [
+            "block-e2-ladder-1",
+            "block-e2-ladder-2",
+            "block-e2-ladder-3",
+            "block-e2-ladder-4",
+            "block-e2-ladder-5",
+            "block-e2-ladder-6",
+            "block-e2-ladder-7",
+            "block-e2-ladder-8",
+            "block-e2-ladder-9",
+            "block-e2-ladder-10",
             "block-e2-gate"
           ]
         },
@@ -11699,7 +11985,43 @@
           "patternCards": [],
           "checklist": [],
           "conceptDrill": [],
-          "practiceLadder": [],
+          "practiceLadder": [
+            {
+              "id": "block-e3-ladder-1",
+              "tier": "Medium",
+              "problem": "Day 91: ML Coding From Scratch",
+              "cue": "Implement k-means, logistic regression with GD, AUC",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e3-ladder-2",
+              "tier": "Medium",
+              "problem": "Day 92: SQL Under Timer",
+              "cue": "10 timed queries with window functions & self-joins",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e3-ladder-3",
+              "tier": "Medium",
+              "problem": "Day 93: ML Theory Rapid-Fire",
+              "cue": "30 rapid-fire questions answered out loud",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e3-ladder-4",
+              "tier": "Hard",
+              "problem": "Day 94: ML System Design",
+              "cue": "End-to-end recommender/search system in 45m",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e3-ladder-5",
+              "tier": "Medium",
+              "problem": "Day 95: Statistics & Experimentation",
+              "cue": "Power calculation, CUPED variance reduction, A/B",
+              "target": "45 min"
+            }
+          ],
           "practiceTasks": [],
           "gate": {
             "id": "block-e3-gate",
@@ -11710,6 +12032,59 @@
             {
               "type": "paragraph",
               "text": "**Objective.** Switch from SDE-general to the rounds that decide an ML-flavoured offer. These are covered in depth in `part-06-applied-scientist-track.md`; here is the schedule."
+            },
+            {
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Timed practice ladder",
+              "subtitle": null
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Tier",
+                "Problem",
+                "Cue / Pattern",
+                "Target"
+              ],
+              "rows": [
+                [
+                  "Medium",
+                  "Day 91: ML Coding From Scratch",
+                  "Implement k-means, logistic regression with GD, AUC",
+                  "45 min"
+                ],
+                [
+                  "Medium",
+                  "Day 92: SQL Under Timer",
+                  "10 timed queries with window functions & self-joins",
+                  "45 min"
+                ],
+                [
+                  "Medium",
+                  "Day 93: ML Theory Rapid-Fire",
+                  "30 rapid-fire questions answered out loud",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Day 94: ML System Design",
+                  "End-to-end recommender/search system in 45m",
+                  "45 min"
+                ],
+                [
+                  "Medium",
+                  "Day 95: Statistics & Experimentation",
+                  "Power calculation, CUPED variance reduction, A/B",
+                  "45 min"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Specialist schedule",
+              "subtitle": null
             },
             {
               "type": "table",
@@ -11754,6 +12129,11 @@
             }
           ],
           "checkableIds": [
+            "block-e3-ladder-1",
+            "block-e3-ladder-2",
+            "block-e3-ladder-3",
+            "block-e3-ladder-4",
+            "block-e3-ladder-5",
             "block-e3-gate"
           ]
         },
@@ -11768,7 +12148,64 @@
           "patternCards": [],
           "checklist": [],
           "conceptDrill": [],
-          "practiceLadder": [],
+          "practiceLadder": [
+            {
+              "id": "block-e4-ladder-1",
+              "tier": "Medium",
+              "problem": "Simulated Loop Round 1: Core Coding",
+              "cue": "LRU Cache or Number of Islands with continuous narration",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e4-ladder-2",
+              "tier": "Hard",
+              "problem": "Simulated Loop Round 2: Coding + Twist",
+              "cue": "Course Schedule II with cycle node recovery twist",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e4-ladder-3",
+              "tier": "Hard",
+              "problem": "Simulated Loop Round 3: Specialist / LLD",
+              "cue": "SDE: Rate Limiter LLD · ML: k-means or RecSys Design",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e4-ladder-4",
+              "tier": "Medium",
+              "problem": "Simulated Loop Round 4: Behavioral STAR",
+              "cue": "3 STAR stories strictly ≤ 90s each under interrogation",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e4-ladder-5",
+              "tier": "Hard",
+              "problem": "Day 96: Weakness Report & Ledger Sweep",
+              "cue": "Replay open rows & write written gap self-assessment",
+              "target": "60 min"
+            },
+            {
+              "id": "block-e4-ladder-6",
+              "tier": "Hard",
+              "problem": "Day 97: Targeted Repair Coding Mock",
+              "cue": "Repair gap 1 and gap 2 with timed coding mock",
+              "target": "45 min"
+            },
+            {
+              "id": "block-e4-ladder-7",
+              "tier": "Hard",
+              "problem": "Day 99: Loop Weakest Dimension Repair",
+              "cue": "Two timed sets addressing the loop's weakest dimension",
+              "target": "60 min"
+            },
+            {
+              "id": "block-e4-ladder-8",
+              "tier": "Challenge",
+              "problem": "Day 100: Final Graduation Gate",
+              "cue": "Final ledger sweep, 6 STAR stories, graduation bar ≥ 14/20",
+              "target": "60 min"
+            }
+          ],
           "practiceTasks": [],
           "gate": {
             "id": "block-e4-gate",
@@ -11779,6 +12216,71 @@
             {
               "type": "paragraph",
               "text": "**Objective.** Simulate the real thing once, fully, then close the gaps it exposes."
+            },
+            {
+              "type": "subheading",
+              "variant": "practice",
+              "title": "Timed practice ladder",
+              "subtitle": null
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Tier",
+                "Problem",
+                "Cue / Pattern",
+                "Target"
+              ],
+              "rows": [
+                [
+                  "Medium",
+                  "Simulated Loop Round 1: Core Coding",
+                  "LRU Cache or Number of Islands with continuous narration",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Simulated Loop Round 2: Coding + Twist",
+                  "Course Schedule II with cycle node recovery twist",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Simulated Loop Round 3: Specialist / LLD",
+                  "SDE: Rate Limiter LLD · ML: k-means or RecSys Design",
+                  "45 min"
+                ],
+                [
+                  "Medium",
+                  "Simulated Loop Round 4: Behavioral STAR",
+                  "3 STAR stories strictly ≤ 90s each under interrogation",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Day 96: Weakness Report & Ledger Sweep",
+                  "Replay open rows & write written gap self-assessment",
+                  "60 min"
+                ],
+                [
+                  "Hard",
+                  "Day 97: Targeted Repair Coding Mock",
+                  "Repair gap 1 and gap 2 with timed coding mock",
+                  "45 min"
+                ],
+                [
+                  "Hard",
+                  "Day 99: Loop Weakest Dimension Repair",
+                  "Two timed sets addressing the loop's weakest dimension",
+                  "60 min"
+                ],
+                [
+                  "Challenge",
+                  "Day 100: Final Graduation Gate",
+                  "Final ledger sweep, 6 STAR stories, graduation bar ≥ 14/20",
+                  "60 min"
+                ]
+              ]
             },
             {
               "type": "subheading",
@@ -11948,6 +12450,14 @@
             }
           ],
           "checkableIds": [
+            "block-e4-ladder-1",
+            "block-e4-ladder-2",
+            "block-e4-ladder-3",
+            "block-e4-ladder-4",
+            "block-e4-ladder-5",
+            "block-e4-ladder-6",
+            "block-e4-ladder-7",
+            "block-e4-ladder-8",
             "block-e4-gate"
           ]
         }
@@ -11984,12 +12494,41 @@
         "checkableIds": []
       },
       "checkableIds": [
-        "block-e1-task-1",
-        "block-e1-task-2",
-        "block-e1-task-3",
+        "block-e1-ladder-1",
+        "block-e1-ladder-2",
+        "block-e1-ladder-3",
+        "block-e1-ladder-4",
+        "block-e1-ladder-5",
+        "block-e1-ladder-6",
+        "block-e1-ladder-7",
+        "block-e1-ladder-8",
+        "block-e1-ladder-9",
         "block-e1-gate",
+        "block-e2-ladder-1",
+        "block-e2-ladder-2",
+        "block-e2-ladder-3",
+        "block-e2-ladder-4",
+        "block-e2-ladder-5",
+        "block-e2-ladder-6",
+        "block-e2-ladder-7",
+        "block-e2-ladder-8",
+        "block-e2-ladder-9",
+        "block-e2-ladder-10",
         "block-e2-gate",
+        "block-e3-ladder-1",
+        "block-e3-ladder-2",
+        "block-e3-ladder-3",
+        "block-e3-ladder-4",
+        "block-e3-ladder-5",
         "block-e3-gate",
+        "block-e4-ladder-1",
+        "block-e4-ladder-2",
+        "block-e4-ladder-3",
+        "block-e4-ladder-4",
+        "block-e4-ladder-5",
+        "block-e4-ladder-6",
+        "block-e4-ladder-7",
+        "block-e4-ladder-8",
         "block-e4-gate"
       ]
     }
@@ -12274,22 +12813,22 @@
             "groupType": "study",
             "items": [
               {
-                "id": "applied-sec-1-item-7",
+                "id": "applied-sec-1-bullet-7",
                 "text": "Implement all twelve in a single `ml_from_scratch.py`, each ≤ 30 lines, each with a test against a hand-computed case. One file, no notebooks.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-1-item-8",
+                "id": "applied-sec-1-bullet-8",
                 "text": "For each, write the one-sentence \"when this fails\".",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-1-item-9",
+                "id": "applied-sec-1-bullet-9",
                 "text": "Re-implement three of them on a blank page in 45 minutes each, with no reference.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-1-item-10",
+                "id": "applied-sec-1-bullet-10",
                 "text": "Implement logistic regression **without** NumPy, pure Python lists, as a whiteboard drill.",
                 "kind": "bullet"
               }
@@ -12309,10 +12848,6 @@
           "applied-sec-1-num-4",
           "applied-sec-1-num-5",
           "applied-sec-1-num-6",
-          "applied-sec-1-item-7",
-          "applied-sec-1-item-8",
-          "applied-sec-1-item-9",
-          "applied-sec-1-item-10",
           "applied-sec-1-gate-11"
         ]
       },
@@ -13205,37 +13740,37 @@
             "groupType": "study",
             "items": [
               {
-                "id": "applied-sec-6-item-1",
+                "id": "applied-sec-6-bullet-1",
                 "text": "**Clarify:** 10M users, 1M items, p99 latency 200 ms, 20 recommendations per request.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-2",
+                "id": "applied-sec-6-bullet-2",
                 "text": "**Frame:** rank candidate items by $P(\\text{click} \\mid u, i)$; implicit feedback dominates.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-3",
+                "id": "applied-sec-6-bullet-3",
                 "text": "**Pipeline:** candidate generation (ANN over embeddings, 2000 → 200) → ranking model (200 → 20) → policy layer (diversity, filters).",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-4",
+                "id": "applied-sec-6-bullet-4",
                 "text": "**Labels:** impressions with clicks; beware position bias — use inverse propensity weights or a position feature.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-5",
+                "id": "applied-sec-6-bullet-5",
                 "text": "**Serving:** user embedding lookup, ANN in memory, ranking model on GPU/CPU with a 50 ms budget, 20 ms policy, 30 ms network.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-6",
+                "id": "applied-sec-6-bullet-6",
                 "text": "**Operate:** monitor CTR by cohort, feature drift (PSI), embedding staleness, cold-start rate; retrain daily, evaluate offline with counterfactual metrics, then A/B.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-7",
+                "id": "applied-sec-6-bullet-7",
                 "text": "**Failure modes:** feedback loop collapse (popularity amplification), label delay, popularity bias.",
                 "kind": "bullet"
               }
@@ -13250,42 +13785,42 @@
             "groupType": "study",
             "items": [
               {
-                "id": "applied-sec-6-item-8",
+                "id": "applied-sec-6-bullet-8",
                 "text": "**Clarify:** 5k TPS, p99 100 ms, cost of a false positive vs a missed fraud.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-9",
+                "id": "applied-sec-6-bullet-9",
                 "text": "**Frame:** $P(\\text{fraud} \\mid \\text{transaction})$, extreme imbalance (~0.1%).",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-10",
+                "id": "applied-sec-6-bullet-10",
                 "text": "**Data:** transactional, device, merchant, historical aggregates. Labels arrive weeks late — use chargeback windows and a delayed-label pipeline.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-11",
+                "id": "applied-sec-6-bullet-11",
                 "text": "**Features:** velocity counts, time since last transaction, device novelty, merchant risk — all leak-prone; compute as of the decision time.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-12",
+                "id": "applied-sec-6-bullet-12",
                 "text": "**Model:** gradient boosting baseline; PR-AUC as the metric; threshold chosen by the cost matrix.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-13",
+                "id": "applied-sec-6-bullet-13",
                 "text": "**Serving:** synchronous scoring inside the payment path with a strict timeout; fallback to rules.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-14",
+                "id": "applied-sec-6-bullet-14",
                 "text": "**Operate:** monitor precision at the operating threshold, alert on distribution shift, retrain weekly with a holdout on recent data.",
                 "kind": "bullet"
               },
               {
-                "id": "applied-sec-6-item-15",
+                "id": "applied-sec-6-bullet-15",
                 "text": "**Failure modes:** concept drift after a fraud ring changes tactics; label staleness masking degradation.",
                 "kind": "bullet"
               }
@@ -13299,21 +13834,6 @@
           }
         ],
         "checkableIds": [
-          "applied-sec-6-item-1",
-          "applied-sec-6-item-2",
-          "applied-sec-6-item-3",
-          "applied-sec-6-item-4",
-          "applied-sec-6-item-5",
-          "applied-sec-6-item-6",
-          "applied-sec-6-item-7",
-          "applied-sec-6-item-8",
-          "applied-sec-6-item-9",
-          "applied-sec-6-item-10",
-          "applied-sec-6-item-11",
-          "applied-sec-6-item-12",
-          "applied-sec-6-item-13",
-          "applied-sec-6-item-14",
-          "applied-sec-6-item-15",
           "applied-sec-6-gate-16"
         ]
       },
@@ -13503,10 +14023,6 @@
       "applied-sec-1-num-4",
       "applied-sec-1-num-5",
       "applied-sec-1-num-6",
-      "applied-sec-1-item-7",
-      "applied-sec-1-item-8",
-      "applied-sec-1-item-9",
-      "applied-sec-1-item-10",
       "applied-sec-1-gate-11",
       "applied-sec-2-num-1",
       "applied-sec-2-num-2",
@@ -13522,21 +14038,6 @@
       "applied-sec-3-gate-1",
       "applied-sec-4-gate-1",
       "applied-sec-5-gate-1",
-      "applied-sec-6-item-1",
-      "applied-sec-6-item-2",
-      "applied-sec-6-item-3",
-      "applied-sec-6-item-4",
-      "applied-sec-6-item-5",
-      "applied-sec-6-item-6",
-      "applied-sec-6-item-7",
-      "applied-sec-6-item-8",
-      "applied-sec-6-item-9",
-      "applied-sec-6-item-10",
-      "applied-sec-6-item-11",
-      "applied-sec-6-item-12",
-      "applied-sec-6-item-13",
-      "applied-sec-6-item-14",
-      "applied-sec-6-item-15",
       "applied-sec-6-gate-16",
       "applied-sec-7-gate-1"
     ]
@@ -13547,115 +14048,179 @@
     "patterns": [
       {
         "number": 1,
-        "name": "Two pointers (opposite)",
-        "trigger": "\"sorted array\", \"find a pair\", \"in place\"",
-        "template": "move the pointer that can still improve",
-        "complexity": "O(n) after sort"
+        "name": "Binary search (lower bound & answer)",
+        "trigger": "\"minimum capacity/speed such that feasible\", \"sorted array\"",
+        "template": "write monotonic predicate, bisect search space",
+        "complexity": "O(n log range)",
+        "templateRef": "§2.1"
       },
       {
         "number": 2,
-        "name": "Fast/slow pointers",
-        "trigger": "\"cycle\", \"middle\", \"kth from end\"",
-        "template": "one moves 1, the other 2",
-        "complexity": "O(n)"
+        "name": "Sliding window (variable & fixed)",
+        "trigger": "\"longest/shortest subarray such that…\", \"at most k distinct\"",
+        "template": "expand right, shrink left while invalid",
+        "complexity": "O(n)",
+        "templateRef": "§2.2"
       },
       {
         "number": 3,
-        "name": "Sliding window",
-        "trigger": "\"longest/shortest subarray such that…\"",
-        "template": "expand right, shrink left while invalid",
-        "complexity": "O(n)"
+        "name": "Two pointers (opposite ends)",
+        "trigger": "\"sorted array\", \"find a pair sum\", \"in place container\"",
+        "template": "move the pointer that can still improve",
+        "complexity": "O(n)",
+        "templateRef": "§2.3"
       },
       {
         "number": 4,
-        "name": "Prefix sum / difference",
-        "trigger": "\"range sum\", \"subarray sum equals k\"",
-        "template": "precompute cumulative, look up complement",
-        "complexity": "O(n)"
+        "name": "Graph BFS (shortest path & unweighted)",
+        "trigger": "\"minimum steps/transformations\", \"shortest path in maze\"",
+        "template": "queue + mark visited on enqueue",
+        "complexity": "O(V+E)",
+        "templateRef": "§2.4"
       },
       {
         "number": 5,
-        "name": "Hashing",
-        "trigger": "\"seen before\", \"count\", \"group\"",
-        "template": "map or set, one pass",
-        "complexity": "O(n)"
+        "name": "Grid BFS (multi-source & level counting)",
+        "trigger": "\"rotten oranges\", \"nearest distance to gate\", \"simultaneous spread\"",
+        "template": "enqueue all sources at t=0, layer-by-layer expansion",
+        "complexity": "O(R×C)",
+        "templateRef": "§2.5"
       },
       {
         "number": 6,
-        "name": "Binary search on answer",
-        "trigger": "\"minimum capacity/speed such that feasible\"",
-        "template": "write the predicate, then bisect",
-        "complexity": "O(n log range)"
+        "name": "Topological sort (Kahn's algorithm)",
+        "trigger": "\"course prerequisites\", \"build dependency order\", \"can finish\"",
+        "template": "compute in-degrees, queue zero in-degree nodes",
+        "complexity": "O(V+E)",
+        "templateRef": "§2.6"
       },
       {
         "number": 7,
-        "name": "Monotonic stack",
-        "trigger": "\"next greater\", \"largest rectangle\"",
-        "template": "pop while the invariant breaks",
-        "complexity": "O(n)"
+        "name": "Union-Find / Disjoint Set Union",
+        "trigger": "\"redundant connection\", \"connected components\", \"incremental grouping\"",
+        "template": "path compression + union by size/rank",
+        "complexity": "α(n) ≈ O(1)",
+        "templateRef": "§2.7"
       },
       {
         "number": 8,
-        "name": "Heap / top-k",
-        "trigger": "\"k largest\", \"streaming\", \"merge k\"",
-        "template": "size-k heap, or heap of heads",
-        "complexity": "O(n log k)"
+        "name": "Shortest path (Dijkstra's algorithm)",
+        "trigger": "\"cheapest flight with non-negative weights\", \"network delay time\"",
+        "template": "min-heap priority queue, relax edges",
+        "complexity": "O((V+E) log V)",
+        "templateRef": "§2.8"
       },
       {
         "number": 9,
-        "name": "Intervals",
-        "trigger": "\"merge\", \"overlap\", \"meeting rooms\"",
-        "template": "sort by start or end, sweep",
-        "complexity": "O(n log n)"
+        "name": "Monotonic stack / queue",
+        "trigger": "\"next greater/smaller element\", \"largest rectangle in histogram\"",
+        "template": "pop while invariant breaks, push element once",
+        "complexity": "O(n)",
+        "templateRef": "§2.9"
       },
       {
         "number": 10,
-        "name": "Backtracking",
-        "trigger": "\"all combinations/permutations/ways\"",
-        "template": "choose, recurse, un-choose",
-        "complexity": "output-sensitive"
+        "name": "Heap / top-k & streaming",
+        "trigger": "\"k largest elements\", \"streaming median\", \"merge k sorted lists\"",
+        "template": "maintain size-k min/max heap or heap of heads",
+        "complexity": "O(n log k)",
+        "templateRef": "§2.10"
       },
       {
         "number": 11,
-        "name": "Tree DFS",
-        "trigger": "any tree structure question",
-        "template": "return the info the parent needs",
-        "complexity": "O(n)"
+        "name": "Backtracking & state search",
+        "trigger": "\"all combinations/permutations/subsets\", \"word search on board\"",
+        "template": "choose candidate, recurse, un-choose (backtrack)",
+        "complexity": "Output-sensitive",
+        "templateRef": "§2.11"
       },
       {
         "number": 12,
-        "name": "Graph BFS",
-        "trigger": "\"minimum steps\", unweighted",
-        "template": "queue + visited on enqueue",
-        "complexity": "O(V+E)"
+        "name": "Trie / Prefix tree",
+        "trigger": "\"prefix search\", \"autocomplete dictionary\", \"wildcard search\"",
+        "template": "26-ary children tree with is_end terminal flag",
+        "complexity": "O(L)",
+        "templateRef": "§2.12"
       },
       {
         "number": 13,
-        "name": "Topological sort",
-        "trigger": "\"order\", \"prerequisite\", \"can finish\"",
-        "template": "indegree queue or DFS postorder",
-        "complexity": "O(V+E)"
+        "name": "Tree traversal (iterative inorder/DFS)",
+        "trigger": "\"kth smallest in BST\", \"flatten binary tree\", \"validate BST\"",
+        "template": "push all left children to stack, pop, go right",
+        "complexity": "O(n)",
+        "templateRef": "§2.13"
       },
       {
         "number": 14,
-        "name": "Union-find",
-        "trigger": "\"connected\", \"same group\", incremental",
-        "template": "path compression + union by size",
-        "complexity": "α(n)"
+        "name": "Tree BFS & level-order traversal",
+        "trigger": "\"level-by-level output\", \"zigzag traversal\", \"right side view\"",
+        "template": "queue + level size snapshot for _ in range(len(q))",
+        "complexity": "O(n)",
+        "templateRef": "§2.14"
       },
       {
         "number": 15,
-        "name": "Shortest path",
-        "trigger": "\"cheapest\", \"minimum cost with weights\"",
-        "template": "Dijkstra with a lazy heap",
-        "complexity": "O((V+E) log V)"
+        "name": "Linked list in-place reversal",
+        "trigger": "\"reverse sublist\", \"reorder list\", \"palindrome linked list\"",
+        "template": "prev, curr, nxt pointer swap with dummy head",
+        "complexity": "O(n) time, O(1) space",
+        "templateRef": "§2.15"
       },
       {
         "number": 16,
-        "name": "Dynamic programming",
-        "trigger": "\"count ways\", \"min/max cost\", overlapping subproblems",
-        "template": "name the state in one sentence",
-        "complexity": "states × transitions"
+        "name": "Dummy-node walk & list manipulation",
+        "trigger": "\"remove nth from end\", \"merge two sorted lists\", \"partition list\"",
+        "template": "dummy node at head, advance fast/slow pointers",
+        "complexity": "O(n) time, O(1) space",
+        "templateRef": "§2.16"
+      },
+      {
+        "number": 17,
+        "name": "Kadane's algorithm (maximum subarray)",
+        "trigger": "\"maximum subarray sum\", \"contiguous sequence\", \"circular subarray\"",
+        "template": "cur = max(x, cur + x); best = max(best, cur)",
+        "complexity": "O(n) time, O(1) space",
+        "templateRef": "§2.17"
+      },
+      {
+        "number": 18,
+        "name": "Prefix sum + hash map",
+        "trigger": "\"range sum query\", \"subarray sum equals k\", \"continuous sum\"",
+        "template": "precompute cumulative, look up prefix complement in map",
+        "complexity": "O(n)",
+        "templateRef": "§2.18"
+      },
+      {
+        "number": 19,
+        "name": "Fast & slow pointers (Floyd's cycle)",
+        "trigger": "\"cycle detection\", \"cycle entry point\", \"middle of list\"",
+        "template": "slow moves 1 step, fast moves 2 steps; reset slow to head",
+        "complexity": "O(n)",
+        "templateRef": "§2.19"
+      },
+      {
+        "number": 20,
+        "name": "Quickselect / Partitioning",
+        "trigger": "\"kth largest/smallest element without sorting entire array\"",
+        "template": "Hoare or Lomuto partition, recurse only into target half",
+        "complexity": "O(n) avg",
+        "templateRef": "§2.20"
+      },
+      {
+        "number": 21,
+        "name": "LRU / LFU cache & custom OOD",
+        "trigger": "\"O(1) get and put with capacity eviction\", \"in-memory cache\"",
+        "template": "hash map of keys to doubly-linked list nodes with dummy head/tail",
+        "complexity": "O(1) operations",
+        "templateRef": "§2.21"
+      },
+      {
+        "number": 22,
+        "name": "Dynamic programming (1D & 2D)",
+        "trigger": "\"count ways\", \"min/max cost\", \"longest common subsequence\", \"edit\"",
+        "template": "table / memoization: define state in 1 sentence, transition",
+        "complexity": "states × transitions",
+        "templateRef": "§2.22"
       }
     ],
     "templates": [

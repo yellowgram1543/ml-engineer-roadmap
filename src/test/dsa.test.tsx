@@ -10,11 +10,11 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
     useDsaProgressStore.getState().resetAll();
   });
 
-  it('parses all phases, blocks, 16 patterns, and practice problems', () => {
+  it('parses all phases, blocks, 22 patterns, and practice problems', () => {
     expect(dsaRoadmapJson.phases.length).toBe(5);
     expect(dsaRoadmapJson.meta.totalBlocks).toBe(31);
-    expect(dsaRoadmapJson.meta.totalPatterns).toBe(16);
-    expect(dsaRoadmapJson.meta.totalProblems).toBeGreaterThanOrEqual(200);
+    expect(dsaRoadmapJson.meta.totalPatterns).toBe(22);
+    expect(dsaRoadmapJson.meta.totalProblems).toBeGreaterThanOrEqual(230);
     expect(dsaRoadmapJson.meta.totalCheckables).toBeGreaterThan(400);
   });
 
@@ -78,7 +78,7 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
     expect(stats.pct).toBe(100);
   });
 
-  it('renders the 16 Patterns page with search and memory templates', () => {
+  it('renders the 22 Patterns page with search and memory templates', () => {
     render(
       <MemoryRouter initialEntries={['/dsa/patterns']}>
         <AppRoutes />
@@ -86,7 +86,7 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: /16 Pattern Cards & Master Templates/i })
+      screen.getByRole('heading', { name: /22 Pattern Cards & Master Templates/i })
     ).toBeInTheDocument();
     expect(
       screen.getAllByText(/Two pointers/i).length

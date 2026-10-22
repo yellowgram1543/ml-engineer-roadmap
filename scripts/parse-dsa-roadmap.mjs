@@ -170,8 +170,7 @@ function parseContentElements(lines, idPrefix, allCheckableIds) {
         } else if (l.startsWith('- ') || l.startsWith('* ')) {
           const itemText = l.replace(/^[-*]\s+/, '').trim();
           itemCounter++;
-          const cid = `${idPrefix}-item-${itemCounter}`;
-          allCheckableIds.push(cid);
+          const cid = `${idPrefix}-bullet-${itemCounter}`;
           items.push({ id: cid, text: itemText, kind: 'bullet' });
           i++;
         } else {
@@ -817,8 +816,8 @@ function parseCheatSheets(allCheckableIds) {
     const h = (sec.heading || '').trim();
     const hLower = h.toLowerCase();
 
-    // 1 — The sixteen pattern cards
-    if (hLower.includes('sixteen pattern cards') || hLower.includes('pattern cards')) {
+    // 1 — Pattern cards
+    if (hLower.includes('pattern cards') || hLower.includes('pattern')) {
       const tbl = parseTable(sec.lines);
       if (tbl) {
         for (const row of tbl.rows) {
@@ -829,6 +828,7 @@ function parseCheatSheets(allCheckableIds) {
               trigger: row[2],
               template: row[3],
               complexity: row[4],
+              templateRef: row[5] ? row[5].trim() : undefined,
             });
           }
         }

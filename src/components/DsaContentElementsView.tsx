@@ -64,6 +64,23 @@ export const DsaContentElementsView: React.FC<DsaContentElementsViewProps> = ({
           const itemsToRender = filteredItems.length > 0 ? filteredItems : el.items;
           const isPractice = el.groupType === 'practice';
           const isGate = el.groupType === 'gate';
+          const hasCheckboxes = itemsToRender.some((it) => it.kind === 'checklist');
+
+          // If purely informative bullets (e.g. LLD requirements, entities, patterns), render as clean uncheckable bullet cards
+          if (!hasCheckboxes) {
+            return (
+              <ul key={idx} role="list" className="space-y-2 py-1 pl-1">
+                {itemsToRender.map((item) => (
+                  <li key={item.id} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-slate-700">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                    <span>
+                      <RichText text={item.text} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            );
+          }
 
           return (
             <ul
@@ -78,6 +95,17 @@ export const DsaContentElementsView: React.FC<DsaContentElementsViewProps> = ({
               }`}
             >
               {itemsToRender.map((item) => {
+                if (item.kind === 'bullet') {
+                  return (
+                    <li key={item.id} className="flex items-start gap-2.5 px-2.5 py-1 text-[14px] leading-relaxed text-slate-700">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                      <span>
+                        <RichText text={item.text} />
+                      </span>
+                    </li>
+                  );
+                }
+
                 const isDone = !!checked[item.id];
                 return (
                   <li key={item.id}>
@@ -119,12 +147,15 @@ export const DsaContentElementsView: React.FC<DsaContentElementsViewProps> = ({
         }
 
         if (el.type === 'subheading') {
+          const isH4 = el.variant === 'group';
           return (
             <div key={idx} className="pt-6 pb-2 border-b border-slate-200 mb-3 mt-4">
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1 rounded-md bg-sky-100 text-sky-800 px-2 py-0.5 font-mono-code text-[11px] font-bold uppercase tracking-wider border border-sky-200">
+                <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 font-mono-code text-[11px] font-bold uppercase tracking-wider border ${
+                  isH4 ? 'bg-purple-100 text-purple-800 border-purple-200' : 'bg-sky-100 text-sky-800 border-sky-200'
+                }`}>
                   <Terminal className="h-3 w-3" />
-                  Section
+                  {isH4 ? 'Design Specification' : 'Section'}
                 </span>
                 <h4 className="font-display text-base sm:text-lg font-bold text-slate-900">
                   <RichText text={el.title} />

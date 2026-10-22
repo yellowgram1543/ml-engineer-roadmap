@@ -36,6 +36,20 @@
 
 Run one set per session. Four sets across four days, in the order A → B → D → C.
 
+### Timed practice ladder
+
+| Tier | Problem | Cue / Pattern | Target |
+|---|---|---|---|
+| Medium | Longest Substring Without Repeating Characters (LC 3) | Set A · Sliding window with hash map | 15 min |
+| Medium | 3Sum (LC 15) | Set A · Two pointers on sorted array | 20 min |
+| Hard | Minimum Window Substring (LC 76) | Set A · Sliding window frequency counter | 25 min |
+| Medium | Course Schedule II (LC 210) | Set B · Kahn's topological sort | 20 min |
+| Medium | Lowest Common Ancestor of a Binary Tree (LC 236) | Set B · Postorder tree traversal | 25 min |
+| Hard | Trapping Rain Water (LC 42) | Set C · Two pointers max-left/max-right | 30 min |
+| Hard | Alien Dictionary (LC 269) | Set C · Graph build + topological sort | 35 min |
+| Medium | Word Break (LC 139) | Set D · 1D DP with dictionary set | 20 min |
+| Medium | Clone Graph (LC 133) | Set D · BFS / DFS hash map copy | 25 min |
+
 ### The coding-round script
 
 Use this sequence every single time, out loud, until it is automatic. It is worth more than any additional problem.
@@ -54,11 +68,11 @@ Use this sequence every single time, out loud, until it is automatic. It is wort
 
 > **The recovery rule.** If you realise mid-code that the approach is wrong, say it immediately: *"I've hit a problem — the invariant breaks when there are duplicates. Let me back up."* Interviewers score recovery highly. Silence followed by a broken solution scores badly, even if the final code is right.
 
-### Practice tasks
+### Simulation execution tasks
 
-- Record four sets with screen + voice. Watch them at 1.5×. You are looking for: filler silence longer than 10 seconds, unstated assumptions, and any moment you typed without saying why.
-- For each set, write the one sentence you *should* have said at minute 6.
-- Time-box strictly. If a set overruns, that is data, not failure.
+- [ ] Record four sets with screen + voice. Watch them at 1.5×. You are looking for: filler silence longer than 10 seconds, unstated assumptions, and any moment you typed without saying why.
+- [ ] For each set, write the one sentence you *should* have said at minute 6.
+- [ ] Time-box strictly. If a set overruns, that is data, not failure.
 
 > **Gate E1.** Four sets completed, all recorded. You complete the nine-step script without a checklist. You can state the complexity of your solution before running it and be right.
 
@@ -67,6 +81,21 @@ Use this sequence every single time, out loud, until it is automatic. It is wort
 ## Block E2 — Mocks, low-level design, and behavioural · Days 87–90
 
 **Objective.** Get observed. Self-practice hides the habits that only appear when someone is watching.
+
+### Timed practice ladder
+
+| Tier | Problem | Cue / Pattern | Target |
+|---|---|---|---|
+| Medium | LLD 1 — Token Bucket Rate Limiter | Sliding window + token bucket with thread safety | 35 min |
+| Hard | LLD 2 — LRU / LFU In-Memory Cache | Doubly linked list + freq-buckets with O(1) eviction | 35 min |
+| Medium | LLD 3 — Multi-Floor Parking Lot System | Vehicle hierarchy, spot allocation & fee strategy | 35 min |
+| Hard | LLD 4 — Elevator Controller Dispatcher | LOOK/SCAN heuristic + heap scheduling | 35 min |
+| Medium | LLD 5 — Splitwise Expense Sharing System | Balance sheet graph + minimum cash flow algorithm | 35 min |
+| Hard | LLD 6 — Chess / Board Game Engine Model | Command pattern, board state & move validation | 35 min |
+| Medium | Mock Round 1 — Peer Coding Medium | Observed single medium with live scoring rubric | 45 min |
+| Hard | Mock Round 2 — Coding with Follow-up Twist | Medium problem + invariant-breaking twist | 45 min |
+| Hard | Mock Round 3 — Solo Camera-On Hard | Hard problem under camera with continuous narration | 45 min |
+| Hard | Mock Round 4 — Senior Engineer Deep-Dive | System architecture + project STAR deep-dive | 60 min |
 
 ### Mock schedule
 
@@ -328,6 +357,18 @@ Prepare exactly six stories in STAR form. They cover ~90% of behavioural questio
 
 **Objective.** Switch from SDE-general to the rounds that decide an ML-flavoured offer. These are covered in depth in `part-06-applied-scientist-track.md`; here is the schedule.
 
+### Timed practice ladder
+
+| Tier | Problem | Cue / Pattern | Target |
+|---|---|---|---|
+| Medium | Day 91: ML Coding From Scratch | Implement k-means, logistic regression with GD, AUC | 45 min |
+| Medium | Day 92: SQL Under Timer | 10 timed queries with window functions & self-joins | 45 min |
+| Medium | Day 93: ML Theory Rapid-Fire | 30 rapid-fire questions answered out loud | 45 min |
+| Hard | Day 94: ML System Design | End-to-end recommender/search system in 45m | 45 min |
+| Medium | Day 95: Statistics & Experimentation | Power calculation, CUPED variance reduction, A/B | 45 min |
+
+### Specialist schedule
+
 | Day | Round | Source |
 |---|---|---|
 | 91 | **ML coding** — implement k-means, logistic regression with GD, and AUC from scratch, 45 min each, no library | Part 06, §1 |
@@ -343,6 +384,19 @@ Prepare exactly six stories in STAR form. They cover ~90% of behavioural questio
 ## Block E4 — The final loop · Days 96–100
 
 **Objective.** Simulate the real thing once, fully, then close the gaps it exposes.
+
+### Timed practice ladder
+
+| Tier | Problem | Cue / Pattern | Target |
+|---|---|---|---|
+| Medium | Simulated Loop Round 1: Core Coding | LRU Cache or Number of Islands with continuous narration | 45 min |
+| Hard | Simulated Loop Round 2: Coding + Twist | Course Schedule II with cycle node recovery twist | 45 min |
+| Hard | Simulated Loop Round 3: Specialist / LLD | SDE: Rate Limiter LLD · ML: k-means or RecSys Design | 45 min |
+| Medium | Simulated Loop Round 4: Behavioral STAR | 3 STAR stories strictly ≤ 90s each under interrogation | 45 min |
+| Hard | Day 96: Weakness Report & Ledger Sweep | Replay open rows & write written gap self-assessment | 60 min |
+| Hard | Day 97: Targeted Repair Coding Mock | Repair gap 1 and gap 2 with timed coding mock | 45 min |
+| Hard | Day 99: Loop Weakest Dimension Repair | Two timed sets addressing the loop's weakest dimension | 60 min |
+| Challenge | Day 100: Final Graduation Gate | Final ledger sweep, 6 STAR stories, graduation bar ≥ 14/20 | 60 min |
 
 ### Day-by-day
 

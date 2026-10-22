@@ -119,6 +119,7 @@ export interface Dsa16Pattern {
   trigger: string;
   template: string;
   complexity: string;
+  templateRef?: string;
 }
 
 export interface DsaTemplateSnippet {

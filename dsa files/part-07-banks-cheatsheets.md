@@ -6,26 +6,32 @@
 
 ---
 
-## 1 — The sixteen pattern cards
+## 1 — The 22 pattern cards & recognition triggers
 
-| # | Pattern | Trigger sentence in the question | One-line template | Complexity |
-|---|---|---|---|---|
-| 1 | **Two pointers (opposite)** | "sorted array", "find a pair", "in place" | move the pointer that can still improve | O(n) after sort |
-| 2 | **Fast/slow pointers** | "cycle", "middle", "kth from end" | one moves 1, the other 2 | O(n) |
-| 3 | **Sliding window** | "longest/shortest subarray such that…" | expand right, shrink left while invalid | O(n) |
-| 4 | **Prefix sum / difference** | "range sum", "subarray sum equals k" | precompute cumulative, look up complement | O(n) |
-| 5 | **Hashing** | "seen before", "count", "group" | map or set, one pass | O(n) |
-| 6 | **Binary search on answer** | "minimum capacity/speed such that feasible" | write the predicate, then bisect | O(n log range) |
-| 7 | **Monotonic stack** | "next greater", "largest rectangle" | pop while the invariant breaks | O(n) |
-| 8 | **Heap / top-k** | "k largest", "streaming", "merge k" | size-k heap, or heap of heads | O(n log k) |
-| 9 | **Intervals** | "merge", "overlap", "meeting rooms" | sort by start or end, sweep | O(n log n) |
-| 10 | **Backtracking** | "all combinations/permutations/ways" | choose, recurse, un-choose | output-sensitive |
-| 11 | **Tree DFS** | any tree structure question | return the info the parent needs | O(n) |
-| 12 | **Graph BFS** | "minimum steps", unweighted | queue + visited on enqueue | O(V+E) |
-| 13 | **Topological sort** | "order", "prerequisite", "can finish" | indegree queue or DFS postorder | O(V+E) |
-| 14 | **Union-find** | "connected", "same group", incremental | path compression + union by size | α(n) |
-| 15 | **Shortest path** | "cheapest", "minimum cost with weights" | Dijkstra with a lazy heap | O((V+E) log V) |
-| 16 | **Dynamic programming** | "count ways", "min/max cost", overlapping subproblems | name the state in one sentence | states × transitions |
+| # | Pattern | Trigger sentence in the question | One-line template | Complexity | Template ref |
+|---|---|---|---|---|---|
+| 1 | **Binary search (lower bound & answer)** | "minimum capacity/speed such that feasible", "sorted array" | write monotonic predicate, bisect search space | O(n log range) | §2.1 |
+| 2 | **Sliding window (variable & fixed)** | "longest/shortest subarray such that…", "at most k distinct" | expand right, shrink left while invalid | O(n) | §2.2 |
+| 3 | **Two pointers (opposite ends)** | "sorted array", "find a pair sum", "in place container" | move the pointer that can still improve | O(n) | §2.3 |
+| 4 | **Graph BFS (shortest path & unweighted)** | "minimum steps/transformations", "shortest path in maze" | queue + mark visited on enqueue | O(V+E) | §2.4 |
+| 5 | **Grid BFS (multi-source & level counting)** | "rotten oranges", "nearest distance to gate", "simultaneous spread" | enqueue all sources at t=0, layer-by-layer expansion | O(R×C) | §2.5 |
+| 6 | **Topological sort (Kahn's algorithm)** | "course prerequisites", "build dependency order", "can finish" | compute in-degrees, queue zero in-degree nodes | O(V+E) | §2.6 |
+| 7 | **Union-Find / Disjoint Set Union** | "redundant connection", "connected components", "incremental grouping" | path compression + union by size/rank | α(n) ≈ O(1) | §2.7 |
+| 8 | **Shortest path (Dijkstra's algorithm)** | "cheapest flight with non-negative weights", "network delay time" | min-heap priority queue, relax edges | O((V+E) log V) | §2.8 |
+| 9 | **Monotonic stack / queue** | "next greater/smaller element", "largest rectangle in histogram" | pop while invariant breaks, push element once | O(n) | §2.9 |
+| 10 | **Heap / top-k & streaming** | "k largest elements", "streaming median", "merge k sorted lists" | maintain size-k min/max heap or heap of heads | O(n log k) | §2.10 |
+| 11 | **Backtracking & state search** | "all combinations/permutations/subsets", "word search on board" | choose candidate, recurse, un-choose (backtrack) | Output-sensitive | §2.11 |
+| 12 | **Trie / Prefix tree** | "prefix search", "autocomplete dictionary", "wildcard search" | 26-ary children tree with is_end terminal flag | O(L) | §2.12 |
+| 13 | **Tree traversal (iterative inorder/DFS)** | "kth smallest in BST", "flatten binary tree", "validate BST" | push all left children to stack, pop, go right | O(n) | §2.13 |
+| 14 | **Tree BFS & level-order traversal** | "level-by-level output", "zigzag traversal", "right side view" | queue + level size snapshot for _ in range(len(q)) | O(n) | §2.14 |
+| 15 | **Linked list in-place reversal** | "reverse sublist", "reorder list", "palindrome linked list" | prev, curr, nxt pointer swap with dummy head | O(n) time, O(1) space | §2.15 |
+| 16 | **Dummy-node walk & list manipulation** | "remove nth from end", "merge two sorted lists", "partition list" | dummy node at head, advance fast/slow pointers | O(n) time, O(1) space | §2.16 |
+| 17 | **Kadane's algorithm (maximum subarray)** | "maximum subarray sum", "contiguous sequence", "circular subarray" | cur = max(x, cur + x); best = max(best, cur) | O(n) time, O(1) space | §2.17 |
+| 18 | **Prefix sum + hash map** | "range sum query", "subarray sum equals k", "continuous sum" | precompute cumulative, look up prefix complement in map | O(n) | §2.18 |
+| 19 | **Fast & slow pointers (Floyd's cycle)** | "cycle detection", "cycle entry point", "middle of list" | slow moves 1 step, fast moves 2 steps; reset slow to head | O(n) | §2.19 |
+| 20 | **Quickselect / Partitioning** | "kth largest/smallest element without sorting entire array" | Hoare or Lomuto partition, recurse only into target half | O(n) avg | §2.20 |
+| 21 | **LRU / LFU cache & custom OOD** | "O(1) get and put with capacity eviction", "in-memory cache" | hash map of keys to doubly-linked list nodes with dummy head/tail | O(1) operations | §2.21 |
+| 22 | **Dynamic programming (1D & 2D)** | "count ways", "min/max cost", "longest common subsequence", "edit" | table / memoization: define state in 1 sentence, transition | states × transitions | §2.22 |
 
 **The recognition drill.** Read 20 problem titles only, no statements. For each, name the pattern in under 10 seconds. Do this once a week from Day 40.
 

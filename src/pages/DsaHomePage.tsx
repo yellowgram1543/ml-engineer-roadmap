@@ -66,7 +66,7 @@ export const DsaHomePage: React.FC<DsaHomePageProps> = ({ data }) => {
               </h1>
               <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
                 A focused, timed execution system for <strong className="font-semibold text-slate-900">SDEs, ML Engineers, and Applied Scientists</strong>. 
-                16 core patterns, ~250 curated problems, active concept drills, spaced repetition checkpoints, and a parallel ML engineering track.
+                {data.cheatSheets?.patterns?.length || 22} core patterns, ~250 curated problems, active concept drills, spaced repetition checkpoints, and a parallel ML engineering track.
               </p>
 
               {/* Progress Summary Card */}
@@ -109,7 +109,7 @@ export const DsaHomePage: React.FC<DsaHomePageProps> = ({ data }) => {
                   className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/70 px-5 py-3.5 text-[15.5px] font-semibold text-emerald-800 hover:bg-emerald-100 transition-all"
                 >
                   <Sparkles className="h-4 w-4 text-emerald-600" />
-                  <span>16 Patterns &amp; Templates</span>
+                  <span>{data.cheatSheets?.patterns?.length || 22} Patterns &amp; Templates</span>
                 </Link>
               </div>
             </div>
@@ -237,7 +237,7 @@ export const DsaHomePage: React.FC<DsaHomePageProps> = ({ data }) => {
                 </h2>
               </div>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Interview bar: <strong>T3 on ~120 problems</strong> across all 16 patterns, plus T2 on the remainder.
+                Interview bar: <strong>T3 on ~120 problems</strong> across all {data.cheatSheets?.patterns?.length || 22} patterns, plus T2 on the remainder.
               </p>
               <div className="space-y-2 pt-1">
                 {data.masteryLadder.map((tier) => (
@@ -274,7 +274,7 @@ export const DsaHomePage: React.FC<DsaHomePageProps> = ({ data }) => {
                 to="/dsa/patterns"
                 className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5"
               >
-                <span>View 16 Core Pattern Cards</span>
+                <span>View {data.cheatSheets?.patterns?.length || 22} Core Pattern Cards</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>

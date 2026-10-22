@@ -69,7 +69,7 @@ export const DsaPatternsPage: React.FC<DsaPatternsPageProps> = ({ data }) => {
                 <span>Reference · Banks &amp; Cheatsheets</span>
               </div>
               <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                16 Pattern Cards &amp; Master Templates
+                {data.cheatSheets.patterns.length} Pattern Cards &amp; Master Templates
               </h1>
               <p className="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
                 Recognise triggers inside 90 seconds. Produce these standard templates from muscle memory under a timer.
@@ -94,19 +94,19 @@ export const DsaPatternsPage: React.FC<DsaPatternsPageProps> = ({ data }) => {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 space-y-12">
-        {/* ───────────────── THE 16 PATTERN CARDS TABLE ───────────────── */}
+        {/* ───────────────── THE PATTERN CARDS TABLE ───────────────── */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-display text-xl font-bold text-slate-900">
-                The Sixteen Pattern Cards
+                The {data.cheatSheets.patterns.length} Pattern Cards &amp; Recognition Triggers
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
                 Practice the recognition drill: read 20 problem titles cold, name the pattern in &lt; 10s.
               </p>
             </div>
             <span className="font-mono-code text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
-              {filteredPatterns.length} of 16 Patterns
+              {filteredPatterns.length} of {data.cheatSheets.patterns.length} Patterns
             </span>
           </div>
 
@@ -115,34 +115,57 @@ export const DsaPatternsPage: React.FC<DsaPatternsPageProps> = ({ data }) => {
               <thead className="bg-slate-50 font-mono-code uppercase tracking-wider text-slate-600 text-[11px]">
                 <tr>
                   <th className="px-3 py-3 w-10 text-center">#</th>
-                  <th className="px-4 py-3 w-48 font-bold">Pattern</th>
+                  <th className="px-4 py-3 w-44 font-bold">Pattern</th>
                   <th className="px-4 py-3 font-semibold">Trigger Sentence in Question</th>
                   <th className="px-4 py-3 font-semibold">One-Line Template</th>
-                  <th className="px-4 py-3 w-32 font-semibold">Complexity</th>
+                  <th className="px-4 py-3 w-28 font-semibold">Complexity</th>
+                  <th className="px-4 py-3 w-28 text-center font-semibold">Template</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
-                {filteredPatterns.map((p) => (
-                  <tr key={p.number} className="hover:bg-slate-50/80 transition">
-                    <td className="px-3 py-3 text-center font-mono-code text-xs text-slate-400 font-bold">
-                      {p.number}
-                    </td>
-                    <td className="px-4 py-3 font-bold text-slate-900">
-                      <span className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-slate-800 font-mono-code text-xs mr-1.5">
-                        {p.name}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-emerald-900 font-medium">
-                      <RichText text={p.trigger} />
-                    </td>
-                    <td className="px-4 py-3 text-slate-600 font-mono-code text-xs">
-                      <RichText text={p.template} />
-                    </td>
-                    <td className="px-4 py-3 font-mono-code text-xs font-bold text-slate-700">
-                      <RichText text={p.complexity} />
-                    </td>
-                  </tr>
-                ))}
+                {filteredPatterns.map((p) => {
+                  const matchingTpl = data.cheatSheets.templates.find((t) =>
+                    p.templateRef ? t.title.includes(p.templateRef.replace('§', '')) : false
+                  );
+                  return (
+                    <tr key={p.number} className="hover:bg-slate-50/80 transition">
+                      <td className="px-3 py-3 text-center font-mono-code text-xs text-slate-400 font-bold">
+                        {p.number}
+                      </td>
+                      <td className="px-4 py-3 font-bold text-slate-900">
+                        <span className="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-slate-800 font-mono-code text-xs mr-1.5">
+                          {p.name}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-emerald-900 font-medium">
+                        <RichText text={p.trigger} />
+                      </td>
+                      <td className="px-4 py-3 text-slate-600 font-mono-code text-xs">
+                        <RichText text={p.template} />
+                      </td>
+                      <td className="px-4 py-3 font-mono-code text-xs font-bold text-slate-700">
+                        <RichText text={p.complexity} />
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {matchingTpl ? (
+                          <a
+                            href={`#${matchingTpl.id}`}
+                            className="inline-flex items-center gap-1 font-mono-code text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 transition"
+                          >
+                            <span>{p.templateRef || 'View'}</span>
+                            <Code2 className="h-3 w-3" />
+                          </a>
+                        ) : p.templateRef ? (
+                          <span className="font-mono-code text-xs text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                            {p.templateRef}
+                          </span>
+                        ) : (
+                          <span className="text-slate-300">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -152,7 +175,7 @@ export const DsaPatternsPage: React.FC<DsaPatternsPageProps> = ({ data }) => {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs space-y-6">
           <div>
             <h2 className="font-display text-xl font-bold text-slate-900">
-              Templates to Memorise
+              Templates to Memorise ({data.cheatSheets.templates.length} Core Implementations)
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
               Write each by hand until you can produce it cold, in under three minutes, with no reference.
