@@ -183,4 +183,35 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
       screen.getByText(/Tech Leveling Equivalency & Compensation Weights/i)
     ).toBeInTheDocument();
   });
+
+  it('renders Block D6 Low-Level Design with authentic non-duplicative LLD systems and 1-click ledger logging', () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/block/block-d6']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole('heading', { name: /Low-Level Design \(LLD\) & Object Design/i })
+    ).toBeInTheDocument();
+
+    expect(screen.getAllByText(/Design Tic-Tac-Toe \(LC 348\)/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Design In-Memory File System \(LC 588\)/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Design Twitter \(LC 355\)/i).length).toBeGreaterThan(0);
+
+    // Toggle flashcard mode
+    const flashcardButton = screen.getByRole('button', { name: /Flashcard Mode/i });
+    fireEvent.click(flashcardButton);
+    expect(screen.getByText(/Flashcard Drill/i)).toBeInTheDocument();
+
+    // Click + Ledger on a problem row
+    const ledgerButtons = screen.getAllByRole('button', { name: /\+ Ledger/i });
+    expect(ledgerButtons.length).toBeGreaterThan(0);
+    fireEvent.click(ledgerButtons[0]);
+
+    // Check that problem was logged into the Weakness Ledger store
+    const ledger = useDsaProgressStore.getState().ledger;
+    expect(ledger.length).toBe(1);
+    expect(ledger[0].problem).toContain('Design Tic-Tac-Toe');
+  });
 });

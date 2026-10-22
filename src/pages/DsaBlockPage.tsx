@@ -18,6 +18,9 @@ import {
   ArrowRight,
   ListOrdered,
   BookOpen,
+  AlertTriangle,
+  Layers,
+  BookmarkPlus,
 } from 'lucide-react';
 import { DsaRoadmapData, DsaBlock, DsaPhase } from '../types/dsaRoadmap';
 import { useDsaProgressStore, computeDsaCompletion } from '../store/useDsaProgressStore';
@@ -69,6 +72,26 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
     setRevealedDrills(allRev);
   };
   const hideAllDrills = () => setRevealedDrills({});
+
+  // Weakness Ledger and Flashcard states
+  const ledger = useDsaProgressStore((s) => s.ledger);
+  const addLedgerEntry = useDsaProgressStore((s) => s.addLedgerEntry);
+  const [drillViewMode, setDrillViewMode] = React.useState<'list' | 'flashcard'>('list');
+  const [flashcardIdx, setFlashcardIdx] = React.useState(0);
+  const [isFlipped, setIsFlipped] = React.useState(false);
+  const [ledgerToast, setLedgerToast] = React.useState<string | null>(null);
+
+  const handleLogToLedger = (probName: string, cue: string, target: string) => {
+    addLedgerEntry({
+      date: new Date().toISOString().slice(0, 10),
+      problem: probName,
+      pattern: cue,
+      whatBroke: `Failed under target ${target} in ${currentBlock!.code}`,
+      status: 'open',
+    });
+    setLedgerToast(`Added "${probName}" to Weakness Ledger!`);
+    setTimeout(() => setLedgerToast(null), 2500);
+  };
 
   if (!currentBlock || !currentPhase) {
     return <Navigate to="/dsa" replace />;
@@ -310,73 +333,166 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
                 </h2>
               </div>
               <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={revealAllDrills}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
-                >
-                  <Eye className="h-3.5 w-3.5" />
-                  <span>Reveal All</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={hideAllDrills}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
-                >
-                  <EyeOff className="h-3.5 w-3.5" />
-                  <span>Hide All</span>
-                </button>
+                {/* Mode toggle */}
+                <div className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs font-semibold">
+                  <button
+                    type="button"
+                    onClick={() => setDrillViewMode('list')}
+                    className={`px-2.5 py-1 rounded-md transition ${
+                      drillViewMode === 'list'
+                        ? 'bg-white text-slate-900 shadow-2xs'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    List View
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDrillViewMode('flashcard');
+                      setIsFlipped(false);
+                    }}
+                    className={`px-2.5 py-1 rounded-md transition ${
+                      drillViewMode === 'flashcard'
+                        ? 'bg-sky-600 text-white shadow-2xs'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    Flashcard Mode
+                  </button>
+                </div>
+
+                {drillViewMode === 'list' && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={revealAllDrills}
+                      className="flex items-center gap-1 px-2.5 py-1 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+                    >
+                      <Eye className="h-3.5 w-3.5" />
+                      <span>Reveal All</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={hideAllDrills}
+                      className="flex items-center gap-1 px-2.5 py-1 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+                    >
+                      <EyeOff className="h-3.5 w-3.5" />
+                      <span>Hide All</span>
+                    </button>
+                  </>
+                )}
               </div>
             </div>
 
             <p className="text-xs text-slate-500 leading-relaxed">
-              Answer each out loud from memory <em>before</em> clicking to reveal the model answer.
+              Answer each out loud from memory <em>before</em> checking the model answer.
             </p>
 
-            <div className="space-y-3 pt-1">
-              {currentBlock.conceptDrill.map((drill, idx) => {
-                const isRevealed = !!revealedDrills[idx];
-                return (
-                  <div
-                    key={idx}
-                    className="rounded-xl border border-slate-200 bg-slate-50/40 p-4 transition-all"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="text-[14.5px] font-semibold text-slate-900 leading-snug">
-                        <span className="font-mono-code text-xs text-sky-700 mr-2">Q{idx + 1}.</span>
-                        <RichText text={drill.question} />
+            {drillViewMode === 'list' ? (
+              <div className="space-y-3 pt-1">
+                {currentBlock.conceptDrill.map((drill, idx) => {
+                  const isRevealed = !!revealedDrills[idx];
+                  return (
+                    <div
+                      key={idx}
+                      className="rounded-xl border border-slate-200 bg-slate-50/40 p-4 transition-all"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="text-[14.5px] font-semibold text-slate-900 leading-snug">
+                          <span className="font-mono-code text-xs text-sky-700 mr-2">Q{idx + 1}.</span>
+                          <RichText text={drill.question} />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => toggleDrill(idx)}
+                          className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-white hover:text-slate-900 border border-transparent hover:border-slate-200 transition"
+                        >
+                          {isRevealed ? (
+                            <>
+                              <ChevronUp className="h-3.5 w-3.5" />
+                              <span>Hide</span>
+                            </>
+                          ) : (
+                            <>
+                              <ChevronDown className="h-3.5 w-3.5" />
+                              <span>Answer</span>
+                            </>
+                          )}
+                        </button>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => toggleDrill(idx)}
-                        className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-white hover:text-slate-900 border border-transparent hover:border-slate-200 transition"
-                      >
-                        {isRevealed ? (
-                          <>
-                            <ChevronUp className="h-3.5 w-3.5" />
-                            <span>Hide</span>
-                          </>
-                        ) : (
-                          <>
-                            <ChevronDown className="h-3.5 w-3.5" />
-                            <span>Answer</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
 
-                    {isRevealed && (
-                      <div className="mt-3 pt-3 border-t border-slate-200/70 text-[13.5px] text-emerald-900 bg-emerald-50/70 p-3 rounded-lg leading-relaxed animate-in fade-in duration-150">
-                        <strong className="text-xs font-mono-code uppercase text-emerald-800 tracking-wider block mb-1">
-                          Model Answer:
-                        </strong>
-                        <RichText text={drill.answer} />
-                      </div>
-                    )}
+                      {isRevealed && (
+                        <div className="mt-3 pt-3 border-t border-slate-200/70 text-[13.5px] text-emerald-900 bg-emerald-50/70 p-3 rounded-lg leading-relaxed animate-in fade-in duration-150">
+                          <strong className="text-xs font-mono-code uppercase text-emerald-800 tracking-wider block mb-1">
+                            Model Answer:
+                          </strong>
+                          <RichText text={drill.answer} />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              /* Flashcard Mode */
+              <div className="rounded-2xl border border-sky-200 bg-gradient-to-b from-sky-50/40 to-white p-6 text-center space-y-5">
+                <div className="flex items-center justify-between text-xs font-mono-code text-slate-500">
+                  <span className="font-bold text-sky-800 uppercase">Flashcard Drill</span>
+                  <span>
+                    Card {flashcardIdx + 1} of {currentBlock.conceptDrill.length}
+                  </span>
+                </div>
+
+                <div className="py-4 space-y-4 max-w-xl mx-auto">
+                  <div className="text-lg font-bold text-slate-900 leading-relaxed">
+                    <RichText text={currentBlock.conceptDrill[flashcardIdx]?.question || ''} />
                   </div>
-                );
-              })}
-            </div>
+
+                  {isFlipped ? (
+                    <div className="p-4 rounded-xl border border-emerald-300 bg-emerald-50 text-left text-sm text-emerald-950 leading-relaxed animate-in fade-in duration-150">
+                      <div className="text-xs font-mono-code uppercase font-bold text-emerald-800 mb-1">
+                        Model Answer:
+                      </div>
+                      <RichText text={currentBlock.conceptDrill[flashcardIdx]?.answer || ''} />
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setIsFlipped(true)}
+                      className="rounded-xl border border-sky-300 bg-white px-5 py-2.5 text-xs font-bold text-sky-800 shadow-xs hover:bg-sky-50 transition"
+                    >
+                      Flip to Reveal Answer
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100 max-w-xl mx-auto">
+                  <button
+                    type="button"
+                    disabled={flashcardIdx === 0}
+                    onClick={() => {
+                      setFlashcardIdx((prev) => Math.max(0, prev - 1));
+                      setIsFlipped(false);
+                    }}
+                    className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    disabled={flashcardIdx >= currentBlock.conceptDrill.length - 1}
+                    onClick={() => {
+                      setFlashcardIdx((prev) => Math.min(currentBlock!.conceptDrill.length - 1, prev + 1));
+                      setIsFlipped(false);
+                    }}
+                    className="px-4 py-1.5 rounded-lg bg-sky-600 text-white text-xs font-semibold hover:bg-sky-700 disabled:opacity-40 transition"
+                  >
+                    Next Card →
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -396,7 +512,7 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
             </div>
 
             <p className="text-xs text-slate-500">
-              Solve against the clock. Stop when the timer expires and inspect the pattern cue if stuck.
+              Solve against the clock. Stop when the timer expires. Click <strong>+ Ledger</strong> to track failed problems for D+2/D+7 spaced repetition.
             </p>
 
             <div className="overflow-x-auto rounded-xl border border-slate-200">
@@ -407,6 +523,7 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
                     <th className="px-3 py-2.5 w-24">Tier</th>
                     <th className="px-4 py-2.5">Problem</th>
                     <th className="px-4 py-2.5">Recognition Cue</th>
+                    <th className="px-3 py-2.5 w-20 text-center">Ledger</th>
                     <th className="px-3 py-2.5 w-24 text-right">Target</th>
                   </tr>
                 </thead>
@@ -414,6 +531,9 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
                   {currentBlock.practiceLadder.map((prob) => {
                     const isDone = !!checked[prob.id];
                     const tierClass = TIER_COLORS[prob.tier] || 'bg-slate-100 text-slate-700';
+                    const isLogged = ledger.some(
+                      (entry) => entry.problem.toLowerCase() === prob.problem.toLowerCase()
+                    );
 
                     return (
                       <tr
@@ -442,6 +562,25 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
                         </td>
                         <td className="px-4 py-3 text-slate-600 text-xs font-mono-code">
                           <RichText text={prob.cue} />
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!isLogged) {
+                                handleLogToLedger(prob.problem, prob.cue, prob.target);
+                              }
+                            }}
+                            title={isLogged ? 'Already logged in Weakness Ledger' : 'Log failed attempt to Weakness Ledger'}
+                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono-code transition ${
+                              isLogged
+                                ? 'bg-amber-100 text-amber-800 border border-amber-300 font-bold'
+                                : 'bg-slate-100 text-slate-600 hover:bg-amber-50 hover:text-amber-800 hover:border-amber-200 border border-slate-200'
+                            }`}
+                          >
+                            <AlertTriangle className="h-3 w-3" />
+                            <span>{isLogged ? 'In Ledger' : '+ Ledger'}</span>
+                          </button>
                         </td>
                         <td className="px-3 py-3 text-right font-mono-code text-xs font-bold text-slate-700">
                           <span className="inline-flex items-center gap-1 justify-end">
@@ -581,6 +720,14 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
           )}
         </div>
       </div>
+
+      {/* Floating Ledger Toast Notification */}
+      {ledgerToast && (
+        <div className="fixed bottom-6 right-6 z-50 rounded-xl bg-slate-900 border border-slate-800 text-white px-4 py-3 shadow-xl flex items-center gap-2.5 text-xs font-semibold animate-in fade-in slide-in-from-bottom-2">
+          <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+          <span>{ledgerToast}</span>
+        </div>
+      )}
     </main>
   );
 };

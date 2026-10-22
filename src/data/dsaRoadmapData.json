@@ -5,9 +5,9 @@
     "targets": "SDE (Generalist) · ML Engineer · Applied Scientist",
     "totalPhases": 5,
     "totalBlocks": 31,
-    "totalCheckables": 525,
-    "totalProblems": 269,
-    "totalDrills": 135,
+    "totalCheckables": 572,
+    "totalProblems": 301,
+    "totalDrills": 143,
     "totalPatterns": 22
   },
   "dailyLoop": [
@@ -10221,26 +10221,31 @@
           "phaseName": "Dynamic Programming and Design",
           "title": "DP Foundations · 1D & Recurrences",
           "days": "Days 63–65",
-          "objective": "Recognize optimal substructure, define base cases, and optimize recursion with memoization and bottom-up arrays.",
+          "objective": "Recognize optimal substructure, define base cases, and optimize recursion with memoization and bottom-up 1D arrays.",
           "patternCards": [
             {
-              "title": "D1 Core Pattern",
+              "title": "1D DP Recurrence Invariant",
               "table": {
                 "headers": [
-                  "Trigger",
+                  "Pattern Subtype",
                   "State Representation",
                   "Transition / Invariant"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "Linear Recurrence",
+                    "dp[i] = best result for prefix nums[0..i]",
+                    "dp[i] = max(dp[i-1], dp[i-2] + nums[i])"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "Subsequence Matching",
+                    "dp[i] = length of LIS ending at index i",
+                    "dp[i] = 1 + max(dp[j]) for j < i where nums[j] < nums[i]"
+                  ],
+                  [
+                    "Circular Array",
+                    "Run two linear passes: [0..n-2] and [1..n-1]",
+                    "max(pass1, pass2) avoids cycle boundary clash"
                   ]
                 ]
               }
@@ -10249,53 +10254,92 @@
           "checklist": [
             {
               "id": "block-d1-chk-1",
-              "text": "Master DP Foundations · 1D & Recurrences foundational recurrence and state definition."
+              "text": "Define the DP state in one clear English sentence before touching code."
             },
             {
               "id": "block-d1-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Identify base cases and boundary offsets explicitly (dp[0], dp[1])."
             },
             {
               "id": "block-d1-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "Compress space from O(n) array to O(1) variables whenever only previous 2 states are needed."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D1?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "What are the three essential components of every dynamic programming problem?",
+              "answer": "1. State definition (what dp[i] represents), 2. Recurrence relation / state transition, 3. Base cases and initialization."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "How do you identify if a problem exhibits optimal substructure?",
+              "answer": "An optimal solution to the overall problem contains within it optimal solutions to subproblems without cyclic dependencies."
+            },
+            {
+              "question": "When can a 1D DP array be space-optimized to O(1) variables?",
+              "answer": "When computing dp[i] requires only the immediate previous k states (e.g. dp[i-1] and dp[i-2] in Fibonacci/House Robber)."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d1-ladder-1",
-              "tier": "Medium",
-              "problem": "DP Foundations · 1D & Recurrences Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "tier": "Easy",
+              "problem": "Climbing Stairs (LC 70)",
+              "cue": "dp[i] = dp[i-1] + dp[i-2], Fibonacci transition",
+              "target": "10 min"
             },
             {
               "id": "block-d1-ladder-2",
-              "tier": "Hard",
-              "problem": "DP Foundations · 1D & Recurrences Twist Variation",
-              "cue": "Space compression / constraint handling",
-              "target": "35 min"
+              "tier": "Medium",
+              "problem": "House Robber (LC 198)",
+              "cue": "dp[i] = max(dp[i-1], dp[i-2] + nums[i])",
+              "target": "15 min"
+            },
+            {
+              "id": "block-d1-ladder-3",
+              "tier": "Medium",
+              "problem": "Decode Ways (LC 91)",
+              "cue": "Single digit and two-digit valid code transitions",
+              "target": "20 min"
+            },
+            {
+              "id": "block-d1-ladder-4",
+              "tier": "Medium",
+              "problem": "Longest Increasing Subsequence (LC 300)",
+              "cue": "Patience sorting binary search or O(n²) DP",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d1-ladder-5",
+              "tier": "Medium",
+              "problem": "House Robber II (LC 213)",
+              "cue": "Break circle into two subproblems: nums[0..n-2] and nums[1..n-1]",
+              "target": "20 min"
+            },
+            {
+              "id": "block-d1-ladder-6",
+              "tier": "Medium",
+              "problem": "Maximum Length of Repeated Subarray (LC 718)",
+              "cue": "Suffix match matching dp[i][j] = dp[i-1][j-1] + 1",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d1-ladder-7",
+              "tier": "Medium",
+              "problem": "Integer Break (LC 343)",
+              "cue": "dp[i] = max(j * (i - j), j * dp[i - j])",
+              "target": "20 min"
             }
           ],
           "practiceTasks": [],
           "gate": {
             "id": "block-d1-gate",
             "title": "Gate D1",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Solve House Robber II and Longest Increasing Subsequence within target timeboxes. State the 1D invariant out loud before coding."
           },
           "elements": [
             {
               "type": "paragraph",
-              "text": "Recognize optimal substructure, define base cases, and optimize recursion with memoization and bottom-up arrays."
+              "text": "Recognize optimal substructure, define base cases, and optimize recursion with memoization and bottom-up 1D arrays."
             },
             {
               "type": "checklist",
@@ -10303,17 +10347,17 @@
               "items": [
                 {
                   "id": "block-d1-chk-1",
-                  "text": "Master DP Foundations · 1D & Recurrences foundational recurrence and state definition.",
+                  "text": "Define the DP state in one clear English sentence before touching code.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d1-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Identify base cases and boundary offsets explicitly (dp[0], dp[1]).",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d1-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "Compress space from O(n) array to O(1) variables whenever only previous 2 states are needed.",
                   "kind": "checklist"
                 }
               ]
@@ -10323,6 +10367,13 @@
             "block-d1-chk-1",
             "block-d1-chk-2",
             "block-d1-chk-3",
+            "block-d1-ladder-1",
+            "block-d1-ladder-2",
+            "block-d1-ladder-3",
+            "block-d1-ladder-4",
+            "block-d1-ladder-5",
+            "block-d1-ladder-6",
+            "block-d1-ladder-7",
             "block-d1-gate"
           ]
         },
@@ -10336,23 +10387,28 @@
           "objective": "Own 0/1 knapsack, unbounded knapsack, subset sum, coin change, and space compression to 1D.",
           "patternCards": [
             {
-              "title": "D2 Core Pattern",
+              "title": "Knapsack Loop Invariant",
               "table": {
                 "headers": [
-                  "Trigger",
-                  "State Representation",
-                  "Transition / Invariant"
+                  "Variation",
+                  "Inner Loop Direction",
+                  "Item Frequency"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "0/1 Knapsack",
+                    "Backward: for w from W down to weight[i]",
+                    "Each item used at most once"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "Unbounded Knapsack",
+                    "Forward: for w from weight[i] up to W",
+                    "Items can be reused infinitely"
+                  ],
+                  [
+                    "Permutations (Order matters)",
+                    "Target outer loop, items inner loop",
+                    "Counts distinct sequence orders"
                   ]
                 ]
               }
@@ -10361,48 +10417,87 @@
           "checklist": [
             {
               "id": "block-d2-chk-1",
-              "text": "Master Knapsack & Unbounded Variations foundational recurrence and state definition."
+              "text": "Distinguish 0/1 knapsack (backwards loop) from unbounded knapsack (forwards loop)."
             },
             {
               "id": "block-d2-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Transform Target Sum into a positive subset sum target: P = (sum + S) / 2."
             },
             {
               "id": "block-d2-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "Space-optimize 2D knapsack matrix dp[n][W] into a 1D rolling array dp[W]."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D2?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "Why must 0/1 knapsack iterate backwards when space-optimized to a 1D array?",
+              "answer": "Iterating backwards ensures each item is used at most once; forward iteration would reuse the item multiple times (which is unbounded knapsack)."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "In Coin Change II vs Combination Sum IV, what decides whether order matters?",
+              "answer": "Items outer loop counts combinations (order does not matter); Target outer loop counts permutations (order matters)."
+            },
+            {
+              "question": "How do you handle negative target sums in knapsack?",
+              "answer": "Mathematically transform into finding positive subset sum P = (sum + target) / 2, or apply index offset."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d2-ladder-1",
               "tier": "Medium",
-              "problem": "Knapsack & Unbounded Variations Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "problem": "Partition Equal Subset Sum (LC 416)",
+              "cue": "Target = sum(nums) / 2, 0/1 knapsack backward loop",
+              "target": "20 min"
             },
             {
               "id": "block-d2-ladder-2",
-              "tier": "Hard",
-              "problem": "Knapsack & Unbounded Variations Twist Variation",
-              "cue": "Space compression / constraint handling",
-              "target": "35 min"
+              "tier": "Medium",
+              "problem": "Target Sum (LC 494)",
+              "cue": "Subset sum transformation: P = (sum + S) / 2",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d2-ladder-3",
+              "tier": "Medium",
+              "problem": "Coin Change (LC 322)",
+              "cue": "Unbounded knapsack min coins: dp[a] = min(dp[a], dp[a - c] + 1)",
+              "target": "20 min"
+            },
+            {
+              "id": "block-d2-ladder-4",
+              "tier": "Medium",
+              "problem": "Coin Change II (LC 518)",
+              "cue": "Unbounded knapsack total ways: coins outer loop",
+              "target": "20 min"
+            },
+            {
+              "id": "block-d2-ladder-5",
+              "tier": "Medium",
+              "problem": "Ones and Zeroes (LC 474)",
+              "cue": "2D capacity 0/1 knapsack: dp[m][n] iterating backwards",
+              "target": "30 min"
+            },
+            {
+              "id": "block-d2-ladder-6",
+              "tier": "Medium",
+              "problem": "Last Stone Weight II (LC 1049)",
+              "cue": "Minimize difference between two partitions, target = sum // 2",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d2-ladder-7",
+              "tier": "Medium",
+              "problem": "Combination Sum IV (LC 377)",
+              "cue": "Target outer loop counts all ordered permutations",
+              "target": "20 min"
             }
           ],
           "practiceTasks": [],
           "gate": {
             "id": "block-d2-gate",
             "title": "Gate D2",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Clear Partition Equal Subset Sum and Coin Change II without consulting editorials. Prove why loop direction prevents item duplication."
           },
           "elements": [
             {
@@ -10415,17 +10510,17 @@
               "items": [
                 {
                   "id": "block-d2-chk-1",
-                  "text": "Master Knapsack & Unbounded Variations foundational recurrence and state definition.",
+                  "text": "Distinguish 0/1 knapsack (backwards loop) from unbounded knapsack (forwards loop).",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d2-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Transform Target Sum into a positive subset sum target: P = (sum + S) / 2.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d2-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "Space-optimize 2D knapsack matrix dp[n][W] into a 1D rolling array dp[W].",
                   "kind": "checklist"
                 }
               ]
@@ -10435,6 +10530,13 @@
             "block-d2-chk-1",
             "block-d2-chk-2",
             "block-d2-chk-3",
+            "block-d2-ladder-1",
+            "block-d2-ladder-2",
+            "block-d2-ladder-3",
+            "block-d2-ladder-4",
+            "block-d2-ladder-5",
+            "block-d2-ladder-6",
+            "block-d2-ladder-7",
             "block-d2-gate"
           ]
         },
@@ -10448,23 +10550,28 @@
           "objective": "Master grid paths, minimum path sum, edit distance, longest common subsequence, and matrix DP.",
           "patternCards": [
             {
-              "title": "D3 Core Pattern",
+              "title": "Grid & String Matrix DP",
               "table": {
                 "headers": [
-                  "Trigger",
+                  "Problem Type",
                   "State Representation",
-                  "Transition / Invariant"
+                  "Transition"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "Grid Path",
+                    "dp[r][c] = paths / min cost to cell (r, c)",
+                    "dp[r][c] = min(dp[r-1][c], dp[r][c-1]) + grid[r][c]"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "String Matching",
+                    "dp[i][j] = match result for s1[0..i] & s2[0..j]",
+                    "Match: dp[i-1][j-1]+1; Mismatch: max(top, left)"
+                  ],
+                  [
+                    "Reverse Grid",
+                    "dp[r][c] = minimum health needed at (r, c)",
+                    "Compute backwards from bottom-right to top-left"
                   ]
                 ]
               }
@@ -10473,48 +10580,87 @@
           "checklist": [
             {
               "id": "block-d3-chk-1",
-              "text": "Master 2D & Grid Dynamic Programming foundational recurrence and state definition."
+              "text": "Handle 0-indexed string matrix offsets with dummy 0-th row and column."
             },
             {
               "id": "block-d3-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Recognize when grid constraints require reverse DP (bottom-right to top-left)."
             },
             {
               "id": "block-d3-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "Space-optimize 2D string DP from O(M×N) to O(N) using two rows or one rolling row."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D3?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "When does a 2D grid DP need to be computed backwards (bottom-right to top-left)?",
+              "answer": "When future decisions impose constraints on current minimum resources (like remaining health in Dungeon Game)."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "How do you compress an (M × N) 2D DP matrix to O(N) space?",
+              "answer": "If dp[i][j] depends only on row i-1 and current row i, maintain one 1D row array and store diagonal in a temporary variable."
+            },
+            {
+              "question": "What is the state transition for Edit Distance when characters differ?",
+              "answer": "dp[i][j] = 1 + min(dp[i-1][j] (delete), dp[i][j-1] (insert), dp[i-1][j-1] (replace))."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d3-ladder-1",
               "tier": "Medium",
-              "problem": "2D & Grid Dynamic Programming Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "problem": "Unique Paths (LC 62)",
+              "cue": "dp[r][c] = dp[r-1][c] + dp[r][c-1], rolling 1D array",
+              "target": "15 min"
             },
             {
               "id": "block-d3-ladder-2",
+              "tier": "Medium",
+              "problem": "Minimum Path Sum (LC 64)",
+              "cue": "dp[r][c] = min(dp[r-1][c], dp[r][c-1]) + grid[r][c]",
+              "target": "20 min"
+            },
+            {
+              "id": "block-d3-ladder-3",
+              "tier": "Medium",
+              "problem": "Longest Common Subsequence (LC 1143)",
+              "cue": "Match: dp[i-1][j-1]+1; Mismatch: max(dp[i-1][j], dp[i][j-1])",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d3-ladder-4",
               "tier": "Hard",
-              "problem": "2D & Grid Dynamic Programming Twist Variation",
-              "cue": "Space compression / constraint handling",
+              "problem": "Edit Distance (LC 72)",
+              "cue": "Insert, Delete, Replace operations on 2D table",
               "target": "35 min"
+            },
+            {
+              "id": "block-d3-ladder-5",
+              "tier": "Medium",
+              "problem": "Maximal Square (LC 221)",
+              "cue": "dp[r][c] = min(left, top, diag) + 1 when cell is '1'",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d3-ladder-6",
+              "tier": "Hard",
+              "problem": "Dungeon Game (LC 174)",
+              "cue": "Bottom-right to top-left reverse DP for minimum initial health",
+              "target": "35 min"
+            },
+            {
+              "id": "block-d3-ladder-7",
+              "tier": "Medium",
+              "problem": "Interleaving String (LC 97)",
+              "cue": "2D matching of s1[i-1] and s2[j-1] against s3[i+j-1]",
+              "target": "30 min"
             }
           ],
           "practiceTasks": [],
           "gate": {
             "id": "block-d3-gate",
             "title": "Gate D3",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Implement Edit Distance and Dungeon Game under timer. Explain cell transitions and base case initializations out loud."
           },
           "elements": [
             {
@@ -10527,17 +10673,17 @@
               "items": [
                 {
                   "id": "block-d3-chk-1",
-                  "text": "Master 2D & Grid Dynamic Programming foundational recurrence and state definition.",
+                  "text": "Handle 0-indexed string matrix offsets with dummy 0-th row and column.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d3-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Recognize when grid constraints require reverse DP (bottom-right to top-left).",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d3-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "Space-optimize 2D string DP from O(M×N) to O(N) using two rows or one rolling row.",
                   "kind": "checklist"
                 }
               ]
@@ -10547,6 +10693,13 @@
             "block-d3-chk-1",
             "block-d3-chk-2",
             "block-d3-chk-3",
+            "block-d3-ladder-1",
+            "block-d3-ladder-2",
+            "block-d3-ladder-3",
+            "block-d3-ladder-4",
+            "block-d3-ladder-5",
+            "block-d3-ladder-6",
+            "block-d3-ladder-7",
             "block-d3-gate"
           ]
         },
@@ -10560,23 +10713,28 @@
           "objective": "Solve interval DP (burst balloons), tree DP (diameter, house robber III), and state machines (stock series).",
           "patternCards": [
             {
-              "title": "D4 Core Pattern",
+              "title": "Interval & Tree Subproblems",
               "table": {
                 "headers": [
-                  "Trigger",
+                  "Technique",
                   "State Representation",
-                  "Transition / Invariant"
+                  "Key Invariant"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "Interval DP",
+                    "dp[i][j] = optimal answer on subarray nums[i..j]",
+                    "Iterate by length len=1..n; split at k popped last"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "Tree DP",
+                    "Postorder DFS returns tuple of states",
+                    "Parent combines child tuples in O(1) per node"
+                  ],
+                  [
+                    "State Machine",
+                    "Finite states (Hold, Sold, Cooldown)",
+                    "Transitions model legal stock transaction flow"
                   ]
                 ]
               }
@@ -10585,48 +10743,80 @@
           "checklist": [
             {
               "id": "block-d4-chk-1",
-              "text": "Master Advanced DP · Intervals & Trees foundational recurrence and state definition."
+              "text": "Order interval DP loops by increasing interval length to guarantee subproblems are solved."
             },
             {
               "id": "block-d4-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Use postorder traversal on trees so children return answers before parent processes."
             },
             {
               "id": "block-d4-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "State machine DP: identify valid state transitions and handle cooldown days cleanly."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D4?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "In Interval DP (like Burst Balloons), why do we define k as the LAST item popped rather than first?",
+              "answer": "Because popping k last means subproblems [i, k] and [k, j] remain independent and bounded by i and j."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "How does Tree DP pass information to avoid redundant recomputations?",
+              "answer": "Postorder DFS: child returns tuple of states (e.g. with/without root) to parent, solving in O(N) time."
+            },
+            {
+              "question": "In Russian Doll Envelopes, why must height be sorted in descending order when widths are equal?",
+              "answer": "Descending height prevents two envelopes with the same width from being included in the same strictly increasing subsequence."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d4-ladder-1",
-              "tier": "Medium",
-              "problem": "Advanced DP · Intervals & Trees Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "tier": "Hard",
+              "problem": "Burst Balloons (LC 312)",
+              "cue": "Interval DP: consider balloon k popped LAST in range [i, j]",
+              "target": "35 min"
             },
             {
               "id": "block-d4-ladder-2",
+              "tier": "Medium",
+              "problem": "House Robber III (LC 337)",
+              "cue": "Tree postorder DFS returning (rob_current, not_rob_current)",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d4-ladder-3",
+              "tier": "Medium",
+              "problem": "Best Time to Buy and Sell Stock with Cooldown (LC 309)",
+              "cue": "3-state machine: Hold, Sold (cooldown), Rest",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d4-ladder-4",
               "tier": "Hard",
-              "problem": "Advanced DP · Intervals & Trees Twist Variation",
-              "cue": "Space compression / constraint handling",
+              "problem": "Russian Doll Envelopes (LC 354)",
+              "cue": "Sort by width asc, height desc; run LIS on heights",
               "target": "35 min"
+            },
+            {
+              "id": "block-d4-ladder-5",
+              "tier": "Hard",
+              "problem": "Minimum Cost to Merge Stones (LC 1000)",
+              "cue": "Interval DP combining k piles with prefix sums",
+              "target": "40 min"
+            },
+            {
+              "id": "block-d4-ladder-6",
+              "tier": "Hard",
+              "problem": "Distinct Subsequences (LC 115)",
+              "cue": "String matching with duplicate skips: dp[i][j]",
+              "target": "30 min"
             }
           ],
           "practiceTasks": [],
           "gate": {
             "id": "block-d4-gate",
             "title": "Gate D4",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Clear Burst Balloons and House Robber III. Explain why interval ordering guarantees subproblem availability."
           },
           "elements": [
             {
@@ -10639,17 +10829,17 @@
               "items": [
                 {
                   "id": "block-d4-chk-1",
-                  "text": "Master Advanced DP · Intervals & Trees foundational recurrence and state definition.",
+                  "text": "Order interval DP loops by increasing interval length to guarantee subproblems are solved.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d4-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Use postorder traversal on trees so children return answers before parent processes.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d4-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "State machine DP: identify valid state transitions and handle cooldown days cleanly.",
                   "kind": "checklist"
                 }
               ]
@@ -10659,6 +10849,12 @@
             "block-d4-chk-1",
             "block-d4-chk-2",
             "block-d4-chk-3",
+            "block-d4-ladder-1",
+            "block-d4-ladder-2",
+            "block-d4-ladder-3",
+            "block-d4-ladder-4",
+            "block-d4-ladder-5",
+            "block-d4-ladder-6",
             "block-d4-gate"
           ]
         },
@@ -10669,26 +10865,31 @@
           "phaseName": "Dynamic Programming and Design",
           "title": "Math, Combinatorics & Bitmask DP",
           "days": "Days 75–77",
-          "objective": "Fast exponentiation, GCD/Euclidean, combinatorics, bitmask DP for TSP/assignment problems under n ≤ 20.",
+          "objective": "Fast exponentiation, combinatorics, bitmask DP for TSP/assignment problems under n ≤ 20.",
           "patternCards": [
             {
-              "title": "D5 Core Pattern",
+              "title": "Bitmask State Encoding",
               "table": {
                 "headers": [
-                  "Trigger",
-                  "State Representation",
-                  "Transition / Invariant"
+                  "Operation",
+                  "Bitwise Expression",
+                  "Complexity"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "Check i-th bit",
+                    "(mask >> i) & 1 == 1",
+                    "O(1)"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "Set i-th bit",
+                    "mask | (1 << i)",
+                    "O(1)"
+                  ],
+                  [
+                    "Submask Iteration",
+                    "sub = (sub - 1) & mask",
+                    "O(3^n) total over all masks"
                   ]
                 ]
               }
@@ -10697,53 +10898,85 @@
           "checklist": [
             {
               "id": "block-d5-chk-1",
-              "text": "Master Math, Combinatorics & Bitmask DP foundational recurrence and state definition."
+              "text": "Recognize when n ≤ 20 indicates an exponential bitmask DP representation."
             },
             {
               "id": "block-d5-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Master binary exponentiation in O(log n) for fast power computation."
             },
             {
               "id": "block-d5-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "Use memoized minimax recursion with bitmask visited states for game theory problems."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D5?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "What is the complexity signature of Bitmask DP?",
+              "answer": "O(2^n · n) time and O(2^n) space, viable strictly when n ≤ 20."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "How do you check if the k-th item is set in mask, and how do you set it?",
+              "answer": "Check: (mask & (1 << k)) != 0; Set: mask | (1 << k); Toggle: mask ^ (1 << k)."
+            },
+            {
+              "question": "How does fast binary exponentiation compute x^n in O(log n)?",
+              "answer": "If n is even: x^n = (x^2)^(n/2); if n is odd: x^n = x · x^(n-1)."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d5-ladder-1",
               "tier": "Medium",
-              "problem": "Math, Combinatorics & Bitmask DP Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "problem": "Pow(x, n) (LC 50)",
+              "cue": "Binary exponentiation in O(log n), handle negative n",
+              "target": "15 min"
             },
             {
               "id": "block-d5-ladder-2",
+              "tier": "Medium",
+              "problem": "Super Pow (LC 372)",
+              "cue": "Modular exponentiation with array of digits: a^b % 1337",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d5-ladder-3",
+              "tier": "Medium",
+              "problem": "Can I Win (LC 464)",
+              "cue": "Minimax with bitmask state representing chosen integers",
+              "target": "30 min"
+            },
+            {
+              "id": "block-d5-ladder-4",
+              "tier": "Medium",
+              "problem": "Beautiful Arrangement (LC 526)",
+              "cue": "Bitmask DP / memoized backtracking on valid index divisibility",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d5-ladder-5",
               "tier": "Hard",
-              "problem": "Math, Combinatorics & Bitmask DP Twist Variation",
-              "cue": "Space compression / constraint handling",
-              "target": "35 min"
+              "problem": "Find the Shortest Superstring (LC 943)",
+              "cue": "TSP with overlap graph: dp[mask][last] bitmask DP",
+              "target": "40 min"
+            },
+            {
+              "id": "block-d5-ladder-6",
+              "tier": "Hard",
+              "problem": "Smallest Sufficient Team (LC 1125)",
+              "cue": "Bitmask DP covering all required skills with minimum people",
+              "target": "40 min"
             }
           ],
           "practiceTasks": [],
           "gate": {
             "id": "block-d5-gate",
             "title": "Gate D5",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Solve Can I Win and Pow(x, n). Explain why bitmask state compression works within memory limits."
           },
           "elements": [
             {
               "type": "paragraph",
-              "text": "Fast exponentiation, GCD/Euclidean, combinatorics, bitmask DP for TSP/assignment problems under n ≤ 20."
+              "text": "Fast exponentiation, combinatorics, bitmask DP for TSP/assignment problems under n ≤ 20."
             },
             {
               "type": "checklist",
@@ -10751,17 +10984,17 @@
               "items": [
                 {
                   "id": "block-d5-chk-1",
-                  "text": "Master Math, Combinatorics & Bitmask DP foundational recurrence and state definition.",
+                  "text": "Recognize when n ≤ 20 indicates an exponential bitmask DP representation.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d5-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Master binary exponentiation in O(log n) for fast power computation.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d5-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "Use memoized minimax recursion with bitmask visited states for game theory problems.",
                   "kind": "checklist"
                 }
               ]
@@ -10771,6 +11004,12 @@
             "block-d5-chk-1",
             "block-d5-chk-2",
             "block-d5-chk-3",
+            "block-d5-ladder-1",
+            "block-d5-ladder-2",
+            "block-d5-ladder-3",
+            "block-d5-ladder-4",
+            "block-d5-ladder-5",
+            "block-d5-ladder-6",
             "block-d5-gate"
           ]
         },
@@ -10781,26 +11020,46 @@
           "phaseName": "Dynamic Programming and Design",
           "title": "Low-Level Design (LLD) & Object Design",
           "days": "Days 78–80",
-          "objective": "Translate problem specs into clean OOP interfaces (LRU cache, LFU cache, rate limiter, elevator, tic-tac-toe).",
+          "objective": "Translate complex problem specs into modular OOP class hierarchies. Apply classic design patterns (Composite, Trie, Strategy, Command), define clean interfaces, and manage concurrency invariants without duplicating Phase E systems.",
           "patternCards": [
             {
-              "title": "D6 Core Pattern",
+              "title": "Object-Oriented Design Framework",
               "table": {
                 "headers": [
-                  "Trigger",
-                  "State Representation",
-                  "Transition / Invariant"
+                  "System / Problem",
+                  "Core Pattern & Architecture",
+                  "Concurrency & Key Invariant"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "In-Memory File System",
+                    "Composite Pattern + Trie path traversal",
+                    "Delimiter `/` tokenization; sentinel root node"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "Tic-Tac-Toe / Board Game",
+                    "Row, Column, Diagonal count arrays",
+                    "O(1) win checking per move; player ID state tracking"
+                  ],
+                  [
+                    "Search Autocomplete",
+                    "Trie + Top-3 frequency min-heap",
+                    "Prefix caching; atomic update on sentence completion"
+                  ],
+                  [
+                    "Twitter / Microblogging",
+                    "User graph + merge-k sorted heap",
+                    "Decouple tweet storage from user follower relationships"
+                  ],
+                  [
+                    "Underground Railway",
+                    "Check-in hash map + route table",
+                    "Thread-safe concurrent tap-in and tap-out tracking"
+                  ],
+                  [
+                    "Snake Game Simulation",
+                    "Deque coordinates + boundary set",
+                    "O(1) collision detection and head movement"
                   ]
                 ]
               }
@@ -10809,53 +11068,107 @@
           "checklist": [
             {
               "id": "block-d6-chk-1",
-              "text": "Master Low-Level Design (LLD) & Object Design foundational recurrence and state definition."
+              "text": "Apply the 7-step OOD blueprint: Requirements → Entities → Interfaces → Relationships → Patterns → Concurrency → Tests."
             },
             {
               "id": "block-d6-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Favor Composition over Inheritance to keep classes loosely coupled and testable."
             },
             {
               "id": "block-d6-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "Use Sentinel dummy nodes to eliminate boundary null checks in tree and list hierarchies."
+            },
+            {
+              "id": "block-d6-chk-4",
+              "text": "State thread safety considerations (granular locks vs global lock) for all in-memory stores."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D6?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "What is the 7-step blueprint for answering any Low-Level Design (LLD) question in 35 minutes?",
+              "answer": "1. Clarify Requirements (3-5 functional + non-functional) → 2. Extract Core Entities (nouns) → 3. Design Method Interfaces & Signatures → 4. Define Class Relationships (Composition over inheritance) → 5. Select Design Patterns → 6. Address Concurrency & Locks → 7. Walkthrough test scenario."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "Why is Composition preferred over Inheritance in OOP design interviews?",
+              "answer": "Composition avoids deep, brittle class hierarchies, allows dynamic behavior swapping at runtime (e.g. Strategy Pattern), and adheres to the Open-Closed Principle."
+            },
+            {
+              "question": "How do you guarantee thread safety in an in-memory storage or counter system?",
+              "answer": "Use granular locking (e.g., per-user bucket mutex or ReadWriteLock) rather than a single global lock to prevent read starvation while guaranteeing atomic write operations."
+            },
+            {
+              "question": "What is the Sentinel Node pattern and why is it essential in design problems?",
+              "answer": "Dummy head and tail nodes eliminate null pointer edge checks when inserting or removing items from doubly-linked lists or file hierarchies."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d6-ladder-1",
               "tier": "Medium",
-              "problem": "Low-Level Design (LLD) & Object Design Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "problem": "Design Tic-Tac-Toe (LC 348)",
+              "cue": "O(1) move verification via row/col/diag counters",
+              "target": "20 min"
             },
             {
               "id": "block-d6-ladder-2",
               "tier": "Hard",
-              "problem": "Low-Level Design (LLD) & Object Design Twist Variation",
-              "cue": "Space compression / constraint handling",
+              "problem": "Design In-Memory File System (LC 588)",
+              "cue": "Trie / Composite directory hierarchy with path parsing",
               "target": "35 min"
+            },
+            {
+              "id": "block-d6-ladder-3",
+              "tier": "Medium",
+              "problem": "Design Twitter (LC 355)",
+              "cue": "Follower graph + merge-k sorted tweet feeds with heap",
+              "target": "30 min"
+            },
+            {
+              "id": "block-d6-ladder-4",
+              "tier": "Hard",
+              "problem": "Design Search Autocomplete System (LC 642)",
+              "cue": "Trie + historical query frequency ranking",
+              "target": "35 min"
+            },
+            {
+              "id": "block-d6-ladder-5",
+              "tier": "Medium",
+              "problem": "Design Underground System (LC 1396)",
+              "cue": "Check-in/out tracking + route average compute",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d6-ladder-6",
+              "tier": "Medium",
+              "problem": "Design Snake Game (LC 353)",
+              "cue": "Deque coordinate simulation + 2D boundary collision checks",
+              "target": "25 min"
+            },
+            {
+              "id": "block-d6-ladder-7",
+              "tier": "Medium",
+              "problem": "Design Browser History (LC 1472)",
+              "cue": "Doubly-linked list or two-stack URL history traversal",
+              "target": "20 min"
+            },
+            {
+              "id": "block-d6-ladder-8",
+              "tier": "Medium",
+              "problem": "Design Food Rating System (LC 2353)",
+              "cue": "Hash map + SortedSet / Heap for top cuisine ratings",
+              "target": "30 min"
             }
           ],
           "practiceTasks": [],
           "gate": {
             "id": "block-d6-gate",
             "title": "Gate D6",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Implement Design In-Memory File System (LC 588) and Design Tic-Tac-Toe (LC 348) from scratch in under 35 minutes with zero syntax errors. Explain class diagram and concurrency considerations out loud."
           },
           "elements": [
             {
               "type": "paragraph",
-              "text": "Translate problem specs into clean OOP interfaces (LRU cache, LFU cache, rate limiter, elevator, tic-tac-toe)."
+              "text": "Translate complex problem specs into modular OOP class hierarchies. Apply classic design patterns (Composite, Trie, Strategy, Command), define clean interfaces, and manage concurrency invariants without duplicating Phase E systems."
             },
             {
               "type": "checklist",
@@ -10863,17 +11176,22 @@
               "items": [
                 {
                   "id": "block-d6-chk-1",
-                  "text": "Master Low-Level Design (LLD) & Object Design foundational recurrence and state definition.",
+                  "text": "Apply the 7-step OOD blueprint: Requirements → Entities → Interfaces → Relationships → Patterns → Concurrency → Tests.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d6-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Favor Composition over Inheritance to keep classes loosely coupled and testable.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d6-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "Use Sentinel dummy nodes to eliminate boundary null checks in tree and list hierarchies.",
+                  "kind": "checklist"
+                },
+                {
+                  "id": "block-d6-chk-4",
+                  "text": "State thread safety considerations (granular locks vs global lock) for all in-memory stores.",
                   "kind": "checklist"
                 }
               ]
@@ -10883,6 +11201,15 @@
             "block-d6-chk-1",
             "block-d6-chk-2",
             "block-d6-chk-3",
+            "block-d6-chk-4",
+            "block-d6-ladder-1",
+            "block-d6-ladder-2",
+            "block-d6-ladder-3",
+            "block-d6-ladder-4",
+            "block-d6-ladder-5",
+            "block-d6-ladder-6",
+            "block-d6-ladder-7",
+            "block-d6-ladder-8",
             "block-d6-gate"
           ]
         },
@@ -10893,26 +11220,31 @@
           "phaseName": "Dynamic Programming and Design",
           "title": "Hard Immersion & Speed Sets",
           "days": "Days 81–82",
-          "objective": "Timed practice on high-frequency hard interview problems with rigorous self-narration.",
+          "objective": "Timed practice on high-frequency hard interview problems with rigorous self-narration and recovery mechanisms.",
           "patternCards": [
             {
-              "title": "D7 Core Pattern",
+              "title": "Hard Immersion Invariants",
               "table": {
                 "headers": [
-                  "Trigger",
-                  "State Representation",
-                  "Transition / Invariant"
+                  "Technique",
+                  "Problem Shape",
+                  "Core Invariant"
                 ],
                 "rows": [
                   [
-                    "\"Count ways\" or \"min/max cost\"",
-                    "dp[i] = optimal value for subproblem of length i",
-                    "dp[i] = f(dp[i-1], dp[i-2], ...)"
+                    "3D Grid Flood Fill",
+                    "Trapping Rain Water II",
+                    "Min-heap priority queue maintains water level from boundary inward"
                   ],
                   [
-                    "Overlapping subproblems",
-                    "Table memoization [n][k]",
-                    "Space optimize to 1D when only last row needed"
+                    "Interval Splitting",
+                    "Minimum Cost to Cut a Stick",
+                    "dp[i][j] considers all candidate cuts between stick bounds i and j"
+                  ],
+                  [
+                    "String Wildcards",
+                    "Regular Expression / Wildcards",
+                    "2D DP with Kleene star * zero-or-more branch matching"
                   ]
                 ]
               }
@@ -10921,40 +11253,65 @@
           "checklist": [
             {
               "id": "block-d7-chk-1",
-              "text": "Master Hard Immersion & Speed Sets foundational recurrence and state definition."
+              "text": "State brute force in the first 2 minutes before attempting complex multi-data-structure solutions."
             },
             {
               "id": "block-d7-chk-2",
-              "text": "State time complexity and space trade-offs before writing code."
+              "text": "Maintain continuous narration while writing complex multi-pointer / heap loops."
             },
             {
               "id": "block-d7-chk-3",
-              "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible."
+              "text": "Execute the 9-step interview script under realistic 45-minute countdown constraints."
             }
           ],
           "conceptDrill": [
             {
-              "question": "What is the key state in D7?",
-              "answer": "Name the state in one clear sentence: what each index represents and what value is stored."
+              "question": "What is the fundamental difference between 1D Trapping Rain Water and 2D/3D Trapping Rain Water II?",
+              "answer": "1D uses two pointers from left/right; 2D grid uses a Min-Heap priority queue starting from all border cells, expanding inward to maintain the water level envelope."
             },
             {
-              "question": "Top-down vs bottom-up: which is better?",
-              "answer": "Top-down memoization is faster to formulate; bottom-up eliminates recursion overhead and enables space compression."
+              "question": "How does Regular Expression Matching (LC 10) handle the '*' wildcard?",
+              "answer": "'*' matches zero occurrences (dp[i][j-2]) OR one/more occurrences if preceding char matches (dp[i-1][j])."
+            },
+            {
+              "question": "What is the recovery protocol when you realize mid-code that your hard problem invariant is broken?",
+              "answer": "Stop typing immediately, state the failure mode out loud to the interviewer, explain why the invariant failed, and propose the corrected state."
             }
           ],
           "practiceLadder": [
             {
               "id": "block-d7-ladder-1",
-              "tier": "Medium",
-              "problem": "Hard Immersion & Speed Sets Primary Drill",
-              "cue": "Identify state and base cases",
-              "target": "25 min"
+              "tier": "Hard",
+              "problem": "Trapping Rain Water II (LC 407)",
+              "cue": "3D priority queue min-heap flood-fill from boundary inward",
+              "target": "40 min"
             },
             {
               "id": "block-d7-ladder-2",
               "tier": "Hard",
-              "problem": "Hard Immersion & Speed Sets Twist Variation",
-              "cue": "Space compression / constraint handling",
+              "problem": "Minimum Cost to Cut a Stick (LC 1547)",
+              "cue": "Interval DP: add 0 and n, sort cuts, dp[i][j] = cost + cuts[j] - cuts[i]",
+              "target": "35 min"
+            },
+            {
+              "id": "block-d7-ladder-3",
+              "tier": "Hard",
+              "problem": "Minimum Window Subsequence (LC 727)",
+              "cue": "Two pointers + reverse validation for contiguous substring",
+              "target": "35 min"
+            },
+            {
+              "id": "block-d7-ladder-4",
+              "tier": "Hard",
+              "problem": "Regular Expression Matching (LC 10)",
+              "cue": "2D DP handling '.' and '*' Kleene star transitions",
+              "target": "40 min"
+            },
+            {
+              "id": "block-d7-ladder-5",
+              "tier": "Hard",
+              "problem": "Wildcard Matching (LC 44)",
+              "cue": "2D DP / greedy two-pointer matching with '?' and '*'",
               "target": "35 min"
             }
           ],
@@ -10962,12 +11319,12 @@
           "gate": {
             "id": "block-d7-gate",
             "title": "Gate D7",
-            "text": "Solve primary and twist problems within the target timebox without consulting editorials. State complexity out loud before coding."
+            "text": "Pass Checkpoint 4 (Day 82): 150 minutes, 3 problems (1 medium + 2 DP + 1 LLD Design). Verify all solutions pass all edge cases."
           },
           "elements": [
             {
               "type": "paragraph",
-              "text": "Timed practice on high-frequency hard interview problems with rigorous self-narration."
+              "text": "Timed practice on high-frequency hard interview problems with rigorous self-narration and recovery mechanisms."
             },
             {
               "type": "checklist",
@@ -10975,17 +11332,17 @@
               "items": [
                 {
                   "id": "block-d7-chk-1",
-                  "text": "Master Hard Immersion & Speed Sets foundational recurrence and state definition.",
+                  "text": "State brute force in the first 2 minutes before attempting complex multi-data-structure solutions.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d7-chk-2",
-                  "text": "State time complexity and space trade-offs before writing code.",
+                  "text": "Maintain continuous narration while writing complex multi-pointer / heap loops.",
                   "kind": "checklist"
                 },
                 {
                   "id": "block-d7-chk-3",
-                  "text": "Space-optimize 2D DP matrices to 1D rolling arrays wherever possible.",
+                  "text": "Execute the 9-step interview script under realistic 45-minute countdown constraints.",
                   "kind": "checklist"
                 }
               ]
@@ -10995,6 +11352,11 @@
             "block-d7-chk-1",
             "block-d7-chk-2",
             "block-d7-chk-3",
+            "block-d7-ladder-1",
+            "block-d7-ladder-2",
+            "block-d7-ladder-3",
+            "block-d7-ladder-4",
+            "block-d7-ladder-5",
             "block-d7-gate"
           ]
         }
@@ -11013,30 +11375,77 @@
         "block-d1-chk-1",
         "block-d1-chk-2",
         "block-d1-chk-3",
+        "block-d1-ladder-1",
+        "block-d1-ladder-2",
+        "block-d1-ladder-3",
+        "block-d1-ladder-4",
+        "block-d1-ladder-5",
+        "block-d1-ladder-6",
+        "block-d1-ladder-7",
         "block-d1-gate",
         "block-d2-chk-1",
         "block-d2-chk-2",
         "block-d2-chk-3",
+        "block-d2-ladder-1",
+        "block-d2-ladder-2",
+        "block-d2-ladder-3",
+        "block-d2-ladder-4",
+        "block-d2-ladder-5",
+        "block-d2-ladder-6",
+        "block-d2-ladder-7",
         "block-d2-gate",
         "block-d3-chk-1",
         "block-d3-chk-2",
         "block-d3-chk-3",
+        "block-d3-ladder-1",
+        "block-d3-ladder-2",
+        "block-d3-ladder-3",
+        "block-d3-ladder-4",
+        "block-d3-ladder-5",
+        "block-d3-ladder-6",
+        "block-d3-ladder-7",
         "block-d3-gate",
         "block-d4-chk-1",
         "block-d4-chk-2",
         "block-d4-chk-3",
+        "block-d4-ladder-1",
+        "block-d4-ladder-2",
+        "block-d4-ladder-3",
+        "block-d4-ladder-4",
+        "block-d4-ladder-5",
+        "block-d4-ladder-6",
         "block-d4-gate",
         "block-d5-chk-1",
         "block-d5-chk-2",
         "block-d5-chk-3",
+        "block-d5-ladder-1",
+        "block-d5-ladder-2",
+        "block-d5-ladder-3",
+        "block-d5-ladder-4",
+        "block-d5-ladder-5",
+        "block-d5-ladder-6",
         "block-d5-gate",
         "block-d6-chk-1",
         "block-d6-chk-2",
         "block-d6-chk-3",
+        "block-d6-chk-4",
+        "block-d6-ladder-1",
+        "block-d6-ladder-2",
+        "block-d6-ladder-3",
+        "block-d6-ladder-4",
+        "block-d6-ladder-5",
+        "block-d6-ladder-6",
+        "block-d6-ladder-7",
+        "block-d6-ladder-8",
         "block-d6-gate",
         "block-d7-chk-1",
         "block-d7-chk-2",
         "block-d7-chk-3",
+        "block-d7-ladder-1",
+        "block-d7-ladder-2",
+        "block-d7-ladder-3",
+        "block-d7-ladder-4",
+        "block-d7-ladder-5",
         "block-d7-gate"
       ]
     },
