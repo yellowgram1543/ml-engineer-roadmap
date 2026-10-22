@@ -8,6 +8,7 @@ import {
   Server,
   Layers,
   ArrowLeft,
+  ArrowRight,
   CheckCircle2,
   FileCode,
   Sparkles,
@@ -158,6 +159,34 @@ export const DsaAppliedTrackPage: React.FC<DsaAppliedTrackPageProps> = ({ data }
                 </div>
 
                 {/* Content Elements */}
+                {sec.sectionNum === '2' && (
+                  <div className="mx-5 sm:mx-6 mt-5 p-4 rounded-xl bg-gradient-to-r from-sky-50 via-indigo-50/60 to-emerald-50 border border-sky-200 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-600 text-white shadow-xs">
+                        <Database className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                          Dedicated SQL Patterns &amp; Interview Playbook
+                          <span className="text-[10px] font-mono-code font-bold uppercase bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full border border-sky-200">
+                            Dedicated Sheet
+                          </span>
+                        </h4>
+                        <p className="text-xs text-slate-600">
+                          Complete production SQL templates for all 10 patterns, code solutions for all 10 practice queries, execution order, and the 7 deadly SQL traps.
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      to="/dsa/sql"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-sky-600 text-white text-xs font-semibold hover:bg-sky-700 transition shadow-xs"
+                    >
+                      <span>Open SQL Playbook</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
+                )}
+
                 <div className="p-5 sm:p-6 space-y-4">
                   <DsaContentElementsView elements={sec.elements} />
                 </div>

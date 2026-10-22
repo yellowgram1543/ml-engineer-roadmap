@@ -214,4 +214,32 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
     expect(ledger.length).toBe(1);
     expect(ledger[0].problem).toContain('Design Tic-Tac-Toe');
   });
+
+  it('renders the dedicated SQL Patterns and Interview Playbook page', () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/sql']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole('heading', { name: /The SQL Patterns & Interview Playbook/i })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/SQL Query Logical Execution Order/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/The 10 Canonical SQL Patterns/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/The 7 Deadly SQL Interview Traps/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Practice Set · 10 Queries/i)
+    ).toBeInTheDocument();
+  });
 });

@@ -16,6 +16,7 @@ import {
   Calendar,
   Flame,
   FileCode,
+  Database,
 } from 'lucide-react';
 import { DsaRoadmapData, DsaPhase } from '../types/dsaRoadmap';
 import { useDsaProgressStore, computeDsaCompletion } from '../store/useDsaProgressStore';
@@ -110,6 +111,13 @@ export const DsaHomePage: React.FC<DsaHomePageProps> = ({ data }) => {
                 >
                   <Sparkles className="h-4 w-4 text-emerald-600" />
                   <span>{data.cheatSheets?.patterns?.length || 22} Patterns &amp; Templates</span>
+                </Link>
+                <Link
+                  to="/dsa/sql"
+                  className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50/70 px-5 py-3.5 text-[15.5px] font-semibold text-sky-800 hover:bg-sky-100 transition-all"
+                >
+                  <Database className="h-4 w-4 text-sky-600" />
+                  <span>SQL Mastery Sheet</span>
                 </Link>
               </div>
             </div>
