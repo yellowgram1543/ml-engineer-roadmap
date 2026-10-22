@@ -151,4 +151,36 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
 
     expect(screen.getByText(/Log a Problem to Re-Solve/i)).toBeInTheDocument();
   });
+
+  it('renders the Offer & Negotiation Playbook page with calculator, rules, and scripts', () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/negotiation']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole('heading', { name: /The Offer & Negotiation Playbook/i })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Total Compensation \(TC\) & Offer Comparator/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/The Five Immutable Rules of Tech Negotiation/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Never Name a Number First/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Battle-Tested Scripts \(1-Click Copy\)/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Tech Leveling Equivalency & Compensation Weights/i)
+    ).toBeInTheDocument();
+  });
 });

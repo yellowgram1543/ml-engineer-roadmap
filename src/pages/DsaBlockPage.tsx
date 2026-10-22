@@ -15,6 +15,7 @@ import {
   EyeOff,
   Sparkles,
   ArrowLeft,
+  ArrowRight,
   ListOrdered,
   BookOpen,
 } from 'lucide-react';
@@ -526,6 +527,33 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
                   {checked[currentBlock.gate.id] ? 'Gate verified and cleared!' : 'I confirm I cleared all gate criteria for this block'}
                 </span>
               </label>
+            </div>
+          </div>
+        )}
+
+        {/* ───────────────── NEGOTIATION CALLOUT BANNER (BLOCK E4) ───────────────── */}
+        {currentBlock.id === 'block-e4' && (
+          <div className="rounded-2xl border border-emerald-400 bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-950 p-6 sm:p-8 text-white shadow-lg space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-2xl">
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3 py-0.5 text-xs font-semibold text-emerald-300">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  <span>Dedicated Career Module</span>
+                </div>
+                <h3 className="font-display text-2xl font-bold text-white">
+                  The Offer &amp; Negotiation Playbook
+                </h3>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  You simulated the final loop and reached Day 100! Now convert your interviews into the highest-tier compensation and level possible with our interactive Total Comp calculator, dual-offer comparator, 5 immutable rules, and word-for-word recruiter scripts.
+                </p>
+              </div>
+              <Link
+                to="/dsa/negotiation"
+                className="inline-flex items-center gap-2 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 px-6 py-3 font-bold text-sm shadow-md transition-all self-start sm:self-center shrink-0"
+              >
+                <span>Launch Negotiation Playbook</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         )}

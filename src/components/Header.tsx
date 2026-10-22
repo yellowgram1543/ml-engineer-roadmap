@@ -147,6 +147,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   const isDsaPatterns = location.pathname.startsWith('/dsa/patterns');
   const isDsaApplied = location.pathname.startsWith('/dsa/applied-track');
   const isDsaCheckpoints = location.pathname.startsWith('/dsa/checkpoints');
+  const isDsaNegotiation = location.pathname.startsWith('/dsa/negotiation');
 
   return (
     <header className="border-b border-slate-200 bg-white/95 backdrop-blur-md relative z-50">
@@ -246,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                         {isDsa && <Check className="h-3.5 w-3.5 text-emerald-600" />}
                       </div>
                       <div className="text-xs text-slate-500 font-mono-code">
-                        100 Days · 5 Phases · 16 Patterns
+                        100 Days · 5 Phases · 22 Patterns
                       </div>
                     </div>
                   </div>
@@ -282,7 +283,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  16 Patterns
+                  22 Patterns
                 </Link>
                 <Link
                   to="/dsa/applied-track"
@@ -303,6 +304,16 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                   }`}
                 >
                   Checkpoints
+                </Link>
+                <Link
+                  to="/dsa/negotiation"
+                  className={`rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold transition-all ${
+                    isDsaNegotiation
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Negotiation
                 </Link>
               </>
             ) : (

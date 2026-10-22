@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
             </p>
             <p className="font-mono-code text-xs text-slate-500">
               {isDsa
-                ? '5 Phases · 31 Blocks · 16 Core Patterns'
+                ? '5 Phases · 31 Blocks · 22 Core Patterns'
                 : '7 Phases · 19 Levels · Interactive Checklist Edition'}
             </p>
           </div>
@@ -37,10 +37,13 @@ export const Footer: React.FC = () => {
             DSA 100 Days
           </Link>
           <Link to="/dsa/patterns" className="hover:text-emerald-700 transition-colors">
-            16 Patterns
+            22 Patterns
           </Link>
           <Link to="/dsa/applied-track" className="hover:text-emerald-700 transition-colors">
             Applied Track
+          </Link>
+          <Link to="/dsa/negotiation" className="hover:text-emerald-700 transition-colors">
+            Negotiation Playbook
           </Link>
           <Link to="/projects" className="hover:text-[#6c5ce7] transition-colors">
             Projects
