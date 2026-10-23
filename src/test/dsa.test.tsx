@@ -285,4 +285,36 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
     expect(await screen.findByText(/Active Recall Mode/i)).toBeInTheDocument();
     expect(screen.getByText(/Clue 1 · Core Invariant & Trigger/i)).toBeInTheDocument();
   });
+
+  it('renders the dedicated CS Fundamentals and Systems Playbook page', () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/cs-fundamentals']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole('heading', { name: /CS Fundamentals & Systems Playbook/i })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Process vs. Thread/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Deadlock: The 4 Coffman Conditions & Prevention/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/ACID Demystified & Recovery Mechanisms/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/The 4 Isolation Levels & Concurrency Anomalies/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/TCP vs. UDP: Transport Fundamentals & Handshakes/i)
+    ).toBeInTheDocument();
+  });
 });

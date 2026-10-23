@@ -147,6 +147,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   const isDsaPatterns = location.pathname.startsWith('/dsa/patterns');
   const isDsaSql = location.pathname.startsWith('/dsa/sql');
   const isDsaCheatsheets = location.pathname.startsWith('/dsa/cheatsheets');
+  const isDsaCsFundamentals = location.pathname.startsWith('/dsa/cs-fundamentals');
   const isDsaApplied = location.pathname.startsWith('/dsa/applied-track');
   const isDsaCheckpoints = location.pathname.startsWith('/dsa/checkpoints');
   const isDsaNegotiation = location.pathname.startsWith('/dsa/negotiation');
@@ -306,6 +307,16 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                   }`}
                 >
                   Cheatsheets
+                </Link>
+                <Link
+                  to="/dsa/cs-fundamentals"
+                  className={`rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold transition-all ${
+                    isDsaCsFundamentals
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  CS Fundamentals
                 </Link>
                 <Link
                   to="/dsa/applied-track"

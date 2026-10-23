@@ -15,6 +15,7 @@ import {
   Clock,
   ShieldAlert,
   TrendingUp,
+  Cpu,
 } from 'lucide-react';
 import { DsaRoadmapData } from '../types/dsaRoadmap';
 import { useDsaProgressStore, computeDsaCompletion } from '../store/useDsaProgressStore';
@@ -237,6 +238,34 @@ export const DsaAppliedTrackPage: React.FC<DsaAppliedTrackPageProps> = ({ data }
                         </div>
                       </div>
                     </div>
+                  </div>
+                )}
+
+                {sec.sectionNum === '7' && (
+                  <div className="mx-5 sm:mx-6 mt-5 p-4 rounded-xl bg-gradient-to-r from-purple-50 via-indigo-50/60 to-sky-50 border border-purple-200 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-600 text-white shadow-xs">
+                        <Cpu className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                          Dedicated CS Fundamentals &amp; Systems Playbook
+                          <span className="text-[10px] font-mono-code font-bold uppercase bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full border border-purple-200">
+                            Dedicated Sheet
+                          </span>
+                        </h4>
+                        <p className="text-xs text-slate-600">
+                          Complete in-depth deep dives, 60-second verbal scripts, and rapid-fire active recall drills for Operating Systems, Databases, and Networks.
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      to="/dsa/cs-fundamentals"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-purple-600 text-white text-xs font-semibold hover:bg-purple-700 transition shadow-xs"
+                    >
+                      <span>Open CS Playbook</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
                   </div>
                 )}
 

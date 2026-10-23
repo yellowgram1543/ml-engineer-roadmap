@@ -18,6 +18,7 @@ import { DsaCheckpointsPage } from './pages/DsaCheckpointsPage';
 import { DsaNegotiationPage } from './pages/DsaNegotiationPage';
 import { DsaSqlPage } from './pages/DsaSqlPage';
 import { DsaCheatsheetsPage } from './pages/DsaCheatsheetsPage';
+import { DsaCsFundamentalsPage } from './pages/DsaCsFundamentalsPage';
 
 const data = roadmapJson as unknown as RoadmapData;
 const dsaData = dsaRoadmapJson as unknown as DsaRoadmapData;
@@ -42,6 +43,7 @@ export function AppRoutes() {
           <Route path="/dsa/patterns" element={<DsaPatternsPage data={dsaData} />} />
           <Route path="/dsa/sql" element={<DsaSqlPage data={dsaData} />} />
           <Route path="/dsa/cheatsheets" element={<DsaCheatsheetsPage data={dsaData} />} />
+          <Route path="/dsa/cs-fundamentals" element={<DsaCsFundamentalsPage data={dsaData} />} />
           <Route path="/dsa/applied-track" element={<DsaAppliedTrackPage data={dsaData} />} />
           <Route path="/dsa/checkpoints" element={<DsaCheckpointsPage data={dsaData} />} />
           <Route path="/dsa/negotiation" element={<DsaNegotiationPage data={dsaData} />} />
