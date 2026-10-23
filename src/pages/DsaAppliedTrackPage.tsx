@@ -12,6 +12,9 @@ import {
   CheckCircle2,
   FileCode,
   Sparkles,
+  Clock,
+  ShieldAlert,
+  TrendingUp,
 } from 'lucide-react';
 import { DsaRoadmapData } from '../types/dsaRoadmap';
 import { useDsaProgressStore, computeDsaCompletion } from '../store/useDsaProgressStore';
@@ -159,31 +162,81 @@ export const DsaAppliedTrackPage: React.FC<DsaAppliedTrackPageProps> = ({ data }
                 </div>
 
                 {/* Content Elements */}
-                {sec.sectionNum === '2' && (
-                  <div className="mx-5 sm:mx-6 mt-5 p-4 rounded-xl bg-gradient-to-r from-sky-50 via-indigo-50/60 to-emerald-50 border border-sky-200 flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-600 text-white shadow-xs">
-                        <Database className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                          Dedicated SQL Patterns &amp; Interview Playbook
-                          <span className="text-[10px] font-mono-code font-bold uppercase bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full border border-sky-200">
-                            Dedicated Sheet
-                          </span>
-                        </h4>
-                        <p className="text-xs text-slate-600">
-                          Complete production SQL templates for all 10 patterns, code solutions for all 10 practice queries, execution order, and the 7 deadly SQL traps.
-                        </p>
+                {sec.sectionNum === '6' && (
+                  <div className="mx-5 sm:mx-6 mt-5 space-y-4">
+                    <div className="p-4 rounded-xl bg-slate-900 text-white space-y-3">
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2">
+                        <div className="flex items-center gap-2">
+                          <Server className="h-4 w-4 text-emerald-400" />
+                          <h4 className="font-display text-sm font-bold text-white">
+                            Visual Architecture A · Recommendation Pipeline
+                          </h4>
+                        </div>
+                        <span className="font-mono-code text-[11px] text-emerald-400 bg-emerald-950 px-2.5 py-0.5 rounded border border-emerald-800">
+                          Total Budget: 135ms / 200ms p99 SLO
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs font-mono-code">
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-sky-400 font-bold">1. Retrieval (ANN)</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">1M -&gt; 200 items</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~25ms</div>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-amber-400 font-bold">2. Heavy Ranker</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">DeepFM / Transformer</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~50ms</div>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-purple-400 font-bold">3. Re-Rank / Policy</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">Diversity &amp; Deduplication</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~20ms</div>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-emerald-400 font-bold">4. Serving &amp; Mesh</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">Hydration &amp; Client payload</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~40ms</div>
+                        </div>
                       </div>
                     </div>
-                    <Link
-                      to="/dsa/sql"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-sky-600 text-white text-xs font-semibold hover:bg-sky-700 transition shadow-xs"
-                    >
-                      <span>Open SQL Playbook</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+
+                    <div className="p-4 rounded-xl bg-slate-900 text-white space-y-3">
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2">
+                        <div className="flex items-center gap-2">
+                          <ShieldAlert className="h-4 w-4 text-rose-400" />
+                          <h4 className="font-display text-sm font-bold text-white">
+                            Visual Architecture B · Real-Time Fraud Gate
+                          </h4>
+                        </div>
+                        <span className="font-mono-code text-[11px] text-rose-400 bg-rose-950 px-2.5 py-0.5 rounded border border-rose-800">
+                          Total Budget: 75ms / 100ms Strict Timeout
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs font-mono-code">
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-rose-400 font-bold">1. Payment Gate</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">Synchronous API Request</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~10ms</div>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-amber-400 font-bold">2. Feature Store</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">In-Memory Redis sliding velocity</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~20ms</div>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-sky-400 font-bold">3. Dual Inference</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">Rules Engine + LightGBM</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Budget: ~35ms</div>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                          <div className="text-emerald-400 font-bold">4. Action &amp; Loop</div>
+                          <div className="text-[11px] text-slate-300 mt-0.5">Allow / 2FA / Decline</div>
+                          <div className="text-[10px] text-slate-400 mt-1">Delayed 90d label loop</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
 

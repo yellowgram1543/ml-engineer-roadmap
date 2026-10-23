@@ -242,4 +242,47 @@ describe('DSA + Interview Engineering (100 Days) Roadmap Application', () => {
       screen.getByText(/Practice Set · 10 Queries/i)
     ).toBeInTheDocument();
   });
+
+  it('renders the dedicated Cheatsheets and Interview Gotchas page', async () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/cheatsheets']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    expect(
+      await screen.findByRole('heading', { name: /Complexity & Interview Cheatsheets/i })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Input Constraints dictate Target Complexity/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Data Structure Operations Complexity Reference/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/12 Python Gotchas at Interview Speed/i)
+    ).toBeInTheDocument();
+  });
+
+  it('allows expanding Socratic Clues for practice ladder problems without spoilers', async () => {
+    render(
+      <MemoryRouter initialEntries={['/dsa/block/block-a2']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    // Find the Hints buttons
+    const hintButtons = await screen.findAllByRole('button', { name: /Hints/i });
+    expect(hintButtons.length).toBeGreaterThan(0);
+
+    // Click the first hint button
+    fireEvent.click(hintButtons[0]);
+
+    // Check that Socratic Clues drawer appears in active recall mode
+    expect(await screen.findByText(/Active Recall Mode/i)).toBeInTheDocument();
+    expect(screen.getByText(/Clue 1 · Core Invariant & Trigger/i)).toBeInTheDocument();
+  });
 });

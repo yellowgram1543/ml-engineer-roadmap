@@ -21,6 +21,7 @@ import {
   AlertTriangle,
   Layers,
   BookmarkPlus,
+  Lightbulb,
 } from 'lucide-react';
 import { DsaRoadmapData, DsaBlock, DsaPhase } from '../types/dsaRoadmap';
 import { useDsaProgressStore, computeDsaCompletion } from '../store/useDsaProgressStore';
@@ -37,6 +38,40 @@ const TIER_COLORS: Record<string, string> = {
   Hard: 'bg-rose-100 text-rose-800 border-rose-200',
   Challenge: 'bg-purple-100 text-purple-800 border-purple-200',
 };
+
+function getSocraticHints(cueText: string, tier: string, blockTitle: string) {
+  const parts = cueText.split(':');
+  const trigger = parts.length > 1 ? parts[0].trim() : cueText;
+  const invariant = parts.length > 1 ? parts.slice(1).join(':').trim() : 'Maintain the monotonic property or valid window invariant as pointers advance.';
+
+  let pivot = 'Ask: what property allows us to eliminate a candidate or branch without checking every possibility?';
+  const combined = (cueText + ' ' + blockTitle).toLowerCase();
+  if (/two pointer|opposite|container|water|sum/i.test(combined)) {
+    pivot = 'At each step, evaluate both boundary pointers. Advance the pointer that bounds the current bottleneck, because the opposite pointer cannot improve the result with it.';
+  } else if (/sliding window|window|subarray/i.test(combined)) {
+    pivot = 'Expand the right boundary until the window becomes invalid. Then contract the left boundary iteratively until validity is restored, recording the optimal metric along the way.';
+  } else if (/binary search|lower bound|bisect|predicate/i.test(combined)) {
+    pivot = 'Formulate a boolean monotonicity condition: "Can this problem be solved with capacity/speed <= X?". If yes, search the lower half; otherwise, search the upper half.';
+  } else if (/monotonic stack|histogram|next greater/i.test(combined)) {
+    pivot = 'Maintain elements in strictly monotonic order in a stack. When an incoming element breaks the monotonicity, pop elements to resolve their waiting range in O(1) amortized time.';
+  } else if (/dp|transition|memo|subproblem|knapsack/i.test(combined)) {
+    pivot = 'Define dp[i] as the optimal answer for prefix nums[0..i]. State what choices exist for the i-th item and combine previous subproblem answers in O(1).';
+  } else if (/bfs|shortest path|level/i.test(combined)) {
+    pivot = 'Use a FIFO queue. Mark nodes as visited immediately upon enqueue (not dequeue) to avoid duplicate expansions and exponential queue blowup.';
+  } else if (/heap|top-k|streaming/i.test(combined)) {
+    pivot = 'To maintain top-K elements in a stream, keep a min-heap of size K. When a new element exceeds heap root, pop root and push new element.';
+  } else if (/tree|traversal|lca/i.test(combined)) {
+    pivot = 'Use postorder recursion: let children compute and return their subtree results to parent node, allowing the parent to combine them in O(1).';
+  }
+
+  const edgeCases = [
+    'Empty or single-element inputs; check bounds before indexing.',
+    'Duplicates, negative values, or zero values that could trigger zero-division or invalid indices.',
+    `Target Complexity: ${tier === 'Hard' ? 'O(N) or O(N log N) time with optimal O(1) or O(N) space' : 'O(N) time with O(1) auxiliary space'}.`,
+  ];
+
+  return { trigger, invariant, pivot, edgeCases };
+}
 
 export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
   const { blockId } = useParams<{ blockId: string }>();
@@ -80,6 +115,24 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
   const [flashcardIdx, setFlashcardIdx] = React.useState(0);
   const [isFlipped, setIsFlipped] = React.useState(false);
   const [ledgerToast, setLedgerToast] = React.useState<string | null>(null);
+
+  // Socratic hints expansion states
+  const [expandedHintId, setExpandedHintId] = React.useState<string | null>(null);
+  const [revealedHintTiers, setRevealedHintTiers] = React.useState<Record<string, number>>({});
+
+  const toggleHintExpand = (probId: string) => {
+    setExpandedHintId((prev) => (prev === probId ? null : probId));
+    if (!revealedHintTiers[probId]) {
+      setRevealedHintTiers((prev) => ({ ...prev, [probId]: 1 }));
+    }
+  };
+
+  const advanceHintTier = (probId: string) => {
+    setRevealedHintTiers((prev) => ({
+      ...prev,
+      [probId]: Math.min(3, (prev[probId] || 1) + 1),
+    }));
+  };
 
   const handleLogToLedger = (probName: string, cue: string, target: string) => {
     addLedgerEntry({
@@ -534,61 +587,160 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
                     const isLogged = ledger.some(
                       (entry) => entry.problem.toLowerCase() === prob.problem.toLowerCase()
                     );
+                    const isHintOpen = expandedHintId === prob.id;
+                    const tierLevel = revealedHintTiers[prob.id] || 1;
+                    const hints = getSocraticHints(prob.cue, prob.tier, currentBlock.title);
 
                     return (
-                      <tr
-                        key={prob.id}
-                        className={`hover:bg-slate-50/80 transition ${
-                          isDone ? 'bg-slate-50/40 text-slate-400' : ''
-                        }`}
-                      >
-                        <td className="px-3 py-3 text-center">
-                          <input
-                            type="checkbox"
-                            checked={isDone}
-                            onChange={() => toggleItem(prob.id)}
-                            className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
-                          />
-                        </td>
-                        <td className="px-3 py-3">
-                          <span className={`inline-block px-2 py-0.5 rounded-full text-[11px] font-semibold border ${tierClass}`}>
-                            {prob.tier}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3 font-semibold text-slate-900">
-                          <span className={isDone ? 'line-through text-slate-400' : ''}>
-                            {prob.problem}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3 text-slate-600 text-xs font-mono-code">
-                          <RichText text={prob.cue} />
-                        </td>
-                        <td className="px-3 py-3 text-center">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              if (!isLogged) {
-                                handleLogToLedger(prob.problem, prob.cue, prob.target);
-                              }
-                            }}
-                            title={isLogged ? 'Already logged in Weakness Ledger' : 'Log failed attempt to Weakness Ledger'}
-                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono-code transition ${
-                              isLogged
-                                ? 'bg-amber-100 text-amber-800 border border-amber-300 font-bold'
-                                : 'bg-slate-100 text-slate-600 hover:bg-amber-50 hover:text-amber-800 hover:border-amber-200 border border-slate-200'
-                            }`}
-                          >
-                            <AlertTriangle className="h-3 w-3" />
-                            <span>{isLogged ? 'In Ledger' : '+ Ledger'}</span>
-                          </button>
-                        </td>
-                        <td className="px-3 py-3 text-right font-mono-code text-xs font-bold text-slate-700">
-                          <span className="inline-flex items-center gap-1 justify-end">
-                            <Clock className="h-3 w-3 text-slate-400" />
-                            {prob.target}
-                          </span>
-                        </td>
-                      </tr>
+                      <React.Fragment key={prob.id}>
+                        <tr
+                          className={`hover:bg-slate-50/80 transition ${
+                            isDone ? 'bg-slate-50/40 text-slate-400' : ''
+                          }`}
+                        >
+                          <td className="px-3 py-3 text-center">
+                            <input
+                              type="checkbox"
+                              checked={isDone}
+                              onChange={() => toggleItem(prob.id)}
+                              className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                            />
+                          </td>
+                          <td className="px-3 py-3">
+                            <span className={`inline-block px-2 py-0.5 rounded-full text-[11px] font-semibold border ${tierClass}`}>
+                              {prob.tier}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 font-semibold text-slate-900">
+                            <span className={isDone ? 'line-through text-slate-400' : ''}>
+                              {prob.problem}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-slate-600 text-xs font-mono-code">
+                            <RichText text={prob.cue} />
+                          </td>
+                          <td className="px-3 py-3 text-center">
+                            <div className="flex items-center justify-center gap-1.5">
+                              <button
+                                type="button"
+                                onClick={() => toggleHintExpand(prob.id)}
+                                title="Open progressive Socratic hints (no spoilers)"
+                                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono-code transition ${
+                                  isHintOpen
+                                    ? 'bg-amber-500 text-white font-bold shadow-xs'
+                                    : 'bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100'
+                                }`}
+                              >
+                                <Lightbulb className="h-3 w-3" />
+                                <span>{isHintOpen ? 'Hide' : 'Hints'}</span>
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (!isLogged) {
+                                    handleLogToLedger(prob.problem, prob.cue, prob.target);
+                                  }
+                                }}
+                                title={isLogged ? 'Already logged in Weakness Ledger' : 'Log failed attempt to Weakness Ledger'}
+                                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono-code transition ${
+                                  isLogged
+                                    ? 'bg-amber-100 text-amber-800 border border-amber-300 font-bold'
+                                    : 'bg-slate-100 text-slate-600 hover:bg-amber-50 hover:text-amber-800 hover:border-amber-200 border border-slate-200'
+                                }`}
+                              >
+                                <AlertTriangle className="h-3 w-3" />
+                                <span>{isLogged ? 'In Ledger' : '+ Ledger'}</span>
+                              </button>
+                            </div>
+                          </td>
+                          <td className="px-3 py-3 text-right font-mono-code text-xs font-bold text-slate-700">
+                            <span className="inline-flex items-center gap-1 justify-end">
+                              <Clock className="h-3 w-3 text-slate-400" />
+                              {prob.target}
+                            </span>
+                          </td>
+                        </tr>
+
+                        {/* Expandable Socratic Hint Drawer */}
+                        {isHintOpen && (
+                          <tr className="bg-amber-50/50 border-b border-amber-200/80 animate-in fade-in duration-150">
+                            <td colSpan={6} className="px-6 py-4">
+                              <div className="rounded-xl border border-amber-200 bg-white p-4 shadow-xs space-y-3">
+                                <div className="flex items-center justify-between border-b border-amber-100 pb-2">
+                                  <div className="flex items-center gap-2">
+                                    <Lightbulb className="h-4 w-4 text-amber-600" />
+                                    <span className="font-display text-sm font-bold text-slate-900">
+                                      Socratic Clues · {prob.problem}
+                                    </span>
+                                    <span className="text-[10px] font-mono-code uppercase font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                                      Active Recall Mode
+                                    </span>
+                                  </div>
+                                  <span className="text-xs font-mono-code text-slate-500">
+                                    Clue {tierLevel} of 3
+                                  </span>
+                                </div>
+
+                                <div className="space-y-2.5 text-xs text-slate-700">
+                                  {/* Tier 1: Pattern trigger & Invariant */}
+                                  <div className="p-3 rounded-lg bg-amber-50/60 border border-amber-100 space-y-1">
+                                    <div className="font-bold font-mono-code text-[11px] text-amber-900 uppercase">
+                                      Clue 1 · Core Invariant &amp; Trigger
+                                    </div>
+                                    <div className="text-slate-800">
+                                      {hints.invariant}
+                                    </div>
+                                  </div>
+
+                                  {/* Tier 2: Structural Pivot */}
+                                  {tierLevel >= 2 ? (
+                                    <div className="p-3 rounded-lg bg-sky-50/60 border border-sky-100 space-y-1 animate-in fade-in duration-150">
+                                      <div className="font-bold font-mono-code text-[11px] text-sky-900 uppercase">
+                                        Clue 2 · Algorithmic Pivot &amp; Movement
+                                      </div>
+                                      <div className="text-slate-800">
+                                        {hints.pivot}
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <button
+                                      type="button"
+                                      onClick={() => advanceHintTier(prob.id)}
+                                      className="w-full py-2 border border-dashed border-sky-300 rounded-lg text-sky-700 hover:bg-sky-50 font-semibold text-[11px] transition"
+                                    >
+                                      Still blocked? Click to reveal Clue 2 (Algorithmic Pivot) →
+                                    </button>
+                                  )}
+
+                                  {/* Tier 3: Edge cases & Big-O budget */}
+                                  {tierLevel >= 3 ? (
+                                    <div className="p-3 rounded-lg bg-emerald-50/60 border border-emerald-100 space-y-1 animate-in fade-in duration-150">
+                                      <div className="font-bold font-mono-code text-[11px] text-emerald-900 uppercase">
+                                        Clue 3 · Boundary Traps &amp; Target Complexity
+                                      </div>
+                                      <ul className="list-disc pl-4 space-y-0.5 text-slate-800">
+                                        {hints.edgeCases.map((ec, i) => (
+                                          <li key={i}>{ec}</li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ) : (
+                                    tierLevel >= 2 && (
+                                      <button
+                                        type="button"
+                                        onClick={() => advanceHintTier(prob.id)}
+                                        className="w-full py-2 border border-dashed border-emerald-300 rounded-lg text-emerald-700 hover:bg-emerald-50 font-semibold text-[11px] transition"
+                                      >
+                                        Reveal Final Clue: Edge Cases &amp; Target Complexity →
+                                      </button>
+                                    )
+                                  )}
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
                     );
                   })}
                 </tbody>

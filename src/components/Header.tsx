@@ -146,6 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   const isDsaHome = location.pathname === '/dsa' || location.pathname.startsWith('/dsa/block/');
   const isDsaPatterns = location.pathname.startsWith('/dsa/patterns');
   const isDsaSql = location.pathname.startsWith('/dsa/sql');
+  const isDsaCheatsheets = location.pathname.startsWith('/dsa/cheatsheets');
   const isDsaApplied = location.pathname.startsWith('/dsa/applied-track');
   const isDsaCheckpoints = location.pathname.startsWith('/dsa/checkpoints');
   const isDsaNegotiation = location.pathname.startsWith('/dsa/negotiation');
@@ -295,6 +296,16 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                   }`}
                 >
                   SQL Sheet
+                </Link>
+                <Link
+                  to="/dsa/cheatsheets"
+                  className={`rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold transition-all ${
+                    isDsaCheatsheets
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Cheatsheets
                 </Link>
                 <Link
                   to="/dsa/applied-track"
