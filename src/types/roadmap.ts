@@ -161,15 +161,16 @@ export interface ProjectEntry {
   id: string;
   number: number;
   title: string;
-  kind: 'Level Capstone' | 'Phase Capstone';
-  levelId: string;
-  levelBadge: string;
-  levelTitle: string;
-  phaseSlug: string;
+  kind: string;
+  levelId?: string;
+  levelBadge?: string;
+  levelTitle?: string;
+  phaseNum?: number;
+  phaseSlug?: string;
   phaseName: string;
-  difficulty: string;
-  duration: string;
-  tools: string;
+  difficulty?: string;
+  duration?: string;
+  tools?: string;
   subBlocks: CapstoneSubBlock[];
   checkableIds: string[];
 }

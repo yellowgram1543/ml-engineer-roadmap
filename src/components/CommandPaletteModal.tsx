@@ -15,6 +15,9 @@ interface CommandPaletteModalProps {
   data: RoadmapData;
   isOpen: boolean;
   onClose: () => void;
+  basePath?: string;
+  projectsPath?: string;
+  questionsPath?: string;
 }
 
 interface SearchHit {
@@ -30,6 +33,9 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
   data,
   isOpen,
   onClose,
+  basePath = '/level',
+  projectsPath = '/projects',
+  questionsPath = '/interview-prep',
 }) => {
   const navigate = useNavigate();
   const [query, setQuery] = React.useState('');
@@ -48,7 +54,7 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
         badge: bLabel,
         title: lvl.title,
         subtitle: `Phase ${lvl.phaseNum} · ${lvl.phaseName} · ${lvl.goal}`,
-        href: `/level/${lvl.id}`,
+        href: `${basePath}/${lvl.id}`,
       });
 
       for (const sec of lvl.sections) {
@@ -58,7 +64,7 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
           badge: `${bLabel} · ${sec.code}`,
           title: sec.title,
           subtitle: sec.objective || lvl.title,
-          href: `/level/${lvl.id}#${sec.id}`,
+          href: `${basePath}/${lvl.id}#${sec.id}`,
         });
 
         for (const mod of sec.modules) {
@@ -68,7 +74,7 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
             badge: `${bLabel} · ${sec.code}`,
             title: mod.title,
             subtitle: `${sec.title} (${lvl.title})`,
-            href: `/level/${lvl.id}#${sec.id}`,
+            href: `${basePath}/${lvl.id}#${sec.id}`,
           });
         }
       }
@@ -78,10 +84,10 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
       items.push({
         id: `proj-${proj.id}`,
         kind: 'Project',
-        badge: proj.levelBadge,
+        badge: proj.levelBadge || 'Capstone',
         title: proj.title,
-        subtitle: `${proj.kind} · ${proj.phaseName} · ${proj.tools}`,
-        href: `/projects#${proj.id}`,
+        subtitle: `${proj.kind} · ${proj.phaseName}`,
+        href: `${projectsPath}#${proj.id}`,
       });
     }
 
@@ -94,7 +100,7 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
             badge: `${bank.levelBadge} · Q${q.number}`,
             title: q.question.replace(/`/g, ''),
             subtitle: `${grp.title} · ${q.type} (${bank.levelTitle})`,
-            href: `/interview-prep`,
+            href: questionsPath,
           });
         }
       }

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import roadmapJson from './data/roadmapData.json';
 import dsaRoadmapJson from './data/dsaRoadmapData.json';
+import koreanRoadmapJson from './data/koreanRoadmapData.json';
 import { RoadmapData } from './types/roadmap';
 import { DsaRoadmapData } from './types/dsaRoadmap';
 import { Header } from './components/Header';
@@ -19,14 +20,19 @@ import { DsaNegotiationPage } from './pages/DsaNegotiationPage';
 import { DsaSqlPage } from './pages/DsaSqlPage';
 import { DsaCheatsheetsPage } from './pages/DsaCheatsheetsPage';
 import { DsaCsFundamentalsPage } from './pages/DsaCsFundamentalsPage';
+import { KoreanHomePage } from './pages/KoreanHomePage';
+import { KoreanLevelPage } from './pages/KoreanLevelPage';
+import { KoreanProjectsPage } from './pages/KoreanProjectsPage';
+import { KoreanQuestionsPage } from './pages/KoreanQuestionsPage';
 
 const data = roadmapJson as unknown as RoadmapData;
 const dsaData = dsaRoadmapJson as unknown as DsaRoadmapData;
+const koreanData = koreanRoadmapJson as unknown as RoadmapData;
 
 export function AppRoutes() {
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfcfd] text-slate-900">
-      <Header data={data} dsaData={dsaData} />
+      <Header data={data} dsaData={dsaData} koreanData={koreanData} />
       <div className="flex-1">
         <Routes>
           {/* ML Roadmap Routes */}
@@ -47,6 +53,12 @@ export function AppRoutes() {
           <Route path="/dsa/applied-track" element={<DsaAppliedTrackPage data={dsaData} />} />
           <Route path="/dsa/checkpoints" element={<DsaCheckpointsPage data={dsaData} />} />
           <Route path="/dsa/negotiation" element={<DsaNegotiationPage data={dsaData} />} />
+
+          {/* Korean Roadmap Routes */}
+          <Route path="/korean" element={<KoreanHomePage data={koreanData} />} />
+          <Route path="/korean/level/:levelId" element={<KoreanLevelPage data={koreanData} />} />
+          <Route path="/korean/projects" element={<KoreanProjectsPage data={koreanData} />} />
+          <Route path="/korean/questions" element={<KoreanQuestionsPage data={koreanData} />} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -7,14 +7,20 @@ import { MathBlock, RichText } from './RichText';
 interface ContentElementsViewProps {
   elements: ContentElement[];
   searchQuery?: string;
+  checked?: Record<string, boolean>;
+  onToggle?: (id: string) => void;
 }
 
 export const ContentElementsView: React.FC<ContentElementsViewProps> = ({
   elements,
   searchQuery = '',
+  checked: customChecked,
+  onToggle: customToggle,
 }) => {
-  const checked = useProgressStore((s) => s.checked);
-  const toggleItem = useProgressStore((s) => s.toggleItem);
+  const defaultChecked = useProgressStore((s) => s.checked);
+  const defaultToggle = useProgressStore((s) => s.toggleItem);
+  const checked = customChecked ?? defaultChecked;
+  const toggleItem = customToggle ?? defaultToggle;
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
   const qTokens = normalizedQuery ? normalizedQuery.split(/\s+/).filter(Boolean) : [];

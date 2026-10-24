@@ -10,25 +10,28 @@ import {
   CheckCircle2,
   Search,
   Check,
-  Sparkles,
-  Layers,
+  Languages,
 } from 'lucide-react';
 import { RoadmapData } from '../types/roadmap';
 import { DsaRoadmapData } from '../types/dsaRoadmap';
 import { useProgressStore, computeCompletion } from '../store/useProgressStore';
 import { useDsaProgressStore, computeDsaCompletion } from '../store/useDsaProgressStore';
+import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKoreanProgressStore';
 import { CommandPaletteModal } from './CommandPaletteModal';
 
 interface HeaderProps {
   data: RoadmapData;
   dsaData: DsaRoadmapData;
+  koreanData: RoadmapData;
 }
 
-export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
+export const Header: React.FC<HeaderProps> = ({ data, dsaData, koreanData }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const isKorean = location.pathname.startsWith('/korean');
   const isDsa = location.pathname.startsWith('/dsa');
+  const isMl = !isDsa && !isKorean;
 
   // ML Store
   const mlChecked = useProgressStore((s) => s.checked);
@@ -41,6 +44,12 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   const dsaNotes = useDsaProgressStore((s) => s.notes);
   const dsaResetAll = useDsaProgressStore((s) => s.resetAll);
   const dsaImportProgress = useDsaProgressStore((s) => s.importProgress);
+
+  // Korean Store
+  const koreanChecked = useKoreanProgressStore((s) => s.checked);
+  const koreanNotes = useKoreanProgressStore((s) => s.notes);
+  const koreanResetAll = useKoreanProgressStore((s) => s.resetAll);
+  const koreanImportProgress = useKoreanProgressStore((s) => s.importProgress);
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -81,10 +90,31 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   }, [dsaData]);
   const dsaOverall = computeDsaCompletion(dsaChecked, dsaAllIds);
 
-  const currentOverall = isDsa ? dsaOverall : mlOverall;
+  const koreanAllIds = React.useMemo(
+    () => koreanData.phases.flatMap((p) => p.checkableIds),
+    [koreanData.phases]
+  );
+  const koreanOverall = computeKoreanCompletion(koreanChecked, koreanAllIds);
+
+  const currentOverall = isKorean ? koreanOverall : isDsa ? dsaOverall : mlOverall;
 
   const handleExport = () => {
-    if (isDsa) {
+    if (isKorean) {
+      const payload = {
+        roadmap: 'korean',
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        checked: koreanChecked,
+        notes: koreanNotes,
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `korean-roadmap-progress-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } else if (isDsa) {
       const payload = {
         roadmap: 'dsa',
         version: 1,
@@ -125,7 +155,9 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
       try {
         const parsed = JSON.parse(String(reader.result));
         if (parsed && typeof parsed.checked === 'object') {
-          if (isDsa) {
+          if (isKorean) {
+            koreanImportProgress(parsed.checked, parsed.notes || {});
+          } else if (isDsa) {
             dsaImportProgress(parsed.checked, parsed.notes || {});
           } else {
             mlImportProgress(parsed.checked, parsed.notes || {});
@@ -139,11 +171,11 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   };
 
   // Nav states
-  const isMlHome = !isDsa && (location.pathname === '/' || location.pathname.startsWith('/level/'));
-  const isProjects = location.pathname.startsWith('/projects');
-  const isInterview = location.pathname.startsWith('/interview-prep');
+  const isMlHome = isMl && (location.pathname === '/' || location.pathname.startsWith('/level/'));
+  const isProjects = isMl && location.pathname.startsWith('/projects');
+  const isInterview = isMl && location.pathname.startsWith('/interview-prep');
 
-  const isDsaHome = location.pathname === '/dsa' || location.pathname.startsWith('/dsa/block/');
+  const isDsaHome = isDsa && (location.pathname === '/dsa' || location.pathname.startsWith('/dsa/block/'));
   const isDsaPatterns = location.pathname.startsWith('/dsa/patterns');
   const isDsaSql = location.pathname.startsWith('/dsa/sql');
   const isDsaCheatsheets = location.pathname.startsWith('/dsa/cheatsheets');
@@ -151,6 +183,36 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
   const isDsaApplied = location.pathname.startsWith('/dsa/applied-track');
   const isDsaCheckpoints = location.pathname.startsWith('/dsa/checkpoints');
   const isDsaNegotiation = location.pathname.startsWith('/dsa/negotiation');
+
+  const isKoreanHome = isKorean && (location.pathname === '/korean' || location.pathname.startsWith('/korean/level/'));
+  const isKoreanProjects = location.pathname.startsWith('/korean/projects');
+  const isKoreanQuestions = location.pathname.startsWith('/korean/questions');
+
+  const activeIcon = isKorean ? (
+    <Languages className="h-5 w-5" />
+  ) : isDsa ? (
+    <Code2 className="h-5 w-5" />
+  ) : (
+    <GitCommitHorizontal className="h-5 w-5" />
+  );
+
+  const activeColor = isKorean
+    ? 'bg-indigo-600'
+    : isDsa
+    ? 'bg-emerald-600'
+    : 'bg-[#6c5ce7]';
+
+  const activeTitle = isKorean
+    ? 'Korean Language Mastery'
+    : isDsa
+    ? 'DSA & Interview Engineering'
+    : 'ML & Applied Scientist Roadmap';
+
+  const activeSubtitle = isKorean
+    ? '6 Phases · 16 Levels · TOPIK & Fluency'
+    : isDsa
+    ? '100 Days · 5 Phases · 22 Patterns Edition'
+    : '7 Phases · 19 Levels · Checklist Edition';
 
   return (
     <header className="border-b border-slate-200 bg-white/95 backdrop-blur-md relative z-50">
@@ -164,15 +226,13 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
             aria-label="Switch between ML and DSA roadmaps"
           >
             <span
-              className={`flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-sm transition-transform group-hover:scale-105 ${
-                isDsa ? 'bg-emerald-600' : 'bg-[#6c5ce7]'
-              }`}
+              className={`flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-sm transition-transform group-hover:scale-105 ${activeColor}`}
             >
-              {isDsa ? <Code2 className="h-5 w-5" /> : <GitCommitHorizontal className="h-5 w-5" />}
+              {activeIcon}
             </span>
             <span className="flex flex-col">
               <span className="flex items-center gap-1.5 font-display text-[15px] sm:text-[15.5px] font-bold tracking-tight text-slate-900">
-                {isDsa ? 'DSA & Interview Engineering' : 'ML & Applied Scientist Roadmap'}
+                {activeTitle}
                 <ChevronDown
                   className={`h-4 w-4 text-slate-400 group-hover:text-slate-700 transition-transform ${
                     switcherOpen ? 'rotate-180' : ''
@@ -180,9 +240,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                 />
               </span>
               <span className="font-mono-code text-[11px] text-slate-500">
-                {isDsa
-                  ? '100 Days · 5 Phases · 16 Patterns Edition'
-                  : '7 Phases · 19 Levels · Checklist Edition'}
+                {activeSubtitle}
               </span>
             </span>
           </button>
@@ -202,8 +260,8 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                     setSwitcherOpen(false);
                     navigate('/');
                   }}
-                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition ${
-                    !isDsa
+                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition cursor-pointer ${
+                    isMl
                       ? 'bg-purple-50/70 border border-purple-200 text-slate-900'
                       : 'hover:bg-slate-50 text-slate-700'
                   }`}
@@ -215,7 +273,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                     <div>
                       <div className="text-sm font-bold font-display text-slate-900 flex items-center gap-1.5">
                         ML &amp; Applied Scientist
-                        {!isDsa && <Check className="h-3.5 w-3.5 text-[#6c5ce7]" />}
+                        {isMl && <Check className="h-3.5 w-3.5 text-[#6c5ce7]" />}
                       </div>
                       <div className="text-xs text-slate-500 font-mono-code">
                         7 Phases · 19 Levels · 26 Capstones
@@ -234,7 +292,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                     setSwitcherOpen(false);
                     navigate('/dsa');
                   }}
-                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition ${
+                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition cursor-pointer ${
                     isDsa
                       ? 'bg-emerald-50/70 border border-emerald-200 text-slate-900'
                       : 'hover:bg-slate-50 text-slate-700'
@@ -258,6 +316,38 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
                     {dsaOverall.pct}%
                   </span>
                 </button>
+
+                {/* Korean Track Option */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSwitcherOpen(false);
+                    navigate('/korean');
+                  }}
+                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition cursor-pointer ${
+                    isKorean
+                      ? 'bg-indigo-50/70 border border-indigo-200 text-slate-900'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-white">
+                      <Languages className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <div className="text-sm font-bold font-display text-slate-900 flex items-center gap-1.5">
+                        Korean Language Mastery
+                        {isKorean && <Check className="h-3.5 w-3.5 text-indigo-600" />}
+                      </div>
+                      <div className="text-xs text-slate-500 font-mono-code">
+                        6 Phases · 16 Levels · 18 Capstones
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-xs font-mono-code font-bold px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700">
+                    {koreanOverall.pct}%
+                  </span>
+                </button>
               </div>
             </div>
           )}
@@ -266,7 +356,40 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
         {/* Center / Right Navigation */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           <nav className="flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50/80 p-1" aria-label="Primary">
-            {isDsa ? (
+            {isKorean ? (
+              <>
+                <Link
+                  to="/korean"
+                  className={`rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-semibold transition-all ${
+                    isKoreanHome
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Roadmap
+                </Link>
+                <Link
+                  to="/korean/projects"
+                  className={`rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-semibold transition-all ${
+                    isKoreanProjects
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Capstones <span className="hidden sm:inline">({koreanData.meta.totalProjects})</span>
+                </Link>
+                <Link
+                  to="/korean/questions"
+                  className={`rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-semibold transition-all ${
+                    isKoreanQuestions
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Question Banks <span className="hidden sm:inline">({koreanData.meta.totalQuestions})</span>
+                </Link>
+              </>
+            ) : isDsa ? (
               <>
                 <Link
                   to="/dsa"
@@ -391,10 +514,10 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                title="Search entire roadmap (Ctrl+K)"
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/90 px-3 py-1.5 text-xs font-mono-code text-slate-600 hover:border-[#6c5ce7] hover:text-[#6c5ce7] transition-colors cursor-pointer"
+                title={`Search ${isKorean ? 'Korean' : 'ML'} roadmap (Ctrl+K)`}
+                className={`flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/90 px-3 py-1.5 text-xs font-mono-code text-slate-600 hover:border-indigo-500 hover:text-indigo-600 transition-colors cursor-pointer`}
               >
-                <Search className="h-3.5 w-3.5 text-[#6c5ce7]" />
+                <Search className={`h-3.5 w-3.5 ${isKorean ? 'text-indigo-600' : 'text-[#6c5ce7]'}`} />
                 <span className="hidden sm:inline">Search</span>
                 <kbd className="hidden md:inline rounded border border-slate-200 bg-white px-1.5 py-0.2 text-[10px] font-semibold text-slate-400">
                   Ctrl K
@@ -406,7 +529,11 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
               className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-mono-code text-slate-700 shadow-2xs"
               title={`${currentOverall.done} of ${currentOverall.total} items completed in active roadmap`}
             >
-              <CheckCircle2 className={`h-3.5 w-3.5 ${isDsa ? 'text-emerald-600' : 'text-[#6c5ce7]'}`} />
+              <CheckCircle2
+                className={`h-3.5 w-3.5 ${
+                  isKorean ? 'text-indigo-600' : isDsa ? 'text-emerald-600' : 'text-[#6c5ce7]'
+                }`}
+              />
               <span className="font-semibold text-slate-900">{currentOverall.pct}%</span>
               <span className="hidden md:inline text-slate-400">
                 ({currentOverall.done}/{currentOverall.total})
@@ -416,7 +543,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
             <button
               type="button"
               onClick={handleExport}
-              title={`Export ${isDsa ? 'DSA' : 'ML'} progress as JSON`}
+              title={`Export ${isKorean ? 'Korean' : isDsa ? 'DSA' : 'ML'} progress as JSON`}
               className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-500 hover:border-slate-300 hover:text-slate-800 transition-colors cursor-pointer"
             >
               <Download className="h-3.5 w-3.5" />
@@ -424,7 +551,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              title={`Import ${isDsa ? 'DSA' : 'ML'} progress from JSON`}
+              title={`Import ${isKorean ? 'Korean' : isDsa ? 'DSA' : 'ML'} progress from JSON`}
               className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-500 hover:border-slate-300 hover:text-slate-800 transition-colors cursor-pointer"
             >
               <Upload className="h-3.5 w-3.5" />
@@ -440,12 +567,14 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
               <button
                 type="button"
                 onClick={() => {
-                  if (window.confirm(`Reset all checked items in the active ${isDsa ? 'DSA' : 'ML'} roadmap?`)) {
-                    if (isDsa) dsaResetAll();
+                  const trackName = isKorean ? 'Korean' : isDsa ? 'DSA' : 'ML';
+                  if (window.confirm(`Reset all checked items in the active ${trackName} roadmap?`)) {
+                    if (isKorean) koreanResetAll();
+                    else if (isDsa) dsaResetAll();
                     else mlResetAll();
                   }
                 }}
-                title={`Reset all ${isDsa ? 'DSA' : 'ML'} progress`}
+                title={`Reset all ${isKorean ? 'Korean' : isDsa ? 'DSA' : 'ML'} progress`}
                 className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-400 hover:border-rose-300 hover:text-rose-600 transition-colors cursor-pointer"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
@@ -456,9 +585,12 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData }) => {
       </div>
 
       <CommandPaletteModal
-        data={data}
+        data={isKorean ? koreanData : data}
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}
+        basePath={isKorean ? '/korean/level' : '/level'}
+        projectsPath={isKorean ? '/korean/projects' : '/projects'}
+        questionsPath={isKorean ? '/korean/questions' : '/interview-prep'}
       />
     </header>
   );
