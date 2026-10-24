@@ -9,10 +9,10 @@ const koreanPhaseFiles = [
   {
     file: 'phase-01-foundations.md',
     phaseNum: 1,
-    slug: 'foundations',
-    shortName: 'Foundations',
-    rangeLabel: '0–3',
-    themeLabel: 'Hangeul, sound system, survival Korean, grammar engines I & II',
+    slug: 'level-1-beginner',
+    shortName: 'Level 1: Beginner Korean',
+    rangeLabel: 'Units 0–16',
+    themeLabel: '4 Parts · 17 Units · 34 Lessons · 5-Step Korean Mastery',
   },
   {
     file: 'phase-02-everyday-fluency.md',
