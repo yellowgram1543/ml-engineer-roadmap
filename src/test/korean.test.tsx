@@ -101,7 +101,7 @@ describe('Korean Language Mastery Roadmap Application', () => {
     expect(screen.getByText(/Beginner Korean Level 1 · 초급 1 한국어/i)).toBeInTheDocument();
     expect(screen.getByText(/SNU Korean\+ 1A Inspired Standard/i)).toBeInTheDocument();
     expect(screen.getByText(/5-Step Teaching Method/i)).toBeInTheDocument();
-    expect(screen.getByText(/Checkpoint A Milestone/i)).toBeInTheDocument();
+    expect(screen.getByText(/Gate A/i)).toBeInTheDocument();
 
     // Toggle to Checklist mode
     const checklistBtn = screen.getByRole('button', { name: /Curriculum Checklist & Capstone/i });

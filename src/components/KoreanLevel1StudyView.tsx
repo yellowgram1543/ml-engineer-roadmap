@@ -109,14 +109,21 @@ export const KoreanLevel1StudyView: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setActiveCheckpoint(KOREAN_CHECKPOINTS[0])}
-              className="flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 px-4 py-2.5 text-xs font-bold text-slate-950 transition cursor-pointer shadow-xs"
-            >
-              <Award className="h-4 w-4" />
-              <span>Checkpoint A Milestone</span>
-            </button>
+            {KOREAN_CHECKPOINTS.map((cp) => (
+              <button
+                key={cp.id}
+                type="button"
+                onClick={() => setActiveCheckpoint(cp)}
+                className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-bold transition cursor-pointer shadow-xs ${
+                  activeCheckpoint?.id === cp.id
+                    ? 'bg-amber-400 text-slate-950 ring-2 ring-amber-300'
+                    : 'bg-amber-500 hover:bg-amber-400 text-slate-950'
+                }`}
+              >
+                <Award className="h-3.5 w-3.5" />
+                <span>Gate {cp.checkpointCode}</span>
+              </button>
+            ))}
           </div>
         </div>
 
