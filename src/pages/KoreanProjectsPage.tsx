@@ -12,6 +12,7 @@ import {
 import { RoadmapData } from '../types/roadmap';
 import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKoreanProgressStore';
 import { ContentElementsView } from '../components/ContentElementsView';
+import { KoreanMinimapDots } from '../components/KoreanMinimapDots';
 
 interface KoreanProjectsPageProps {
   data: RoadmapData;
@@ -35,6 +36,29 @@ export const KoreanProjectsPage: React.FC<KoreanProjectsPageProps> = ({ data }) 
 
   return (
     <div className="min-h-screen bg-[#fcfcfd]">
+      {/* ───────────────── STICKY SECONDARY MINIMAP BAR ───────────────── */}
+      <div className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
+          <Link
+            to="/korean"
+            className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 transition shrink-0"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span className="font-display font-bold text-slate-900">Capstones ({data.projects.length})</span>
+          </Link>
+
+          <div className="flex-1 min-w-0 max-w-md hidden sm:block">
+            <KoreanMinimapDots levels={data.levels} variant="nav" />
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="font-mono-code text-xs font-bold text-slate-700">
+              {totalProjComp.pct}% done
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
