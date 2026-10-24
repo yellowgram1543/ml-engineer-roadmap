@@ -31,6 +31,7 @@ const PHASE_ICONS: Record<number, React.ReactNode> = {
   1: <Volume2 className="h-4 w-4" />,
   2: <MessageSquare className="h-4 w-4" />,
   3: <Layers className="h-4 w-4" />,
+  4: <BookOpen className="h-4 w-4" />,
   5: <Briefcase className="h-4 w-4" />,
   6: <Award className="h-4 w-4" />,
   7: <GraduationCap className="h-4 w-4" />,
@@ -42,8 +43,8 @@ const KOREAN_TRACKS: Record<
 > = {
   'Comprehensive Mastery': {
     label: 'All-Round Mastery',
-    description: 'Complete 16-level immersion from first Hangeul stroke to lifelong native maintenance.',
-    targetLevels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '13', '14', '15', '16', '17', '18'],
+    description: 'Complete 19-level immersion from first Hangeul stroke to lifelong native maintenance.',
+    targetLevels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'],
     icon: <Languages className="h-4 w-4 text-indigo-600" />,
   },
   'Survival & Everyday Life': {
@@ -55,19 +56,19 @@ const KOREAN_TRACKS: Record<
   'Professional & Workplace': {
     label: 'Business Korean',
     description: 'Formal speech registers, corporate documentation, meetings, client negotiation, and job interviews.',
-    targetLevels: ['0', '1', '2', '3', '7', '8', '9', '13'],
+    targetLevels: ['0', '1', '2', '3', '7', '8', '9', '10', '11', '13'],
     icon: <Briefcase className="h-4 w-4 text-blue-600" />,
   },
   'TOPIK II & Certification': {
     label: 'TOPIK II (Level 5–6)',
-    description: 'High-level discourse connectors, grammar synthesis, timed 54-essay writing, and mock exams.',
-    targetLevels: ['7', '8', '9', '13', '14', '15'],
+    description: 'High-level discourse connectors, Hanja sight-decoding, 54-essay plain form, and mock exams.',
+    targetLevels: ['7', '8', '9', '10', '11', '12', '13', '14', '15'],
     icon: <Award className="h-4 w-4 text-rose-600" />,
   },
   'Literature & Translation': {
     label: 'Literary & Interpretation',
-    description: 'Novels, academic abstracts, editorials, literary critique, and consecutive interpreting.',
-    targetLevels: ['13', '14', '15', '16', '17', '18'],
+    description: 'Novels, idioms & proverbs (L12), academic abstracts, editorials, and consecutive interpreting.',
+    targetLevels: ['11', '12', '13', '14', '15', '16', '17', '18'],
     icon: <BookOpen className="h-4 w-4 text-amber-600" />,
   },
 };

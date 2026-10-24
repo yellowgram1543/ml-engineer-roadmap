@@ -209,7 +209,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData, koreanData }) => 
     : 'ML & Applied Scientist Roadmap';
 
   const activeSubtitle = isKorean
-    ? '6 Phases · 16 Levels · TOPIK & Fluency'
+    ? '7 Phases · 19 Levels · TOPIK & Fluency'
     : isDsa
     ? '100 Days · 5 Phases · 22 Patterns Edition'
     : '7 Phases · 19 Levels · Checklist Edition';
@@ -340,7 +340,7 @@ export const Header: React.FC<HeaderProps> = ({ data, dsaData, koreanData }) => 
                         {isKorean && <Check className="h-3.5 w-3.5 text-indigo-600" />}
                       </div>
                       <div className="text-xs text-slate-500 font-mono-code">
-                        6 Phases · 16 Levels · 18 Capstones
+                        7 Phases · 19 Levels · 22 Capstones
                       </div>
                     </div>
                   </div>

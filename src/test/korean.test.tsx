@@ -10,11 +10,11 @@ describe('Korean Language Mastery Roadmap Application', () => {
     useKoreanProgressStore.getState().resetAll();
   });
 
-  it('parses all 6 phases and 16 level entries from korean map', () => {
-    expect(koreanJson.phases.length).toBe(6);
-    expect(koreanJson.levels.length).toBe(16);
-    expect(koreanJson.meta.totalCheckables).toBeGreaterThan(1000);
-    expect(koreanJson.projects.length).toBe(18);
+  it('parses all 7 phases and 19 level entries from korean map', () => {
+    expect(koreanJson.phases.length).toBe(7);
+    expect(koreanJson.levels.length).toBe(19);
+    expect(koreanJson.meta.totalCheckables).toBeGreaterThan(1200);
+    expect(koreanJson.projects.length).toBe(22);
     expect(koreanJson.interviewBanks.length).toBeGreaterThan(0);
   });
 
@@ -68,7 +68,7 @@ describe('Korean Language Mastery Roadmap Application', () => {
     expect(
       screen.getByRole('heading', { name: /Capstones & Production Portfolios/i })
     ).toBeInTheDocument();
-    expect(screen.getByText(/All Phases \(18\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/All Phases \(22\)/i)).toBeInTheDocument();
   });
 
   it('renders Korean Question Banks page with questions', () => {

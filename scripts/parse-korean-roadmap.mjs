@@ -31,6 +31,14 @@ const koreanPhaseFiles = [
     themeLabel: 'discourse & connectors, reported speech & passive/causative, register & nuance',
   },
   {
+    file: 'phase-04-advanced-grammar-and-vocabulary.md',
+    phaseNum: 4,
+    slug: 'advanced-grammar-vocab',
+    shortName: 'Advanced Grammar & Vocabulary',
+    rangeLabel: '10–12',
+    themeLabel: 'TOPIK 4-5 patterns, 1,800 Hanja roots, idioms, proverbs & plain form',
+  },
+  {
     file: 'phase-05-specialization.md',
     phaseNum: 5,
     slug: 'specialization',
@@ -316,10 +324,14 @@ function parseContentElements(lines, idPrefix, allCheckableIds) {
       paraLines.push(lines[i].trim());
       i++;
     }
-    elements.push({
-      type: 'paragraph',
-      text: paraLines.join(' '),
-    });
+    if (paraLines.length > 0) {
+      elements.push({
+        type: 'paragraph',
+        text: paraLines.join(' '),
+      });
+    } else {
+      i++;
+    }
   }
 
   // Post-process: mark checklists immediately following a 'practice' subheading as groupType: 'practice'
