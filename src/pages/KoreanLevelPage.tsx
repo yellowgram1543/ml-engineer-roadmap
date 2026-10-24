@@ -18,6 +18,9 @@ import {
   Sparkles,
   Volume2,
   FileText,
+  MessageSquare,
+  Eye,
+  EyeOff,
 } from 'lucide-react';
 import { RoadmapData } from '../types/roadmap';
 import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKoreanProgressStore';
@@ -30,6 +33,10 @@ import {
   KOREAN_TRACK_PATHS,
   KOREAN_TRACK_INTERPRETATION_NOTE,
 } from '../data/koreanTrackWeights';
+import {
+  KOREAN_DIALOGUES,
+  KOREAN_VOCABULARY,
+} from '../data/koreanCurriculumContent';
 
 interface KoreanLevelPageProps {
   data: RoadmapData;
@@ -58,6 +65,7 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
   const setSelectedFocus = useKoreanProgressStore((s) => s.setSelectedFocus);
   const [searchQuery, setSearchQuery] = React.useState<string>('');
   const [expandAll, setExpandAll] = React.useState<boolean>(false);
+  const [showEnglishDialogue, setShowEnglishDialogue] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     setSearchQuery('');
@@ -77,6 +85,9 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
   const weights = getKoreanLevelWeights(level.badge, selectedFocus);
   const activeTrack =
     KOREAN_TRACK_PATHS.find((t) => t.track === selectedFocus) || KOREAN_TRACK_PATHS[0];
+
+  const levelDialogues = KOREAN_DIALOGUES[level.badge] || [];
+  const levelVocab = KOREAN_VOCABULARY[level.badge] || [];
 
   const rawTools =
     level.dashboard['core tools'] ||
@@ -440,6 +451,186 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
             />
           </div>
         </div>
+
+        {/* ───────────────── SITUATIONAL DIALOGUES (실전 대화 실습) ───────────────── */}
+        {levelDialogues.length > 0 && (
+          <div className="mb-10 rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50/50 via-white to-slate-50/50 p-6 sm:p-7 shadow-xs">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-indigo-100/80 pb-4 mb-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-xs">
+                  <MessageSquare className="h-5 w-5" />
+                </span>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono-code text-[11px] font-bold uppercase tracking-wider text-indigo-600">
+                      Situational Dialogues · 실전 대화 실습
+                    </span>
+                    <span className="rounded-full bg-indigo-100 px-2 py-0.5 font-mono-code text-[10px] font-bold text-indigo-700">
+                      {levelDialogues.length} Scenario{levelDialogues.length > 1 ? 's' : ''}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-slate-900">
+                    Authentic Conversational Scenarios with Native Audio
+                  </h3>
+                </div>
+              </div>
+
+              {/* Subtitle toggle */}
+              <button
+                type="button"
+                onClick={() => setShowEnglishDialogue(!showEnglishDialogue)}
+                className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition shadow-2xs cursor-pointer"
+              >
+                {showEnglishDialogue ? <EyeOff className="h-3.5 w-3.5 text-slate-500" /> : <Eye className="h-3.5 w-3.5 text-indigo-600" />}
+                <span>{showEnglishDialogue ? 'Hide English Subtitles' : 'Show English Subtitles'}</span>
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {levelDialogues.map((d) => (
+                <div key={d.id} className="rounded-xl border border-slate-200/90 bg-white p-5 shadow-2xs space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                    <div>
+                      <h4 className="font-display text-base font-bold text-slate-900">
+                        {d.title}
+                      </h4>
+                      <p className="text-xs text-indigo-600 font-hangul font-medium">
+                        {d.koreanTitle}
+                      </p>
+                    </div>
+                    <span className="font-mono-code text-[11px] text-slate-500 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200/70">
+                      📍 {d.location}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-600 italic">
+                    Context: {d.situation}
+                  </p>
+
+                  {/* Lines exchange */}
+                  <div className="space-y-3 pt-1">
+                    {d.lines.map((line, lIdx) => {
+                      const isAlternate = lIdx % 2 !== 0;
+                      return (
+                        <div
+                          key={lIdx}
+                          className={`flex items-start gap-3 rounded-xl p-3.5 transition ${
+                            isAlternate
+                              ? 'bg-slate-50/80 border border-slate-200/60'
+                              : 'bg-indigo-50/40 border border-indigo-100/70'
+                          }`}
+                        >
+                          <div className="shrink-0 w-24">
+                            <span className="block font-display text-xs font-bold text-slate-900 truncate">
+                              {line.speaker}
+                            </span>
+                            {line.speakerRole && (
+                              <span className="block font-mono-code text-[10px] text-slate-500 truncate">
+                                {line.speakerRole}
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex-1 min-w-0 space-y-1">
+                            <div className="flex items-start justify-between gap-2">
+                              <p className="font-hangul text-base sm:text-lg font-bold text-slate-900 leading-snug tracking-wide">
+                                {line.korean}
+                              </p>
+                              <KoreanAudioButton koreanText={line.korean} text={line.korean} size="md" title="Listen to line in Korean" />
+                            </div>
+
+                            {showEnglishDialogue && (
+                              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+                                {line.english}
+                              </p>
+                            )}
+
+                            {line.notes && (
+                              <p className="text-[11px] font-mono-code text-indigo-700 bg-indigo-50/80 inline-block px-2 py-0.5 rounded border border-indigo-200/60 mt-1">
+                                💡 {line.notes}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ───────────────── CORE VOCABULARY & WORDS TO LEARN (핵심 어휘) ───────────────── */}
+        {levelVocab.length > 0 && (
+          <div className="mb-10 rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50/40 via-white to-slate-50/50 p-6 sm:p-7 shadow-xs">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-100/80 pb-4 mb-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-xs">
+                  <BookOpen className="h-5 w-5" />
+                </span>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono-code text-[11px] font-bold uppercase tracking-wider text-emerald-700">
+                      Core Vocabulary &amp; Words to Learn · 핵심 어휘
+                    </span>
+                    <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-mono-code text-[10px] font-bold text-emerald-800">
+                      {levelVocab.length} Target Words
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-slate-900">
+                    High-Frequency Korean Words with Audio &amp; Context Sentences
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+              {levelVocab.map((item) => (
+                <div
+                  key={item.id}
+                  className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs hover:border-emerald-300 transition space-y-2.5"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <span className="font-hangul text-xl font-extrabold text-slate-900 tracking-wide">
+                        {item.korean}
+                      </span>
+                      {item.hanja && (
+                        <span className="rounded bg-slate-100 px-1.5 py-0.5 font-mono-code text-[11px] font-semibold text-slate-600 border border-slate-200">
+                          {item.hanja}
+                        </span>
+                      )}
+                      <span className="font-mono-code text-xs text-slate-400">
+                        [{item.romanization}]
+                      </span>
+                      <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-200">
+                        {item.partOfSpeech}
+                      </span>
+                    </div>
+                    <KoreanAudioButton koreanText={item.korean} text={item.korean} size="md" title={`Listen to ${item.korean}`} />
+                  </div>
+
+                  <p className="text-xs sm:text-sm font-semibold text-slate-700">
+                    {item.english}
+                  </p>
+
+                  <div className="rounded-lg bg-slate-50/80 border border-slate-100 p-2.5 space-y-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="font-hangul text-xs sm:text-sm font-medium text-slate-900">
+                        {item.exampleKorean}
+                      </p>
+                      <KoreanAudioButton koreanText={item.exampleKorean} text={item.exampleKorean} size="sm" title="Listen to example" />
+                    </div>
+                    <p className="text-[11px] text-slate-500 leading-snug">
+                      {item.exampleEnglish}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Sections and Modules */}
         <div className="space-y-8">

@@ -90,16 +90,21 @@ describe('Korean Language Mastery Roadmap Application', () => {
     expect(screen.getByText(/All Phases \(22\)/i)).toBeInTheDocument();
   });
 
-  it('renders Korean Question Banks page with questions', () => {
+  it('renders Level 1 page with authentic Situational Dialogues and Core Vocabulary decks', () => {
     render(
-      <MemoryRouter initialEntries={['/korean/questions']}>
+      <MemoryRouter initialEntries={['/korean/level/level-1']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    expect(
-      screen.getByRole('heading', { name: /Korean Practice & Question Banks/i })
-    ).toBeInTheDocument();
+    // Situational Dialogues section
+    expect(screen.getByText(/Situational Dialogues · 실전 대화 실습/i)).toBeInTheDocument();
+    expect(screen.getByText(/At the Cafe: Ordering Iced Americano/i)).toBeInTheDocument();
+
+    // Core Vocabulary section
+    expect(screen.getByText(/Core Vocabulary & Words to Learn · 핵심 어휘/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/안녕하세요/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/주문하다/i).length).toBeGreaterThan(0);
   });
 
   it('calculates progress completion correctly', () => {

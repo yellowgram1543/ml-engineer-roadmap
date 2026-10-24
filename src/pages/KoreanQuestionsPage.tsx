@@ -13,11 +13,13 @@ import {
   List,
   Sparkles,
   Check,
+  BookOpen,
 } from 'lucide-react';
 import { RoadmapData } from '../types/roadmap';
 import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKoreanProgressStore';
 import { KoreanAudioButton } from '../components/KoreanAudioButton';
 import { RichText } from '../components/RichText';
+import { KOREAN_VOCABULARY, KoreanVocabularyItem } from '../data/koreanCurriculumContent';
 
 interface KoreanQuestionsPageProps {
   data: RoadmapData;
@@ -39,6 +41,7 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
   const [selectedLevel, setSelectedLevel] = React.useState<string>('all');
   const [selectedType, setSelectedType] = React.useState<string>('all');
   const [viewMode, setViewMode] = React.useState<'list' | 'flashcard'>('list');
+  const [deckMode, setDeckMode] = React.useState<'vocabulary' | 'questions'>('vocabulary');
 
   // Flashcard state
   const [currentCardIndex, setCurrentCardIndex] = React.useState<number>(0);
@@ -83,7 +86,7 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
       .filter((b) => b.groups.length > 0);
   }, [allQuestionBanks, selectedLevel, selectedType, searchQuery]);
 
-  // Flattened deck for flashcard mode
+  // Flattened deck for question flashcard mode
   const flashcardDeck = React.useMemo(() => {
     const deck: Array<{
       id: string;
@@ -111,24 +114,52 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
     return deck;
   }, [filteredBanks]);
 
-  const currentCard = flashcardDeck[currentCardIndex] || null;
+  // Flattened deck for vocabulary flashcard mode
+  const vocabDeck = React.useMemo(() => {
+    const deck: Array<KoreanVocabularyItem & { levelTitle: string }> = [];
+    for (const [badge, items] of Object.entries(KOREAN_VOCABULARY)) {
+      if (selectedLevel !== 'all' && selectedLevel !== `level-${badge}` && selectedLevel !== badge) {
+        continue;
+      }
+      const lvl = data.levels.find((l) => l.badge === badge);
+      for (const item of items) {
+        if (
+          !searchQuery ||
+          item.korean.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.english.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.romanization.toLowerCase().includes(searchQuery.toLowerCase())
+        ) {
+          deck.push({
+            ...item,
+            levelTitle: lvl ? lvl.title : `Level ${badge}`,
+          });
+        }
+      }
+    }
+    return deck;
+  }, [selectedLevel, searchQuery, data.levels]);
+
+  const isVocab = deckMode === 'vocabulary';
+  const activeDeckLength = isVocab ? vocabDeck.length : flashcardDeck.length;
+  const currentVocabCard = isVocab ? vocabDeck[currentCardIndex] || null : null;
+  const currentQuestionCard = !isVocab ? flashcardDeck[currentCardIndex] || null : null;
 
   const handleNextCard = () => {
     setIsFlipped(false);
-    setCurrentCardIndex((prev) => (prev + 1) % Math.max(1, flashcardDeck.length));
+    setCurrentCardIndex((prev) => (prev + 1) % Math.max(1, activeDeckLength));
   };
 
   const handlePrevCard = () => {
     setIsFlipped(false);
     setCurrentCardIndex((prev) =>
-      prev === 0 ? Math.max(0, flashcardDeck.length - 1) : prev - 1
+      prev === 0 ? Math.max(0, activeDeckLength - 1) : prev - 1
     );
   };
 
   const handleShuffle = () => {
     setIsFlipped(false);
-    if (flashcardDeck.length > 1) {
-      const randomIdx = Math.floor(Math.random() * flashcardDeck.length);
+    if (activeDeckLength > 1) {
+      const randomIdx = Math.floor(Math.random() * activeDeckLength);
       setCurrentCardIndex(randomIdx);
     }
   };
@@ -281,8 +312,44 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
         {viewMode === 'flashcard' ? (
           /* ───────────────── 3D FLASHCARD / FLIPCARD MODE ───────────────── */
-          <div className="max-w-2xl mx-auto">
-            {flashcardDeck.length === 0 ? (
+          <div className="max-w-2xl mx-auto space-y-5">
+            {/* Deck Mode Switcher */}
+            <div className="flex items-center justify-center gap-2 p-1 bg-slate-100 rounded-xl max-w-md mx-auto">
+              <button
+                type="button"
+                onClick={() => {
+                  setDeckMode('vocabulary');
+                  setCurrentCardIndex(0);
+                  setIsFlipped(false);
+                }}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                  deckMode === 'vocabulary'
+                    ? 'bg-white text-emerald-700 shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <BookOpen className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Vocabulary Words ({vocabDeck.length})</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setDeckMode('questions');
+                  setCurrentCardIndex(0);
+                  setIsFlipped(false);
+                }}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                  deckMode === 'questions'
+                    ? 'bg-white text-indigo-700 shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <HelpCircle className="h-3.5 w-3.5 text-indigo-600" />
+                <span>Question Drills ({flashcardDeck.length})</span>
+              </button>
+            </div>
+
+            {activeDeckLength === 0 ? (
               <div className="text-center py-16 text-slate-500 text-sm">
                 No cards match your filter criteria. Try adjusting the search or level filter.
               </div>
@@ -291,7 +358,7 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
                 {/* Deck progress header */}
                 <div className="flex items-center justify-between text-xs font-mono-code text-slate-500">
                   <span className="font-semibold text-slate-700">
-                    Card {currentCardIndex + 1} of {flashcardDeck.length}
+                    Card {currentCardIndex + 1} of {activeDeckLength}
                   </span>
                   <div className="flex items-center gap-3">
                     <button
@@ -302,7 +369,7 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
                       <Shuffle className="h-3.5 w-3.5" />
                       Shuffle
                     </button>
-                    <span>{Math.round(((currentCardIndex + 1) / flashcardDeck.length) * 100)}%</span>
+                    <span>{Math.round(((currentCardIndex + 1) / activeDeckLength) * 100)}%</span>
                   </div>
                 </div>
 
@@ -327,39 +394,79 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
                         isFlipped ? 'hidden' : 'block'
                       }`}
                     >
-                      <div>
-                        <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
-                          <div className="flex items-center gap-2">
-                            <span className="rounded-md bg-indigo-600 px-2 py-0.5 text-xs font-bold font-mono-code text-white">
-                              Level {currentCard?.levelBadge}
-                            </span>
-                            <span className="text-xs text-slate-500 truncate max-w-[200px]">
-                              {currentCard?.levelTitle}
-                            </span>
+                      {isVocab && currentVocabCard ? (
+                        <div>
+                          <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                            <div className="flex items-center gap-2">
+                              <span className="rounded-md bg-emerald-600 px-2 py-0.5 text-xs font-bold font-mono-code text-white">
+                                Level {currentVocabCard.levelBadge}
+                              </span>
+                              <span className="text-xs text-slate-500 truncate max-w-[200px]">
+                                {currentVocabCard.levelTitle}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                {currentVocabCard.partOfSpeech}
+                              </span>
+                              <KoreanAudioButton
+                                koreanText={currentVocabCard.korean}
+                                text={currentVocabCard.korean}
+                                size="md"
+                                title="Listen to Korean word"
+                              />
+                            </div>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <span
-                              className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
-                                QUESTION_TYPE_STYLES[currentCard?.type || 'Concept']
-                              }`}
-                            >
-                              {currentCard?.type === 'Coding' ? 'Production' : currentCard?.type}
+
+                          <div className="text-center py-6 space-y-2">
+                            <span className="font-hangul text-4xl sm:text-5xl font-extrabold text-slate-900 block tracking-wide">
+                              {currentVocabCard.korean}
                             </span>
-                            {currentCard && <KoreanAudioButton text={currentCard.question} size="md" />}
+                            <div className="flex items-center justify-center gap-2 text-xs font-mono-code text-slate-500">
+                              <span>[{currentVocabCard.romanization}]</span>
+                              {currentVocabCard.hanja && (
+                                <span className="rounded bg-slate-100 px-1.5 py-0.5 text-slate-600 border border-slate-200">
+                                  {currentVocabCard.hanja}
+                                </span>
+                              )}
+                            </div>
                           </div>
                         </div>
+                      ) : (
+                        <div>
+                          <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                            <div className="flex items-center gap-2">
+                              <span className="rounded-md bg-indigo-600 px-2 py-0.5 text-xs font-bold font-mono-code text-white">
+                                Level {currentQuestionCard?.levelBadge}
+                              </span>
+                              <span className="text-xs text-slate-500 truncate max-w-[200px]">
+                                {currentQuestionCard?.levelTitle}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
+                                  QUESTION_TYPE_STYLES[currentQuestionCard?.type || 'Concept']
+                                }`}
+                              >
+                                {currentQuestionCard?.type === 'Coding' ? 'Production' : currentQuestionCard?.type}
+                              </span>
+                              {currentQuestionCard && <KoreanAudioButton text={currentQuestionCard.question} size="md" />}
+                            </div>
+                          </div>
 
-                        <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-indigo-600 block mb-2">
-                          {currentCard?.category}
-                        </span>
+                          <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-indigo-600 block mb-2">
+                            {currentQuestionCard?.category}
+                          </span>
 
-                        <div className="font-display font-hangul text-lg sm:text-xl font-bold leading-relaxed mt-2 text-slate-900">
-                          <RichText text={currentCard?.question || ''} />
+                          <div className="font-display font-hangul text-lg sm:text-xl font-bold leading-relaxed mt-2 text-slate-900">
+                            <RichText text={currentQuestionCard?.question || ''} />
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       <div className="mt-8 border-t border-slate-100 pt-4 flex items-center justify-between text-xs text-slate-400 font-mono-code">
-                        <span>Click card or press Space to reveal answer</span>
+                        <span>Click card or press Space to flip</span>
                         <RotateCw className="h-4 w-4 text-indigo-500 animate-spin-slow" />
                       </div>
                     </div>
@@ -371,34 +478,78 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
                       }`}
                       style={{ transform: 'rotateY(180deg)' }}
                     >
-                      <div>
-                        <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-                          <span className="text-xs font-mono-code text-indigo-400 font-bold uppercase tracking-wider">
-                            Answer &amp; Production Standard
-                          </span>
-                          {currentCard && <KoreanAudioButton text={currentCard.question} size="md" />}
-                        </div>
-
-                        <div className="font-sans text-sm sm:text-base leading-relaxed text-slate-200">
-                          <p className="font-semibold text-white mb-2 font-hangul">
-                            Question Focus:
-                          </p>
-                          <p className="text-xs text-slate-300 font-hangul mb-4">
-                            {currentCard?.question}
-                          </p>
-
-                          <div className="rounded-xl bg-slate-800/80 p-3.5 border border-slate-700 text-xs text-indigo-200 leading-relaxed">
-                            <span className="font-bold text-indigo-400 block mb-1">
-                              Target Production Criteria:
+                      {isVocab && currentVocabCard ? (
+                        <div>
+                          <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                            <span className="text-xs font-mono-code text-emerald-400 font-bold uppercase tracking-wider">
+                              Meaning &amp; Context Sentence
                             </span>
-                            Deliver this sentence or rule unprompted out loud at native speed with zero pauses and correct sound liaison rules.
+                            <KoreanAudioButton
+                              koreanText={currentVocabCard.korean}
+                              text={currentVocabCard.korean}
+                              size="md"
+                              title="Listen to word"
+                            />
+                          </div>
+
+                          <div className="space-y-4">
+                            <div>
+                              <span className="text-[11px] font-mono-code text-slate-400 uppercase tracking-wider block mb-1">
+                                English Meaning
+                              </span>
+                              <h4 className="text-xl sm:text-2xl font-bold text-white font-sans">
+                                {currentVocabCard.english}
+                              </h4>
+                            </div>
+
+                            <div className="rounded-xl bg-slate-800/90 p-4 border border-slate-700 space-y-2">
+                              <div className="flex items-start justify-between gap-2">
+                                <p className="font-hangul text-base sm:text-lg font-bold text-emerald-300">
+                                  {currentVocabCard.exampleKorean}
+                                </p>
+                                <KoreanAudioButton
+                                  koreanText={currentVocabCard.exampleKorean}
+                                  text={currentVocabCard.exampleKorean}
+                                  size="sm"
+                                  title="Listen to example sentence"
+                                />
+                              </div>
+                              <p className="text-xs text-slate-300 font-sans">
+                                {currentVocabCard.exampleEnglish}
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div>
+                          <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                            <span className="text-xs font-mono-code text-indigo-400 font-bold uppercase tracking-wider">
+                              Answer &amp; Production Standard
+                            </span>
+                            {currentQuestionCard && <KoreanAudioButton text={currentQuestionCard.question} size="md" />}
+                          </div>
+
+                          <div className="font-sans text-sm sm:text-base leading-relaxed text-slate-200">
+                            <p className="font-semibold text-white mb-2 font-hangul">
+                              Question Focus:
+                            </p>
+                            <p className="text-xs text-slate-300 font-hangul mb-4">
+                              {currentQuestionCard?.question}
+                            </p>
+
+                            <div className="rounded-xl bg-slate-800/80 p-3.5 border border-slate-700 text-xs text-indigo-200 leading-relaxed">
+                              <span className="font-bold text-indigo-400 block mb-1">
+                                Target Production Criteria:
+                              </span>
+                              Deliver this sentence or rule unprompted out loud at native speed with zero pauses and correct sound liaison rules.
+                            </div>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="mt-8 border-t border-slate-800 pt-4 flex items-center justify-between text-xs text-slate-400 font-mono-code">
                         <span>Click card to return to prompt</span>
-                        <span className="text-indigo-400 font-semibold">Ready for next</span>
+                        <span className="text-emerald-400 font-semibold">Ready for next</span>
                       </div>
                     </div>
                   </div>
@@ -414,18 +565,34 @@ export const KoreanQuestionsPage: React.FC<KoreanQuestionsPageProps> = ({ data }
                     <ChevronLeft className="h-4 w-4" /> Previous
                   </button>
 
-                  {currentCard && (
+                  {(isVocab ? currentVocabCard : currentQuestionCard) && (
                     <button
                       type="button"
-                      onClick={() => toggleItem(currentCard.id)}
+                      onClick={() =>
+                        toggleItem(
+                          isVocab && currentVocabCard
+                            ? currentVocabCard.id
+                            : currentQuestionCard!.id
+                        )
+                      }
                       className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold transition cursor-pointer shadow-xs border ${
-                        checked[currentCard.id]
+                        checked[
+                          isVocab && currentVocabCard
+                            ? currentVocabCard.id
+                            : currentQuestionCard!.id
+                        ]
                           ? 'bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700'
                           : 'bg-white text-slate-700 border-slate-200 hover:border-emerald-500 hover:text-emerald-700'
                       }`}
                     >
                       <Check className="h-4 w-4" />
-                      {checked[currentCard.id] ? 'Marked Mastered' : 'Mark as Mastered'}
+                      {checked[
+                        isVocab && currentVocabCard
+                          ? currentVocabCard.id
+                          : currentQuestionCard!.id
+                      ]
+                        ? 'Marked Mastered'
+                        : 'Mark as Mastered'}
                     </button>
                   )}
 
