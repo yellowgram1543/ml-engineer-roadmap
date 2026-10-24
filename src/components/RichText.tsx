@@ -67,9 +67,23 @@ export function RichText({ text, className = '' }: { text: string; className?: s
         }
       }
       if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
+        const content = part.slice(1, -1);
+        const hasHangul = /[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f]/.test(content);
+        const hasHanja = /[\u4e00-\u9fff]/.test(content);
+        const isPhonetic = /^\[.+\]$/.test(content);
+
+        let customClass = '';
+        if (hasHanja) {
+          customClass = 'korean-hanja';
+        } else if (isPhonetic) {
+          customClass = 'korean-phonetic';
+        } else if (hasHangul) {
+          customClass = 'font-hangul bg-indigo-50/80 text-indigo-950 border border-indigo-200/80 font-semibold px-1.5 py-0.5 rounded shadow-2xs';
+        }
+
         return (
-          <code key={index} className="term-code">
-            {part.slice(1, -1)}
+          <code key={index} className={`term-code ${customClass}`}>
+            {content}
           </code>
         );
       }
