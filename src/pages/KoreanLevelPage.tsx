@@ -22,6 +22,7 @@ import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKor
 import { ContentElementsView } from '../components/ContentElementsView';
 import { RichText } from '../components/RichText';
 import { KoreanMinimapDots } from '../components/KoreanMinimapDots';
+import { KoreanAudioButton } from '../components/KoreanAudioButton';
 
 interface KoreanLevelPageProps {
   data: RoadmapData;
@@ -465,16 +466,19 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
                             className="mt-0.5 h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                           />
                           <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="font-mono-code text-[11px] font-bold text-slate-500">
-                                #{q.number}
-                              </span>
-                              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${badgeClass}`}>
-                                {q.type === 'Coding' ? 'Production' : q.type}
-                              </span>
+                            <div className="flex items-center justify-between gap-2 mb-1">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono-code text-[11px] font-bold text-slate-500">
+                                  #{q.number}
+                                </span>
+                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${badgeClass}`}>
+                                  {q.type === 'Coding' ? 'Production' : q.type}
+                                </span>
+                              </div>
+                              <KoreanAudioButton text={q.question} size="sm" />
                             </div>
-                            <p className="text-xs sm:text-sm font-medium leading-relaxed">
-                              {q.question}
+                            <p className="text-xs sm:text-sm font-medium leading-relaxed font-hangul">
+                              <RichText text={q.question} />
                             </p>
                           </div>
                         </div>
