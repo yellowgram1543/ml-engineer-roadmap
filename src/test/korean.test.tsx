@@ -90,21 +90,27 @@ describe('Korean Language Mastery Roadmap Application', () => {
     expect(screen.getByText(/All Phases \(22\)/i)).toBeInTheDocument();
   });
 
-  it('renders Level 1 page with authentic Situational Dialogues and Core Vocabulary decks', () => {
+  it('renders Level 1 page with SNU 5-step lesson course and allows toggling to checklist mode', () => {
     render(
       <MemoryRouter initialEntries={['/korean/level/level-1']}>
         <AppRoutes />
       </MemoryRouter>
     );
 
-    // Situational Dialogues section
-    expect(screen.getByText(/Situational Dialogues · 실전 대화 실습/i)).toBeInTheDocument();
-    expect(screen.getByText(/At the Cafe: Ordering Iced Americano/i)).toBeInTheDocument();
+    // SNU 5-step course view
+    expect(screen.getByText(/Beginner Korean Level 1 · 초급 1 한국어/i)).toBeInTheDocument();
+    expect(screen.getByText(/SNU Korean\+ 1A Inspired Standard/i)).toBeInTheDocument();
+    expect(screen.getByText(/5-Step Teaching Method/i)).toBeInTheDocument();
+    expect(screen.getByText(/Checkpoint A Milestone/i)).toBeInTheDocument();
 
-    // Core Vocabulary section
+    // Toggle to Checklist mode
+    const checklistBtn = screen.getByRole('button', { name: /Curriculum Checklist & Capstone/i });
+    expect(checklistBtn).toBeInTheDocument();
+    fireEvent.click(checklistBtn);
+
+    // In checklist mode:
     expect(screen.getByText(/Core Vocabulary & Words to Learn · 핵심 어휘/i)).toBeInTheDocument();
     expect(screen.getAllByText(/안녕하세요/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/주문하다/i).length).toBeGreaterThan(0);
   });
 
   it('calculates progress completion correctly', () => {

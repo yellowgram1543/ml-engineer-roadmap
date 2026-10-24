@@ -21,6 +21,7 @@ import {
   MessageSquare,
   Eye,
   EyeOff,
+  Layers,
 } from 'lucide-react';
 import { RoadmapData } from '../types/roadmap';
 import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKoreanProgressStore';
@@ -37,6 +38,7 @@ import {
   KOREAN_DIALOGUES,
   KOREAN_VOCABULARY,
 } from '../data/koreanCurriculumContent';
+import { KoreanLevel1StudyView } from '../components/KoreanLevel1StudyView';
 
 interface KoreanLevelPageProps {
   data: RoadmapData;
@@ -66,6 +68,7 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
   const [searchQuery, setSearchQuery] = React.useState<string>('');
   const [expandAll, setExpandAll] = React.useState<boolean>(false);
   const [showEnglishDialogue, setShowEnglishDialogue] = React.useState<boolean>(true);
+  const [studyMode, setStudyMode] = React.useState<'snu5step' | 'checklist'>('snu5step');
 
   React.useEffect(() => {
     setSearchQuery('');
@@ -438,19 +441,53 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
 
       {/* ───────────────── CONTENT BODY ───────────────── */}
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-        {/* Search within level */}
-        <div className="mb-8">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              placeholder={`Search within Level ${level.badge} (syllables, grammar rules, drills)...`}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-4 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 shadow-xs"
-            />
+        {/* Mode Switcher for Level 1 */}
+        {level.badge === '1' && (
+          <div className="mb-8 flex items-center justify-center gap-2 p-1.5 bg-slate-100 rounded-2xl max-w-lg mx-auto">
+            <button
+              type="button"
+              onClick={() => setStudyMode('snu5step')}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                studyMode === 'snu5step'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <Sparkles className="h-4 w-4" />
+              <span>SNU 5-Step Lesson Course</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setStudyMode('checklist')}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                studyMode === 'checklist'
+                  ? 'bg-white text-indigo-700 shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <Layers className="h-4 w-4" />
+              <span>Curriculum Checklist &amp; Capstone</span>
+            </button>
           </div>
-        </div>
+        )}
+
+        {level.badge === '1' && studyMode === 'snu5step' ? (
+          <KoreanLevel1StudyView />
+        ) : (
+          <>
+            {/* Search within level */}
+            <div className="mb-8">
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder={`Search within Level ${level.badge} (syllables, grammar rules, drills)...`}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-4 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 shadow-xs"
+                />
+              </div>
+            </div>
 
         {/* ───────────────── SITUATIONAL DIALOGUES (실전 대화 실습) ───────────────── */}
         {levelDialogues.length > 0 && (
@@ -854,6 +891,8 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
               ))}
             </div>
           </div>
+        )}
+          </>
         )}
 
         {/* Bottom Pagination */}
