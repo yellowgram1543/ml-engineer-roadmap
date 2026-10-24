@@ -16,6 +16,8 @@ import {
   Clock,
   Wrench,
   Sparkles,
+  Volume2,
+  FileText,
 } from 'lucide-react';
 import { RoadmapData } from '../types/roadmap';
 import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKoreanProgressStore';
@@ -23,6 +25,11 @@ import { ContentElementsView } from '../components/ContentElementsView';
 import { RichText } from '../components/RichText';
 import { KoreanMinimapDots } from '../components/KoreanMinimapDots';
 import { KoreanAudioButton } from '../components/KoreanAudioButton';
+import {
+  getKoreanLevelWeights,
+  KOREAN_TRACK_PATHS,
+  KOREAN_TRACK_INTERPRETATION_NOTE,
+} from '../data/koreanTrackWeights';
 
 interface KoreanLevelPageProps {
   data: RoadmapData;
@@ -47,6 +54,8 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
   const checked = useKoreanProgressStore((s) => s.checked);
   const toggleItem = useKoreanProgressStore((s) => s.toggleItem);
   const setBatch = useKoreanProgressStore((s) => s.setBatch);
+  const selectedFocus = useKoreanProgressStore((s) => s.selectedFocus);
+  const setSelectedFocus = useKoreanProgressStore((s) => s.setSelectedFocus);
   const [searchQuery, setSearchQuery] = React.useState<string>('');
   const [expandAll, setExpandAll] = React.useState<boolean>(false);
 
@@ -64,6 +73,10 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
 
   const levelComp = computeKoreanCompletion(checked, level.checkableIds);
   const phase = data.phases.find((p) => p.phaseNum === level.phaseNum);
+
+  const weights = getKoreanLevelWeights(level.badge, selectedFocus);
+  const activeTrack =
+    KOREAN_TRACK_PATHS.find((t) => t.track === selectedFocus) || KOREAN_TRACK_PATHS[0];
 
   const rawTools =
     level.dashboard['core tools'] ||
@@ -238,6 +251,133 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
               ))}
             </div>
           )}
+
+          {/* ───────────────── DUAL SUB-WEIGHT & PRODUCTION PRIORITY SECTION ───────────────── */}
+          <div className="mt-6 space-y-3.5">
+            {/* Active Learner Goal Track Banner & Switcher */}
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4">
+              <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+                <span className="rounded-lg bg-indigo-600 px-2.5 py-0.5 font-mono-code text-[11px] font-bold text-white shadow-xs">
+                  Track: {activeTrack.label}
+                </span>
+                <span
+                  className={`rounded-lg border px-2.5 py-0.5 font-mono-code text-[11px] font-bold ${
+                    weights.studyDepth === 'Core Mastery'
+                      ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                      : weights.studyDepth === 'Working Fluency'
+                      ? 'border-indigo-300 bg-white text-indigo-700'
+                      : 'border-slate-300 bg-slate-100 text-slate-600'
+                  }`}
+                >
+                  {weights.studyDepth}
+                </span>
+                <span className="text-slate-700 font-medium text-xs sm:text-sm">
+                  <RichText text={weights.trackFocus} />
+                </span>
+              </div>
+
+              {/* Track Switcher Pills */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-mono-code text-slate-500 font-semibold uppercase tracking-wider">
+                  Switch Goal:
+                </span>
+                {KOREAN_TRACK_PATHS.map((tp) => {
+                  const isCurrent = tp.track === selectedFocus;
+                  return (
+                    <button
+                      key={tp.track}
+                      type="button"
+                      onClick={() => setSelectedFocus(tp.track)}
+                      className={`rounded-lg px-2.5 py-1 text-xs font-mono-code transition cursor-pointer ${
+                        isCurrent
+                          ? 'bg-indigo-600 text-white font-bold shadow-xs'
+                          : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+                      }`}
+                      title={tp.focus}
+                    >
+                      {tp.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Dual Calibrated Weight Cards */}
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {/* Spoken Fluency Weight Card */}
+              <section className="rounded-2xl border border-slate-200 border-l-4 border-l-rose-500 bg-white p-5 shadow-xs space-y-3">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-rose-200 bg-rose-50 text-rose-600">
+                      <Volume2 className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <span className="font-mono-code text-xs font-semibold uppercase tracking-wider text-slate-500 block">
+                        Spoken Fluency Weight
+                      </span>
+                      <span className="font-mono-code text-[11px] font-bold text-rose-600 truncate block">
+                        Audio Production &amp; Real-time Agility
+                      </span>
+                    </div>
+                  </div>
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-rose-600 shrink-0">
+                    {weights.fluencyScore}
+                    <span className="font-mono-code text-sm font-medium text-slate-400">/10</span>
+                  </div>
+                </div>
+
+                <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-rose-400 to-rose-600 transition-all duration-300"
+                    style={{ width: `${weights.fluencyScore * 10}%` }}
+                  />
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <RichText text={weights.fluencyRationale} />
+                </p>
+              </section>
+
+              {/* Textual & Literacy Weight Card */}
+              <section className="rounded-2xl border border-slate-200 border-l-4 border-l-indigo-600 bg-white p-5 shadow-xs space-y-3">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-indigo-200 bg-indigo-50 text-indigo-600">
+                      <FileText className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <span className="font-mono-code text-xs font-semibold uppercase tracking-wider text-slate-500 block">
+                        Textual &amp; Literacy Weight
+                      </span>
+                      <span className="font-mono-code text-[11px] font-bold text-indigo-600 truncate block">
+                        Reading, Writing &amp; Discourse Logic
+                      </span>
+                    </div>
+                  </div>
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-indigo-600 shrink-0">
+                    {weights.literacyScore}
+                    <span className="font-mono-code text-sm font-medium text-slate-400">/10</span>
+                  </div>
+                </div>
+
+                <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 transition-all duration-300"
+                    style={{ width: `${weights.literacyScore * 10}%` }}
+                  />
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <RichText text={weights.literacyRationale} />
+                </p>
+              </section>
+            </div>
+
+            {/* Calibration note */}
+            <p className="text-[11px] text-slate-500 italic px-1 leading-relaxed">
+              {KOREAN_TRACK_INTERPRETATION_NOTE}
+            </p>
+          </div>
 
           {/* Level Progress Bar & Actions */}
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-4">

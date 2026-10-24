@@ -36,7 +36,7 @@ describe('Korean Language Mastery Roadmap Application', () => {
     ).toBeGreaterThan(0);
   });
 
-  it('renders Level 0 page and toggles checkboxes with progress persistence', () => {
+  it('renders Level 0 page and toggles checkboxes with progress persistence and sub-weights', () => {
     render(
       <MemoryRouter initialEntries={['/korean/level/level-0']}>
         <AppRoutes />
@@ -47,6 +47,11 @@ describe('Korean Language Mastery Roadmap Application', () => {
       screen.getByRole('heading', { name: /Hangeul and the Sound System/i })
     ).toBeInTheDocument();
 
+    // Check dual sub-weight cards
+    expect(screen.getByText(/Spoken Fluency Weight/i)).toBeInTheDocument();
+    expect(screen.getByText(/Textual & Literacy Weight/i)).toBeInTheDocument();
+    expect(screen.getByText(/Track: All-Round Mastery/i)).toBeInTheDocument();
+
     const checkboxes = screen.getAllByRole('checkbox');
     expect(checkboxes.length).toBeGreaterThan(0);
 
@@ -56,6 +61,20 @@ describe('Korean Language Mastery Roadmap Application', () => {
     fireEvent.click(firstCheckbox);
     expect(firstCheckbox).toBeChecked();
     expect(Object.keys(useKoreanProgressStore.getState().checked).length).toBe(1);
+  });
+
+  it('renders Korean footer with active track and navigation links on Korean routes', () => {
+    render(
+      <MemoryRouter initialEntries={['/korean']}>
+        <AppRoutes />
+      </MemoryRouter>
+    );
+
+    const footer = screen.getByRole('contentinfo');
+    expect(footer).toBeInTheDocument();
+    expect(footer).toHaveTextContent(/Korean Language Mastery Roadmap/i);
+    expect(footer).toHaveTextContent(/22 Capstones/i);
+    expect(footer).toHaveTextContent(/Question Banks & Flipcards/i);
   });
 
   it('renders Korean Capstones page with all 18 deliverables', () => {

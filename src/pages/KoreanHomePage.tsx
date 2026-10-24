@@ -22,6 +22,11 @@ import { useKoreanProgressStore, computeKoreanCompletion } from '../store/useKor
 import { MinimapDots } from '../components/MinimapDots';
 import { SegmentedMeter } from '../components/SegmentedMeter';
 import { RichText } from '../components/RichText';
+import {
+  getKoreanLevelWeights,
+  KOREAN_TRACK_PATHS,
+  KOREAN_TRACK_INTERPRETATION_NOTE,
+} from '../data/koreanTrackWeights';
 
 interface KoreanHomePageProps {
   data: RoadmapData;
@@ -37,40 +42,12 @@ const PHASE_ICONS: Record<number, React.ReactNode> = {
   7: <GraduationCap className="h-4 w-4" />,
 };
 
-const KOREAN_TRACKS: Record<
-  string,
-  { label: string; description: string; targetLevels: string[]; icon: React.ReactNode }
-> = {
-  'Comprehensive Mastery': {
-    label: 'All-Round Mastery',
-    description: 'Complete 19-level immersion from first Hangeul stroke to lifelong native maintenance.',
-    targetLevels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'],
-    icon: <Languages className="h-4 w-4 text-indigo-600" />,
-  },
-  'Survival & Everyday Life': {
-    label: 'Everyday Fluency',
-    description: 'Master Hangeul, sound rules, survival conversations, housing, banking, and clinics.',
-    targetLevels: ['0', '1', '2', '3', '4', '5', '6'],
-    icon: <MessageSquare className="h-4 w-4 text-emerald-600" />,
-  },
-  'Professional & Workplace': {
-    label: 'Business Korean',
-    description: 'Formal speech registers, corporate documentation, meetings, client negotiation, and job interviews.',
-    targetLevels: ['0', '1', '2', '3', '7', '8', '9', '10', '11', '13'],
-    icon: <Briefcase className="h-4 w-4 text-blue-600" />,
-  },
-  'TOPIK II & Certification': {
-    label: 'TOPIK II (Level 5–6)',
-    description: 'High-level discourse connectors, Hanja sight-decoding, 54-essay plain form, and mock exams.',
-    targetLevels: ['7', '8', '9', '10', '11', '12', '13', '14', '15'],
-    icon: <Award className="h-4 w-4 text-rose-600" />,
-  },
-  'Literature & Translation': {
-    label: 'Literary & Interpretation',
-    description: 'Novels, idioms & proverbs (L12), academic abstracts, editorials, and consecutive interpreting.',
-    targetLevels: ['11', '12', '13', '14', '15', '16', '17', '18'],
-    icon: <BookOpen className="h-4 w-4 text-amber-600" />,
-  },
+const TRACK_ICONS: Record<string, React.ReactNode> = {
+  'Comprehensive Mastery': <Languages className="h-4 w-4 text-indigo-600" />,
+  'Survival & Everyday Life': <MessageSquare className="h-4 w-4 text-emerald-600" />,
+  'Professional & Workplace': <Briefcase className="h-4 w-4 text-blue-600" />,
+  'TOPIK II & Certification': <Award className="h-4 w-4 text-rose-600" />,
+  'Literature & Translation': <BookOpen className="h-4 w-4 text-amber-600" />,
 };
 
 export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
@@ -84,10 +61,11 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
   );
   const globalStats = computeKoreanCompletion(checked, allCheckableIds);
 
-  const activeTrack = KOREAN_TRACKS[selectedFocus] || KOREAN_TRACKS['Comprehensive Mastery'];
+  const activeTrack =
+    KOREAN_TRACK_PATHS.find((t) => t.track === selectedFocus) || KOREAN_TRACK_PATHS[0];
 
   const targetLevelsSet = React.useMemo(
-    () => new Set(activeTrack.targetLevels),
+    () => new Set(activeTrack.targetBadges),
     [activeTrack]
   );
 
@@ -154,7 +132,7 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
                   className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
                 >
                   <Award className="h-4 w-4 text-amber-600" />
-                  View All 18 Capstones
+                  View All {data.projects?.length || 22} Capstones
                 </Link>
                 <Link
                   to="/korean/questions"
@@ -195,35 +173,50 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
 
                 {/* Focus Track Selector */}
                 <div className="mt-6 border-t border-slate-100 pt-5">
-                  <label className="block text-xs font-semibold text-slate-700 mb-2">
-                    Learning Focus / Target Track:
-                  </label>
-                  <div className="grid grid-cols-1 gap-1.5">
-                    {Object.entries(KOREAN_TRACKS).map(([key, t]) => {
-                      const active = selectedFocus === key;
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-xs font-semibold text-slate-700">
+                      Learning Focus Track:
+                    </label>
+                    <span className="font-mono-code text-[11px] text-indigo-600 font-bold">
+                      {activeTrack.label}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {KOREAN_TRACK_PATHS.map((tp) => {
+                      const active = selectedFocus === tp.track;
                       return (
                         <button
-                          key={key}
+                          key={tp.track}
                           type="button"
-                          onClick={() => setSelectedFocus(key)}
-                          className={`flex items-center justify-between px-3 py-2 rounded-lg text-left text-xs transition cursor-pointer border ${
+                          onClick={() => setSelectedFocus(tp.track)}
+                          className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-xs transition cursor-pointer border ${
                             active
-                              ? 'bg-indigo-50/70 border-indigo-200 text-indigo-900 font-semibold'
+                              ? 'bg-indigo-50/80 border-indigo-300 text-indigo-950 ring-1 ring-indigo-200 font-semibold shadow-2xs'
                               : 'bg-white border-slate-200/80 hover:bg-slate-50 text-slate-700'
                           }`}
                         >
-                          <div className="flex items-center gap-2">
-                            {t.icon}
-                            <span>{t.label}</span>
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            {TRACK_ICONS[tp.track] || <Languages className="h-4 w-4 text-indigo-600" />}
+                            <div className="min-w-0">
+                              <span className="block truncate">{tp.label}</span>
+                              <span className="block font-mono-code text-[10px] text-slate-500 font-normal truncate">
+                                {tp.estimatedTimeline}
+                              </span>
+                            </div>
                           </div>
-                          {active && <CheckCircle2 className="h-3.5 w-3.5 text-indigo-600" />}
+                          {active && <CheckCircle2 className="h-4 w-4 text-indigo-600 shrink-0 ml-2" />}
                         </button>
                       );
                     })}
                   </div>
-                  <p className="mt-2 text-[11px] text-slate-500 leading-relaxed">
-                    {activeTrack.description}
-                  </p>
+                  <div className="mt-3 rounded-lg bg-slate-50 border border-slate-200/70 p-2.5 space-y-1">
+                    <div className="font-mono-code text-[11px] font-bold text-indigo-700">
+                      Target: {activeTrack.keyLevels}
+                    </div>
+                    <p className="text-[11px] text-slate-600 leading-relaxed">
+                      {activeTrack.focus}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -240,7 +233,7 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
                 Curriculum Progression
               </h2>
               <p className="text-sm text-slate-500 mt-1">
-                6 structured phases designed to transition from reading syllables to living in Korean.
+                {data.phases.length} structured phases designed to transition from reading syllables to living in Korean.
               </p>
             </div>
             <a
@@ -323,6 +316,7 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
                     {phase.levels.map((lvl) => {
                       const lvlComp = computeKoreanCompletion(checked, lvl.checkableIds);
                       const isHighlighted = targetLevelsSet.has(lvl.badge);
+                      const lvlWeights = getKoreanLevelWeights(lvl.badge, selectedFocus);
 
                       return (
                         <Link
@@ -336,9 +330,16 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
                         >
                           <div>
                             <div className="flex items-center justify-between">
-                              <span className="font-mono-code text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 group-hover:bg-indigo-600 group-hover:text-white transition">
-                                Level {lvl.badge}
-                              </span>
+                              <div className="flex items-center gap-1.5">
+                                <span className="font-mono-code text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 group-hover:bg-indigo-600 group-hover:text-white transition">
+                                  Level {lvl.badge}
+                                </span>
+                                {lvlWeights.isCoreForTrack && (
+                                  <span className="rounded-md bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 font-mono-code text-[10px] font-bold text-emerald-700">
+                                    Core Track
+                                  </span>
+                                )}
+                              </div>
                               <span className="font-mono-code text-xs text-slate-500">
                                 {lvlComp.pct}%
                               </span>
@@ -363,6 +364,18 @@ export const KoreanHomePage: React.FC<KoreanHomePageProps> = ({ data }) => {
                             <div className="mt-2 flex items-center justify-between text-[11px] font-mono-code text-slate-500">
                               <span>{lvl.totalSections} sections · {lvl.totalModules} modules</span>
                               <span>{lvlComp.done}/{lvl.checkableCount}</span>
+                            </div>
+
+                            {/* Dual Sub-weights */}
+                            <div className="mt-2.5 flex items-center justify-between gap-2 border-t border-slate-100 pt-2 text-[10px] font-mono-code">
+                              <span className="flex items-center gap-1 text-rose-600 font-semibold">
+                                <Volume2 className="h-3 w-3" />
+                                Fluency {lvlWeights.fluencyScore}/10
+                              </span>
+                              <span className="flex items-center gap-1 text-indigo-600 font-semibold">
+                                <FileText className="h-3 w-3" />
+                                Literacy {lvlWeights.literacyScore}/10
+                              </span>
                             </div>
                           </div>
                         </Link>
