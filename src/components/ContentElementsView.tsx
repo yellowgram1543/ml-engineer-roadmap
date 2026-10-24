@@ -3,6 +3,7 @@ import { Check, Sparkles, Terminal, ShieldCheck, Info } from 'lucide-react';
 import { ContentElement } from '../types/roadmap';
 import { useProgressStore } from '../store/useProgressStore';
 import { MathBlock, RichText } from './RichText';
+import { KoreanAudioButton } from './KoreanAudioButton';
 
 interface ContentElementsViewProps {
   elements: ContentElement[];
@@ -82,12 +83,17 @@ export const ContentElementsView: React.FC<ContentElementsViewProps> = ({
                         {isDone && <Check className="h-3.5 w-3.5 stroke-[2.75]" />}
                       </span>
                       <span
-                        className={`text-[14.5px] leading-relaxed transition-colors ${
+                        className={`text-[14.5px] leading-relaxed transition-colors flex-1 ${
                           isDone ? 'line-through text-slate-400' : 'text-slate-700'
                         }`}
                       >
                         <RichText text={item.text} />
                       </span>
+                      {/[\uac00-\ud7a3]/.test(item.text) && (
+                        <span className="shrink-0 pt-0.5" onClick={(e) => e.stopPropagation()}>
+                          <KoreanAudioButton text={item.text} size="sm" title="Listen in Korean" />
+                        </span>
+                      )}
                     </label>
                   </li>
                 );

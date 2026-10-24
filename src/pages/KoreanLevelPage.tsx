@@ -68,7 +68,7 @@ export const KoreanLevelPage: React.FC<KoreanLevelPageProps> = ({ data }) => {
   const [searchQuery, setSearchQuery] = React.useState<string>('');
   const [expandAll, setExpandAll] = React.useState<boolean>(false);
   const [showEnglishDialogue, setShowEnglishDialogue] = React.useState<boolean>(true);
-  const [studyMode, setStudyMode] = React.useState<'snu5step' | 'checklist'>('snu5step');
+  const [studyMode, setStudyMode] = React.useState<'snu5step' | 'checklist'>('checklist');
 
   React.useEffect(() => {
     setSearchQuery('');
