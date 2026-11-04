@@ -5,8 +5,8 @@
     "targets": "SDE (Generalist) · ML Engineer · Applied Scientist",
     "totalPhases": 5,
     "totalBlocks": 31,
-    "totalCheckables": 585,
-    "totalProblems": 314,
+    "totalCheckables": 588,
+    "totalProblems": 317,
     "totalDrills": 143,
     "totalPatterns": 22
   },
@@ -712,7 +712,7 @@
             {
               "id": "block-a2-ladder-1",
               "tier": "Easy",
-              "problem": "Two Sum II — Input Array Is Sorted",
+              "problem": "Two Sum II — Input Array Is Sorted (LC 167)",
               "cue": "Sorted pair, opposite ends",
               "target": "12 min",
               "striver180": true
@@ -744,13 +744,21 @@
             {
               "id": "block-a2-ladder-5",
               "tier": "Easy",
+              "problem": "Best Time to Buy and Sell Stock (LC 121)",
+              "cue": "Single pass tracking minimum buy price",
+              "target": "12 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a2-ladder-6",
+              "tier": "Easy",
               "problem": "Sort Colors (LC 75)",
               "cue": "Dutch National Flag, three regions",
               "target": "15 min",
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-6",
+              "id": "block-a2-ladder-7",
               "tier": "Medium",
               "problem": "Set Matrix Zeroes (LC 73)",
               "cue": "First row/col as O(1) flags",
@@ -758,7 +766,7 @@
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-7",
+              "id": "block-a2-ladder-8",
               "tier": "Medium",
               "problem": "Next Permutation (LC 31)",
               "cue": "Find pivot, swap successor, reverse tail",
@@ -766,7 +774,7 @@
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-8",
+              "id": "block-a2-ladder-9",
               "tier": "Medium",
               "problem": "Rotate Image (LC 48)",
               "cue": "Transpose matrix + reverse each row",
@@ -774,7 +782,7 @@
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-9",
+              "id": "block-a2-ladder-10",
               "tier": "Medium",
               "problem": "3Sum (LC 15)",
               "cue": "Sort + fix one + two-pointer dedupe",
@@ -782,7 +790,7 @@
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-10",
+              "id": "block-a2-ladder-11",
               "tier": "Medium",
               "problem": "Container With Most Water (LC 11)",
               "cue": "Move the shorter wall inward",
@@ -790,7 +798,7 @@
               "striver180": false
             },
             {
-              "id": "block-a2-ladder-11",
+              "id": "block-a2-ladder-12",
               "tier": "Medium",
               "problem": "Rotate Array (LC 189)",
               "cue": "Three reversals, O(1) space",
@@ -798,7 +806,7 @@
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-12",
+              "id": "block-a2-ladder-13",
               "tier": "Medium",
               "problem": "Find the Duplicate Number (LC 287)",
               "cue": "Floyd cycle detection on array indices",
@@ -806,7 +814,15 @@
               "striver180": true
             },
             {
-              "id": "block-a2-ladder-13",
+              "id": "block-a2-ladder-14",
+              "tier": "Medium",
+              "problem": "Repeat and Missing Number (InterviewBit / GFG)",
+              "cue": "Math equations (sum & sum of squares) or XOR",
+              "target": "20 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a2-ladder-15",
               "tier": "Hard",
               "problem": "Trapping Rain Water (LC 42)",
               "cue": "Opposite ends with running max",
@@ -969,7 +985,7 @@
               "rows": [
                 [
                   "Easy",
-                  "Two Sum II — Input Array Is Sorted",
+                  "Two Sum II — Input Array Is Sorted (LC 167)",
                   "Sorted pair, opposite ends",
                   "12 min"
                 ],
@@ -990,6 +1006,12 @@
                   "Remove Duplicates from Sorted Array (LC 26)",
                   "Read/write pointer gap",
                   "10 min"
+                ],
+                [
+                  "Easy",
+                  "Best Time to Buy and Sell Stock (LC 121)",
+                  "Single pass tracking minimum buy price",
+                  "12 min"
                 ],
                 [
                   "Easy",
@@ -1040,6 +1062,12 @@
                   "20 min"
                 ],
                 [
+                  "Medium",
+                  "Repeat and Missing Number (InterviewBit / GFG)",
+                  "Math equations (sum & sum of squares) or XOR",
+                  "20 min"
+                ],
+                [
                   "Hard",
                   "Trapping Rain Water (LC 42)",
                   "Opposite ends with running max",
@@ -1076,6 +1104,8 @@
             "block-a2-ladder-11",
             "block-a2-ladder-12",
             "block-a2-ladder-13",
+            "block-a2-ladder-14",
+            "block-a2-ladder-15",
             "block-a2-gate"
           ]
         },
@@ -1258,7 +1288,7 @@
             {
               "id": "block-a3-ladder-8",
               "tier": "Medium",
-              "problem": "Largest Subarray with 0 Sum",
+              "problem": "Largest Subarray with 0 Sum (GFG / LC 525)",
               "cue": "Earliest prefix sum index map",
               "target": "20 min",
               "striver180": true
@@ -1266,7 +1296,7 @@
             {
               "id": "block-a3-ladder-9",
               "tier": "Medium",
-              "problem": "Count Subarrays with Given XOR K",
+              "problem": "Count Subarrays with Given XOR K (InterviewBit / GFG)",
               "cue": "Prefix XOR running count hashmap",
               "target": "25 min",
               "striver180": true
@@ -1494,13 +1524,13 @@
                 ],
                 [
                   "Medium",
-                  "Largest Subarray with 0 Sum",
+                  "Largest Subarray with 0 Sum (GFG / LC 525)",
                   "Earliest prefix sum index map",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Count Subarrays with Given XOR K",
+                  "Count Subarrays with Given XOR K (InterviewBit / GFG)",
                   "Prefix XOR running count hashmap",
                   "25 min"
                 ],
@@ -1648,7 +1678,7 @@
             {
               "id": "block-a4-ladder-1",
               "tier": "Easy",
-              "problem": "Maximum Average Subarray I",
+              "problem": "Maximum Average Subarray I (LC 643)",
               "cue": "Fixed window",
               "target": "10 min",
               "striver180": false
@@ -1656,7 +1686,7 @@
             {
               "id": "block-a4-ladder-2",
               "tier": "Medium",
-              "problem": "Longest Substring Without Repeating Characters",
+              "problem": "Longest Substring Without Repeating Characters (LC 3)",
               "cue": "Variable longest + set",
               "target": "20 min",
               "striver180": true
@@ -1664,15 +1694,15 @@
             {
               "id": "block-a4-ladder-3",
               "tier": "Medium",
-              "problem": "Longest Repeating Character Replacement",
-              "cue": "Validity on `len - maxfreq`",
+              "problem": "Longest Repeating Character Replacement (LC 424)",
+              "cue": "Validity on len - maxfreq",
               "target": "25 min",
               "striver180": false
             },
             {
               "id": "block-a4-ladder-4",
               "tier": "Medium",
-              "problem": "Permutation in String",
+              "problem": "Permutation in String (LC 567)",
               "cue": "Fixed window + count match",
               "target": "25 min",
               "striver180": false
@@ -1680,7 +1710,7 @@
             {
               "id": "block-a4-ladder-5",
               "tier": "Medium",
-              "problem": "Find All Anagrams in a String",
+              "problem": "Find All Anagrams in a String (LC 438)",
               "cue": "Fixed window + count match",
               "target": "25 min",
               "striver180": false
@@ -1688,7 +1718,7 @@
             {
               "id": "block-a4-ladder-6",
               "tier": "Medium",
-              "problem": "Max Consecutive Ones III",
+              "problem": "Max Consecutive Ones III (LC 1004)",
               "cue": "At most k flips",
               "target": "20 min",
               "striver180": true
@@ -1696,7 +1726,7 @@
             {
               "id": "block-a4-ladder-7",
               "tier": "Medium",
-              "problem": "Fruit Into Baskets",
+              "problem": "Fruit Into Baskets (LC 904)",
               "cue": "At most 2 distinct",
               "target": "20 min",
               "striver180": false
@@ -1704,7 +1734,7 @@
             {
               "id": "block-a4-ladder-8",
               "tier": "Medium",
-              "problem": "Minimum Size Subarray Sum",
+              "problem": "Minimum Size Subarray Sum (LC 209)",
               "cue": "Shortest, positive numbers",
               "target": "20 min",
               "striver180": false
@@ -1712,7 +1742,7 @@
             {
               "id": "block-a4-ladder-9",
               "tier": "Hard",
-              "problem": "Minimum Window Substring",
+              "problem": "Minimum Window Substring (LC 76)",
               "cue": "Need/have, shortest",
               "target": "40 min",
               "striver180": false
@@ -1720,8 +1750,8 @@
             {
               "id": "block-a4-ladder-10",
               "tier": "Hard",
-              "problem": "Subarrays with K Different Integers",
-              "cue": "`atMost(k) - atMost(k-1)`",
+              "problem": "Subarrays with K Different Integers (LC 992)",
+              "cue": "atMost(k) - atMost(k-1)",
               "target": "40 min",
               "striver180": false
             }
@@ -1887,62 +1917,62 @@
               "rows": [
                 [
                   "Easy",
-                  "Maximum Average Subarray I",
+                  "Maximum Average Subarray I (LC 643)",
                   "Fixed window",
                   "10 min"
                 ],
                 [
                   "Medium",
-                  "Longest Substring Without Repeating Characters",
+                  "Longest Substring Without Repeating Characters (LC 3)",
                   "Variable longest + set",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Longest Repeating Character Replacement",
-                  "Validity on `len - maxfreq`",
+                  "Longest Repeating Character Replacement (LC 424)",
+                  "Validity on len - maxfreq",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Permutation in String",
+                  "Permutation in String (LC 567)",
                   "Fixed window + count match",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Find All Anagrams in a String",
+                  "Find All Anagrams in a String (LC 438)",
                   "Fixed window + count match",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Max Consecutive Ones III",
+                  "Max Consecutive Ones III (LC 1004)",
                   "At most k flips",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Fruit Into Baskets",
+                  "Fruit Into Baskets (LC 904)",
                   "At most 2 distinct",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Minimum Size Subarray Sum",
+                  "Minimum Size Subarray Sum (LC 209)",
                   "Shortest, positive numbers",
                   "20 min"
                 ],
                 [
                   "Hard",
-                  "Minimum Window Substring",
+                  "Minimum Window Substring (LC 76)",
                   "Need/have, shortest",
                   "40 min"
                 ],
                 [
                   "Hard",
-                  "Subarrays with K Different Integers",
-                  "`atMost(k) - atMost(k-1)`",
+                  "Subarrays with K Different Integers (LC 992)",
+                  "atMost(k) - atMost(k-1)",
                   "40 min"
                 ]
               ]
@@ -2181,7 +2211,7 @@
             {
               "id": "block-a5-ladder-12",
               "tier": "Hard",
-              "problem": "Count Inversions in Array",
+              "problem": "Count Inversions in Array (GFG / LC 493 Var)",
               "cue": "Merge sort inversion counting",
               "target": "35 min",
               "striver180": true
@@ -2419,7 +2449,7 @@
                 ],
                 [
                   "Hard",
-                  "Count Inversions in Array",
+                  "Count Inversions in Array (GFG / LC 493 Var)",
                   "Merge sort inversion counting",
                   "35 min"
                 ]
@@ -2647,7 +2677,7 @@
             {
               "id": "block-a6-ladder-10",
               "tier": "Hard",
-              "problem": "Allocate Minimum Number of Pages",
+              "problem": "Allocate Minimum Number of Pages (GFG / LC 410)",
               "cue": "Feasibility check on max page limit",
               "target": "35 min",
               "striver180": true
@@ -2655,7 +2685,7 @@
             {
               "id": "block-a6-ladder-11",
               "tier": "Hard",
-              "problem": "Aggressive Cows",
+              "problem": "Aggressive Cows (SPOJ / LC 1552)",
               "cue": "Feasibility distance check on sorted stalls",
               "target": "35 min",
               "striver180": true
@@ -2663,7 +2693,7 @@
             {
               "id": "block-a6-ladder-12",
               "tier": "Hard",
-              "problem": "Matrix Median",
+              "problem": "Matrix Median (InterviewBit / GFG)",
               "cue": "Row-wise binary search count",
               "target": "40 min",
               "striver180": true
@@ -2671,7 +2701,7 @@
             {
               "id": "block-a6-ladder-13",
               "tier": "Hard",
-              "problem": "K-th Element of Two Sorted Arrays",
+              "problem": "K-th Element of Two Sorted Arrays (GFG / LC 4 Var)",
               "cue": "Partition invariant on two sorted arrays",
               "target": "40 min",
               "striver180": true
@@ -2908,25 +2938,25 @@
                 ],
                 [
                   "Hard",
-                  "Allocate Minimum Number of Pages",
+                  "Allocate Minimum Number of Pages (GFG / LC 410)",
                   "Feasibility check on max page limit",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Aggressive Cows",
+                  "Aggressive Cows (SPOJ / LC 1552)",
                   "Feasibility distance check on sorted stalls",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Matrix Median",
+                  "Matrix Median (InterviewBit / GFG)",
                   "Row-wise binary search count",
                   "40 min"
                 ],
                 [
                   "Hard",
-                  "K-th Element of Two Sorted Arrays",
+                  "K-th Element of Two Sorted Arrays (GFG / LC 4 Var)",
                   "Partition invariant on two sorted arrays",
                   "40 min"
                 ],
@@ -3087,31 +3117,31 @@
             {
               "id": "block-a7-ladder-1",
               "tier": "Easy",
-              "problem": "Merge Sorted Array",
-              "cue": "Two pointers backwards",
+              "problem": "Merge Sorted Array (LC 88)",
+              "cue": "Three pointers from the back",
               "target": "12 min",
               "striver180": true
             },
             {
               "id": "block-a7-ladder-2",
               "tier": "Medium",
-              "problem": "Sort an Array",
-              "cue": "Merge sort from memory",
+              "problem": "Sort an Array (LC 912)",
+              "cue": "Merge sort or randomized quicksort",
               "target": "25 min",
               "striver180": false
             },
             {
               "id": "block-a7-ladder-3",
               "tier": "Medium",
-              "problem": "Kth Largest Element in an Array",
-              "cue": "Quickselect",
-              "target": "25 min",
+              "problem": "Kth Largest Element in an Array (LC 215)",
+              "cue": "Quickselect or min-heap",
+              "target": "20 min",
               "striver180": true
             },
             {
               "id": "block-a7-ladder-4",
               "tier": "Medium",
-              "problem": "Merge Intervals",
+              "problem": "Merge Intervals (LC 56)",
               "cue": "Sort by start + merge",
               "target": "20 min",
               "striver180": true
@@ -3119,39 +3149,39 @@
             {
               "id": "block-a7-ladder-5",
               "tier": "Medium",
-              "problem": "Insert Interval",
-              "cue": "Three cases",
+              "problem": "Insert Interval (LC 57)",
+              "cue": "Three-phase scan",
               "target": "25 min",
               "striver180": false
             },
             {
               "id": "block-a7-ladder-6",
               "tier": "Medium",
-              "problem": "Meeting Rooms II",
-              "cue": "Sweep line or heap",
+              "problem": "Meeting Rooms II (LC 253)",
+              "cue": "Sweep line or min-heap of end times",
               "target": "25 min",
               "striver180": false
             },
             {
               "id": "block-a7-ladder-7",
               "tier": "Medium",
-              "problem": "Non-overlapping Intervals",
-              "cue": "Greedy by end",
+              "problem": "Non-overlapping Intervals (LC 435)",
+              "cue": "Greedy by earliest end time",
               "target": "20 min",
               "striver180": false
             },
             {
               "id": "block-a7-ladder-8",
               "tier": "Medium",
-              "problem": "Largest Number",
-              "cue": "Custom comparator",
+              "problem": "Largest Number (LC 179)",
+              "cue": "Custom comparator: a+b vs b+a",
               "target": "25 min",
               "striver180": false
             },
             {
               "id": "block-a7-ladder-9",
               "tier": "Hard",
-              "problem": "Meeting Rooms III",
+              "problem": "Meeting Rooms III (LC 2402)",
               "cue": "Heaps + assignment simulation",
               "target": "40 min",
               "striver180": false
@@ -3322,55 +3352,55 @@
               "rows": [
                 [
                   "Easy",
-                  "Merge Sorted Array",
-                  "Two pointers backwards",
+                  "Merge Sorted Array (LC 88)",
+                  "Three pointers from the back",
                   "12 min"
                 ],
                 [
                   "Medium",
-                  "Sort an Array",
-                  "Merge sort from memory",
+                  "Sort an Array (LC 912)",
+                  "Merge sort or randomized quicksort",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Kth Largest Element in an Array",
-                  "Quickselect",
-                  "25 min"
+                  "Kth Largest Element in an Array (LC 215)",
+                  "Quickselect or min-heap",
+                  "20 min"
                 ],
                 [
                   "Medium",
-                  "Merge Intervals",
+                  "Merge Intervals (LC 56)",
                   "Sort by start + merge",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Insert Interval",
-                  "Three cases",
+                  "Insert Interval (LC 57)",
+                  "Three-phase scan",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Meeting Rooms II",
-                  "Sweep line or heap",
+                  "Meeting Rooms II (LC 253)",
+                  "Sweep line or min-heap of end times",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Non-overlapping Intervals",
-                  "Greedy by end",
+                  "Non-overlapping Intervals (LC 435)",
+                  "Greedy by earliest end time",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Largest Number",
-                  "Custom comparator",
+                  "Largest Number (LC 179)",
+                  "Custom comparator: a+b vs b+a",
                   "25 min"
                 ],
                 [
                   "Hard",
-                  "Meeting Rooms III",
+                  "Meeting Rooms III (LC 2402)",
                   "Heaps + assignment simulation",
                   "40 min"
                 ]
@@ -3592,7 +3622,7 @@
             {
               "id": "block-a8-ladder-10",
               "tier": "Hard",
-              "problem": "Minimum Characters to Make Palindromic",
+              "problem": "Minimum Characters to Make Palindromic (GFG / LC 214)",
               "cue": "KMP LPS on s + '#' + rev(s)",
               "target": "35 min",
               "striver180": true
@@ -3817,7 +3847,7 @@
                 ],
                 [
                   "Hard",
-                  "Minimum Characters to Make Palindromic",
+                  "Minimum Characters to Make Palindromic (GFG / LC 214)",
                   "KMP LPS on s + '#' + rev(s)",
                   "35 min"
                 ]
@@ -3968,6 +3998,8 @@
         "block-a2-ladder-11",
         "block-a2-ladder-12",
         "block-a2-ladder-13",
+        "block-a2-ladder-14",
+        "block-a2-ladder-15",
         "block-a2-gate",
         "block-a3-chk-1",
         "block-a3-chk-2",
@@ -4335,13 +4367,21 @@
             {
               "id": "block-b1-ladder-13",
               "tier": "Medium",
-              "problem": "Flattening a Linked List",
+              "problem": "Flattening a Linked List (GFG / LC 430 Var)",
               "cue": "Merge sorted sublists recursively",
               "target": "30 min",
               "striver180": true
             },
             {
               "id": "block-b1-ladder-14",
+              "tier": "Hard",
+              "problem": "LRU Cache (LC 146)",
+              "cue": "Hash map + Doubly Linked List in O(1)",
+              "target": "35 min",
+              "striver180": true
+            },
+            {
+              "id": "block-b1-ladder-15",
               "tier": "Hard",
               "problem": "Reverse Nodes in k-Group (LC 25)",
               "cue": "Segment reversal with count lookahead",
@@ -4596,9 +4636,15 @@
                 ],
                 [
                   "Medium",
-                  "Flattening a Linked List",
+                  "Flattening a Linked List (GFG / LC 430 Var)",
                   "Merge sorted sublists recursively",
                   "30 min"
+                ],
+                [
+                  "Hard",
+                  "LRU Cache (LC 146)",
+                  "Hash map + Doubly Linked List in O(1)",
+                  "35 min"
                 ],
                 [
                   "Hard",
@@ -4639,6 +4685,7 @@
             "block-b1-ladder-12",
             "block-b1-ladder-13",
             "block-b1-ladder-14",
+            "block-b1-ladder-15",
             "block-b1-gate"
           ]
         },
@@ -4787,7 +4834,7 @@
             {
               "id": "block-b2-ladder-4",
               "tier": "Easy",
-              "problem": "Next Smaller Element",
+              "problem": "Next Smaller Element (InterviewBit / GFG)",
               "cue": "Monotonic stack looking for smaller element",
               "target": "15 min",
               "striver180": true
@@ -4827,7 +4874,7 @@
             {
               "id": "block-b2-ladder-9",
               "tier": "Medium",
-              "problem": "The Celebrity Problem",
+              "problem": "The Celebrity Problem (LC 277)",
               "cue": "Stack elimination or two-pointer candidate",
               "target": "25 min",
               "striver180": true
@@ -4835,7 +4882,7 @@
             {
               "id": "block-b2-ladder-10",
               "tier": "Medium",
-              "problem": "Sort a Stack",
+              "problem": "Sort a Stack (GFG / Recursion)",
               "cue": "Recursion-based insertion sort",
               "target": "20 min",
               "striver180": true
@@ -5051,7 +5098,7 @@
                 ],
                 [
                   "Easy",
-                  "Next Smaller Element",
+                  "Next Smaller Element (InterviewBit / GFG)",
                   "Monotonic stack looking for smaller element",
                   "15 min"
                 ],
@@ -5081,13 +5128,13 @@
                 ],
                 [
                   "Medium",
-                  "The Celebrity Problem",
+                  "The Celebrity Problem (LC 277)",
                   "Stack elimination or two-pointer candidate",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Sort a Stack",
+                  "Sort a Stack (GFG / Recursion)",
                   "Recursion-based insertion sort",
                   "20 min"
                 ],
@@ -5694,7 +5741,7 @@
             {
               "id": "block-b4-ladder-5",
               "tier": "Medium",
-              "problem": "Maximum Sum Combination",
+              "problem": "Maximum Sum Combination (InterviewBit / GFG)",
               "cue": "Max-heap + visited index set on sorted arrays",
               "target": "25 min",
               "striver180": true
@@ -5934,7 +5981,7 @@
                 ],
                 [
                   "Medium",
-                  "Maximum Sum Combination",
+                  "Maximum Sum Combination (InterviewBit / GFG)",
                   "Max-heap + visited index set on sorted arrays",
                   "25 min"
                 ],
@@ -6188,7 +6235,7 @@
             {
               "id": "block-b5-ladder-9",
               "tier": "Medium",
-              "problem": "Boundary Traversal of Binary Tree",
+              "problem": "Boundary Traversal of Binary Tree (LC 545)",
               "cue": "Left boundary + leaves + reverse right boundary",
               "target": "30 min",
               "striver180": true
@@ -6196,7 +6243,7 @@
             {
               "id": "block-b5-ladder-10",
               "tier": "Medium",
-              "problem": "Top View of Binary Tree",
+              "problem": "Top View of Binary Tree (GFG / LC 314 Var)",
               "cue": "BFS queue tracking horizontal coordinate",
               "target": "25 min",
               "striver180": true
@@ -6204,7 +6251,7 @@
             {
               "id": "block-b5-ladder-11",
               "tier": "Medium",
-              "problem": "Bottom View of Binary Tree",
+              "problem": "Bottom View of Binary Tree (GFG / LC 314 Var)",
               "cue": "BFS horizontal coordinate map overwriting",
               "target": "25 min",
               "striver180": true
@@ -6481,19 +6528,19 @@
                 ],
                 [
                   "Medium",
-                  "Boundary Traversal of Binary Tree",
+                  "Boundary Traversal of Binary Tree (LC 545)",
                   "Left boundary + leaves + reverse right boundary",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Top View of Binary Tree",
+                  "Top View of Binary Tree (GFG / LC 314 Var)",
                   "BFS queue tracking horizontal coordinate",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Bottom View of Binary Tree",
+                  "Bottom View of Binary Tree (GFG / LC 314 Var)",
                   "BFS horizontal coordinate map overwriting",
                   "25 min"
                 ],
@@ -6757,7 +6804,7 @@
             {
               "id": "block-b6-ladder-9",
               "tier": "Medium",
-              "problem": "Ceil and Floor in a BST",
+              "problem": "Ceil and Floor in a BST (GFG / LC 700 Var)",
               "cue": "Directional tracking of closest bounds",
               "target": "20 min",
               "striver180": true
@@ -7005,7 +7052,7 @@
                 ],
                 [
                   "Medium",
-                  "Ceil and Floor in a BST",
+                  "Ceil and Floor in a BST (GFG / LC 700 Var)",
                   "Directional tracking of closest bounds",
                   "20 min"
                 ],
@@ -7177,96 +7224,96 @@
             {
               "id": "block-b7-ladder-1",
               "tier": "Medium",
-              "problem": "Subsets",
-              "cue": "Include/exclude",
+              "problem": "Subsets (LC 78)",
+              "cue": "Include/exclude or loop",
               "target": "15 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-2",
               "tier": "Medium",
-              "problem": "Subsets II",
-              "cue": "Sort + skip",
+              "problem": "Subsets II (LC 90)",
+              "cue": "Sort + skip duplicates at same depth",
               "target": "20 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-3",
               "tier": "Medium",
-              "problem": "Permutations",
-              "cue": "`used[]`",
+              "problem": "Permutations (LC 46)",
+              "cue": "Used-set or in-place swap",
               "target": "20 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-4",
               "tier": "Medium",
-              "problem": "Permutations II",
-              "cue": "Dedupe on `used`",
+              "problem": "Permutations II (LC 47)",
+              "cue": "Sort + used-array with duplicate skip",
               "target": "25 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-5",
               "tier": "Medium",
-              "problem": "Combination Sum",
-              "cue": "Reuse + prune",
-              "target": "20 min",
+              "problem": "Combination Sum (LC 39)",
+              "cue": "Re-use allowed, subtract from target",
+              "target": "25 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-6",
               "tier": "Medium",
-              "problem": "Combination Sum II",
-              "cue": "No reuse + dedupe",
+              "problem": "Combination Sum II (LC 40)",
+              "cue": "Use-once, sort + dedupe at breadth",
               "target": "25 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-7",
               "tier": "Medium",
-              "problem": "Combinations",
-              "cue": "Fixed size k",
-              "target": "18 min",
+              "problem": "Combinations (LC 77)",
+              "cue": "Fixed size k, prune when remaining elements cannot satisfy",
+              "target": "20 min",
               "striver180": false
             },
             {
               "id": "block-b7-ladder-8",
               "tier": "Medium",
-              "problem": "Letter Combinations of a Phone Number",
-              "cue": "Map + DFS",
-              "target": "20 min",
+              "problem": "Letter Combinations of a Phone Number (LC 17)",
+              "cue": "Digit-to-letters mapping DFS",
+              "target": "15 min",
               "striver180": false
             },
             {
               "id": "block-b7-ladder-9",
               "tier": "Medium",
-              "problem": "Generate Parentheses",
-              "cue": "Two counters",
-              "target": "25 min",
+              "problem": "Generate Parentheses (LC 22)",
+              "cue": "Count open < n and close < open",
+              "target": "20 min",
               "striver180": false
             },
             {
               "id": "block-b7-ladder-10",
               "tier": "Medium",
-              "problem": "Word Search",
-              "cue": "Grid + restore",
+              "problem": "Word Search (LC 79)",
+              "cue": "Grid DFS + in-place visited marking",
               "target": "30 min",
               "striver180": false
             },
             {
               "id": "block-b7-ladder-11",
               "tier": "Hard",
-              "problem": "N-Queens",
-              "cue": "Three sets",
-              "target": "40 min",
+              "problem": "N-Queens (LC 51)",
+              "cue": "Three conflict sets: col, diag1, diag2",
+              "target": "35 min",
               "striver180": true
             },
             {
               "id": "block-b7-ladder-12",
               "tier": "Hard",
-              "problem": "Palindrome Partitioning",
-              "cue": "Substring check at each cut",
+              "problem": "Palindrome Partitioning (LC 131)",
+              "cue": "Prefix is-palindrome check + recurse",
               "target": "30 min",
               "striver180": true
             }
@@ -7442,74 +7489,74 @@
               "rows": [
                 [
                   "Medium",
-                  "Subsets",
-                  "Include/exclude",
+                  "Subsets (LC 78)",
+                  "Include/exclude or loop",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Subsets II",
-                  "Sort + skip",
+                  "Subsets II (LC 90)",
+                  "Sort + skip duplicates at same depth",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Permutations",
-                  "`used[]`",
+                  "Permutations (LC 46)",
+                  "Used-set or in-place swap",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Permutations II",
-                  "Dedupe on `used`",
+                  "Permutations II (LC 47)",
+                  "Sort + used-array with duplicate skip",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Combination Sum",
-                  "Reuse + prune",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Combination Sum II",
-                  "No reuse + dedupe",
+                  "Combination Sum (LC 39)",
+                  "Re-use allowed, subtract from target",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Combinations",
-                  "Fixed size k",
-                  "18 min"
-                ],
-                [
-                  "Medium",
-                  "Letter Combinations of a Phone Number",
-                  "Map + DFS",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Generate Parentheses",
-                  "Two counters",
+                  "Combination Sum II (LC 40)",
+                  "Use-once, sort + dedupe at breadth",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Word Search",
-                  "Grid + restore",
+                  "Combinations (LC 77)",
+                  "Fixed size k, prune when remaining elements cannot satisfy",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Letter Combinations of a Phone Number (LC 17)",
+                  "Digit-to-letters mapping DFS",
+                  "15 min"
+                ],
+                [
+                  "Medium",
+                  "Generate Parentheses (LC 22)",
+                  "Count open < n and close < open",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Word Search (LC 79)",
+                  "Grid DFS + in-place visited marking",
                   "30 min"
                 ],
                 [
                   "Hard",
-                  "N-Queens",
-                  "Three sets",
-                  "40 min"
+                  "N-Queens (LC 51)",
+                  "Three conflict sets: col, diag1, diag2",
+                  "35 min"
                 ],
                 [
                   "Hard",
-                  "Palindrome Partitioning",
-                  "Substring check at each cut",
+                  "Palindrome Partitioning (LC 131)",
+                  "Prefix is-palindrome check + recurse",
                   "30 min"
                 ]
               ]
@@ -7637,6 +7684,7 @@
         "block-b1-ladder-12",
         "block-b1-ladder-13",
         "block-b1-ladder-14",
+        "block-b1-ladder-15",
         "block-b1-gate",
         "block-b2-chk-1",
         "block-b2-chk-2",
@@ -7931,7 +7979,7 @@
             {
               "id": "block-c1-ladder-4",
               "tier": "Medium",
-              "problem": "Rat in a Maze Problem",
+              "problem": "Rat in a Maze Problem (GFG / Backtracking)",
               "cue": "Backtracking 4-direction path discovery",
               "target": "25 min",
               "striver180": true
@@ -7939,7 +7987,7 @@
             {
               "id": "block-c1-ladder-5",
               "tier": "Medium",
-              "problem": "M-Coloring Problem",
+              "problem": "M-Coloring Problem (GFG / Backtracking)",
               "cue": "Backtracking vertex coloring check",
               "target": "25 min",
               "striver180": true
@@ -8168,13 +8216,13 @@
                 ],
                 [
                   "Medium",
-                  "Rat in a Maze Problem",
+                  "Rat in a Maze Problem (GFG / Backtracking)",
                   "Backtracking 4-direction path discovery",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "M-Coloring Problem",
+                  "M-Coloring Problem (GFG / Backtracking)",
                   "Backtracking vertex coloring check",
                   "25 min"
                 ],
@@ -8466,7 +8514,7 @@
             {
               "id": "block-c2-ladder-11",
               "tier": "Hard",
-              "problem": "Strongly Connected Components (Kosaraju)",
+              "problem": "Strongly Connected Components (Kosaraju / GFG)",
               "cue": "DFS postorder stack + reverse transpose DFS",
               "target": "35 min",
               "striver180": true
@@ -8739,7 +8787,7 @@
                 ],
                 [
                   "Hard",
-                  "Strongly Connected Components (Kosaraju)",
+                  "Strongly Connected Components (Kosaraju / GFG)",
                   "DFS postorder stack + reverse transpose DFS",
                   "35 min"
                 ],
@@ -8945,7 +8993,7 @@
             {
               "id": "block-c3-ladder-6",
               "tier": "Medium",
-              "problem": "MST using Prim's Algorithm",
+              "problem": "MST using Prim's Algorithm (GFG / LC 1584 Var)",
               "cue": "Priority queue growing tree from seed",
               "target": "30 min",
               "striver180": true
@@ -9183,7 +9231,7 @@
                 ],
                 [
                   "Medium",
-                  "MST using Prim's Algorithm",
+                  "MST using Prim's Algorithm (GFG / LC 1584 Var)",
                   "Priority queue growing tree from seed",
                   "30 min"
                 ],
@@ -9893,7 +9941,7 @@
             {
               "id": "block-c5-ladder-5",
               "tier": "Medium",
-              "problem": "N Meetings in One Room",
+              "problem": "N Meetings in One Room (GFG / LC 435 Var)",
               "cue": "Sort by finish time, greedy selection",
               "target": "15 min",
               "striver180": true
@@ -9901,7 +9949,7 @@
             {
               "id": "block-c5-ladder-6",
               "tier": "Medium",
-              "problem": "Minimum Platforms Required",
+              "problem": "Minimum Platforms Required (GFG / LC 253 Var)",
               "cue": "Sort arrivals and departures, sweep line",
               "target": "25 min",
               "striver180": true
@@ -9909,7 +9957,7 @@
             {
               "id": "block-c5-ladder-7",
               "tier": "Medium",
-              "problem": "Job Sequencing Problem",
+              "problem": "Job Sequencing Problem (GFG / LC 1235 Var)",
               "cue": "Sort by profit desc, place at latest slot",
               "target": "25 min",
               "striver180": true
@@ -9917,7 +9965,7 @@
             {
               "id": "block-c5-ladder-8",
               "tier": "Medium",
-              "problem": "Fractional Knapsack Problem",
+              "problem": "Fractional Knapsack Problem (GFG / Greedy)",
               "cue": "Sort by value/weight ratio desc, greedy fill",
               "target": "20 min",
               "striver180": true
@@ -9925,7 +9973,7 @@
             {
               "id": "block-c5-ladder-9",
               "tier": "Medium",
-              "problem": "Greedy Minimum Coins",
+              "problem": "Greedy Minimum Coins (GFG / Greedy)",
               "cue": "Greedy largest denomination decrement",
               "target": "15 min",
               "striver180": true
@@ -10220,31 +10268,31 @@
                 ],
                 [
                   "Medium",
-                  "N Meetings in One Room",
+                  "N Meetings in One Room (GFG / LC 435 Var)",
                   "Sort by finish time, greedy selection",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Minimum Platforms Required",
+                  "Minimum Platforms Required (GFG / LC 253 Var)",
                   "Sort arrivals and departures, sweep line",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Job Sequencing Problem",
+                  "Job Sequencing Problem (GFG / LC 1235 Var)",
                   "Sort by profit desc, place at latest slot",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Fractional Knapsack Problem",
+                  "Fractional Knapsack Problem (GFG / Greedy)",
                   "Sort by value/weight ratio desc, greedy fill",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Greedy Minimum Coins",
+                  "Greedy Minimum Coins (GFG / Greedy)",
                   "Greedy largest denomination decrement",
                   "15 min"
                 ],
@@ -10624,7 +10672,7 @@
             {
               "id": "block-d1-ladder-5",
               "tier": "Medium",
-              "problem": "Maximum Sum Increasing Subsequence",
+              "problem": "Maximum Sum Increasing Subsequence (GFG / LC 300 Var)",
               "cue": "LIS variation accumulating max sum instead of length",
               "target": "20 min",
               "striver180": true
@@ -10771,7 +10819,7 @@
             {
               "id": "block-d2-ladder-1",
               "tier": "Medium",
-              "problem": "0/1 Knapsack Problem",
+              "problem": "0/1 Knapsack Problem (GFG / Standard)",
               "cue": "Item iteration with capacity iterating backwards to prevent reuse",
               "target": "20 min",
               "striver180": true
@@ -10811,7 +10859,7 @@
             {
               "id": "block-d2-ladder-6",
               "tier": "Medium",
-              "problem": "Rod Cutting Problem",
+              "problem": "Rod Cutting Problem (GFG / LC 322 Var)",
               "cue": "Unbounded knapsack max value cut: dp[j] = max(dp[j], price[i] + dp[j - i])",
               "target": "20 min",
               "striver180": true
@@ -11138,7 +11186,7 @@
             {
               "id": "block-d4-ladder-1",
               "tier": "Hard",
-              "problem": "Matrix Chain Multiplication (MCM)",
+              "problem": "Matrix Chain Multiplication (MCM) (GFG / Partition DP)",
               "cue": "Partition cut k from i to j: min(dp[i][k] + dp[k+1][j] + cost)",
               "target": "35 min",
               "striver180": true

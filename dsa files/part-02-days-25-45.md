@@ -76,7 +76,8 @@
 | Medium | Rotate List (LC 61) | Connect tail to head, break at k | 20 min |
 | Medium | Add Two Numbers (LC 2) | Traverse with carry propagation | 20 min |
 | Medium | Copy List with Random Pointer (LC 138) | Interweave nodes or hash map clone | 30 min |
-| Medium | Flattening a Linked List | Merge sorted sublists recursively | 30 min |
+| Medium | Flattening a Linked List (GFG / LC 430 Var) | Merge sorted sublists recursively | 30 min |
+| Hard | LRU Cache (LC 146) | Hash map + Doubly Linked List in O(1) | 35 min |
 | Hard | Reverse Nodes in k-Group (LC 25) | Segment reversal with count lookahead | 35 min |
 
 > **Gate B1.** Reverse, reverse-II, and reorder written without losing a node on the first run. Floyd entry-point derived on paper, not memorised. LRU Cache passes `get`/`put` with capacity 1 and capacity 2.
@@ -130,13 +131,13 @@
 | Easy | Valid Parentheses (LC 20) | Stack top matching brackets | 10 min |
 | Easy | Implement Min Stack (LC 155) | Value and running minimum pairs | 15 min |
 | Easy | Next Greater Element I (LC 496) | Monotonic decreasing stack with hashmap | 15 min |
-| Easy | Next Smaller Element | Monotonic stack looking for smaller element | 15 min |
+| Easy | Next Smaller Element (InterviewBit / GFG) | Monotonic stack looking for smaller element | 15 min |
 | Medium | Daily Temperatures (LC 739) | Monotonic stack storing unresolved indices | 20 min |
 | Medium | Next Greater Element II (LC 503) | Monotonic stack with 2n circular loop | 20 min |
 | Medium | Online Stock Span (LC 901) | Monotonic stack storing (price, span) | 20 min |
 | Medium | Asteroid Collision (LC 735) | Stack collision resolution with signs | 25 min |
-| Medium | The Celebrity Problem | Stack elimination or two-pointer candidate | 25 min |
-| Medium | Sort a Stack | Recursion-based insertion sort | 20 min |
+| Medium | The Celebrity Problem (LC 277) | Stack elimination or two-pointer candidate | 25 min |
+| Medium | Sort a Stack (GFG / Recursion) | Recursion-based insertion sort | 20 min |
 | Hard | Largest Rectangle in Histogram (LC 84) | Monotonic stack with sentinel zero | 35 min |
 | Hard | LFU Cache (LC 460) | Frequency map + DLL per frequency tier | 40 min |
 
@@ -242,7 +243,7 @@
 | Easy | Last Stone Weight (LC 1046) | Max-heap simulation via negated values | 12 min |
 | Medium | Top K Frequent Elements (LC 347) | Counter + min-heap or bucket sort O(n) | 25 min |
 | Medium | K Closest Points to Origin (LC 973) | Max-heap of size k on Euclidean distance | 20 min |
-| Medium | Maximum Sum Combination | Max-heap + visited index set on sorted arrays | 25 min |
+| Medium | Maximum Sum Combination (InterviewBit / GFG) | Max-heap + visited index set on sorted arrays | 25 min |
 | Medium | Reorganize String (LC 767) | Max-heap tracking counts with cooldown slot | 30 min |
 | Medium | Furthest Building You Can Reach (LC 1642) | Min-heap of largest ladder allocations | 35 min |
 | Hard | Merge k Sorted Lists (LC 23) | Min-heap of current node heads | 35 min |
@@ -304,9 +305,9 @@
 | Medium | Binary Tree Level Order Traversal (LC 102) | BFS queue level-by-level processing | 15 min |
 | Medium | Binary Tree Zigzag Level Order Traversal (LC 103) | BFS levels with alternating reverse | 20 min |
 | Medium | Binary Tree Right Side View (LC 199) | Level order collecting rightmost element | 18 min |
-| Medium | Boundary Traversal of Binary Tree | Left boundary + leaves + reverse right boundary | 30 min |
-| Medium | Top View of Binary Tree | BFS queue tracking horizontal coordinate | 25 min |
-| Medium | Bottom View of Binary Tree | BFS horizontal coordinate map overwriting | 25 min |
+| Medium | Boundary Traversal of Binary Tree (LC 545) | Left boundary + leaves + reverse right boundary | 30 min |
+| Medium | Top View of Binary Tree (GFG / LC 314 Var) | BFS queue tracking horizontal coordinate | 25 min |
+| Medium | Bottom View of Binary Tree (GFG / LC 314 Var) | BFS horizontal coordinate map overwriting | 25 min |
 | Medium | Maximum Width of Binary Tree (LC 662) | BFS with 0-based node indexing | 25 min |
 | Medium | Lowest Common Ancestor of a Binary Tree (LC 236) | Subtree result matching both targets | 25 min |
 | Medium | Construct Tree from Preorder and Inorder (LC 105) | Root from preorder, split inorder via map | 30 min |
@@ -368,7 +369,7 @@
 | Medium | Kth Smallest Element in a BST (LC 230) | Inorder traversal counter or stack | 22 min |
 | Medium | Two Sum IV - Input is a BST (LC 653) | Dual BST iterators or hash set lookup | 20 min |
 | Medium | Populating Next Right Pointers (LC 116) | Level traversal or parent next links | 20 min |
-| Medium | Ceil and Floor in a BST | Directional tracking of closest bounds | 20 min |
+| Medium | Ceil and Floor in a BST (GFG / LC 700 Var) | Directional tracking of closest bounds | 20 min |
 | Medium | Binary Search Tree Iterator (LC 173) | Explicit stack mimicking inorder descent | 25 min |
 | Hard | Recover a Binary Search Tree (LC 99) | Inorder traversal finding two swapped nodes | 35 min |
 | Hard | Size of the Largest BST in Binary Tree (LC 333) | Bottom-up return of (isBST, size, min, max) | 35 min |
@@ -421,18 +422,18 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Medium | Subsets | Include/exclude | 15 min |
-| Medium | Subsets II | Sort + skip | 20 min |
-| Medium | Permutations | `used[]` | 20 min |
-| Medium | Permutations II | Dedupe on `used` | 25 min |
-| Medium | Combination Sum | Reuse + prune | 20 min |
-| Medium | Combination Sum II | No reuse + dedupe | 25 min |
-| Medium | Combinations | Fixed size k | 18 min |
-| Medium | Letter Combinations of a Phone Number | Map + DFS | 20 min |
-| Medium | Generate Parentheses | Two counters | 25 min |
-| Medium | Word Search | Grid + restore | 30 min |
-| Hard | N-Queens | Three sets | 40 min |
-| Hard | Palindrome Partitioning | Substring check at each cut | 30 min |
+| Medium | Subsets (LC 78) | Include/exclude or loop | 15 min |
+| Medium | Subsets II (LC 90) | Sort + skip duplicates at same depth | 20 min |
+| Medium | Permutations (LC 46) | Used-set or in-place swap | 20 min |
+| Medium | Permutations II (LC 47) | Sort + used-array with duplicate skip | 25 min |
+| Medium | Combination Sum (LC 39) | Re-use allowed, subtract from target | 25 min |
+| Medium | Combination Sum II (LC 40) | Use-once, sort + dedupe at breadth | 25 min |
+| Medium | Combinations (LC 77) | Fixed size k, prune when remaining elements cannot satisfy | 20 min |
+| Medium | Letter Combinations of a Phone Number (LC 17) | Digit-to-letters mapping DFS | 15 min |
+| Medium | Generate Parentheses (LC 22) | Count open < n and close < open | 20 min |
+| Medium | Word Search (LC 79) | Grid DFS + in-place visited marking | 30 min |
+| Hard | N-Queens (LC 51) | Three conflict sets: col, diag1, diag2 | 35 min |
+| Hard | Palindrome Partitioning (LC 131) | Prefix is-palindrome check + recurse | 30 min |
 
 > **Gate B7.** The template reproduced from memory. Subsets II and Permutations II both correct with duplicates on the first run. Every solution states an output-sensitive complexity (e.g. `O(n · 2^n)`) rather than "exponential".
 

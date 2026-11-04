@@ -108,10 +108,11 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Two Sum II — Input Array Is Sorted | Sorted pair, opposite ends | 12 min |
+| Easy | Two Sum II — Input Array Is Sorted (LC 167) | Sorted pair, opposite ends | 12 min |
 | Easy | Valid Palindrome (LC 125) | Mirrored compare, skip non-alnum | 10 min |
 | Easy | Pascal's Triangle (LC 118) | Row simulation with previous row sums | 12 min |
 | Easy | Remove Duplicates from Sorted Array (LC 26) | Read/write pointer gap | 10 min |
+| Easy | Best Time to Buy and Sell Stock (LC 121) | Single pass tracking minimum buy price | 12 min |
 | Easy | Sort Colors (LC 75) | Dutch National Flag, three regions | 15 min |
 | Medium | Set Matrix Zeroes (LC 73) | First row/col as O(1) flags | 20 min |
 | Medium | Next Permutation (LC 31) | Find pivot, swap successor, reverse tail | 20 min |
@@ -120,6 +121,7 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 | Medium | Container With Most Water (LC 11) | Move the shorter wall inward | 20 min |
 | Medium | Rotate Array (LC 189) | Three reversals, O(1) space | 20 min |
 | Medium | Find the Duplicate Number (LC 287) | Floyd cycle detection on array indices | 20 min |
+| Medium | Repeat and Missing Number (InterviewBit / GFG) | Math equations (sum & sum of squares) or XOR | 20 min |
 | Hard | Trapping Rain Water (LC 42) | Opposite ends with running max | 35 min |
 
 > **Gate A2.** 3Sum and Trapping Rain Water solved unaided in the target time, with duplicate handling correct on the first run. You can explain why the pointer move is safe in Container With Most Water without hand-waving. You have written Rotate Array using O(1) extra space.
@@ -174,8 +176,8 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 | Medium | 4Sum (LC 18) | Sort + two nested loops + two pointers | 25 min |
 | Medium | Subarray Sum Equals K (LC 560) | Prefix sum + {0: 1} frequency map | 25 min |
 | Medium | Longest Consecutive Sequence (LC 128) | HashSet + start-of-sequence lookup | 25 min |
-| Medium | Largest Subarray with 0 Sum | Earliest prefix sum index map | 20 min |
-| Medium | Count Subarrays with Given XOR K | Prefix XOR running count hashmap | 25 min |
+| Medium | Largest Subarray with 0 Sum (GFG / LC 525) | Earliest prefix sum index map | 20 min |
+| Medium | Count Subarrays with Given XOR K (InterviewBit / GFG) | Prefix XOR running count hashmap | 25 min |
 | Medium | Continuous Subarray Sum (LC 523) | Prefix mod k + earliest index | 25 min |
 
 > **Gate A3.** Subarray Sum Equals K and Longest Consecutive Sequence written in O(n) without hints. You can state the `{0: -1}` initialisation trick and explain why it exists. You can name three different "canonical key" strategies.
@@ -223,16 +225,16 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Maximum Average Subarray I | Fixed window | 10 min |
-| Medium | Longest Substring Without Repeating Characters | Variable longest + set | 20 min |
-| Medium | Longest Repeating Character Replacement | Validity on `len - maxfreq` | 25 min |
-| Medium | Permutation in String | Fixed window + count match | 25 min |
-| Medium | Find All Anagrams in a String | Fixed window + count match | 25 min |
-| Medium | Max Consecutive Ones III | At most k flips | 20 min |
-| Medium | Fruit Into Baskets | At most 2 distinct | 20 min |
-| Medium | Minimum Size Subarray Sum | Shortest, positive numbers | 20 min |
-| Hard | Minimum Window Substring | Need/have, shortest | 40 min |
-| Hard | Subarrays with K Different Integers | `atMost(k) - atMost(k-1)` | 40 min |
+| Easy | Maximum Average Subarray I (LC 643) | Fixed window | 10 min |
+| Medium | Longest Substring Without Repeating Characters (LC 3) | Variable longest + set | 20 min |
+| Medium | Longest Repeating Character Replacement (LC 424) | Validity on len - maxfreq | 25 min |
+| Medium | Permutation in String (LC 567) | Fixed window + count match | 25 min |
+| Medium | Find All Anagrams in a String (LC 438) | Fixed window + count match | 25 min |
+| Medium | Max Consecutive Ones III (LC 1004) | At most k flips | 20 min |
+| Medium | Fruit Into Baskets (LC 904) | At most 2 distinct | 20 min |
+| Medium | Minimum Size Subarray Sum (LC 209) | Shortest, positive numbers | 20 min |
+| Hard | Minimum Window Substring (LC 76) | Need/have, shortest | 40 min |
+| Hard | Subarrays with K Different Integers (LC 992) | atMost(k) - atMost(k-1) | 40 min |
 
 > **Gate A4.** The template reproduced from memory in under 3 minutes. Minimum Window Substring solved in 40 with correctness on duplicates. You can explain in one sentence why negative numbers break the pattern and what to use instead.
 
@@ -289,7 +291,7 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 | Medium | Range Sum Query 2D — Immutable (LC 304) | 2D inclusion-exclusion | 25 min |
 | Medium | Contiguous Array (LC 525) | Map 0 to -1, prefix sum index map | 25 min |
 | Hard | Reverse Pairs (LC 493) | Modified merge sort split counting | 35 min |
-| Hard | Count Inversions in Array | Merge sort inversion counting | 35 min |
+| Hard | Count Inversions in Array (GFG / LC 493 Var) | Merge sort inversion counting | 35 min |
 
 > **Gate A5.** 2D prefix written correctly on the first attempt, including boundary clamping. Kadane reproduced from memory. You can explain why the prefix-hashmap approach subsumes the sliding window when negatives appear.
 
@@ -345,10 +347,10 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 | Medium | Find Minimum in Rotated Sorted Array (LC 153) | Pivot search comparison with high | 20 min |
 | Medium | Find Peak Element (LC 162) | Gradient / local monotonicity climb | 20 min |
 | Medium | Koko Eating Bananas (LC 875) | Predicate feasibility search on speed | 30 min |
-| Hard | Allocate Minimum Number of Pages | Feasibility check on max page limit | 35 min |
-| Hard | Aggressive Cows | Feasibility distance check on sorted stalls | 35 min |
-| Hard | Matrix Median | Row-wise binary search count | 40 min |
-| Hard | K-th Element of Two Sorted Arrays | Partition invariant on two sorted arrays | 40 min |
+| Hard | Allocate Minimum Number of Pages (GFG / LC 410) | Feasibility check on max page limit | 35 min |
+| Hard | Aggressive Cows (SPOJ / LC 1552) | Feasibility distance check on sorted stalls | 35 min |
+| Hard | Matrix Median (InterviewBit / GFG) | Row-wise binary search count | 40 min |
+| Hard | K-th Element of Two Sorted Arrays (GFG / LC 4 Var) | Partition invariant on two sorted arrays | 40 min |
 | Hard | Median of Two Sorted Arrays (LC 4) | Partition cut balance condition | 45 min |
 
 > **Gate A6.** Lower-bound template written from memory in 2 minutes. Two "search on the answer" problems solved where you wrote the predicate before the search. One rotated-array problem with duplicates handled. You can state why Median of Two Sorted Arrays is O(log min(m,n)) rather than O(log(m+n)).
@@ -396,15 +398,15 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Merge Sorted Array | Two pointers backwards | 12 min |
-| Medium | Sort an Array | Merge sort from memory | 25 min |
-| Medium | Kth Largest Element in an Array | Quickselect | 25 min |
-| Medium | Merge Intervals | Sort by start + merge | 20 min |
-| Medium | Insert Interval | Three cases | 25 min |
-| Medium | Meeting Rooms II | Sweep line or heap | 25 min |
-| Medium | Non-overlapping Intervals | Greedy by end | 20 min |
-| Medium | Largest Number | Custom comparator | 25 min |
-| Hard | Meeting Rooms III | Heaps + assignment simulation | 40 min |
+| Easy | Merge Sorted Array (LC 88) | Three pointers from the back | 12 min |
+| Medium | Sort an Array (LC 912) | Merge sort or randomized quicksort | 25 min |
+| Medium | Kth Largest Element in an Array (LC 215) | Quickselect or min-heap | 20 min |
+| Medium | Merge Intervals (LC 56) | Sort by start + merge | 20 min |
+| Medium | Insert Interval (LC 57) | Three-phase scan | 25 min |
+| Medium | Meeting Rooms II (LC 253) | Sweep line or min-heap of end times | 25 min |
+| Medium | Non-overlapping Intervals (LC 435) | Greedy by earliest end time | 20 min |
+| Medium | Largest Number (LC 179) | Custom comparator: a+b vs b+a | 25 min |
+| Hard | Meeting Rooms III (LC 2402) | Heaps + assignment simulation | 40 min |
 
 > **Gate A7.** Merge sort written from memory and passing on a 10-element array. Kth largest via quickselect with an average-O(n) justification. All four interval variants classified correctly by their sort key without hesitation.
 
@@ -460,7 +462,7 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 | Medium | Longest Palindromic Substring (LC 5) | Expand around 2n-1 potential centres | 25 min |
 | Medium | Count and Say (LC 38) | Run-length string generation | 20 min |
 | Medium | Compare Version Numbers (LC 165) | Two-pointer chunk numerical comparison | 20 min |
-| Hard | Minimum Characters to Make Palindromic | KMP LPS on s + '#' + rev(s) | 35 min |
+| Hard | Minimum Characters to Make Palindromic (GFG / LC 214) | KMP LPS on s + '#' + rev(s) | 35 min |
 
 > **Gate A8.** Expand-around-centre and KMP both written from memory on the same day, and you can say which you would choose under time pressure and why. `atoi` passes the overflow cases. You can encode and decode a list containing delimiters.
 

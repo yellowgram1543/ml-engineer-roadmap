@@ -65,8 +65,8 @@
 | Medium | Implement Trie (Prefix Tree) (LC 208) | TrieNode with children dict and isEnd flag | 25 min |
 | Medium | Design Add and Search Words (LC 211) | Wildcard '.' branches over all children | 30 min |
 | Medium | Replace Words (LC 648) | Walk trie until shortest root prefix found | 25 min |
-| Medium | Rat in a Maze Problem | Backtracking 4-direction path discovery | 25 min |
-| Medium | M-Coloring Problem | Backtracking vertex coloring check | 25 min |
+| Medium | Rat in a Maze Problem (GFG / Backtracking) | Backtracking 4-direction path discovery | 25 min |
+| Medium | M-Coloring Problem (GFG / Backtracking) | Backtracking vertex coloring check | 25 min |
 | Medium | Word Break II (LC 140) | Trie / memoized DFS sentence construction | 35 min |
 | Hard | Sudoku Solver (LC 37) | Row, col, and 3x3 box constraint sets | 45 min |
 | Hard | Word Search II (LC 212) | Prefix trie + grid DFS with tree pruning | 45 min |
@@ -135,7 +135,7 @@
 | Medium | Surrounded Regions (LC 130) | Reverse DFS boundary-connected marking | 30 min |
 | Medium | Pacific Atlantic Water Flow (LC 417) | Dual ocean inward reachable DFS | 35 min |
 | Medium | Word Ladder (LC 127) | BFS on intermediate wildcard word states | 40 min |
-| Hard | Strongly Connected Components (Kosaraju) | DFS postorder stack + reverse transpose DFS | 35 min |
+| Hard | Strongly Connected Components (Kosaraju / GFG) | DFS postorder stack + reverse transpose DFS | 35 min |
 | Hard | Alien Dictionary (LC 269) | Lexicographical order topological sort | 45 min |
 
 > **Gate C2.** Number of Islands and Course Schedule II written cold. You can draw the three-colour state diagram for directed cycle detection and explain it without notes. Every graph answer states `O(V+E)` with V and E defined.
@@ -189,7 +189,7 @@
 | Medium | Accounts Merge (LC 721) | Union by shared email address | 35 min |
 | Medium | Number of Connected Components (LC 323) | DSU decrement on successful union | 20 min |
 | Medium | Evaluate Division (LC 399) | Weighted DSU ratios or graph BFS | 40 min |
-| Medium | MST using Prim's Algorithm | Priority queue growing tree from seed | 30 min |
+| Medium | MST using Prim's Algorithm (GFG / LC 1584 Var) | Priority queue growing tree from seed | 30 min |
 | Medium | Min Cost to Connect All Points (LC 1584) | Kruskal's algorithm with sorted edges + DSU | 35 min |
 | Medium | Satisfiability of Equality Equations (LC 990) | Union equality pairs, verify inequality | 30 min |
 | Hard | Redundant Connection II (LC 685) | Directed two-parents and cycle case logic | 45 min |
@@ -313,11 +313,11 @@
 | Easy | Number of 1 Bits (LC 191) | Brian Kernighan bit trick: x & (x - 1) | 8 min |
 | Easy | Counting Bits (LC 338) | Bit manipulation DP: dp[i] = dp[i >> 1] + (i & 1) | 15 min |
 | Easy | Assign Cookies (LC 455) | Two pointers greedy match smallest child | 10 min |
-| Medium | N Meetings in One Room | Sort by finish time, greedy selection | 15 min |
-| Medium | Minimum Platforms Required | Sort arrivals and departures, sweep line | 25 min |
-| Medium | Job Sequencing Problem | Sort by profit desc, place at latest slot | 25 min |
-| Medium | Fractional Knapsack Problem | Sort by value/weight ratio desc, greedy fill | 20 min |
-| Medium | Greedy Minimum Coins | Greedy largest denomination decrement | 15 min |
+| Medium | N Meetings in One Room (GFG / LC 435 Var) | Sort by finish time, greedy selection | 15 min |
+| Medium | Minimum Platforms Required (GFG / LC 253 Var) | Sort arrivals and departures, sweep line | 25 min |
+| Medium | Job Sequencing Problem (GFG / LC 1235 Var) | Sort by profit desc, place at latest slot | 25 min |
+| Medium | Fractional Knapsack Problem (GFG / Greedy) | Sort by value/weight ratio desc, greedy fill | 20 min |
+| Medium | Greedy Minimum Coins (GFG / Greedy) | Greedy largest denomination decrement | 15 min |
 | Medium | Jump Game (LC 55) | Running farthest reachable boundary | 15 min |
 | Medium | Jump Game II (LC 45) | Interval window boundary BFS jumps | 25 min |
 | Medium | Gas Station (LC 134) | Total fuel deficit and greedy reset start | 25 min |
