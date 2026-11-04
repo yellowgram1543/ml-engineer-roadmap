@@ -119,6 +119,7 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
   // Socratic hints expansion states
   const [expandedHintId, setExpandedHintId] = React.useState<string | null>(null);
   const [revealedHintTiers, setRevealedHintTiers] = React.useState<Record<string, number>>({});
+  const [ladderFilter, setLadderFilter] = React.useState<'all' | 'striver'>('all');
 
   const toggleHintExpand = (probId: string) => {
     setExpandedHintId((prev) => (prev === probId ? null : probId));
@@ -550,78 +551,124 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
         )}
 
         {/* ───────────────── PRACTICE LADDER ───────────────── */}
-        {currentBlock.practiceLadder && currentBlock.practiceLadder.length > 0 && (
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Code2 className="h-5 w-5 text-emerald-600" />
-                <h2 className="font-display text-lg font-bold text-slate-900">
-                  Practice Ladder · Timed Target Problems
-                </h2>
+        {currentBlock.practiceLadder && currentBlock.practiceLadder.length > 0 && (() => {
+          const striverCount = currentBlock.practiceLadder.filter((p) => p.striver180).length;
+          const displayedLadder = ladderFilter === 'striver'
+            ? currentBlock.practiceLadder.filter((p) => p.striver180)
+            : currentBlock.practiceLadder;
+
+          return (
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <Code2 className="h-5 w-5 text-emerald-600" />
+                  <h2 className="font-display text-lg font-bold text-slate-900">
+                    Practice Ladder · Timed Target Problems
+                  </h2>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  {striverCount > 0 && (
+                    <div className="flex items-center rounded-lg bg-slate-100 p-0.5 text-xs font-semibold">
+                      <button
+                        type="button"
+                        onClick={() => setLadderFilter('all')}
+                        className={`px-2.5 py-1 rounded-md transition ${
+                          ladderFilter === 'all'
+                            ? 'bg-white text-slate-900 shadow-xs'
+                            : 'text-slate-600 hover:text-slate-900'
+                        }`}
+                      >
+                        All ({currentBlock.practiceLadder.length})
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setLadderFilter('striver')}
+                        className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md transition ${
+                          ladderFilter === 'striver'
+                            ? 'bg-amber-500 text-white shadow-xs'
+                            : 'text-amber-700 hover:text-amber-800'
+                        }`}
+                      >
+                        <span>⚡ Striver 180 ({striverCount})</span>
+                      </button>
+                    </div>
+                  )}
+
+                  <span className="text-xs font-mono-code text-slate-500">
+                    {currentBlock.practiceLadder.filter((p) => checked[p.id]).length} / {currentBlock.practiceLadder.length} solved
+                  </span>
+                </div>
               </div>
-              <span className="text-xs font-mono-code text-slate-500">
-                {currentBlock.practiceLadder.filter((p) => checked[p.id]).length} / {currentBlock.practiceLadder.length} solved
-              </span>
-            </div>
 
-            <p className="text-xs text-slate-500">
-              Solve against the clock. Stop when the timer expires. Click <strong>+ Ledger</strong> to track failed problems for D+2/D+7 spaced repetition.
-            </p>
+              <p className="text-xs text-slate-500">
+                Solve against the clock. Stop when the timer expires. Click <strong>+ Ledger</strong> to track failed problems for D+2/D+7 spaced repetition.
+              </p>
 
-            <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="min-w-full divide-y divide-slate-200 text-left text-xs sm:text-sm">
-                <thead className="bg-slate-50 font-mono-code uppercase tracking-wider text-slate-600 text-[11px]">
-                  <tr>
-                    <th className="px-3 py-2.5 w-10 text-center">Done</th>
-                    <th className="px-3 py-2.5 w-24">Tier</th>
-                    <th className="px-4 py-2.5">Problem</th>
-                    <th className="px-4 py-2.5">Recognition Cue</th>
-                    <th className="px-3 py-2.5 w-20 text-center">Ledger</th>
-                    <th className="px-3 py-2.5 w-24 text-right">Target</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
-                  {currentBlock.practiceLadder.map((prob) => {
-                    const isDone = !!checked[prob.id];
-                    const tierClass = TIER_COLORS[prob.tier] || 'bg-slate-100 text-slate-700';
-                    const isLogged = ledger.some(
-                      (entry) => entry.problem.toLowerCase() === prob.problem.toLowerCase()
-                    );
-                    const isHintOpen = expandedHintId === prob.id;
-                    const tierLevel = revealedHintTiers[prob.id] || 1;
-                    const hints = getSocraticHints(prob.cue, prob.tier, currentBlock.title);
+              <div className="overflow-x-auto rounded-xl border border-slate-200">
+                <table className="min-w-full divide-y divide-slate-200 text-left text-xs sm:text-sm">
+                  <thead className="bg-slate-50 font-mono-code uppercase tracking-wider text-slate-600 text-[11px]">
+                    <tr>
+                      <th className="px-3 py-2.5 w-10 text-center">Done</th>
+                      <th className="px-3 py-2.5 w-24">Tier</th>
+                      <th className="px-4 py-2.5">Problem</th>
+                      <th className="px-4 py-2.5">Recognition Cue</th>
+                      <th className="px-3 py-2.5 w-20 text-center">Ledger</th>
+                      <th className="px-3 py-2.5 w-24 text-right">Target</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
+                    {displayedLadder.map((prob) => {
+                      const isDone = !!checked[prob.id];
+                      const tierClass = TIER_COLORS[prob.tier] || 'bg-slate-100 text-slate-700';
+                      const isLogged = ledger.some(
+                        (entry) => entry.problem.toLowerCase() === prob.problem.toLowerCase()
+                      );
+                      const isHintOpen = expandedHintId === prob.id;
+                      const tierLevel = revealedHintTiers[prob.id] || 1;
+                      const hints = getSocraticHints(prob.cue, prob.tier, currentBlock.title);
 
-                    return (
-                      <React.Fragment key={prob.id}>
-                        <tr
-                          className={`hover:bg-slate-50/80 transition ${
-                            isDone ? 'bg-slate-50/40 text-slate-400' : ''
-                          }`}
-                        >
-                          <td className="px-3 py-3 text-center">
-                            <input
-                              type="checkbox"
-                              checked={isDone}
-                              onChange={() => toggleItem(prob.id)}
-                              className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
-                            />
-                          </td>
-                          <td className="px-3 py-3">
-                            <span className={`inline-block px-2 py-0.5 rounded-full text-[11px] font-semibold border ${tierClass}`}>
-                              {prob.tier}
-                            </span>
-                          </td>
-                          <td className="px-4 py-3 font-semibold text-slate-900">
-                            <span className={isDone ? 'line-through text-slate-400' : ''}>
-                              {prob.problem}
-                            </span>
-                          </td>
-                          <td className="px-4 py-3 text-slate-600 text-xs font-mono-code">
-                            <RichText text={prob.cue} />
-                          </td>
-                          <td className="px-3 py-3 text-center">
-                            <div className="flex items-center justify-center gap-1.5">
-                              <button
+                      return (
+                        <React.Fragment key={prob.id}>
+                          <tr
+                            className={`hover:bg-slate-50/80 transition ${
+                              isDone ? 'bg-slate-50/40 text-slate-400' : ''
+                            }`}
+                          >
+                            <td className="px-3 py-3 text-center">
+                              <input
+                                type="checkbox"
+                                checked={isDone}
+                                onChange={() => toggleItem(prob.id)}
+                                className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                              />
+                            </td>
+                            <td className="px-3 py-3">
+                              <span className={`inline-block px-2 py-0.5 rounded-full text-[11px] font-semibold border ${tierClass}`}>
+                                {prob.tier}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 font-semibold text-slate-900">
+                              <div className="flex flex-wrap items-center gap-1.5">
+                                <span className={isDone ? 'line-through text-slate-400' : ''}>
+                                  {prob.problem}
+                                </span>
+                                {prob.striver180 && (
+                                  <span
+                                    className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200"
+                                    title="Striver SDE Sheet 180 Core Problem"
+                                  >
+                                    ⚡ Striver 180
+                                  </span>
+                                )}
+                              </div>
+                            </td>
+                            <td className="px-4 py-3 text-slate-600 text-xs font-mono-code">
+                              <RichText text={prob.cue} />
+                            </td>
+                            <td className="px-3 py-3 text-center">
+                              <div className="flex items-center justify-center gap-1.5">
+                                <button
                                 type="button"
                                 onClick={() => toggleHintExpand(prob.id)}
                                 title="Open progressive Socratic hints (no spoilers)"
@@ -747,7 +794,8 @@ export const DsaBlockPage: React.FC<DsaBlockPageProps> = ({ data }) => {
               </table>
             </div>
           </div>
-        )}
+        );
+      })()}
 
         {/* ───────────────── PRACTICE TASKS (IF ANY) ───────────────── */}
         {currentBlock.practiceTasks && currentBlock.practiceTasks.length > 0 && (

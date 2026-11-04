@@ -39,6 +39,7 @@ export interface DsaPracticeProblem {
   problem: string;
   cue: string;
   target: string;
+  striver180?: boolean;
 }
 
 export interface DsaPatternCard {

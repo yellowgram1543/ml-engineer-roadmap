@@ -64,19 +64,20 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Reverse Linked List | Three pointers | 10 min |
-| Easy | Merge Two Sorted Lists | Dummy + tail | 12 min |
-| Easy | Linked List Cycle | Floyd | 12 min |
-| Easy | Middle of the Linked List | Fast/slow | 10 min |
-| Easy | Remove Duplicates from Sorted List | Skip run | 12 min |
-| Medium | Remove Nth Node From End of List | Dummy + gap of n | 20 min |
-| Medium | Linked List Cycle II | Floyd entry | 20 min |
-| Medium | Reverse Linked List II | Dummy + segment splice | 30 min |
-| Medium | Reorder List | Middle + reverse + merge | 30 min |
-| Medium | Copy List with Random Pointer | Map or weave | 30 min |
-| Medium | Add Two Numbers | Carry propagation | 20 min |
-| Hard | Merge k Sorted Lists | Heap (see B4) | 35 min |
-| Hard | LRU Cache | Map + DLL | 40 min |
+| Easy | Reverse Linked List (LC 206) | Three-pointer pointer reversal | 10 min |
+| Easy | Middle of the Linked List (LC 876) | Fast and slow runner pointers | 10 min |
+| Easy | Merge Two Sorted Lists (LC 21) | Dummy head + tail pointer splice | 12 min |
+| Easy | Linked List Cycle (LC 141) | Floyd's cycle-finding tortoise and hare | 12 min |
+| Easy | Delete Node in a Linked List (LC 237) | Copy next value and skip next pointer | 8 min |
+| Easy | Intersection of Two Linked Lists (LC 160) | Dual pointer traversal with length switch | 15 min |
+| Easy | Palindrome Linked List (LC 234) | Find middle, reverse half, compare | 20 min |
+| Medium | Remove Nth Node From End of List (LC 19) | Fast runner n-step lead gap | 20 min |
+| Medium | Linked List Cycle II (LC 142) | Floyd cycle detection and meeting node | 20 min |
+| Medium | Rotate List (LC 61) | Connect tail to head, break at k | 20 min |
+| Medium | Add Two Numbers (LC 2) | Traverse with carry propagation | 20 min |
+| Medium | Copy List with Random Pointer (LC 138) | Interweave nodes or hash map clone | 30 min |
+| Medium | Flattening a Linked List | Merge sorted sublists recursively | 30 min |
+| Hard | Reverse Nodes in k-Group (LC 25) | Segment reversal with count lookahead | 35 min |
 
 > **Gate B1.** Reverse, reverse-II, and reorder written without losing a node on the first run. Floyd entry-point derived on paper, not memorised. LRU Cache passes `get`/`put` with capacity 1 and capacity 2.
 
@@ -126,19 +127,18 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Valid Parentheses | Match top | 10 min |
-| Easy | Min Stack | Pairs | 15 min |
-| Easy | Next Greater Element I | Monotonic, hash the answer | 15 min |
-| Medium | Evaluate RPN | Two pops | 20 min |
-| Medium | Daily Temperatures | Indices + monotonic | 20 min |
-| Medium | Next Greater Element II | Circular, iterate 2n | 20 min |
-| Medium | Asteroid Collision | Stack with signed comparison | 25 min |
-| Medium | Decode String | Two stacks | 30 min |
-| Medium | Simplify Path | Stack of segments | 25 min |
-| Medium | Remove K Digits | Monotonic + greedy | 30 min |
-| Medium | Basic Calculator II | Stack or running total | 35 min |
-| Hard | Largest Rectangle in Histogram | Monotonic + sentinel | 35 min |
-| Hard | Trapping Rain Water | Stack or two pointers | 35 min |
+| Easy | Valid Parentheses (LC 20) | Stack top matching brackets | 10 min |
+| Easy | Implement Min Stack (LC 155) | Value and running minimum pairs | 15 min |
+| Easy | Next Greater Element I (LC 496) | Monotonic decreasing stack with hashmap | 15 min |
+| Easy | Next Smaller Element | Monotonic stack looking for smaller element | 15 min |
+| Medium | Daily Temperatures (LC 739) | Monotonic stack storing unresolved indices | 20 min |
+| Medium | Next Greater Element II (LC 503) | Monotonic stack with 2n circular loop | 20 min |
+| Medium | Online Stock Span (LC 901) | Monotonic stack storing (price, span) | 20 min |
+| Medium | Asteroid Collision (LC 735) | Stack collision resolution with signs | 25 min |
+| Medium | The Celebrity Problem | Stack elimination or two-pointer candidate | 25 min |
+| Medium | Sort a Stack | Recursion-based insertion sort | 20 min |
+| Hard | Largest Rectangle in Histogram (LC 84) | Monotonic stack with sentinel zero | 35 min |
+| Hard | LFU Cache (LC 460) | Frequency map + DLL per frequency tier | 40 min |
 
 > **Gate B2.** Largest Rectangle in Histogram written with the sentinel and the width formula correct on the first run. You can state the pop condition for four different monotonic variants without notes. Remove K Digits produces "0" rather than "" for the all-zeros case.
 
@@ -182,15 +182,15 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Implement Queue using Stacks | Two stacks | 15 min |
-| Easy | Number of Recent Calls | Deque of timestamps | 12 min |
-| Medium | Design Circular Queue | Modular arithmetic | 20 min |
-| Medium | Sliding Window Maximum | Monotonic deque | 30 min |
-| Medium | Rotting Oranges | Multi-source BFS, levels | 25 min |
-| Medium | 01 Matrix | Multi-source BFS from zeros | 25 min |
-| Medium | Open the Lock | BFS over states with deadends | 30 min |
-| Medium | Design Hit Counter | Deque or bucket array | 25 min |
-| Hard | Sliding Window Median | Two heaps or sorted list | 40 min |
+| Easy | Implement Queue using Stacks (LC 232) | In-stack and out-stack amortised O(1) | 15 min |
+| Easy | Implement Stack using Queues (LC 225) | Single queue rotation or two queues | 15 min |
+| Easy | Number of Recent Calls (LC 933) | Deque sliding timestamp window | 12 min |
+| Medium | Design Circular Queue (LC 622) | Fixed array with head/tail modulo index | 20 min |
+| Medium | Sliding Window Maximum (LC 239) | Monotonic decreasing deque of indices | 30 min |
+| Medium | Rotting Oranges (LC 994) | Multi-source BFS with time-level queue | 25 min |
+| Medium | 01 Matrix (LC 542) | Multi-source BFS expanding from all zeros | 25 min |
+| Medium | Open the Lock (LC 752) | BFS level traversal with visited deadends | 30 min |
+| Hard | Sliding Window Median (LC 480) | Two heaps with lazy deletion or multiset | 40 min |
 
 > **Gate B3.** Sliding Window Maximum in O(n) from memory. You can explain, in one sentence, why deque beats heap for a fixed window. Every BFS you write marks visited on enqueue.
 
@@ -238,18 +238,16 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Kth Largest Element in a Stream | Size-k min-heap | 15 min |
-| Easy | Last Stone Weight | Max-heap by negation | 12 min |
-| Medium | Kth Largest Element in an Array | Heap or quickselect | 20 min |
-| Medium | Top K Frequent Elements | Counter + heap or bucket sort | 25 min |
-| Medium | K Closest Points to Origin | Size-k max-heap on distance² | 20 min |
-| Medium | Task Scheduler | Greedy + counting | 30 min |
-| Medium | Reorganize String | Max-heap + cooldown | 30 min |
-| Medium | Meeting Rooms II | Min-heap of end times | 25 min |
-| Medium | Furthest Building You Can Reach | Min-heap of ladder usage | 35 min |
-| Hard | Merge k Sorted Lists | Heap of heads | 35 min |
-| Hard | Find Median from Data Stream | Two heaps | 40 min |
-| Hard | IPO | Two heaps, greedy | 40 min |
+| Easy | Kth Largest Element in a Stream (LC 703) | Size-k min-heap tracking threshold | 15 min |
+| Easy | Last Stone Weight (LC 1046) | Max-heap simulation via negated values | 12 min |
+| Medium | Top K Frequent Elements (LC 347) | Counter + min-heap or bucket sort O(n) | 25 min |
+| Medium | K Closest Points to Origin (LC 973) | Max-heap of size k on Euclidean distance | 20 min |
+| Medium | Maximum Sum Combination | Max-heap + visited index set on sorted arrays | 25 min |
+| Medium | Reorganize String (LC 767) | Max-heap tracking counts with cooldown slot | 30 min |
+| Medium | Furthest Building You Can Reach (LC 1642) | Min-heap of largest ladder allocations | 35 min |
+| Hard | Merge k Sorted Lists (LC 23) | Min-heap of current node heads | 35 min |
+| Hard | Find Median from Data Stream (LC 295) | Two balanced heaps (max-heap + min-heap) | 40 min |
+| Hard | IPO (LC 502) | Two heaps: min-capital and max-profit | 40 min |
 
 > **Gate B4.** Running median with correct rebalancing on the first run, tested on even and odd insert counts. You can justify O(n log k) out loud. You can say when quickselect or bucket sort beats a heap.
 
@@ -298,20 +296,23 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Maximum Depth of Binary Tree | Simple recursion | 8 min |
-| Easy | Same Tree | Pairwise recursion | 10 min |
-| Easy | Invert Binary Tree | Swap children | 10 min |
-| Easy | Symmetric Tree | Mirror recursion | 12 min |
-| Easy | Diameter of Binary Tree | Global + depth | 20 min |
-| Medium | Binary Tree Level Order Traversal | BFS levels | 15 min |
-| Medium | Binary Tree Zigzag Level Order Traversal | Direction flag | 20 min |
-| Medium | Binary Tree Right Side View | Last of each level | 18 min |
-| Medium | Path Sum II | Backtracking + path | 25 min |
-| Medium | Lowest Common Ancestor of a Binary Tree | Both-subtree test | 25 min |
-| Medium | Construct Binary Tree from Preorder and Inorder | Index map + bounds | 30 min |
-| Hard | Binary Tree Maximum Path Sum | Global + `max(0, x)` | 35 min |
-| Hard | Serialize and Deserialize Binary Tree | Preorder + null markers | 40 min |
-| Hard | Binary Tree Postorder Traversal (iterative) | Two stacks | 25 min |
+| Easy | Maximum Depth of Binary Tree (LC 104) | DFS postorder depth: 1 + max(L, R) | 8 min |
+| Easy | Same Tree (LC 100) | Simultaneous structural DFS matching | 10 min |
+| Easy | Invert Binary Tree (LC 226) | Swap left and right children recursively | 10 min |
+| Easy | Symmetric Tree (LC 101) | Mirror recursion on dual roots | 12 min |
+| Easy | Diameter of Binary Tree (LC 543) | Postorder global diameter updates | 20 min |
+| Medium | Binary Tree Level Order Traversal (LC 102) | BFS queue level-by-level processing | 15 min |
+| Medium | Binary Tree Zigzag Level Order Traversal (LC 103) | BFS levels with alternating reverse | 20 min |
+| Medium | Binary Tree Right Side View (LC 199) | Level order collecting rightmost element | 18 min |
+| Medium | Boundary Traversal of Binary Tree | Left boundary + leaves + reverse right boundary | 30 min |
+| Medium | Top View of Binary Tree | BFS queue tracking horizontal coordinate | 25 min |
+| Medium | Bottom View of Binary Tree | BFS horizontal coordinate map overwriting | 25 min |
+| Medium | Maximum Width of Binary Tree (LC 662) | BFS with 0-based node indexing | 25 min |
+| Medium | Lowest Common Ancestor of a Binary Tree (LC 236) | Subtree result matching both targets | 25 min |
+| Medium | Construct Tree from Preorder and Inorder (LC 105) | Root from preorder, split inorder via map | 30 min |
+| Medium | Construct Tree from Inorder and Postorder (LC 106) | Root from postorder, split inorder via map | 30 min |
+| Hard | Binary Tree Maximum Path Sum (LC 124) | Global max path with max(0, gain) | 35 min |
+| Hard | Serialize and Deserialize Binary Tree (LC 297) | Preorder string with sentinel null tokens | 40 min |
 
 > **Gate B5.** All four traversals written recursively and iteratively from memory. Maximum Path Sum correct with negative-node tests. Serialize/deserialize round-trips a random tree of 100 nodes including duplicates.
 
@@ -359,17 +360,18 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Search in a Binary Search Tree | Descend | 8 min |
-| Easy | Lowest Common Ancestor of a BST | Range test | 15 min |
-| Easy | Convert Sorted Array to BST | Mid recursion | 20 min |
-| Easy | Range Sum of BST | Prune | 15 min |
-| Medium | Validate Binary Search Tree | Bounds | 20 min |
-| Medium | Kth Smallest Element in a BST | Inorder counter | 22 min |
-| Medium | Insert into a BST | Descend to null | 15 min |
-| Medium | Delete Node in a BST | Three cases | 30 min |
-| Medium | Binary Search Tree Iterator | Explicit stack | 25 min |
-| Medium | Trim a Binary Search Tree | Prune subtrees | 20 min |
-| Hard | Recover a Binary Search Tree | Find two swapped nodes | 35 min |
+| Easy | Search in a Binary Search Tree (LC 700) | Directional BST descent | 8 min |
+| Easy | Lowest Common Ancestor of a BST (LC 235) | Branching split point check | 15 min |
+| Easy | Convert Sorted Array to BST (LC 108) | Pick midpoint as root, divide and conquer | 20 min |
+| Easy | Range Sum of BST (LC 938) | Directional range pruning | 15 min |
+| Medium | Validate Binary Search Tree (LC 98) | Pass valid (low, high) range bounds | 20 min |
+| Medium | Kth Smallest Element in a BST (LC 230) | Inorder traversal counter or stack | 22 min |
+| Medium | Two Sum IV - Input is a BST (LC 653) | Dual BST iterators or hash set lookup | 20 min |
+| Medium | Populating Next Right Pointers (LC 116) | Level traversal or parent next links | 20 min |
+| Medium | Ceil and Floor in a BST | Directional tracking of closest bounds | 20 min |
+| Medium | Binary Search Tree Iterator (LC 173) | Explicit stack mimicking inorder descent | 25 min |
+| Hard | Recover a Binary Search Tree (LC 99) | Inorder traversal finding two swapped nodes | 35 min |
+| Hard | Size of the Largest BST in Binary Tree (LC 333) | Bottom-up return of (isBST, size, min, max) | 35 min |
 
 > **Gate B6.** Validate BST passes the deep-violation counterexample. Delete-node handles all three cases. You can explain why degenerate insertion is O(n) and what a balanced tree buys.
 

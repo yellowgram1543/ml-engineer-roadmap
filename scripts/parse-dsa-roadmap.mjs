@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isStriver180 } from './striver-catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -429,6 +430,7 @@ function parseBlockSection(blockHeading, blockLines, phaseId, phaseName, allChec
               problem: row[1],
               cue: row[2],
               target: row[3],
+              striver180: isStriver180(row[1]),
             });
             blockCheckables.push(cid);
             allCheckableIds.push(cid);
@@ -643,6 +645,7 @@ function createSyntheticPhaseD(allCheckableIds) {
         { tier: 'Medium', problem: 'House Robber (LC 198)', cue: 'dp[i] = max(dp[i-1], dp[i-2] + nums[i])', target: '15 min' },
         { tier: 'Medium', problem: 'Decode Ways (LC 91)', cue: 'Single digit and two-digit valid code transitions', target: '20 min' },
         { tier: 'Medium', problem: 'Longest Increasing Subsequence (LC 300)', cue: 'Patience sorting binary search or O(n²) DP', target: '25 min' },
+        { tier: 'Medium', problem: 'Maximum Sum Increasing Subsequence', cue: 'LIS variation accumulating max sum instead of length', target: '20 min' },
         { tier: 'Medium', problem: 'House Robber II (LC 213)', cue: 'Break circle into two subproblems: nums[0..n-2] and nums[1..n-1]', target: '20 min' },
         { tier: 'Medium', problem: 'Maximum Length of Repeated Subarray (LC 718)', cue: 'Suffix match matching dp[i][j] = dp[i-1][j-1] + 1', target: '25 min' },
         { tier: 'Medium', problem: 'Integer Break (LC 343)', cue: 'dp[i] = max(j * (i - j), j * dp[i - j])', target: '20 min' },
@@ -678,10 +681,12 @@ function createSyntheticPhaseD(allCheckableIds) {
         { question: 'How do you handle negative target sums in knapsack?', answer: 'Mathematically transform into finding positive subset sum P = (sum + target) / 2, or apply index offset.' },
       ],
       practiceLadder: [
+        { tier: 'Medium', problem: '0/1 Knapsack Problem', cue: 'Item iteration with capacity iterating backwards to prevent reuse', target: '20 min' },
         { tier: 'Medium', problem: 'Partition Equal Subset Sum (LC 416)', cue: 'Target = sum(nums) / 2, 0/1 knapsack backward loop', target: '20 min' },
         { tier: 'Medium', problem: 'Target Sum (LC 494)', cue: 'Subset sum transformation: P = (sum + S) / 2', target: '25 min' },
         { tier: 'Medium', problem: 'Coin Change (LC 322)', cue: 'Unbounded knapsack min coins: dp[a] = min(dp[a], dp[a - c] + 1)', target: '20 min' },
         { tier: 'Medium', problem: 'Coin Change II (LC 518)', cue: 'Unbounded knapsack total ways: coins outer loop', target: '20 min' },
+        { tier: 'Medium', problem: 'Rod Cutting Problem', cue: 'Unbounded knapsack max value cut: dp[j] = max(dp[j], price[i] + dp[j - i])', target: '20 min' },
         { tier: 'Medium', problem: 'Ones and Zeroes (LC 474)', cue: '2D capacity 0/1 knapsack: dp[m][n] iterating backwards', target: '30 min' },
         { tier: 'Medium', problem: 'Last Stone Weight II (LC 1049)', cue: 'Minimize difference between two partitions, target = sum // 2', target: '25 min' },
         { tier: 'Medium', problem: 'Combination Sum IV (LC 377)', cue: 'Target outer loop counts all ordered permutations', target: '20 min' },
@@ -722,6 +727,7 @@ function createSyntheticPhaseD(allCheckableIds) {
         { tier: 'Medium', problem: 'Longest Common Subsequence (LC 1143)', cue: 'Match: dp[i-1][j-1]+1; Mismatch: max(dp[i-1][j], dp[i][j-1])', target: '25 min' },
         { tier: 'Hard', problem: 'Edit Distance (LC 72)', cue: 'Insert, Delete, Replace operations on 2D table', target: '35 min' },
         { tier: 'Medium', problem: 'Maximal Square (LC 221)', cue: "dp[r][c] = min(left, top, diag) + 1 when cell is '1'", target: '25 min' },
+        { tier: 'Medium', problem: 'Word Break (LC 139)', cue: '1D boolean matching with dictionary word lookup', target: '25 min' },
         { tier: 'Hard', problem: 'Dungeon Game (LC 174)', cue: 'Bottom-right to top-left reverse DP for minimum initial health', target: '35 min' },
         { tier: 'Medium', problem: 'Interleaving String (LC 97)', cue: '2D matching of s1[i-1] and s2[j-1] against s3[i+j-1]', target: '30 min' },
       ],
@@ -756,12 +762,14 @@ function createSyntheticPhaseD(allCheckableIds) {
         { question: 'In Russian Doll Envelopes, why must height be sorted in descending order when widths are equal?', answer: 'Descending height prevents two envelopes with the same width from being included in the same strictly increasing subsequence.' },
       ],
       practiceLadder: [
+        { tier: 'Hard', problem: 'Matrix Chain Multiplication (MCM)', cue: 'Partition cut k from i to j: min(dp[i][k] + dp[k+1][j] + cost)', target: '35 min' },
         { tier: 'Hard', problem: 'Burst Balloons (LC 312)', cue: 'Interval DP: consider balloon k popped LAST in range [i, j]', target: '35 min' },
+        { tier: 'Hard', problem: 'Palindrome Partitioning II (LC 132)', cue: 'MCM cut variation for minimum cuts to partition palindrome', target: '30 min' },
+        { tier: 'Hard', problem: 'Minimum Cost to Cut a Stick (LC 1547)', cue: 'Interval DP on sorted cuts array with boundary sticks', target: '35 min' },
+        { tier: 'Hard', problem: 'Maximum Profit in Job Scheduling (LC 1235)', cue: 'Sort by end time + DP with binary search for non-overlapping job', target: '35 min' },
         { tier: 'Medium', problem: 'House Robber III (LC 337)', cue: 'Tree postorder DFS returning (rob_current, not_rob_current)', target: '25 min' },
         { tier: 'Medium', problem: 'Best Time to Buy and Sell Stock with Cooldown (LC 309)', cue: '3-state machine: Hold, Sold (cooldown), Rest', target: '25 min' },
         { tier: 'Hard', problem: 'Russian Doll Envelopes (LC 354)', cue: 'Sort by width asc, height desc; run LIS on heights', target: '35 min' },
-        { tier: 'Hard', problem: 'Minimum Cost to Merge Stones (LC 1000)', cue: 'Interval DP combining k piles with prefix sums', target: '40 min' },
-        { tier: 'Hard', problem: 'Distinct Subsequences (LC 115)', cue: 'String matching with duplicate skips: dp[i][j]', target: '30 min' },
       ],
       gate: 'Clear Burst Balloons and House Robber III. Explain why interval ordering guarantees subproblem availability.',
     },
@@ -798,6 +806,7 @@ function createSyntheticPhaseD(allCheckableIds) {
         { tier: 'Medium', problem: 'Super Pow (LC 372)', cue: 'Modular exponentiation with array of digits: a^b % 1337', target: '25 min' },
         { tier: 'Medium', problem: 'Can I Win (LC 464)', cue: 'Minimax with bitmask state representing chosen integers', target: '30 min' },
         { tier: 'Medium', problem: 'Beautiful Arrangement (LC 526)', cue: 'Bitmask DP / memoized backtracking on valid index divisibility', target: '25 min' },
+        { tier: 'Hard', problem: 'Egg Dropping Problem (LC 887)', cue: 'Binary search or DP with k eggs and n floors: 1 + max(break, survive)', target: '35 min' },
         { tier: 'Hard', problem: 'Find the Shortest Superstring (LC 943)', cue: 'TSP with overlap graph: dp[mask][last] bitmask DP', target: '40 min' },
         { tier: 'Hard', problem: 'Smallest Sufficient Team (LC 1125)', cue: 'Bitmask DP covering all required skills with minimum people', target: '40 min' },
       ],
@@ -913,6 +922,7 @@ function createSyntheticPhaseD(allCheckableIds) {
         problem: pr.problem,
         cue: pr.cue,
         target: pr.target,
+        striver180: isStriver180(pr.problem),
       };
     });
 

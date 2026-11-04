@@ -5,8 +5,8 @@
     "targets": "SDE (Generalist) · ML Engineer · Applied Scientist",
     "totalPhases": 5,
     "totalBlocks": 31,
-    "totalCheckables": 572,
-    "totalProblems": 301,
+    "totalCheckables": 585,
+    "totalProblems": 314,
     "totalDrills": 143,
     "totalPatterns": 22
   },
@@ -714,70 +714,104 @@
               "tier": "Easy",
               "problem": "Two Sum II — Input Array Is Sorted",
               "cue": "Sorted pair, opposite ends",
-              "target": "12 min"
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-2",
               "tier": "Easy",
-              "problem": "Valid Palindrome",
+              "problem": "Valid Palindrome (LC 125)",
               "cue": "Mirrored compare, skip non-alnum",
-              "target": "10 min"
+              "target": "10 min",
+              "striver180": false
             },
             {
               "id": "block-a2-ladder-3",
               "tier": "Easy",
-              "problem": "Move Zeroes",
-              "cue": "Read/write pointers",
-              "target": "10 min"
+              "problem": "Pascal's Triangle (LC 118)",
+              "cue": "Row simulation with previous row sums",
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-4",
               "tier": "Easy",
-              "problem": "Remove Duplicates from Sorted Array",
-              "cue": "Read/write with a gap",
-              "target": "10 min"
+              "problem": "Remove Duplicates from Sorted Array (LC 26)",
+              "cue": "Read/write pointer gap",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-5",
               "tier": "Easy",
-              "problem": "Sort Colors",
-              "cue": "Dutch flag, three regions",
-              "target": "15 min"
+              "problem": "Sort Colors (LC 75)",
+              "cue": "Dutch National Flag, three regions",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-6",
               "tier": "Medium",
-              "problem": "3Sum",
-              "cue": "Sort + fix one + two-pointer + dedupe",
-              "target": "25 min"
+              "problem": "Set Matrix Zeroes (LC 73)",
+              "cue": "First row/col as O(1) flags",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-7",
               "tier": "Medium",
-              "problem": "Container With Most Water",
-              "cue": "Move the shorter wall",
-              "target": "20 min"
+              "problem": "Next Permutation (LC 31)",
+              "cue": "Find pivot, swap successor, reverse tail",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-8",
               "tier": "Medium",
-              "problem": "Rotate Array",
-              "cue": "Three reversals, O(1) space",
-              "target": "20 min"
+              "problem": "Rotate Image (LC 48)",
+              "cue": "Transpose matrix + reverse each row",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-9",
               "tier": "Medium",
-              "problem": "Squares of a Sorted Array",
-              "cue": "Largest square at either end",
-              "target": "15 min"
+              "problem": "3Sum (LC 15)",
+              "cue": "Sort + fix one + two-pointer dedupe",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a2-ladder-10",
+              "tier": "Medium",
+              "problem": "Container With Most Water (LC 11)",
+              "cue": "Move the shorter wall inward",
+              "target": "20 min",
+              "striver180": false
+            },
+            {
+              "id": "block-a2-ladder-11",
+              "tier": "Medium",
+              "problem": "Rotate Array (LC 189)",
+              "cue": "Three reversals, O(1) space",
+              "target": "20 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a2-ladder-12",
+              "tier": "Medium",
+              "problem": "Find the Duplicate Number (LC 287)",
+              "cue": "Floyd cycle detection on array indices",
+              "target": "20 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a2-ladder-13",
               "tier": "Hard",
-              "problem": "Trapping Rain Water",
-              "cue": "Opposite ends with running maxima",
-              "target": "35 min"
+              "problem": "Trapping Rain Water (LC 42)",
+              "cue": "Opposite ends with running max",
+              "target": "35 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -941,56 +975,74 @@
                 ],
                 [
                   "Easy",
-                  "Valid Palindrome",
+                  "Valid Palindrome (LC 125)",
                   "Mirrored compare, skip non-alnum",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Move Zeroes",
-                  "Read/write pointers",
+                  "Pascal's Triangle (LC 118)",
+                  "Row simulation with previous row sums",
+                  "12 min"
+                ],
+                [
+                  "Easy",
+                  "Remove Duplicates from Sorted Array (LC 26)",
+                  "Read/write pointer gap",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Remove Duplicates from Sorted Array",
-                  "Read/write with a gap",
-                  "10 min"
-                ],
-                [
-                  "Easy",
-                  "Sort Colors",
-                  "Dutch flag, three regions",
+                  "Sort Colors (LC 75)",
+                  "Dutch National Flag, three regions",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "3Sum",
-                  "Sort + fix one + two-pointer + dedupe",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Container With Most Water",
-                  "Move the shorter wall",
+                  "Set Matrix Zeroes (LC 73)",
+                  "First row/col as O(1) flags",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Rotate Array",
+                  "Next Permutation (LC 31)",
+                  "Find pivot, swap successor, reverse tail",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Rotate Image (LC 48)",
+                  "Transpose matrix + reverse each row",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "3Sum (LC 15)",
+                  "Sort + fix one + two-pointer dedupe",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Container With Most Water (LC 11)",
+                  "Move the shorter wall inward",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Rotate Array (LC 189)",
                   "Three reversals, O(1) space",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Squares of a Sorted Array",
-                  "Largest square at either end",
-                  "15 min"
+                  "Find the Duplicate Number (LC 287)",
+                  "Floyd cycle detection on array indices",
+                  "20 min"
                 ],
                 [
                   "Hard",
-                  "Trapping Rain Water",
-                  "Opposite ends with running maxima",
+                  "Trapping Rain Water (LC 42)",
+                  "Opposite ends with running max",
                   "35 min"
                 ]
               ]
@@ -1021,6 +1073,9 @@
             "block-a2-ladder-8",
             "block-a2-ladder-9",
             "block-a2-ladder-10",
+            "block-a2-ladder-11",
+            "block-a2-ladder-12",
+            "block-a2-ladder-13",
             "block-a2-gate"
           ]
         },
@@ -1147,72 +1202,82 @@
             {
               "id": "block-a3-ladder-1",
               "tier": "Easy",
-              "problem": "Two Sum",
-              "cue": "Complement lookup, one pass",
-              "target": "10 min"
+              "problem": "Two Sum (LC 1)",
+              "cue": "Seen-before complement map",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-a3-ladder-2",
               "tier": "Easy",
-              "problem": "Contains Duplicate",
-              "cue": "Set membership",
-              "target": "8 min"
+              "problem": "Valid Anagram (LC 242)",
+              "cue": "Frequency count array",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-a3-ladder-3",
               "tier": "Easy",
-              "problem": "Valid Anagram",
-              "cue": "26-count array or Counter",
-              "target": "10 min"
+              "problem": "Isomorphic Strings (LC 205)",
+              "cue": "Two-way character bijection maps",
+              "target": "15 min",
+              "striver180": false
             },
             {
               "id": "block-a3-ladder-4",
-              "tier": "Easy",
-              "problem": "Isomorphic Strings",
-              "cue": "Two-way bijection",
-              "target": "15 min"
+              "tier": "Medium",
+              "problem": "Group Anagrams (LC 49)",
+              "cue": "Canonical sorted key or 26-tuple",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a3-ladder-5",
-              "tier": "Easy",
-              "problem": "Happy Number",
-              "cue": "Cycle detection via set",
-              "target": "12 min"
+              "tier": "Medium",
+              "problem": "4Sum (LC 18)",
+              "cue": "Sort + two nested loops + two pointers",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a3-ladder-6",
               "tier": "Medium",
-              "problem": "Group Anagrams",
-              "cue": "Canonical key",
-              "target": "20 min"
+              "problem": "Subarray Sum Equals K (LC 560)",
+              "cue": "Prefix sum + {0: 1} frequency map",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a3-ladder-7",
               "tier": "Medium",
-              "problem": "Subarray Sum Equals K",
-              "cue": "Prefix sum + `{0:1}`",
-              "target": "25 min"
+              "problem": "Longest Consecutive Sequence (LC 128)",
+              "cue": "HashSet + start-of-sequence lookup",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a3-ladder-8",
               "tier": "Medium",
-              "problem": "Longest Consecutive Sequence",
-              "cue": "Start-of-run check",
-              "target": "25 min"
+              "problem": "Largest Subarray with 0 Sum",
+              "cue": "Earliest prefix sum index map",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a3-ladder-9",
               "tier": "Medium",
-              "problem": "Continuous Subarray Sum",
-              "cue": "Prefix mod k + earliest index",
-              "target": "25 min"
+              "problem": "Count Subarrays with Given XOR K",
+              "cue": "Prefix XOR running count hashmap",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a3-ladder-10",
               "tier": "Medium",
-              "problem": "LRU Cache",
-              "cue": "Hash map + doubly linked list (preview of B1)",
-              "target": "35 min"
+              "problem": "Continuous Subarray Sum (LC 523)",
+              "cue": "Prefix mod k + earliest index",
+              "target": "25 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -1387,63 +1452,63 @@
               "rows": [
                 [
                   "Easy",
-                  "Two Sum",
-                  "Complement lookup, one pass",
+                  "Two Sum (LC 1)",
+                  "Seen-before complement map",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Contains Duplicate",
-                  "Set membership",
-                  "8 min"
-                ],
-                [
-                  "Easy",
-                  "Valid Anagram",
-                  "26-count array or Counter",
+                  "Valid Anagram (LC 242)",
+                  "Frequency count array",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Isomorphic Strings",
-                  "Two-way bijection",
+                  "Isomorphic Strings (LC 205)",
+                  "Two-way character bijection maps",
                   "15 min"
                 ],
                 [
-                  "Easy",
-                  "Happy Number",
-                  "Cycle detection via set",
-                  "12 min"
-                ],
-                [
                   "Medium",
-                  "Group Anagrams",
-                  "Canonical key",
+                  "Group Anagrams (LC 49)",
+                  "Canonical sorted key or 26-tuple",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Subarray Sum Equals K",
-                  "Prefix sum + `{0:1}`",
+                  "4Sum (LC 18)",
+                  "Sort + two nested loops + two pointers",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Longest Consecutive Sequence",
-                  "Start-of-run check",
+                  "Subarray Sum Equals K (LC 560)",
+                  "Prefix sum + {0: 1} frequency map",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Continuous Subarray Sum",
+                  "Longest Consecutive Sequence (LC 128)",
+                  "HashSet + start-of-sequence lookup",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Largest Subarray with 0 Sum",
+                  "Earliest prefix sum index map",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Count Subarrays with Given XOR K",
+                  "Prefix XOR running count hashmap",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Continuous Subarray Sum (LC 523)",
                   "Prefix mod k + earliest index",
                   "25 min"
-                ],
-                [
-                  "Medium",
-                  "LRU Cache",
-                  "Hash map + doubly linked list (preview of B1)",
-                  "35 min"
                 ]
               ]
             },
@@ -1585,70 +1650,80 @@
               "tier": "Easy",
               "problem": "Maximum Average Subarray I",
               "cue": "Fixed window",
-              "target": "10 min"
+              "target": "10 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-2",
               "tier": "Medium",
               "problem": "Longest Substring Without Repeating Characters",
               "cue": "Variable longest + set",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a4-ladder-3",
               "tier": "Medium",
               "problem": "Longest Repeating Character Replacement",
               "cue": "Validity on `len - maxfreq`",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-4",
               "tier": "Medium",
               "problem": "Permutation in String",
               "cue": "Fixed window + count match",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-5",
               "tier": "Medium",
               "problem": "Find All Anagrams in a String",
               "cue": "Fixed window + count match",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-6",
               "tier": "Medium",
               "problem": "Max Consecutive Ones III",
               "cue": "At most k flips",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a4-ladder-7",
               "tier": "Medium",
               "problem": "Fruit Into Baskets",
               "cue": "At most 2 distinct",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-8",
               "tier": "Medium",
               "problem": "Minimum Size Subarray Sum",
               "cue": "Shortest, positive numbers",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-9",
               "tier": "Hard",
               "problem": "Minimum Window Substring",
               "cue": "Need/have, shortest",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": false
             },
             {
               "id": "block-a4-ladder-10",
               "tier": "Hard",
               "problem": "Subarrays with K Different Integers",
               "cue": "`atMost(k) - atMost(k-1)`",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -2018,72 +2093,98 @@
             {
               "id": "block-a5-ladder-1",
               "tier": "Easy",
-              "problem": "Range Sum Query — Immutable",
-              "cue": "1D prefix",
-              "target": "10 min"
+              "problem": "Range Sum Query — Immutable (LC 303)",
+              "cue": "1D prefix sum array",
+              "target": "10 min",
+              "striver180": false
             },
             {
               "id": "block-a5-ladder-2",
               "tier": "Easy",
-              "problem": "Find Pivot Index",
+              "problem": "Find Pivot Index (LC 724)",
               "cue": "Left sum vs total minus left",
-              "target": "12 min"
+              "target": "12 min",
+              "striver180": false
             },
             {
               "id": "block-a5-ladder-3",
               "tier": "Easy",
-              "problem": "Maximum Subarray",
-              "cue": "Kadane",
-              "target": "12 min"
+              "problem": "Maximum Subarray (LC 53)",
+              "cue": "Kadane's single pass running max",
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-a5-ladder-4",
-              "tier": "Medium",
-              "problem": "Product of Array Except Self",
-              "cue": "Prefix × suffix, no division",
-              "target": "20 min"
+              "tier": "Easy",
+              "problem": "Majority Element (> n/2) (LC 169)",
+              "cue": "Boyer-Moore voting algorithm",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-a5-ladder-5",
               "tier": "Medium",
-              "problem": "Maximum Product Subarray",
-              "cue": "Track min and max",
-              "target": "20 min"
+              "problem": "Majority Element II (> n/3) (LC 229)",
+              "cue": "Boyer-Moore two candidate counters",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a5-ladder-6",
               "tier": "Medium",
-              "problem": "Subarray Sums Divisible by K",
-              "cue": "Prefix mod + hash",
-              "target": "25 min"
+              "problem": "Product of Array Except Self (LC 238)",
+              "cue": "Prefix and suffix products, O(1) space",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a5-ladder-7",
               "tier": "Medium",
-              "problem": "Range Sum Query 2D — Immutable",
-              "cue": "2D inclusion–exclusion",
-              "target": "25 min"
+              "problem": "Maximum Product Subarray (LC 152)",
+              "cue": "Kadane tracking both min and max",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a5-ladder-8",
               "tier": "Medium",
-              "problem": "Matrix Block Sum",
-              "cue": "2D prefix with clamping",
-              "target": "25 min"
+              "problem": "Subarray Sums Divisible by K (LC 974)",
+              "cue": "Prefix mod k + frequency hashmap",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a5-ladder-9",
               "tier": "Medium",
-              "problem": "Contiguous Array",
-              "cue": "Map 0 to -1, prefix sum",
-              "target": "25 min"
+              "problem": "Range Sum Query 2D — Immutable (LC 304)",
+              "cue": "2D inclusion-exclusion",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a5-ladder-10",
               "tier": "Medium",
-              "problem": "Subarray Sum Equals K (repeat)",
-              "cue": "Spaced repeat from A3",
-              "target": "15 min"
+              "problem": "Contiguous Array (LC 525)",
+              "cue": "Map 0 to -1, prefix sum index map",
+              "target": "25 min",
+              "striver180": false
+            },
+            {
+              "id": "block-a5-ladder-11",
+              "tier": "Hard",
+              "problem": "Reverse Pairs (LC 493)",
+              "cue": "Modified merge sort split counting",
+              "target": "35 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a5-ladder-12",
+              "tier": "Hard",
+              "problem": "Count Inversions in Array",
+              "cue": "Merge sort inversion counting",
+              "target": "35 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -2252,63 +2353,75 @@
               "rows": [
                 [
                   "Easy",
-                  "Range Sum Query — Immutable",
-                  "1D prefix",
+                  "Range Sum Query — Immutable (LC 303)",
+                  "1D prefix sum array",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Find Pivot Index",
+                  "Find Pivot Index (LC 724)",
                   "Left sum vs total minus left",
                   "12 min"
                 ],
                 [
                   "Easy",
-                  "Maximum Subarray",
-                  "Kadane",
+                  "Maximum Subarray (LC 53)",
+                  "Kadane's single pass running max",
                   "12 min"
                 ],
                 [
-                  "Medium",
-                  "Product of Array Except Self",
-                  "Prefix × suffix, no division",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Maximum Product Subarray",
-                  "Track min and max",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Subarray Sums Divisible by K",
-                  "Prefix mod + hash",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Range Sum Query 2D — Immutable",
-                  "2D inclusion–exclusion",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Matrix Block Sum",
-                  "2D prefix with clamping",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Contiguous Array",
-                  "Map 0 to -1, prefix sum",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Subarray Sum Equals K (repeat)",
-                  "Spaced repeat from A3",
+                  "Easy",
+                  "Majority Element (> n/2) (LC 169)",
+                  "Boyer-Moore voting algorithm",
                   "15 min"
+                ],
+                [
+                  "Medium",
+                  "Majority Element II (> n/3) (LC 229)",
+                  "Boyer-Moore two candidate counters",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Product of Array Except Self (LC 238)",
+                  "Prefix and suffix products, O(1) space",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Maximum Product Subarray (LC 152)",
+                  "Kadane tracking both min and max",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Subarray Sums Divisible by K (LC 974)",
+                  "Prefix mod k + frequency hashmap",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Range Sum Query 2D — Immutable (LC 304)",
+                  "2D inclusion-exclusion",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Contiguous Array (LC 525)",
+                  "Map 0 to -1, prefix sum index map",
+                  "25 min"
+                ],
+                [
+                  "Hard",
+                  "Reverse Pairs (LC 493)",
+                  "Modified merge sort split counting",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "Count Inversions in Array",
+                  "Merge sort inversion counting",
+                  "35 min"
                 ]
               ]
             },
@@ -2338,6 +2451,8 @@
             "block-a5-ladder-8",
             "block-a5-ladder-9",
             "block-a5-ladder-10",
+            "block-a5-ladder-11",
+            "block-a5-ladder-12",
             "block-a5-gate"
           ]
         },
@@ -2460,86 +2575,114 @@
             {
               "id": "block-a6-ladder-1",
               "tier": "Easy",
-              "problem": "Binary Search",
-              "cue": "Exact template",
-              "target": "8 min"
+              "problem": "Binary Search (LC 704)",
+              "cue": "Canonical invariant template",
+              "target": "8 min",
+              "striver180": false
             },
             {
               "id": "block-a6-ladder-2",
               "tier": "Easy",
-              "problem": "Search Insert Position",
-              "cue": "Lower bound",
-              "target": "10 min"
+              "problem": "Sqrt(x) (LC 69)",
+              "cue": "Integer binary search on answer",
+              "target": "12 min",
+              "striver180": false
             },
             {
               "id": "block-a6-ladder-3",
-              "tier": "Easy",
-              "problem": "First Bad Version",
-              "cue": "First true",
-              "target": "10 min"
+              "tier": "Medium",
+              "problem": "Search in a 2D Matrix (LC 74)",
+              "cue": "Virtual 1D index mapping",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-a6-ladder-4",
-              "tier": "Easy",
-              "problem": "Sqrt(x)",
-              "cue": "Search on answer, integers",
-              "target": "12 min"
+              "tier": "Medium",
+              "problem": "Single Element in a Sorted Array (LC 540)",
+              "cue": "Halves parity check on even/odd indices",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a6-ladder-5",
               "tier": "Medium",
-              "problem": "Find First and Last Position of Element in Sorted Array",
-              "cue": "Lower + upper",
-              "target": "20 min"
+              "problem": "Find First and Last Position (LC 34)",
+              "cue": "Lower bound and upper bound bisection",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a6-ladder-6",
               "tier": "Medium",
-              "problem": "Search in Rotated Sorted Array",
-              "cue": "Sorted-half test",
-              "target": "25 min"
+              "problem": "Search in Rotated Sorted Array (LC 33)",
+              "cue": "Sorted-half monotonic test",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a6-ladder-7",
               "tier": "Medium",
-              "problem": "Find Minimum in Rotated Sorted Array",
-              "cue": "Pivot search",
-              "target": "20 min"
+              "problem": "Find Minimum in Rotated Sorted Array (LC 153)",
+              "cue": "Pivot search comparison with high",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a6-ladder-8",
               "tier": "Medium",
-              "problem": "Find Peak Element",
-              "cue": "Local monotonicity",
-              "target": "20 min"
+              "problem": "Find Peak Element (LC 162)",
+              "cue": "Gradient / local monotonicity climb",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a6-ladder-9",
               "tier": "Medium",
-              "problem": "Koko Eating Bananas",
-              "cue": "Feasibility on speed",
-              "target": "30 min"
+              "problem": "Koko Eating Bananas (LC 875)",
+              "cue": "Predicate feasibility search on speed",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-a6-ladder-10",
-              "tier": "Medium",
-              "problem": "Capacity to Ship Packages Within D Days",
-              "cue": "Feasibility on capacity",
-              "target": "30 min"
+              "tier": "Hard",
+              "problem": "Allocate Minimum Number of Pages",
+              "cue": "Feasibility check on max page limit",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-a6-ladder-11",
               "tier": "Hard",
-              "problem": "Split Array Largest Sum",
-              "cue": "Feasibility on max-sum",
-              "target": "35 min"
+              "problem": "Aggressive Cows",
+              "cue": "Feasibility distance check on sorted stalls",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-a6-ladder-12",
               "tier": "Hard",
-              "problem": "Median of Two Sorted Arrays",
-              "cue": "Partition invariant",
-              "target": "45 min"
+              "problem": "Matrix Median",
+              "cue": "Row-wise binary search count",
+              "target": "40 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a6-ladder-13",
+              "tier": "Hard",
+              "problem": "K-th Element of Two Sorted Arrays",
+              "cue": "Partition invariant on two sorted arrays",
+              "target": "40 min",
+              "striver180": true
+            },
+            {
+              "id": "block-a6-ladder-14",
+              "tier": "Hard",
+              "problem": "Median of Two Sorted Arrays (LC 4)",
+              "cue": "Partition cut balance condition",
+              "target": "45 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -2711,74 +2854,86 @@
               "rows": [
                 [
                   "Easy",
-                  "Binary Search",
-                  "Exact template",
+                  "Binary Search (LC 704)",
+                  "Canonical invariant template",
                   "8 min"
                 ],
                 [
                   "Easy",
-                  "Search Insert Position",
-                  "Lower bound",
-                  "10 min"
-                ],
-                [
-                  "Easy",
-                  "First Bad Version",
-                  "First true",
-                  "10 min"
-                ],
-                [
-                  "Easy",
-                  "Sqrt(x)",
-                  "Search on answer, integers",
+                  "Sqrt(x) (LC 69)",
+                  "Integer binary search on answer",
                   "12 min"
                 ],
                 [
                   "Medium",
-                  "Find First and Last Position of Element in Sorted Array",
-                  "Lower + upper",
+                  "Search in a 2D Matrix (LC 74)",
+                  "Virtual 1D index mapping",
+                  "15 min"
+                ],
+                [
+                  "Medium",
+                  "Single Element in a Sorted Array (LC 540)",
+                  "Halves parity check on even/odd indices",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Search in Rotated Sorted Array",
-                  "Sorted-half test",
+                  "Find First and Last Position (LC 34)",
+                  "Lower bound and upper bound bisection",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Search in Rotated Sorted Array (LC 33)",
+                  "Sorted-half monotonic test",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Find Minimum in Rotated Sorted Array",
-                  "Pivot search",
+                  "Find Minimum in Rotated Sorted Array (LC 153)",
+                  "Pivot search comparison with high",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Find Peak Element",
-                  "Local monotonicity",
+                  "Find Peak Element (LC 162)",
+                  "Gradient / local monotonicity climb",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Koko Eating Bananas",
-                  "Feasibility on speed",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Capacity to Ship Packages Within D Days",
-                  "Feasibility on capacity",
+                  "Koko Eating Bananas (LC 875)",
+                  "Predicate feasibility search on speed",
                   "30 min"
                 ],
                 [
                   "Hard",
-                  "Split Array Largest Sum",
-                  "Feasibility on max-sum",
+                  "Allocate Minimum Number of Pages",
+                  "Feasibility check on max page limit",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Median of Two Sorted Arrays",
-                  "Partition invariant",
+                  "Aggressive Cows",
+                  "Feasibility distance check on sorted stalls",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "Matrix Median",
+                  "Row-wise binary search count",
+                  "40 min"
+                ],
+                [
+                  "Hard",
+                  "K-th Element of Two Sorted Arrays",
+                  "Partition invariant on two sorted arrays",
+                  "40 min"
+                ],
+                [
+                  "Hard",
+                  "Median of Two Sorted Arrays (LC 4)",
+                  "Partition cut balance condition",
                   "45 min"
                 ]
               ]
@@ -2812,6 +2967,8 @@
             "block-a6-ladder-10",
             "block-a6-ladder-11",
             "block-a6-ladder-12",
+            "block-a6-ladder-13",
+            "block-a6-ladder-14",
             "block-a6-gate"
           ]
         },
@@ -2932,63 +3089,72 @@
               "tier": "Easy",
               "problem": "Merge Sorted Array",
               "cue": "Two pointers backwards",
-              "target": "12 min"
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-a7-ladder-2",
               "tier": "Medium",
               "problem": "Sort an Array",
               "cue": "Merge sort from memory",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a7-ladder-3",
               "tier": "Medium",
               "problem": "Kth Largest Element in an Array",
               "cue": "Quickselect",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a7-ladder-4",
               "tier": "Medium",
               "problem": "Merge Intervals",
               "cue": "Sort by start + merge",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a7-ladder-5",
               "tier": "Medium",
               "problem": "Insert Interval",
               "cue": "Three cases",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a7-ladder-6",
               "tier": "Medium",
               "problem": "Meeting Rooms II",
               "cue": "Sweep line or heap",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a7-ladder-7",
               "tier": "Medium",
               "problem": "Non-overlapping Intervals",
               "cue": "Greedy by end",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-a7-ladder-8",
               "tier": "Medium",
               "problem": "Largest Number",
               "cue": "Custom comparator",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-a7-ladder-9",
               "tier": "Hard",
               "problem": "Meeting Rooms III",
               "cue": "Heaps + assignment simulation",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -3354,72 +3520,82 @@
             {
               "id": "block-a8-ladder-1",
               "tier": "Easy",
-              "problem": "Valid Palindrome II",
-              "cue": "Two pointers with one deletion",
-              "target": "15 min"
+              "problem": "Valid Palindrome II (LC 680)",
+              "cue": "Two pointers with one mismatch skip",
+              "target": "15 min",
+              "striver180": false
             },
             {
               "id": "block-a8-ladder-2",
               "tier": "Easy",
-              "problem": "Roman to Integer",
-              "cue": "Subtractive pairs",
-              "target": "15 min"
+              "problem": "Roman to Integer (LC 13)",
+              "cue": "Subtractive numeral pairs",
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-3",
               "tier": "Easy",
-              "problem": "Add Strings",
-              "cue": "Manual addition, carry",
-              "target": "15 min"
+              "problem": "Longest Common Prefix (LC 14)",
+              "cue": "Horizontal scanning or vertical scan",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-4",
               "tier": "Medium",
-              "problem": "Longest Palindromic Substring",
-              "cue": "Expand around centre",
-              "target": "25 min"
+              "problem": "Reverse Words in a String (LC 151)",
+              "cue": "In-place word token reversal",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-5",
               "tier": "Medium",
-              "problem": "Palindromic Substrings",
-              "cue": "Same, counting",
-              "target": "20 min"
+              "problem": "String to Integer (atoi) (LC 8)",
+              "cue": "Deterministic state machine + clamping",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-6",
               "tier": "Medium",
-              "problem": "Implement strStr / Find the Index of First Occurrence",
-              "cue": "KMP",
-              "target": "35 min"
+              "problem": "Implement strStr / KMP (LC 28)",
+              "cue": "Longest prefix which is suffix (LPS)",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-7",
               "tier": "Medium",
-              "problem": "Encode and Decode Strings",
-              "cue": "Length prefix",
-              "target": "25 min"
+              "problem": "Longest Palindromic Substring (LC 5)",
+              "cue": "Expand around 2n-1 potential centres",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-8",
               "tier": "Medium",
-              "problem": "String to Integer (atoi)",
-              "cue": "Parser with clamping",
-              "target": "25 min"
+              "problem": "Count and Say (LC 38)",
+              "cue": "Run-length string generation",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-9",
               "tier": "Medium",
-              "problem": "Multiply Strings",
-              "cue": "Grade-school multiplication",
-              "target": "30 min"
+              "problem": "Compare Version Numbers (LC 165)",
+              "cue": "Two-pointer chunk numerical comparison",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-a8-ladder-10",
-              "tier": "Medium",
-              "problem": "Repeated Substring Pattern",
-              "cue": "KMP or `s in s+s` trick",
-              "target": "20 min"
+              "tier": "Hard",
+              "problem": "Minimum Characters to Make Palindromic",
+              "cue": "KMP LPS on s + '#' + rev(s)",
+              "target": "35 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -3587,63 +3763,63 @@
               "rows": [
                 [
                   "Easy",
-                  "Valid Palindrome II",
-                  "Two pointers with one deletion",
+                  "Valid Palindrome II (LC 680)",
+                  "Two pointers with one mismatch skip",
                   "15 min"
                 ],
                 [
                   "Easy",
-                  "Roman to Integer",
-                  "Subtractive pairs",
-                  "15 min"
+                  "Roman to Integer (LC 13)",
+                  "Subtractive numeral pairs",
+                  "12 min"
                 ],
                 [
                   "Easy",
-                  "Add Strings",
-                  "Manual addition, carry",
+                  "Longest Common Prefix (LC 14)",
+                  "Horizontal scanning or vertical scan",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Longest Palindromic Substring",
-                  "Expand around centre",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Palindromic Substrings",
-                  "Same, counting",
+                  "Reverse Words in a String (LC 151)",
+                  "In-place word token reversal",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Implement strStr / Find the Index of First Occurrence",
-                  "KMP",
-                  "35 min"
-                ],
-                [
-                  "Medium",
-                  "Encode and Decode Strings",
-                  "Length prefix",
+                  "String to Integer (atoi) (LC 8)",
+                  "Deterministic state machine + clamping",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "String to Integer (atoi)",
-                  "Parser with clamping",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Multiply Strings",
-                  "Grade-school multiplication",
+                  "Implement strStr / KMP (LC 28)",
+                  "Longest prefix which is suffix (LPS)",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Repeated Substring Pattern",
-                  "KMP or `s in s+s` trick",
+                  "Longest Palindromic Substring (LC 5)",
+                  "Expand around 2n-1 potential centres",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Count and Say (LC 38)",
+                  "Run-length string generation",
                   "20 min"
+                ],
+                [
+                  "Medium",
+                  "Compare Version Numbers (LC 165)",
+                  "Two-pointer chunk numerical comparison",
+                  "20 min"
+                ],
+                [
+                  "Hard",
+                  "Minimum Characters to Make Palindromic",
+                  "KMP LPS on s + '#' + rev(s)",
+                  "35 min"
                 ]
               ]
             },
@@ -3789,6 +3965,9 @@
         "block-a2-ladder-8",
         "block-a2-ladder-9",
         "block-a2-ladder-10",
+        "block-a2-ladder-11",
+        "block-a2-ladder-12",
+        "block-a2-ladder-13",
         "block-a2-gate",
         "block-a3-chk-1",
         "block-a3-chk-2",
@@ -3846,6 +4025,8 @@
         "block-a5-ladder-8",
         "block-a5-ladder-9",
         "block-a5-ladder-10",
+        "block-a5-ladder-11",
+        "block-a5-ladder-12",
         "block-a5-gate",
         "block-a6-chk-1",
         "block-a6-chk-2",
@@ -3868,6 +4049,8 @@
         "block-a6-ladder-10",
         "block-a6-ladder-11",
         "block-a6-ladder-12",
+        "block-a6-ladder-13",
+        "block-a6-ladder-14",
         "block-a6-gate",
         "block-a7-chk-1",
         "block-a7-chk-2",
@@ -4056,93 +4239,114 @@
             {
               "id": "block-b1-ladder-1",
               "tier": "Easy",
-              "problem": "Reverse Linked List",
-              "cue": "Three pointers",
-              "target": "10 min"
+              "problem": "Reverse Linked List (LC 206)",
+              "cue": "Three-pointer pointer reversal",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-2",
               "tier": "Easy",
-              "problem": "Merge Two Sorted Lists",
-              "cue": "Dummy + tail",
-              "target": "12 min"
+              "problem": "Middle of the Linked List (LC 876)",
+              "cue": "Fast and slow runner pointers",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-3",
               "tier": "Easy",
-              "problem": "Linked List Cycle",
-              "cue": "Floyd",
-              "target": "12 min"
+              "problem": "Merge Two Sorted Lists (LC 21)",
+              "cue": "Dummy head + tail pointer splice",
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-4",
               "tier": "Easy",
-              "problem": "Middle of the Linked List",
-              "cue": "Fast/slow",
-              "target": "10 min"
+              "problem": "Linked List Cycle (LC 141)",
+              "cue": "Floyd's cycle-finding tortoise and hare",
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-5",
               "tier": "Easy",
-              "problem": "Remove Duplicates from Sorted List",
-              "cue": "Skip run",
-              "target": "12 min"
+              "problem": "Delete Node in a Linked List (LC 237)",
+              "cue": "Copy next value and skip next pointer",
+              "target": "8 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-6",
-              "tier": "Medium",
-              "problem": "Remove Nth Node From End of List",
-              "cue": "Dummy + gap of n",
-              "target": "20 min"
+              "tier": "Easy",
+              "problem": "Intersection of Two Linked Lists (LC 160)",
+              "cue": "Dual pointer traversal with length switch",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-7",
-              "tier": "Medium",
-              "problem": "Linked List Cycle II",
-              "cue": "Floyd entry",
-              "target": "20 min"
+              "tier": "Easy",
+              "problem": "Palindrome Linked List (LC 234)",
+              "cue": "Find middle, reverse half, compare",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-8",
               "tier": "Medium",
-              "problem": "Reverse Linked List II",
-              "cue": "Dummy + segment splice",
-              "target": "30 min"
+              "problem": "Remove Nth Node From End of List (LC 19)",
+              "cue": "Fast runner n-step lead gap",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-9",
               "tier": "Medium",
-              "problem": "Reorder List",
-              "cue": "Middle + reverse + merge",
-              "target": "30 min"
+              "problem": "Linked List Cycle II (LC 142)",
+              "cue": "Floyd cycle detection and meeting node",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-10",
               "tier": "Medium",
-              "problem": "Copy List with Random Pointer",
-              "cue": "Map or weave",
-              "target": "30 min"
+              "problem": "Rotate List (LC 61)",
+              "cue": "Connect tail to head, break at k",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-11",
               "tier": "Medium",
-              "problem": "Add Two Numbers",
-              "cue": "Carry propagation",
-              "target": "20 min"
+              "problem": "Add Two Numbers (LC 2)",
+              "cue": "Traverse with carry propagation",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-12",
-              "tier": "Hard",
-              "problem": "Merge k Sorted Lists",
-              "cue": "Heap (see B4)",
-              "target": "35 min"
+              "tier": "Medium",
+              "problem": "Copy List with Random Pointer (LC 138)",
+              "cue": "Interweave nodes or hash map clone",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-b1-ladder-13",
+              "tier": "Medium",
+              "problem": "Flattening a Linked List",
+              "cue": "Merge sorted sublists recursively",
+              "target": "30 min",
+              "striver180": true
+            },
+            {
+              "id": "block-b1-ladder-14",
               "tier": "Hard",
-              "problem": "LRU Cache",
-              "cue": "Map + DLL",
-              "target": "40 min"
+              "problem": "Reverse Nodes in k-Group (LC 25)",
+              "cue": "Segment reversal with count lookahead",
+              "target": "35 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -4320,81 +4524,87 @@
               "rows": [
                 [
                   "Easy",
-                  "Reverse Linked List",
-                  "Three pointers",
+                  "Reverse Linked List (LC 206)",
+                  "Three-pointer pointer reversal",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Merge Two Sorted Lists",
-                  "Dummy + tail",
-                  "12 min"
-                ],
-                [
-                  "Easy",
-                  "Linked List Cycle",
-                  "Floyd",
-                  "12 min"
-                ],
-                [
-                  "Easy",
-                  "Middle of the Linked List",
-                  "Fast/slow",
+                  "Middle of the Linked List (LC 876)",
+                  "Fast and slow runner pointers",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Remove Duplicates from Sorted List",
-                  "Skip run",
+                  "Merge Two Sorted Lists (LC 21)",
+                  "Dummy head + tail pointer splice",
                   "12 min"
                 ],
                 [
-                  "Medium",
-                  "Remove Nth Node From End of List",
-                  "Dummy + gap of n",
+                  "Easy",
+                  "Linked List Cycle (LC 141)",
+                  "Floyd's cycle-finding tortoise and hare",
+                  "12 min"
+                ],
+                [
+                  "Easy",
+                  "Delete Node in a Linked List (LC 237)",
+                  "Copy next value and skip next pointer",
+                  "8 min"
+                ],
+                [
+                  "Easy",
+                  "Intersection of Two Linked Lists (LC 160)",
+                  "Dual pointer traversal with length switch",
+                  "15 min"
+                ],
+                [
+                  "Easy",
+                  "Palindrome Linked List (LC 234)",
+                  "Find middle, reverse half, compare",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Linked List Cycle II",
-                  "Floyd entry",
+                  "Remove Nth Node From End of List (LC 19)",
+                  "Fast runner n-step lead gap",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Reverse Linked List II",
-                  "Dummy + segment splice",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Reorder List",
-                  "Middle + reverse + merge",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Copy List with Random Pointer",
-                  "Map or weave",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Add Two Numbers",
-                  "Carry propagation",
+                  "Linked List Cycle II (LC 142)",
+                  "Floyd cycle detection and meeting node",
                   "20 min"
+                ],
+                [
+                  "Medium",
+                  "Rotate List (LC 61)",
+                  "Connect tail to head, break at k",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Add Two Numbers (LC 2)",
+                  "Traverse with carry propagation",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Copy List with Random Pointer (LC 138)",
+                  "Interweave nodes or hash map clone",
+                  "30 min"
+                ],
+                [
+                  "Medium",
+                  "Flattening a Linked List",
+                  "Merge sorted sublists recursively",
+                  "30 min"
                 ],
                 [
                   "Hard",
-                  "Merge k Sorted Lists",
-                  "Heap (see B4)",
+                  "Reverse Nodes in k-Group (LC 25)",
+                  "Segment reversal with count lookahead",
                   "35 min"
-                ],
-                [
-                  "Hard",
-                  "LRU Cache",
-                  "Map + DLL",
-                  "40 min"
                 ]
               ]
             },
@@ -4428,6 +4638,7 @@
             "block-b1-ladder-11",
             "block-b1-ladder-12",
             "block-b1-ladder-13",
+            "block-b1-ladder-14",
             "block-b1-gate"
           ]
         },
@@ -4552,93 +4763,98 @@
             {
               "id": "block-b2-ladder-1",
               "tier": "Easy",
-              "problem": "Valid Parentheses",
-              "cue": "Match top",
-              "target": "10 min"
+              "problem": "Valid Parentheses (LC 20)",
+              "cue": "Stack top matching brackets",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-2",
               "tier": "Easy",
-              "problem": "Min Stack",
-              "cue": "Pairs",
-              "target": "15 min"
+              "problem": "Implement Min Stack (LC 155)",
+              "cue": "Value and running minimum pairs",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-3",
               "tier": "Easy",
-              "problem": "Next Greater Element I",
-              "cue": "Monotonic, hash the answer",
-              "target": "15 min"
+              "problem": "Next Greater Element I (LC 496)",
+              "cue": "Monotonic decreasing stack with hashmap",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-4",
-              "tier": "Medium",
-              "problem": "Evaluate RPN",
-              "cue": "Two pops",
-              "target": "20 min"
+              "tier": "Easy",
+              "problem": "Next Smaller Element",
+              "cue": "Monotonic stack looking for smaller element",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-5",
               "tier": "Medium",
-              "problem": "Daily Temperatures",
-              "cue": "Indices + monotonic",
-              "target": "20 min"
+              "problem": "Daily Temperatures (LC 739)",
+              "cue": "Monotonic stack storing unresolved indices",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-b2-ladder-6",
               "tier": "Medium",
-              "problem": "Next Greater Element II",
-              "cue": "Circular, iterate 2n",
-              "target": "20 min"
+              "problem": "Next Greater Element II (LC 503)",
+              "cue": "Monotonic stack with 2n circular loop",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-7",
               "tier": "Medium",
-              "problem": "Asteroid Collision",
-              "cue": "Stack with signed comparison",
-              "target": "25 min"
+              "problem": "Online Stock Span (LC 901)",
+              "cue": "Monotonic stack storing (price, span)",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-8",
               "tier": "Medium",
-              "problem": "Decode String",
-              "cue": "Two stacks",
-              "target": "30 min"
+              "problem": "Asteroid Collision (LC 735)",
+              "cue": "Stack collision resolution with signs",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-b2-ladder-9",
               "tier": "Medium",
-              "problem": "Simplify Path",
-              "cue": "Stack of segments",
-              "target": "25 min"
+              "problem": "The Celebrity Problem",
+              "cue": "Stack elimination or two-pointer candidate",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-10",
               "tier": "Medium",
-              "problem": "Remove K Digits",
-              "cue": "Monotonic + greedy",
-              "target": "30 min"
+              "problem": "Sort a Stack",
+              "cue": "Recursion-based insertion sort",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-11",
-              "tier": "Medium",
-              "problem": "Basic Calculator II",
-              "cue": "Stack or running total",
-              "target": "35 min"
+              "tier": "Hard",
+              "problem": "Largest Rectangle in Histogram (LC 84)",
+              "cue": "Monotonic stack with sentinel zero",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-b2-ladder-12",
               "tier": "Hard",
-              "problem": "Largest Rectangle in Histogram",
-              "cue": "Monotonic + sentinel",
-              "target": "35 min"
-            },
-            {
-              "id": "block-b2-ladder-13",
-              "tier": "Hard",
-              "problem": "Trapping Rain Water",
-              "cue": "Stack or two pointers",
-              "target": "35 min"
+              "problem": "LFU Cache (LC 460)",
+              "cue": "Frequency map + DLL per frequency tier",
+              "target": "40 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -4817,81 +5033,75 @@
               "rows": [
                 [
                   "Easy",
-                  "Valid Parentheses",
-                  "Match top",
+                  "Valid Parentheses (LC 20)",
+                  "Stack top matching brackets",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Min Stack",
-                  "Pairs",
+                  "Implement Min Stack (LC 155)",
+                  "Value and running minimum pairs",
                   "15 min"
                 ],
                 [
                   "Easy",
-                  "Next Greater Element I",
-                  "Monotonic, hash the answer",
+                  "Next Greater Element I (LC 496)",
+                  "Monotonic decreasing stack with hashmap",
+                  "15 min"
+                ],
+                [
+                  "Easy",
+                  "Next Smaller Element",
+                  "Monotonic stack looking for smaller element",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Evaluate RPN",
-                  "Two pops",
+                  "Daily Temperatures (LC 739)",
+                  "Monotonic stack storing unresolved indices",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Daily Temperatures",
-                  "Indices + monotonic",
+                  "Next Greater Element II (LC 503)",
+                  "Monotonic stack with 2n circular loop",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Next Greater Element II",
-                  "Circular, iterate 2n",
+                  "Online Stock Span (LC 901)",
+                  "Monotonic stack storing (price, span)",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Asteroid Collision",
-                  "Stack with signed comparison",
+                  "Asteroid Collision (LC 735)",
+                  "Stack collision resolution with signs",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Decode String",
-                  "Two stacks",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Simplify Path",
-                  "Stack of segments",
+                  "The Celebrity Problem",
+                  "Stack elimination or two-pointer candidate",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Remove K Digits",
-                  "Monotonic + greedy",
-                  "30 min"
+                  "Sort a Stack",
+                  "Recursion-based insertion sort",
+                  "20 min"
                 ],
                 [
-                  "Medium",
-                  "Basic Calculator II",
-                  "Stack or running total",
+                  "Hard",
+                  "Largest Rectangle in Histogram (LC 84)",
+                  "Monotonic stack with sentinel zero",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Largest Rectangle in Histogram",
-                  "Monotonic + sentinel",
-                  "35 min"
-                ],
-                [
-                  "Hard",
-                  "Trapping Rain Water",
-                  "Stack or two pointers",
-                  "35 min"
+                  "LFU Cache (LC 460)",
+                  "Frequency map + DLL per frequency tier",
+                  "40 min"
                 ]
               ]
             },
@@ -4924,7 +5134,6 @@
             "block-b2-ladder-10",
             "block-b2-ladder-11",
             "block-b2-ladder-12",
-            "block-b2-ladder-13",
             "block-b2-gate"
           ]
         },
@@ -5031,65 +5240,74 @@
             {
               "id": "block-b3-ladder-1",
               "tier": "Easy",
-              "problem": "Implement Queue using Stacks",
-              "cue": "Two stacks",
-              "target": "15 min"
+              "problem": "Implement Queue using Stacks (LC 232)",
+              "cue": "In-stack and out-stack amortised O(1)",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b3-ladder-2",
               "tier": "Easy",
-              "problem": "Number of Recent Calls",
-              "cue": "Deque of timestamps",
-              "target": "12 min"
+              "problem": "Implement Stack using Queues (LC 225)",
+              "cue": "Single queue rotation or two queues",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b3-ladder-3",
-              "tier": "Medium",
-              "problem": "Design Circular Queue",
-              "cue": "Modular arithmetic",
-              "target": "20 min"
+              "tier": "Easy",
+              "problem": "Number of Recent Calls (LC 933)",
+              "cue": "Deque sliding timestamp window",
+              "target": "12 min",
+              "striver180": false
             },
             {
               "id": "block-b3-ladder-4",
               "tier": "Medium",
-              "problem": "Sliding Window Maximum",
-              "cue": "Monotonic deque",
-              "target": "30 min"
+              "problem": "Design Circular Queue (LC 622)",
+              "cue": "Fixed array with head/tail modulo index",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-b3-ladder-5",
               "tier": "Medium",
-              "problem": "Rotting Oranges",
-              "cue": "Multi-source BFS, levels",
-              "target": "25 min"
+              "problem": "Sliding Window Maximum (LC 239)",
+              "cue": "Monotonic decreasing deque of indices",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-b3-ladder-6",
               "tier": "Medium",
-              "problem": "01 Matrix",
-              "cue": "Multi-source BFS from zeros",
-              "target": "25 min"
+              "problem": "Rotting Oranges (LC 994)",
+              "cue": "Multi-source BFS with time-level queue",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b3-ladder-7",
               "tier": "Medium",
-              "problem": "Open the Lock",
-              "cue": "BFS over states with deadends",
-              "target": "30 min"
+              "problem": "01 Matrix (LC 542)",
+              "cue": "Multi-source BFS expanding from all zeros",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-b3-ladder-8",
               "tier": "Medium",
-              "problem": "Design Hit Counter",
-              "cue": "Deque or bucket array",
-              "target": "25 min"
+              "problem": "Open the Lock (LC 752)",
+              "cue": "BFS level traversal with visited deadends",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-b3-ladder-9",
               "tier": "Hard",
-              "problem": "Sliding Window Median",
-              "cue": "Two heaps or sorted list",
-              "target": "40 min"
+              "problem": "Sliding Window Median (LC 480)",
+              "cue": "Two heaps with lazy deletion or multiset",
+              "target": "40 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -5243,56 +5461,56 @@
               "rows": [
                 [
                   "Easy",
-                  "Implement Queue using Stacks",
-                  "Two stacks",
+                  "Implement Queue using Stacks (LC 232)",
+                  "In-stack and out-stack amortised O(1)",
                   "15 min"
                 ],
                 [
                   "Easy",
-                  "Number of Recent Calls",
-                  "Deque of timestamps",
+                  "Implement Stack using Queues (LC 225)",
+                  "Single queue rotation or two queues",
+                  "15 min"
+                ],
+                [
+                  "Easy",
+                  "Number of Recent Calls (LC 933)",
+                  "Deque sliding timestamp window",
                   "12 min"
                 ],
                 [
                   "Medium",
-                  "Design Circular Queue",
-                  "Modular arithmetic",
+                  "Design Circular Queue (LC 622)",
+                  "Fixed array with head/tail modulo index",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Sliding Window Maximum",
-                  "Monotonic deque",
+                  "Sliding Window Maximum (LC 239)",
+                  "Monotonic decreasing deque of indices",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Rotting Oranges",
-                  "Multi-source BFS, levels",
+                  "Rotting Oranges (LC 994)",
+                  "Multi-source BFS with time-level queue",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "01 Matrix",
-                  "Multi-source BFS from zeros",
+                  "01 Matrix (LC 542)",
+                  "Multi-source BFS expanding from all zeros",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Open the Lock",
-                  "BFS over states with deadends",
+                  "Open the Lock (LC 752)",
+                  "BFS level traversal with visited deadends",
                   "30 min"
-                ],
-                [
-                  "Medium",
-                  "Design Hit Counter",
-                  "Deque or bucket array",
-                  "25 min"
                 ],
                 [
                   "Hard",
-                  "Sliding Window Median",
-                  "Two heaps or sorted list",
+                  "Sliding Window Median (LC 480)",
+                  "Two heaps with lazy deletion or multiset",
                   "40 min"
                 ]
               ]
@@ -5444,86 +5662,82 @@
             {
               "id": "block-b4-ladder-1",
               "tier": "Easy",
-              "problem": "Kth Largest Element in a Stream",
-              "cue": "Size-k min-heap",
-              "target": "15 min"
+              "problem": "Kth Largest Element in a Stream (LC 703)",
+              "cue": "Size-k min-heap tracking threshold",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b4-ladder-2",
               "tier": "Easy",
-              "problem": "Last Stone Weight",
-              "cue": "Max-heap by negation",
-              "target": "12 min"
+              "problem": "Last Stone Weight (LC 1046)",
+              "cue": "Max-heap simulation via negated values",
+              "target": "12 min",
+              "striver180": false
             },
             {
               "id": "block-b4-ladder-3",
               "tier": "Medium",
-              "problem": "Kth Largest Element in an Array",
-              "cue": "Heap or quickselect",
-              "target": "20 min"
+              "problem": "Top K Frequent Elements (LC 347)",
+              "cue": "Counter + min-heap or bucket sort O(n)",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b4-ladder-4",
               "tier": "Medium",
-              "problem": "Top K Frequent Elements",
-              "cue": "Counter + heap or bucket sort",
-              "target": "25 min"
+              "problem": "K Closest Points to Origin (LC 973)",
+              "cue": "Max-heap of size k on Euclidean distance",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-b4-ladder-5",
               "tier": "Medium",
-              "problem": "K Closest Points to Origin",
-              "cue": "Size-k max-heap on distance²",
-              "target": "20 min"
+              "problem": "Maximum Sum Combination",
+              "cue": "Max-heap + visited index set on sorted arrays",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b4-ladder-6",
               "tier": "Medium",
-              "problem": "Task Scheduler",
-              "cue": "Greedy + counting",
-              "target": "30 min"
+              "problem": "Reorganize String (LC 767)",
+              "cue": "Max-heap tracking counts with cooldown slot",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-b4-ladder-7",
               "tier": "Medium",
-              "problem": "Reorganize String",
-              "cue": "Max-heap + cooldown",
-              "target": "30 min"
+              "problem": "Furthest Building You Can Reach (LC 1642)",
+              "cue": "Min-heap of largest ladder allocations",
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-b4-ladder-8",
-              "tier": "Medium",
-              "problem": "Meeting Rooms II",
-              "cue": "Min-heap of end times",
-              "target": "25 min"
+              "tier": "Hard",
+              "problem": "Merge k Sorted Lists (LC 23)",
+              "cue": "Min-heap of current node heads",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-b4-ladder-9",
-              "tier": "Medium",
-              "problem": "Furthest Building You Can Reach",
-              "cue": "Min-heap of ladder usage",
-              "target": "35 min"
+              "tier": "Hard",
+              "problem": "Find Median from Data Stream (LC 295)",
+              "cue": "Two balanced heaps (max-heap + min-heap)",
+              "target": "40 min",
+              "striver180": true
             },
             {
               "id": "block-b4-ladder-10",
               "tier": "Hard",
-              "problem": "Merge k Sorted Lists",
-              "cue": "Heap of heads",
-              "target": "35 min"
-            },
-            {
-              "id": "block-b4-ladder-11",
-              "tier": "Hard",
-              "problem": "Find Median from Data Stream",
-              "cue": "Two heaps",
-              "target": "40 min"
-            },
-            {
-              "id": "block-b4-ladder-12",
-              "tier": "Hard",
-              "problem": "IPO",
-              "cue": "Two heaps, greedy",
-              "target": "40 min"
+              "problem": "IPO (LC 502)",
+              "cue": "Two heaps: min-capital and max-profit",
+              "target": "40 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -5696,74 +5910,62 @@
               "rows": [
                 [
                   "Easy",
-                  "Kth Largest Element in a Stream",
-                  "Size-k min-heap",
+                  "Kth Largest Element in a Stream (LC 703)",
+                  "Size-k min-heap tracking threshold",
                   "15 min"
                 ],
                 [
                   "Easy",
-                  "Last Stone Weight",
-                  "Max-heap by negation",
+                  "Last Stone Weight (LC 1046)",
+                  "Max-heap simulation via negated values",
                   "12 min"
                 ],
                 [
                   "Medium",
-                  "Kth Largest Element in an Array",
-                  "Heap or quickselect",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Top K Frequent Elements",
-                  "Counter + heap or bucket sort",
+                  "Top K Frequent Elements (LC 347)",
+                  "Counter + min-heap or bucket sort O(n)",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "K Closest Points to Origin",
-                  "Size-k max-heap on distance²",
+                  "K Closest Points to Origin (LC 973)",
+                  "Max-heap of size k on Euclidean distance",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Task Scheduler",
-                  "Greedy + counting",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Reorganize String",
-                  "Max-heap + cooldown",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Meeting Rooms II",
-                  "Min-heap of end times",
+                  "Maximum Sum Combination",
+                  "Max-heap + visited index set on sorted arrays",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Furthest Building You Can Reach",
-                  "Min-heap of ladder usage",
+                  "Reorganize String (LC 767)",
+                  "Max-heap tracking counts with cooldown slot",
+                  "30 min"
+                ],
+                [
+                  "Medium",
+                  "Furthest Building You Can Reach (LC 1642)",
+                  "Min-heap of largest ladder allocations",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Merge k Sorted Lists",
-                  "Heap of heads",
+                  "Merge k Sorted Lists (LC 23)",
+                  "Min-heap of current node heads",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Find Median from Data Stream",
-                  "Two heaps",
+                  "Find Median from Data Stream (LC 295)",
+                  "Two balanced heaps (max-heap + min-heap)",
                   "40 min"
                 ],
                 [
                   "Hard",
-                  "IPO",
-                  "Two heaps, greedy",
+                  "IPO (LC 502)",
+                  "Two heaps: min-capital and max-profit",
                   "40 min"
                 ]
               ]
@@ -5795,8 +5997,6 @@
             "block-b4-ladder-8",
             "block-b4-ladder-9",
             "block-b4-ladder-10",
-            "block-b4-ladder-11",
-            "block-b4-ladder-12",
             "block-b4-gate"
           ]
         },
@@ -5924,100 +6124,138 @@
             {
               "id": "block-b5-ladder-1",
               "tier": "Easy",
-              "problem": "Maximum Depth of Binary Tree",
-              "cue": "Simple recursion",
-              "target": "8 min"
+              "problem": "Maximum Depth of Binary Tree (LC 104)",
+              "cue": "DFS postorder depth: 1 + max(L, R)",
+              "target": "8 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-2",
               "tier": "Easy",
-              "problem": "Same Tree",
-              "cue": "Pairwise recursion",
-              "target": "10 min"
+              "problem": "Same Tree (LC 100)",
+              "cue": "Simultaneous structural DFS matching",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-3",
               "tier": "Easy",
-              "problem": "Invert Binary Tree",
-              "cue": "Swap children",
-              "target": "10 min"
+              "problem": "Invert Binary Tree (LC 226)",
+              "cue": "Swap left and right children recursively",
+              "target": "10 min",
+              "striver180": false
             },
             {
               "id": "block-b5-ladder-4",
               "tier": "Easy",
-              "problem": "Symmetric Tree",
-              "cue": "Mirror recursion",
-              "target": "12 min"
+              "problem": "Symmetric Tree (LC 101)",
+              "cue": "Mirror recursion on dual roots",
+              "target": "12 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-5",
               "tier": "Easy",
-              "problem": "Diameter of Binary Tree",
-              "cue": "Global + depth",
-              "target": "20 min"
+              "problem": "Diameter of Binary Tree (LC 543)",
+              "cue": "Postorder global diameter updates",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-6",
               "tier": "Medium",
-              "problem": "Binary Tree Level Order Traversal",
-              "cue": "BFS levels",
-              "target": "15 min"
+              "problem": "Binary Tree Level Order Traversal (LC 102)",
+              "cue": "BFS queue level-by-level processing",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-7",
               "tier": "Medium",
-              "problem": "Binary Tree Zigzag Level Order Traversal",
-              "cue": "Direction flag",
-              "target": "20 min"
+              "problem": "Binary Tree Zigzag Level Order Traversal (LC 103)",
+              "cue": "BFS levels with alternating reverse",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-8",
               "tier": "Medium",
-              "problem": "Binary Tree Right Side View",
-              "cue": "Last of each level",
-              "target": "18 min"
+              "problem": "Binary Tree Right Side View (LC 199)",
+              "cue": "Level order collecting rightmost element",
+              "target": "18 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-9",
               "tier": "Medium",
-              "problem": "Path Sum II",
-              "cue": "Backtracking + path",
-              "target": "25 min"
+              "problem": "Boundary Traversal of Binary Tree",
+              "cue": "Left boundary + leaves + reverse right boundary",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-10",
               "tier": "Medium",
-              "problem": "Lowest Common Ancestor of a Binary Tree",
-              "cue": "Both-subtree test",
-              "target": "25 min"
+              "problem": "Top View of Binary Tree",
+              "cue": "BFS queue tracking horizontal coordinate",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-11",
               "tier": "Medium",
-              "problem": "Construct Binary Tree from Preorder and Inorder",
-              "cue": "Index map + bounds",
-              "target": "30 min"
+              "problem": "Bottom View of Binary Tree",
+              "cue": "BFS horizontal coordinate map overwriting",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-12",
-              "tier": "Hard",
-              "problem": "Binary Tree Maximum Path Sum",
-              "cue": "Global + `max(0, x)`",
-              "target": "35 min"
+              "tier": "Medium",
+              "problem": "Maximum Width of Binary Tree (LC 662)",
+              "cue": "BFS with 0-based node indexing",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-13",
-              "tier": "Hard",
-              "problem": "Serialize and Deserialize Binary Tree",
-              "cue": "Preorder + null markers",
-              "target": "40 min"
+              "tier": "Medium",
+              "problem": "Lowest Common Ancestor of a Binary Tree (LC 236)",
+              "cue": "Subtree result matching both targets",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b5-ladder-14",
+              "tier": "Medium",
+              "problem": "Construct Tree from Preorder and Inorder (LC 105)",
+              "cue": "Root from preorder, split inorder via map",
+              "target": "30 min",
+              "striver180": true
+            },
+            {
+              "id": "block-b5-ladder-15",
+              "tier": "Medium",
+              "problem": "Construct Tree from Inorder and Postorder (LC 106)",
+              "cue": "Root from postorder, split inorder via map",
+              "target": "30 min",
+              "striver180": true
+            },
+            {
+              "id": "block-b5-ladder-16",
               "tier": "Hard",
-              "problem": "Binary Tree Postorder Traversal (iterative)",
-              "cue": "Two stacks",
-              "target": "25 min"
+              "problem": "Binary Tree Maximum Path Sum (LC 124)",
+              "cue": "Global max path with max(0, gain)",
+              "target": "35 min",
+              "striver180": true
+            },
+            {
+              "id": "block-b5-ladder-17",
+              "tier": "Hard",
+              "problem": "Serialize and Deserialize Binary Tree (LC 297)",
+              "cue": "Preorder string with sentinel null tokens",
+              "target": "40 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -6195,87 +6433,105 @@
               "rows": [
                 [
                   "Easy",
-                  "Maximum Depth of Binary Tree",
-                  "Simple recursion",
+                  "Maximum Depth of Binary Tree (LC 104)",
+                  "DFS postorder depth: 1 + max(L, R)",
                   "8 min"
                 ],
                 [
                   "Easy",
-                  "Same Tree",
-                  "Pairwise recursion",
+                  "Same Tree (LC 100)",
+                  "Simultaneous structural DFS matching",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Invert Binary Tree",
-                  "Swap children",
+                  "Invert Binary Tree (LC 226)",
+                  "Swap left and right children recursively",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Symmetric Tree",
-                  "Mirror recursion",
+                  "Symmetric Tree (LC 101)",
+                  "Mirror recursion on dual roots",
                   "12 min"
                 ],
                 [
                   "Easy",
-                  "Diameter of Binary Tree",
-                  "Global + depth",
+                  "Diameter of Binary Tree (LC 543)",
+                  "Postorder global diameter updates",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Binary Tree Level Order Traversal",
-                  "BFS levels",
+                  "Binary Tree Level Order Traversal (LC 102)",
+                  "BFS queue level-by-level processing",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Binary Tree Zigzag Level Order Traversal",
-                  "Direction flag",
+                  "Binary Tree Zigzag Level Order Traversal (LC 103)",
+                  "BFS levels with alternating reverse",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Binary Tree Right Side View",
-                  "Last of each level",
+                  "Binary Tree Right Side View (LC 199)",
+                  "Level order collecting rightmost element",
                   "18 min"
                 ],
                 [
                   "Medium",
-                  "Path Sum II",
-                  "Backtracking + path",
+                  "Boundary Traversal of Binary Tree",
+                  "Left boundary + leaves + reverse right boundary",
+                  "30 min"
+                ],
+                [
+                  "Medium",
+                  "Top View of Binary Tree",
+                  "BFS queue tracking horizontal coordinate",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Lowest Common Ancestor of a Binary Tree",
-                  "Both-subtree test",
+                  "Bottom View of Binary Tree",
+                  "BFS horizontal coordinate map overwriting",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Construct Binary Tree from Preorder and Inorder",
-                  "Index map + bounds",
+                  "Maximum Width of Binary Tree (LC 662)",
+                  "BFS with 0-based node indexing",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Lowest Common Ancestor of a Binary Tree (LC 236)",
+                  "Subtree result matching both targets",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Construct Tree from Preorder and Inorder (LC 105)",
+                  "Root from preorder, split inorder via map",
+                  "30 min"
+                ],
+                [
+                  "Medium",
+                  "Construct Tree from Inorder and Postorder (LC 106)",
+                  "Root from postorder, split inorder via map",
                   "30 min"
                 ],
                 [
                   "Hard",
-                  "Binary Tree Maximum Path Sum",
-                  "Global + `max(0, x)`",
+                  "Binary Tree Maximum Path Sum (LC 124)",
+                  "Global max path with max(0, gain)",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Serialize and Deserialize Binary Tree",
-                  "Preorder + null markers",
+                  "Serialize and Deserialize Binary Tree (LC 297)",
+                  "Preorder string with sentinel null tokens",
                   "40 min"
-                ],
-                [
-                  "Hard",
-                  "Binary Tree Postorder Traversal (iterative)",
-                  "Two stacks",
-                  "25 min"
                 ]
               ]
             },
@@ -6311,6 +6567,9 @@
             "block-b5-ladder-12",
             "block-b5-ladder-13",
             "block-b5-ladder-14",
+            "block-b5-ladder-15",
+            "block-b5-ladder-16",
+            "block-b5-ladder-17",
             "block-b5-gate"
           ]
         },
@@ -6434,79 +6693,98 @@
             {
               "id": "block-b6-ladder-1",
               "tier": "Easy",
-              "problem": "Search in a Binary Search Tree",
-              "cue": "Descend",
-              "target": "8 min"
+              "problem": "Search in a Binary Search Tree (LC 700)",
+              "cue": "Directional BST descent",
+              "target": "8 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-2",
               "tier": "Easy",
-              "problem": "Lowest Common Ancestor of a BST",
-              "cue": "Range test",
-              "target": "15 min"
+              "problem": "Lowest Common Ancestor of a BST (LC 235)",
+              "cue": "Branching split point check",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-3",
               "tier": "Easy",
-              "problem": "Convert Sorted Array to BST",
-              "cue": "Mid recursion",
-              "target": "20 min"
+              "problem": "Convert Sorted Array to BST (LC 108)",
+              "cue": "Pick midpoint as root, divide and conquer",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-4",
               "tier": "Easy",
-              "problem": "Range Sum of BST",
-              "cue": "Prune",
-              "target": "15 min"
+              "problem": "Range Sum of BST (LC 938)",
+              "cue": "Directional range pruning",
+              "target": "15 min",
+              "striver180": false
             },
             {
               "id": "block-b6-ladder-5",
               "tier": "Medium",
-              "problem": "Validate Binary Search Tree",
-              "cue": "Bounds",
-              "target": "20 min"
+              "problem": "Validate Binary Search Tree (LC 98)",
+              "cue": "Pass valid (low, high) range bounds",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-6",
               "tier": "Medium",
-              "problem": "Kth Smallest Element in a BST",
-              "cue": "Inorder counter",
-              "target": "22 min"
+              "problem": "Kth Smallest Element in a BST (LC 230)",
+              "cue": "Inorder traversal counter or stack",
+              "target": "22 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-7",
               "tier": "Medium",
-              "problem": "Insert into a BST",
-              "cue": "Descend to null",
-              "target": "15 min"
+              "problem": "Two Sum IV - Input is a BST (LC 653)",
+              "cue": "Dual BST iterators or hash set lookup",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-8",
               "tier": "Medium",
-              "problem": "Delete Node in a BST",
-              "cue": "Three cases",
-              "target": "30 min"
+              "problem": "Populating Next Right Pointers (LC 116)",
+              "cue": "Level traversal or parent next links",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-9",
               "tier": "Medium",
-              "problem": "Binary Search Tree Iterator",
-              "cue": "Explicit stack",
-              "target": "25 min"
+              "problem": "Ceil and Floor in a BST",
+              "cue": "Directional tracking of closest bounds",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-10",
               "tier": "Medium",
-              "problem": "Trim a Binary Search Tree",
-              "cue": "Prune subtrees",
-              "target": "20 min"
+              "problem": "Binary Search Tree Iterator (LC 173)",
+              "cue": "Explicit stack mimicking inorder descent",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b6-ladder-11",
               "tier": "Hard",
-              "problem": "Recover a Binary Search Tree",
-              "cue": "Find two swapped nodes",
-              "target": "35 min"
+              "problem": "Recover a Binary Search Tree (LC 99)",
+              "cue": "Inorder traversal finding two swapped nodes",
+              "target": "35 min",
+              "striver180": false
+            },
+            {
+              "id": "block-b6-ladder-12",
+              "tier": "Hard",
+              "problem": "Size of the Largest BST in Binary Tree (LC 333)",
+              "cue": "Bottom-up return of (isBST, size, min, max)",
+              "target": "35 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -6679,68 +6957,74 @@
               "rows": [
                 [
                   "Easy",
-                  "Search in a Binary Search Tree",
-                  "Descend",
+                  "Search in a Binary Search Tree (LC 700)",
+                  "Directional BST descent",
                   "8 min"
                 ],
                 [
                   "Easy",
-                  "Lowest Common Ancestor of a BST",
-                  "Range test",
+                  "Lowest Common Ancestor of a BST (LC 235)",
+                  "Branching split point check",
                   "15 min"
                 ],
                 [
                   "Easy",
-                  "Convert Sorted Array to BST",
-                  "Mid recursion",
+                  "Convert Sorted Array to BST (LC 108)",
+                  "Pick midpoint as root, divide and conquer",
                   "20 min"
                 ],
                 [
                   "Easy",
-                  "Range Sum of BST",
-                  "Prune",
+                  "Range Sum of BST (LC 938)",
+                  "Directional range pruning",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Validate Binary Search Tree",
-                  "Bounds",
+                  "Validate Binary Search Tree (LC 98)",
+                  "Pass valid (low, high) range bounds",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Kth Smallest Element in a BST",
-                  "Inorder counter",
+                  "Kth Smallest Element in a BST (LC 230)",
+                  "Inorder traversal counter or stack",
                   "22 min"
                 ],
                 [
                   "Medium",
-                  "Insert into a BST",
-                  "Descend to null",
-                  "15 min"
-                ],
-                [
-                  "Medium",
-                  "Delete Node in a BST",
-                  "Three cases",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Binary Search Tree Iterator",
-                  "Explicit stack",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Trim a Binary Search Tree",
-                  "Prune subtrees",
+                  "Two Sum IV - Input is a BST (LC 653)",
+                  "Dual BST iterators or hash set lookup",
                   "20 min"
                 ],
                 [
+                  "Medium",
+                  "Populating Next Right Pointers (LC 116)",
+                  "Level traversal or parent next links",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Ceil and Floor in a BST",
+                  "Directional tracking of closest bounds",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Binary Search Tree Iterator (LC 173)",
+                  "Explicit stack mimicking inorder descent",
+                  "25 min"
+                ],
+                [
                   "Hard",
-                  "Recover a Binary Search Tree",
-                  "Find two swapped nodes",
+                  "Recover a Binary Search Tree (LC 99)",
+                  "Inorder traversal finding two swapped nodes",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "Size of the Largest BST in Binary Tree (LC 333)",
+                  "Bottom-up return of (isBST, size, min, max)",
                   "35 min"
                 ]
               ]
@@ -6773,6 +7057,7 @@
             "block-b6-ladder-9",
             "block-b6-ladder-10",
             "block-b6-ladder-11",
+            "block-b6-ladder-12",
             "block-b6-gate"
           ]
         },
@@ -6894,84 +7179,96 @@
               "tier": "Medium",
               "problem": "Subsets",
               "cue": "Include/exclude",
-              "target": "15 min"
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-2",
               "tier": "Medium",
               "problem": "Subsets II",
               "cue": "Sort + skip",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-3",
               "tier": "Medium",
               "problem": "Permutations",
               "cue": "`used[]`",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-4",
               "tier": "Medium",
               "problem": "Permutations II",
               "cue": "Dedupe on `used`",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-5",
               "tier": "Medium",
               "problem": "Combination Sum",
               "cue": "Reuse + prune",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-6",
               "tier": "Medium",
               "problem": "Combination Sum II",
               "cue": "No reuse + dedupe",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-7",
               "tier": "Medium",
               "problem": "Combinations",
               "cue": "Fixed size k",
-              "target": "18 min"
+              "target": "18 min",
+              "striver180": false
             },
             {
               "id": "block-b7-ladder-8",
               "tier": "Medium",
               "problem": "Letter Combinations of a Phone Number",
               "cue": "Map + DFS",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-b7-ladder-9",
               "tier": "Medium",
               "problem": "Generate Parentheses",
               "cue": "Two counters",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-b7-ladder-10",
               "tier": "Medium",
               "problem": "Word Search",
               "cue": "Grid + restore",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-b7-ladder-11",
               "tier": "Hard",
               "problem": "N-Queens",
               "cue": "Three sets",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": true
             },
             {
               "id": "block-b7-ladder-12",
               "tier": "Hard",
               "problem": "Palindrome Partitioning",
               "cue": "Substring check at each cut",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -7339,6 +7636,7 @@
         "block-b1-ladder-11",
         "block-b1-ladder-12",
         "block-b1-ladder-13",
+        "block-b1-ladder-14",
         "block-b1-gate",
         "block-b2-chk-1",
         "block-b2-chk-2",
@@ -7361,7 +7659,6 @@
         "block-b2-ladder-10",
         "block-b2-ladder-11",
         "block-b2-ladder-12",
-        "block-b2-ladder-13",
         "block-b2-gate",
         "block-b3-chk-1",
         "block-b3-chk-2",
@@ -7399,8 +7696,6 @@
         "block-b4-ladder-8",
         "block-b4-ladder-9",
         "block-b4-ladder-10",
-        "block-b4-ladder-11",
-        "block-b4-ladder-12",
         "block-b4-gate",
         "block-b5-chk-1",
         "block-b5-chk-2",
@@ -7426,6 +7721,9 @@
         "block-b5-ladder-12",
         "block-b5-ladder-13",
         "block-b5-ladder-14",
+        "block-b5-ladder-15",
+        "block-b5-ladder-16",
+        "block-b5-ladder-17",
         "block-b5-gate",
         "block-b6-chk-1",
         "block-b6-chk-2",
@@ -7447,6 +7745,7 @@
         "block-b6-ladder-9",
         "block-b6-ladder-10",
         "block-b6-ladder-11",
+        "block-b6-ladder-12",
         "block-b6-gate",
         "block-b7-chk-1",
         "block-b7-chk-2",
@@ -7608,72 +7907,82 @@
             {
               "id": "block-c1-ladder-1",
               "tier": "Medium",
-              "problem": "Implement Trie (Prefix Tree)",
-              "cue": "Dict nodes",
-              "target": "25 min"
+              "problem": "Implement Trie (Prefix Tree) (LC 208)",
+              "cue": "TrieNode with children dict and isEnd flag",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-c1-ladder-2",
               "tier": "Medium",
-              "problem": "Design Add and Search Words",
-              "cue": "Wildcard DFS",
-              "target": "30 min"
+              "problem": "Design Add and Search Words (LC 211)",
+              "cue": "Wildcard '.' branches over all children",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-c1-ladder-3",
               "tier": "Medium",
-              "problem": "Replace Words",
-              "cue": "Prefix walk",
-              "target": "25 min"
+              "problem": "Replace Words (LC 648)",
+              "cue": "Walk trie until shortest root prefix found",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-c1-ladder-4",
               "tier": "Medium",
-              "problem": "Restore IP Addresses",
-              "cue": "Four-segment backtracking",
-              "target": "30 min"
+              "problem": "Rat in a Maze Problem",
+              "cue": "Backtracking 4-direction path discovery",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c1-ladder-5",
               "tier": "Medium",
-              "problem": "Palindrome Partitioning (repeat)",
-              "cue": "Cuts + check",
-              "target": "20 min"
+              "problem": "M-Coloring Problem",
+              "cue": "Backtracking vertex coloring check",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c1-ladder-6",
               "tier": "Medium",
-              "problem": "Matchsticks to Square",
-              "cue": "Sort desc + 4 buckets",
-              "target": "35 min"
+              "problem": "Word Break II (LC 140)",
+              "cue": "Trie / memoized DFS sentence construction",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-c1-ladder-7",
               "tier": "Hard",
-              "problem": "Word Search II",
-              "cue": "Trie + grid DFS",
-              "target": "45 min"
+              "problem": "Sudoku Solver (LC 37)",
+              "cue": "Row, col, and 3x3 box constraint sets",
+              "target": "45 min",
+              "striver180": true
             },
             {
               "id": "block-c1-ladder-8",
               "tier": "Hard",
-              "problem": "Sudoku Solver",
-              "cue": "Constraint sets",
-              "target": "45 min"
+              "problem": "Word Search II (LC 212)",
+              "cue": "Prefix trie + grid DFS with tree pruning",
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-c1-ladder-9",
               "tier": "Hard",
-              "problem": "Partition to K Equal Sum Subsets",
-              "cue": "Bucket backtracking",
-              "target": "40 min"
+              "problem": "Partition to K Equal Sum Subsets (LC 698)",
+              "cue": "Sort descending + bucket filling DFS",
+              "target": "40 min",
+              "striver180": true
             },
             {
               "id": "block-c1-ladder-10",
               "tier": "Hard",
-              "problem": "Maximum XOR of Two Numbers in an Array",
-              "cue": "Bitwise trie",
-              "target": "35 min"
+              "problem": "Maximum XOR of Two Numbers in an Array (LC 421)",
+              "cue": "Bitwise binary trie maximum search",
+              "target": "35 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -7841,62 +8150,62 @@
               "rows": [
                 [
                   "Medium",
-                  "Implement Trie (Prefix Tree)",
-                  "Dict nodes",
+                  "Implement Trie (Prefix Tree) (LC 208)",
+                  "TrieNode with children dict and isEnd flag",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Design Add and Search Words",
-                  "Wildcard DFS",
+                  "Design Add and Search Words (LC 211)",
+                  "Wildcard '.' branches over all children",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Replace Words",
-                  "Prefix walk",
+                  "Replace Words (LC 648)",
+                  "Walk trie until shortest root prefix found",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Restore IP Addresses",
-                  "Four-segment backtracking",
-                  "30 min"
+                  "Rat in a Maze Problem",
+                  "Backtracking 4-direction path discovery",
+                  "25 min"
                 ],
                 [
                   "Medium",
-                  "Palindrome Partitioning (repeat)",
-                  "Cuts + check",
-                  "20 min"
+                  "M-Coloring Problem",
+                  "Backtracking vertex coloring check",
+                  "25 min"
                 ],
                 [
                   "Medium",
-                  "Matchsticks to Square",
-                  "Sort desc + 4 buckets",
+                  "Word Break II (LC 140)",
+                  "Trie / memoized DFS sentence construction",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Word Search II",
-                  "Trie + grid DFS",
+                  "Sudoku Solver (LC 37)",
+                  "Row, col, and 3x3 box constraint sets",
                   "45 min"
                 ],
                 [
                   "Hard",
-                  "Sudoku Solver",
-                  "Constraint sets",
+                  "Word Search II (LC 212)",
+                  "Prefix trie + grid DFS with tree pruning",
                   "45 min"
                 ],
                 [
                   "Hard",
-                  "Partition to K Equal Sum Subsets",
-                  "Bucket backtracking",
+                  "Partition to K Equal Sum Subsets (LC 698)",
+                  "Sort descending + bucket filling DFS",
                   "40 min"
                 ],
                 [
                   "Hard",
-                  "Maximum XOR of Two Numbers in an Array",
-                  "Bitwise trie",
+                  "Maximum XOR of Two Numbers in an Array (LC 421)",
+                  "Bitwise binary trie maximum search",
                   "35 min"
                 ]
               ]
@@ -8077,100 +8386,98 @@
             {
               "id": "block-c2-ladder-1",
               "tier": "Medium",
-              "problem": "Number of Islands",
-              "cue": "Grid DFS/BFS",
-              "target": "20 min"
+              "problem": "Number of Islands (LC 200)",
+              "cue": "Grid DFS/BFS sink visited land cells",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-2",
               "tier": "Medium",
-              "problem": "Max Area of Island",
-              "cue": "Component size",
-              "target": "20 min"
+              "problem": "Max Area of Island (LC 695)",
+              "cue": "Recursive component area counting",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-c2-ladder-3",
               "tier": "Medium",
-              "problem": "Flood Fill",
-              "cue": "Simple DFS",
-              "target": "15 min"
+              "problem": "Flood Fill (LC 733)",
+              "cue": "Connected cell color mutation DFS",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-4",
               "tier": "Medium",
-              "problem": "Clone Graph",
-              "cue": "old→new map",
-              "target": "25 min"
+              "problem": "Clone Graph (LC 133)",
+              "cue": "Visited hashmap mapping old node to new",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-5",
               "tier": "Medium",
-              "problem": "Surrounded Regions",
-              "cue": "Boundary-first marking",
-              "target": "30 min"
+              "problem": "Is Graph Bipartite? (LC 785)",
+              "cue": "2-color BFS/DFS odd-cycle conflict test",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-6",
               "tier": "Medium",
-              "problem": "Pacific Atlantic Water Flow",
-              "cue": "Two reverse DFS from coasts",
-              "target": "35 min"
+              "problem": "Course Schedule (LC 207)",
+              "cue": "Directed cycle detection (3-state coloring)",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-7",
               "tier": "Medium",
-              "problem": "Rotting Oranges (repeat)",
-              "cue": "Multi-source BFS",
-              "target": "20 min"
+              "problem": "Course Schedule II (LC 210)",
+              "cue": "Kahn's algorithm with indegree queue",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-8",
               "tier": "Medium",
-              "problem": "Number of Provinces",
-              "cue": "Components on adjacency matrix",
-              "target": "20 min"
+              "problem": "Surrounded Regions (LC 130)",
+              "cue": "Reverse DFS boundary-connected marking",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-c2-ladder-9",
               "tier": "Medium",
-              "problem": "Is Graph Bipartite",
-              "cue": "2-colour BFS",
-              "target": "25 min"
+              "problem": "Pacific Atlantic Water Flow (LC 417)",
+              "cue": "Dual ocean inward reachable DFS",
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-c2-ladder-10",
               "tier": "Medium",
-              "problem": "Course Schedule",
-              "cue": "Cycle detection",
-              "target": "25 min"
+              "problem": "Word Ladder (LC 127)",
+              "cue": "BFS on intermediate wildcard word states",
+              "target": "40 min",
+              "striver180": false
             },
             {
               "id": "block-c2-ladder-11",
-              "tier": "Medium",
-              "problem": "Course Schedule II",
-              "cue": "Kahn's",
-              "target": "30 min"
+              "tier": "Hard",
+              "problem": "Strongly Connected Components (Kosaraju)",
+              "cue": "DFS postorder stack + reverse transpose DFS",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-c2-ladder-12",
-              "tier": "Medium",
-              "problem": "Word Ladder",
-              "cue": "BFS over generated words",
-              "target": "40 min"
-            },
-            {
-              "id": "block-c2-ladder-13",
               "tier": "Hard",
-              "problem": "Alien Dictionary",
-              "cue": "Topological sort on characters",
-              "target": "45 min"
-            },
-            {
-              "id": "block-c2-ladder-14",
-              "tier": "Hard",
-              "problem": "Word Ladder II (optional)",
-              "cue": "BFS + path reconstruction",
-              "target": "50 min"
+              "problem": "Alien Dictionary (LC 269)",
+              "cue": "Lexicographical order topological sort",
+              "target": "45 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -8372,87 +8679,75 @@
               "rows": [
                 [
                   "Medium",
-                  "Number of Islands",
-                  "Grid DFS/BFS",
+                  "Number of Islands (LC 200)",
+                  "Grid DFS/BFS sink visited land cells",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Max Area of Island",
-                  "Component size",
+                  "Max Area of Island (LC 695)",
+                  "Recursive component area counting",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Flood Fill",
-                  "Simple DFS",
+                  "Flood Fill (LC 733)",
+                  "Connected cell color mutation DFS",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Clone Graph",
-                  "old→new map",
+                  "Clone Graph (LC 133)",
+                  "Visited hashmap mapping old node to new",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Surrounded Regions",
-                  "Boundary-first marking",
+                  "Is Graph Bipartite? (LC 785)",
+                  "2-color BFS/DFS odd-cycle conflict test",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Course Schedule (LC 207)",
+                  "Directed cycle detection (3-state coloring)",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Course Schedule II (LC 210)",
+                  "Kahn's algorithm with indegree queue",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Pacific Atlantic Water Flow",
-                  "Two reverse DFS from coasts",
+                  "Surrounded Regions (LC 130)",
+                  "Reverse DFS boundary-connected marking",
+                  "30 min"
+                ],
+                [
+                  "Medium",
+                  "Pacific Atlantic Water Flow (LC 417)",
+                  "Dual ocean inward reachable DFS",
                   "35 min"
                 ],
                 [
                   "Medium",
-                  "Rotting Oranges (repeat)",
-                  "Multi-source BFS",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Number of Provinces",
-                  "Components on adjacency matrix",
-                  "20 min"
-                ],
-                [
-                  "Medium",
-                  "Is Graph Bipartite",
-                  "2-colour BFS",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Course Schedule",
-                  "Cycle detection",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Course Schedule II",
-                  "Kahn's",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Word Ladder",
-                  "BFS over generated words",
+                  "Word Ladder (LC 127)",
+                  "BFS on intermediate wildcard word states",
                   "40 min"
                 ],
                 [
                   "Hard",
-                  "Alien Dictionary",
-                  "Topological sort on characters",
-                  "45 min"
+                  "Strongly Connected Components (Kosaraju)",
+                  "DFS postorder stack + reverse transpose DFS",
+                  "35 min"
                 ],
                 [
                   "Hard",
-                  "Word Ladder II (optional)",
-                  "BFS + path reconstruction",
-                  "50 min"
+                  "Alien Dictionary (LC 269)",
+                  "Lexicographical order topological sort",
+                  "45 min"
                 ]
               ]
             },
@@ -8488,8 +8783,6 @@
             "block-c2-ladder-10",
             "block-c2-ladder-11",
             "block-c2-ladder-12",
-            "block-c2-ladder-13",
-            "block-c2-ladder-14",
             "block-c2-gate"
           ]
         },
@@ -8612,72 +8905,82 @@
             {
               "id": "block-c3-ladder-1",
               "tier": "Medium",
-              "problem": "Number of Provinces (repeat)",
-              "cue": "DSU",
-              "target": "15 min"
+              "problem": "Number of Provinces (LC 547)",
+              "cue": "DSU component counting on adjacency",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-2",
               "tier": "Medium",
-              "problem": "Redundant Connection",
-              "cue": "First cycle edge",
-              "target": "25 min"
+              "problem": "Redundant Connection (LC 684)",
+              "cue": "DSU cycle detection on first closed edge",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-3",
               "tier": "Medium",
-              "problem": "Accounts Merge",
-              "cue": "Union by email",
-              "target": "35 min"
+              "problem": "Accounts Merge (LC 721)",
+              "cue": "Union by shared email address",
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-4",
               "tier": "Medium",
-              "problem": "Number of Connected Components in an Undirected Graph",
-              "cue": "DSU count",
-              "target": "20 min"
+              "problem": "Number of Connected Components (LC 323)",
+              "cue": "DSU decrement on successful union",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-5",
               "tier": "Medium",
-              "problem": "Evaluate Division",
-              "cue": "Weighted DSU or BFS",
-              "target": "40 min"
+              "problem": "Evaluate Division (LC 399)",
+              "cue": "Weighted DSU ratios or graph BFS",
+              "target": "40 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-6",
               "tier": "Medium",
-              "problem": "Most Stones Removed with Same Row or Column",
-              "cue": "Union rows/cols",
-              "target": "30 min"
+              "problem": "MST using Prim's Algorithm",
+              "cue": "Priority queue growing tree from seed",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-c3-ladder-7",
               "tier": "Medium",
-              "problem": "Satisfiability of Equality Equations",
-              "cue": "Union equals, verify not-equals",
-              "target": "30 min"
+              "problem": "Min Cost to Connect All Points (LC 1584)",
+              "cue": "Kruskal's algorithm with sorted edges + DSU",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-c3-ladder-8",
               "tier": "Medium",
-              "problem": "Min Cost to Connect All Points",
-              "cue": "Prim or Kruskal",
-              "target": "35 min"
+              "problem": "Satisfiability of Equality Equations (LC 990)",
+              "cue": "Union equality pairs, verify inequality",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-9",
               "tier": "Hard",
-              "problem": "Redundant Connection II",
-              "cue": "Directed case analysis",
-              "target": "45 min"
+              "problem": "Redundant Connection II (LC 685)",
+              "cue": "Directed two-parents and cycle case logic",
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-c3-ladder-10",
               "tier": "Hard",
-              "problem": "Optimize Water Distribution in a Village",
-              "cue": "Virtual node + MST",
-              "target": "40 min"
+              "problem": "Optimize Water Distribution in a Village (LC 1168)",
+              "cue": "Virtual well source node + Kruskal MST",
+              "target": "40 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -8850,62 +9153,62 @@
               "rows": [
                 [
                   "Medium",
-                  "Number of Provinces (repeat)",
-                  "DSU",
-                  "15 min"
-                ],
-                [
-                  "Medium",
-                  "Redundant Connection",
-                  "First cycle edge",
-                  "25 min"
-                ],
-                [
-                  "Medium",
-                  "Accounts Merge",
-                  "Union by email",
-                  "35 min"
-                ],
-                [
-                  "Medium",
-                  "Number of Connected Components in an Undirected Graph",
-                  "DSU count",
+                  "Number of Provinces (LC 547)",
+                  "DSU component counting on adjacency",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Evaluate Division",
-                  "Weighted DSU or BFS",
+                  "Redundant Connection (LC 684)",
+                  "DSU cycle detection on first closed edge",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Accounts Merge (LC 721)",
+                  "Union by shared email address",
+                  "35 min"
+                ],
+                [
+                  "Medium",
+                  "Number of Connected Components (LC 323)",
+                  "DSU decrement on successful union",
+                  "20 min"
+                ],
+                [
+                  "Medium",
+                  "Evaluate Division (LC 399)",
+                  "Weighted DSU ratios or graph BFS",
                   "40 min"
                 ],
                 [
                   "Medium",
-                  "Most Stones Removed with Same Row or Column",
-                  "Union rows/cols",
+                  "MST using Prim's Algorithm",
+                  "Priority queue growing tree from seed",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Satisfiability of Equality Equations",
-                  "Union equals, verify not-equals",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Min Cost to Connect All Points",
-                  "Prim or Kruskal",
+                  "Min Cost to Connect All Points (LC 1584)",
+                  "Kruskal's algorithm with sorted edges + DSU",
                   "35 min"
                 ],
                 [
+                  "Medium",
+                  "Satisfiability of Equality Equations (LC 990)",
+                  "Union equality pairs, verify inequality",
+                  "30 min"
+                ],
+                [
                   "Hard",
-                  "Redundant Connection II",
-                  "Directed case analysis",
+                  "Redundant Connection II (LC 685)",
+                  "Directed two-parents and cycle case logic",
                   "45 min"
                 ],
                 [
                   "Hard",
-                  "Optimize Water Distribution in a Village",
-                  "Virtual node + MST",
+                  "Optimize Water Distribution in a Village (LC 1168)",
+                  "Virtual well source node + Kruskal MST",
                   "40 min"
                 ]
               ]
@@ -9072,72 +9375,66 @@
             {
               "id": "block-c4-ladder-1",
               "tier": "Medium",
-              "problem": "Network Delay Time",
-              "cue": "Dijkstra",
-              "target": "30 min"
+              "problem": "Network Delay Time / Dijkstra (LC 743)",
+              "cue": "Min-heap relaxation with dist array",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-c4-ladder-2",
               "tier": "Medium",
-              "problem": "Path with Maximum Probability",
-              "cue": "Max-heap Dijkstra",
-              "target": "30 min"
+              "problem": "Path with Maximum Probability (LC 1514)",
+              "cue": "Max-heap Dijkstra with probabilities",
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-c4-ladder-3",
               "tier": "Medium",
-              "problem": "Cheapest Flights Within K Stops",
-              "cue": "Bellman-Ford with K",
-              "target": "35 min"
+              "problem": "Cheapest Flights Within K Stops / Bellman-Ford (LC 787)",
+              "cue": "K+1 rounds edge relaxation",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-c4-ladder-4",
               "tier": "Medium",
-              "problem": "Path with Minimum Effort",
-              "cue": "Dijkstra on max-edge",
-              "target": "35 min"
+              "problem": "Path with Minimum Effort (LC 1631)",
+              "cue": "Min-heap Dijkstra on max-edge weight",
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-c4-ladder-5",
               "tier": "Medium",
-              "problem": "Swim in Rising Water",
-              "cue": "Binary search + BFS, or Dijkstra",
-              "target": "35 min"
+              "problem": "Swim in Rising Water (LC 778)",
+              "cue": "Priority queue Dijkstra or binary search",
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-c4-ladder-6",
-              "tier": "Medium",
-              "problem": "Word Ladder (repeat)",
-              "cue": "BFS",
-              "target": "30 min"
+              "tier": "Hard",
+              "problem": "Find the City / Floyd-Warshall (LC 1334)",
+              "cue": "Triple loop all-pairs shortest paths",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-c4-ladder-7",
-              "tier": "Medium",
-              "problem": "01 Matrix (repeat)",
-              "cue": "Multi-source BFS",
-              "target": "20 min"
+              "tier": "Hard",
+              "problem": "Minimum Cost to Reach Destination in Time (LC 1928)",
+              "cue": "Dijkstra tracking (time, cost) states",
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-c4-ladder-8",
               "tier": "Hard",
-              "problem": "Find the City with the Smallest Number of Neighbors",
-              "cue": "Floyd-Warshall",
-              "target": "35 min"
-            },
-            {
-              "id": "block-c4-ladder-9",
-              "tier": "Hard",
-              "problem": "Minimum Cost to Reach Destination in Time",
-              "cue": "Dijkstra with state",
-              "target": "45 min"
-            },
-            {
-              "id": "block-c4-ladder-10",
-              "tier": "Hard",
-              "problem": "Shortest Path in a Grid with Obstacles Elimination",
-              "cue": "BFS with (r, c, k) state",
-              "target": "45 min"
+              "problem": "Shortest Path with Obstacles Elimination (LC 1293)",
+              "cue": "3D state BFS over (r, c, k_remaining)",
+              "target": "45 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -9322,62 +9619,50 @@
               "rows": [
                 [
                   "Medium",
-                  "Network Delay Time",
-                  "Dijkstra",
+                  "Network Delay Time / Dijkstra (LC 743)",
+                  "Min-heap relaxation with dist array",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Path with Maximum Probability",
-                  "Max-heap Dijkstra",
+                  "Path with Maximum Probability (LC 1514)",
+                  "Max-heap Dijkstra with probabilities",
                   "30 min"
                 ],
                 [
                   "Medium",
-                  "Cheapest Flights Within K Stops",
-                  "Bellman-Ford with K",
+                  "Cheapest Flights Within K Stops / Bellman-Ford (LC 787)",
+                  "K+1 rounds edge relaxation",
                   "35 min"
                 ],
                 [
                   "Medium",
-                  "Path with Minimum Effort",
-                  "Dijkstra on max-edge",
+                  "Path with Minimum Effort (LC 1631)",
+                  "Min-heap Dijkstra on max-edge weight",
                   "35 min"
                 ],
                 [
                   "Medium",
-                  "Swim in Rising Water",
-                  "Binary search + BFS, or Dijkstra",
-                  "35 min"
-                ],
-                [
-                  "Medium",
-                  "Word Ladder (repeat)",
-                  "BFS",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "01 Matrix (repeat)",
-                  "Multi-source BFS",
-                  "20 min"
-                ],
-                [
-                  "Hard",
-                  "Find the City with the Smallest Number of Neighbors",
-                  "Floyd-Warshall",
+                  "Swim in Rising Water (LC 778)",
+                  "Priority queue Dijkstra or binary search",
                   "35 min"
                 ],
                 [
                   "Hard",
-                  "Minimum Cost to Reach Destination in Time",
-                  "Dijkstra with state",
+                  "Find the City / Floyd-Warshall (LC 1334)",
+                  "Triple loop all-pairs shortest paths",
+                  "35 min"
+                ],
+                [
+                  "Hard",
+                  "Minimum Cost to Reach Destination in Time (LC 1928)",
+                  "Dijkstra tracking (time, cost) states",
                   "45 min"
                 ],
                 [
                   "Hard",
-                  "Shortest Path in a Grid with Obstacles Elimination",
-                  "BFS with (r, c, k) state",
+                  "Shortest Path with Obstacles Elimination (LC 1293)",
+                  "3D state BFS over (r, c, k_remaining)",
                   "45 min"
                 ]
               ]
@@ -9408,8 +9693,6 @@
             "block-c4-ladder-6",
             "block-c4-ladder-7",
             "block-c4-ladder-8",
-            "block-c4-ladder-9",
-            "block-c4-ladder-10",
             "block-c4-gate"
           ]
         },
@@ -9578,100 +9861,122 @@
             {
               "id": "block-c5-ladder-1",
               "tier": "Easy",
-              "problem": "Single Number",
-              "cue": "XOR",
-              "target": "10 min"
+              "problem": "Single Number (LC 136)",
+              "cue": "XOR cancellation: a ^ a = 0",
+              "target": "10 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-2",
               "tier": "Easy",
-              "problem": "Number of 1 Bits",
-              "cue": "`x & (x-1)`",
-              "target": "8 min"
+              "problem": "Number of 1 Bits (LC 191)",
+              "cue": "Brian Kernighan bit trick: x & (x - 1)",
+              "target": "8 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-3",
               "tier": "Easy",
-              "problem": "Counting Bits",
-              "cue": "DP over bits",
-              "target": "15 min"
+              "problem": "Counting Bits (LC 338)",
+              "cue": "Bit manipulation DP: dp[i] = dp[i >> 1] + (i & 1)",
+              "target": "15 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-4",
               "tier": "Easy",
-              "problem": "Missing Number",
-              "cue": "XOR or sum",
-              "target": "10 min"
+              "problem": "Assign Cookies (LC 455)",
+              "cue": "Two pointers greedy match smallest child",
+              "target": "10 min",
+              "striver180": true
             },
             {
               "id": "block-c5-ladder-5",
               "tier": "Medium",
-              "problem": "Jump Game",
-              "cue": "Reachability",
-              "target": "15 min"
+              "problem": "N Meetings in One Room",
+              "cue": "Sort by finish time, greedy selection",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-c5-ladder-6",
               "tier": "Medium",
-              "problem": "Jump Game II",
-              "cue": "Interval BFS",
-              "target": "25 min"
+              "problem": "Minimum Platforms Required",
+              "cue": "Sort arrivals and departures, sweep line",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c5-ladder-7",
               "tier": "Medium",
-              "problem": "Gas Station",
-              "cue": "Cumulative deficit",
-              "target": "25 min"
+              "problem": "Job Sequencing Problem",
+              "cue": "Sort by profit desc, place at latest slot",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-c5-ladder-8",
               "tier": "Medium",
-              "problem": "Partition Labels",
-              "cue": "Last occurrence",
-              "target": "20 min"
+              "problem": "Fractional Knapsack Problem",
+              "cue": "Sort by value/weight ratio desc, greedy fill",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-c5-ladder-9",
               "tier": "Medium",
-              "problem": "Non-overlapping Intervals (repeat)",
-              "cue": "Greedy by end",
-              "target": "15 min"
+              "problem": "Greedy Minimum Coins",
+              "cue": "Greedy largest denomination decrement",
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-c5-ladder-10",
               "tier": "Medium",
-              "problem": "Candy",
-              "cue": "Two passes",
-              "target": "30 min"
+              "problem": "Jump Game (LC 55)",
+              "cue": "Running farthest reachable boundary",
+              "target": "15 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-11",
               "tier": "Medium",
-              "problem": "Task Scheduler",
-              "cue": "Frequency formula",
-              "target": "30 min"
+              "problem": "Jump Game II (LC 45)",
+              "cue": "Interval window boundary BFS jumps",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-12",
               "tier": "Medium",
-              "problem": "Single Number II",
-              "cue": "Bit counting mod 3",
-              "target": "25 min"
+              "problem": "Gas Station (LC 134)",
+              "cue": "Total fuel deficit and greedy reset start",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-13",
               "tier": "Medium",
-              "problem": "Single Number III",
-              "cue": "Partition by a set bit",
-              "target": "25 min"
+              "problem": "Single Number II (LC 137)",
+              "cue": "Bit-level counting mod 3",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-c5-ladder-14",
+              "tier": "Medium",
+              "problem": "Single Number III (LC 260)",
+              "cue": "Total XOR + lowest set bit partition",
+              "target": "25 min",
+              "striver180": false
+            },
+            {
+              "id": "block-c5-ladder-15",
               "tier": "Hard",
-              "problem": "Remove Duplicate Letters",
-              "cue": "Monotonic stack + feasibility",
-              "target": "35 min"
+              "problem": "Candy (LC 135)",
+              "cue": "Two-pass left-to-right and right-to-left",
+              "target": "30 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -9891,87 +10196,93 @@
               "rows": [
                 [
                   "Easy",
-                  "Single Number",
-                  "XOR",
+                  "Single Number (LC 136)",
+                  "XOR cancellation: a ^ a = 0",
                   "10 min"
                 ],
                 [
                   "Easy",
-                  "Number of 1 Bits",
-                  "`x & (x-1)`",
+                  "Number of 1 Bits (LC 191)",
+                  "Brian Kernighan bit trick: x & (x - 1)",
                   "8 min"
                 ],
                 [
                   "Easy",
-                  "Counting Bits",
-                  "DP over bits",
+                  "Counting Bits (LC 338)",
+                  "Bit manipulation DP: dp[i] = dp[i >> 1] + (i & 1)",
                   "15 min"
                 ],
                 [
                   "Easy",
-                  "Missing Number",
-                  "XOR or sum",
+                  "Assign Cookies (LC 455)",
+                  "Two pointers greedy match smallest child",
                   "10 min"
                 ],
                 [
                   "Medium",
-                  "Jump Game",
-                  "Reachability",
+                  "N Meetings in One Room",
+                  "Sort by finish time, greedy selection",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Jump Game II",
-                  "Interval BFS",
+                  "Minimum Platforms Required",
+                  "Sort arrivals and departures, sweep line",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Gas Station",
-                  "Cumulative deficit",
+                  "Job Sequencing Problem",
+                  "Sort by profit desc, place at latest slot",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Partition Labels",
-                  "Last occurrence",
+                  "Fractional Knapsack Problem",
+                  "Sort by value/weight ratio desc, greedy fill",
                   "20 min"
                 ],
                 [
                   "Medium",
-                  "Non-overlapping Intervals (repeat)",
-                  "Greedy by end",
+                  "Greedy Minimum Coins",
+                  "Greedy largest denomination decrement",
                   "15 min"
                 ],
                 [
                   "Medium",
-                  "Candy",
-                  "Two passes",
-                  "30 min"
+                  "Jump Game (LC 55)",
+                  "Running farthest reachable boundary",
+                  "15 min"
                 ],
                 [
                   "Medium",
-                  "Task Scheduler",
-                  "Frequency formula",
-                  "30 min"
-                ],
-                [
-                  "Medium",
-                  "Single Number II",
-                  "Bit counting mod 3",
+                  "Jump Game II (LC 45)",
+                  "Interval window boundary BFS jumps",
                   "25 min"
                 ],
                 [
                   "Medium",
-                  "Single Number III",
-                  "Partition by a set bit",
+                  "Gas Station (LC 134)",
+                  "Total fuel deficit and greedy reset start",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Single Number II (LC 137)",
+                  "Bit-level counting mod 3",
+                  "25 min"
+                ],
+                [
+                  "Medium",
+                  "Single Number III (LC 260)",
+                  "Total XOR + lowest set bit partition",
                   "25 min"
                 ],
                 [
                   "Hard",
-                  "Remove Duplicate Letters",
-                  "Monotonic stack + feasibility",
-                  "35 min"
+                  "Candy (LC 135)",
+                  "Two-pass left-to-right and right-to-left",
+                  "30 min"
                 ]
               ]
             },
@@ -10007,6 +10318,7 @@
             "block-c5-ladder-12",
             "block-c5-ladder-13",
             "block-c5-ladder-14",
+            "block-c5-ladder-15",
             "block-c5-gate"
           ]
         }
@@ -10122,8 +10434,6 @@
         "block-c2-ladder-10",
         "block-c2-ladder-11",
         "block-c2-ladder-12",
-        "block-c2-ladder-13",
-        "block-c2-ladder-14",
         "block-c2-gate",
         "block-c3-chk-1",
         "block-c3-chk-2",
@@ -10164,8 +10474,6 @@
         "block-c4-ladder-6",
         "block-c4-ladder-7",
         "block-c4-ladder-8",
-        "block-c4-ladder-9",
-        "block-c4-ladder-10",
         "block-c4-gate",
         "block-c5-chk-1",
         "block-c5-chk-2",
@@ -10191,6 +10499,7 @@
         "block-c5-ladder-12",
         "block-c5-ladder-13",
         "block-c5-ladder-14",
+        "block-c5-ladder-15",
         "block-c5-gate",
         "phase-c-review-chk-1",
         "phase-c-review-chk-2",
@@ -10285,49 +10594,64 @@
               "tier": "Easy",
               "problem": "Climbing Stairs (LC 70)",
               "cue": "dp[i] = dp[i-1] + dp[i-2], Fibonacci transition",
-              "target": "10 min"
+              "target": "10 min",
+              "striver180": false
             },
             {
               "id": "block-d1-ladder-2",
               "tier": "Medium",
               "problem": "House Robber (LC 198)",
               "cue": "dp[i] = max(dp[i-1], dp[i-2] + nums[i])",
-              "target": "15 min"
+              "target": "15 min",
+              "striver180": false
             },
             {
               "id": "block-d1-ladder-3",
               "tier": "Medium",
               "problem": "Decode Ways (LC 91)",
               "cue": "Single digit and two-digit valid code transitions",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-d1-ladder-4",
               "tier": "Medium",
               "problem": "Longest Increasing Subsequence (LC 300)",
               "cue": "Patience sorting binary search or O(n²) DP",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-d1-ladder-5",
               "tier": "Medium",
-              "problem": "House Robber II (LC 213)",
-              "cue": "Break circle into two subproblems: nums[0..n-2] and nums[1..n-1]",
-              "target": "20 min"
+              "problem": "Maximum Sum Increasing Subsequence",
+              "cue": "LIS variation accumulating max sum instead of length",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d1-ladder-6",
               "tier": "Medium",
-              "problem": "Maximum Length of Repeated Subarray (LC 718)",
-              "cue": "Suffix match matching dp[i][j] = dp[i-1][j-1] + 1",
-              "target": "25 min"
+              "problem": "House Robber II (LC 213)",
+              "cue": "Break circle into two subproblems: nums[0..n-2] and nums[1..n-1]",
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-d1-ladder-7",
               "tier": "Medium",
+              "problem": "Maximum Length of Repeated Subarray (LC 718)",
+              "cue": "Suffix match matching dp[i][j] = dp[i-1][j-1] + 1",
+              "target": "25 min",
+              "striver180": false
+            },
+            {
+              "id": "block-d1-ladder-8",
+              "tier": "Medium",
               "problem": "Integer Break (LC 343)",
               "cue": "dp[i] = max(j * (i - j), j * dp[i - j])",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -10374,6 +10698,7 @@
             "block-d1-ladder-5",
             "block-d1-ladder-6",
             "block-d1-ladder-7",
+            "block-d1-ladder-8",
             "block-d1-gate"
           ]
         },
@@ -10446,51 +10771,74 @@
             {
               "id": "block-d2-ladder-1",
               "tier": "Medium",
-              "problem": "Partition Equal Subset Sum (LC 416)",
-              "cue": "Target = sum(nums) / 2, 0/1 knapsack backward loop",
-              "target": "20 min"
+              "problem": "0/1 Knapsack Problem",
+              "cue": "Item iteration with capacity iterating backwards to prevent reuse",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d2-ladder-2",
               "tier": "Medium",
-              "problem": "Target Sum (LC 494)",
-              "cue": "Subset sum transformation: P = (sum + S) / 2",
-              "target": "25 min"
+              "problem": "Partition Equal Subset Sum (LC 416)",
+              "cue": "Target = sum(nums) / 2, 0/1 knapsack backward loop",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d2-ladder-3",
               "tier": "Medium",
-              "problem": "Coin Change (LC 322)",
-              "cue": "Unbounded knapsack min coins: dp[a] = min(dp[a], dp[a - c] + 1)",
-              "target": "20 min"
+              "problem": "Target Sum (LC 494)",
+              "cue": "Subset sum transformation: P = (sum + S) / 2",
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-d2-ladder-4",
               "tier": "Medium",
-              "problem": "Coin Change II (LC 518)",
-              "cue": "Unbounded knapsack total ways: coins outer loop",
-              "target": "20 min"
+              "problem": "Coin Change (LC 322)",
+              "cue": "Unbounded knapsack min coins: dp[a] = min(dp[a], dp[a - c] + 1)",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d2-ladder-5",
               "tier": "Medium",
-              "problem": "Ones and Zeroes (LC 474)",
-              "cue": "2D capacity 0/1 knapsack: dp[m][n] iterating backwards",
-              "target": "30 min"
+              "problem": "Coin Change II (LC 518)",
+              "cue": "Unbounded knapsack total ways: coins outer loop",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d2-ladder-6",
               "tier": "Medium",
-              "problem": "Last Stone Weight II (LC 1049)",
-              "cue": "Minimize difference between two partitions, target = sum // 2",
-              "target": "25 min"
+              "problem": "Rod Cutting Problem",
+              "cue": "Unbounded knapsack max value cut: dp[j] = max(dp[j], price[i] + dp[j - i])",
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d2-ladder-7",
               "tier": "Medium",
+              "problem": "Ones and Zeroes (LC 474)",
+              "cue": "2D capacity 0/1 knapsack: dp[m][n] iterating backwards",
+              "target": "30 min",
+              "striver180": false
+            },
+            {
+              "id": "block-d2-ladder-8",
+              "tier": "Medium",
+              "problem": "Last Stone Weight II (LC 1049)",
+              "cue": "Minimize difference between two partitions, target = sum // 2",
+              "target": "25 min",
+              "striver180": false
+            },
+            {
+              "id": "block-d2-ladder-9",
+              "tier": "Medium",
               "problem": "Combination Sum IV (LC 377)",
               "cue": "Target outer loop counts all ordered permutations",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -10537,6 +10885,8 @@
             "block-d2-ladder-5",
             "block-d2-ladder-6",
             "block-d2-ladder-7",
+            "block-d2-ladder-8",
+            "block-d2-ladder-9",
             "block-d2-gate"
           ]
         },
@@ -10611,49 +10961,64 @@
               "tier": "Medium",
               "problem": "Unique Paths (LC 62)",
               "cue": "dp[r][c] = dp[r-1][c] + dp[r][c-1], rolling 1D array",
-              "target": "15 min"
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-d3-ladder-2",
               "tier": "Medium",
               "problem": "Minimum Path Sum (LC 64)",
               "cue": "dp[r][c] = min(dp[r-1][c], dp[r][c-1]) + grid[r][c]",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-d3-ladder-3",
               "tier": "Medium",
               "problem": "Longest Common Subsequence (LC 1143)",
               "cue": "Match: dp[i-1][j-1]+1; Mismatch: max(dp[i-1][j], dp[i][j-1])",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-d3-ladder-4",
               "tier": "Hard",
               "problem": "Edit Distance (LC 72)",
               "cue": "Insert, Delete, Replace operations on 2D table",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-d3-ladder-5",
               "tier": "Medium",
               "problem": "Maximal Square (LC 221)",
               "cue": "dp[r][c] = min(left, top, diag) + 1 when cell is '1'",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-d3-ladder-6",
-              "tier": "Hard",
-              "problem": "Dungeon Game (LC 174)",
-              "cue": "Bottom-right to top-left reverse DP for minimum initial health",
-              "target": "35 min"
+              "tier": "Medium",
+              "problem": "Word Break (LC 139)",
+              "cue": "1D boolean matching with dictionary word lookup",
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-d3-ladder-7",
+              "tier": "Hard",
+              "problem": "Dungeon Game (LC 174)",
+              "cue": "Bottom-right to top-left reverse DP for minimum initial health",
+              "target": "35 min",
+              "striver180": false
+            },
+            {
+              "id": "block-d3-ladder-8",
               "tier": "Medium",
               "problem": "Interleaving String (LC 97)",
               "cue": "2D matching of s1[i-1] and s2[j-1] against s3[i+j-1]",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -10700,6 +11065,7 @@
             "block-d3-ladder-5",
             "block-d3-ladder-6",
             "block-d3-ladder-7",
+            "block-d3-ladder-8",
             "block-d3-gate"
           ]
         },
@@ -10772,44 +11138,66 @@
             {
               "id": "block-d4-ladder-1",
               "tier": "Hard",
-              "problem": "Burst Balloons (LC 312)",
-              "cue": "Interval DP: consider balloon k popped LAST in range [i, j]",
-              "target": "35 min"
+              "problem": "Matrix Chain Multiplication (MCM)",
+              "cue": "Partition cut k from i to j: min(dp[i][k] + dp[k+1][j] + cost)",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-d4-ladder-2",
-              "tier": "Medium",
-              "problem": "House Robber III (LC 337)",
-              "cue": "Tree postorder DFS returning (rob_current, not_rob_current)",
-              "target": "25 min"
+              "tier": "Hard",
+              "problem": "Burst Balloons (LC 312)",
+              "cue": "Interval DP: consider balloon k popped LAST in range [i, j]",
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-d4-ladder-3",
-              "tier": "Medium",
-              "problem": "Best Time to Buy and Sell Stock with Cooldown (LC 309)",
-              "cue": "3-state machine: Hold, Sold (cooldown), Rest",
-              "target": "25 min"
+              "tier": "Hard",
+              "problem": "Palindrome Partitioning II (LC 132)",
+              "cue": "MCM cut variation for minimum cuts to partition palindrome",
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-d4-ladder-4",
               "tier": "Hard",
-              "problem": "Russian Doll Envelopes (LC 354)",
-              "cue": "Sort by width asc, height desc; run LIS on heights",
-              "target": "35 min"
+              "problem": "Minimum Cost to Cut a Stick (LC 1547)",
+              "cue": "Interval DP on sorted cuts array with boundary sticks",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-d4-ladder-5",
               "tier": "Hard",
-              "problem": "Minimum Cost to Merge Stones (LC 1000)",
-              "cue": "Interval DP combining k piles with prefix sums",
-              "target": "40 min"
+              "problem": "Maximum Profit in Job Scheduling (LC 1235)",
+              "cue": "Sort by end time + DP with binary search for non-overlapping job",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-d4-ladder-6",
+              "tier": "Medium",
+              "problem": "House Robber III (LC 337)",
+              "cue": "Tree postorder DFS returning (rob_current, not_rob_current)",
+              "target": "25 min",
+              "striver180": false
+            },
+            {
+              "id": "block-d4-ladder-7",
+              "tier": "Medium",
+              "problem": "Best Time to Buy and Sell Stock with Cooldown (LC 309)",
+              "cue": "3-state machine: Hold, Sold (cooldown), Rest",
+              "target": "25 min",
+              "striver180": true
+            },
+            {
+              "id": "block-d4-ladder-8",
               "tier": "Hard",
-              "problem": "Distinct Subsequences (LC 115)",
-              "cue": "String matching with duplicate skips: dp[i][j]",
-              "target": "30 min"
+              "problem": "Russian Doll Envelopes (LC 354)",
+              "cue": "Sort by width asc, height desc; run LIS on heights",
+              "target": "35 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -10855,6 +11243,8 @@
             "block-d4-ladder-4",
             "block-d4-ladder-5",
             "block-d4-ladder-6",
+            "block-d4-ladder-7",
+            "block-d4-ladder-8",
             "block-d4-gate"
           ]
         },
@@ -10929,42 +11319,56 @@
               "tier": "Medium",
               "problem": "Pow(x, n) (LC 50)",
               "cue": "Binary exponentiation in O(log n), handle negative n",
-              "target": "15 min"
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-d5-ladder-2",
               "tier": "Medium",
               "problem": "Super Pow (LC 372)",
               "cue": "Modular exponentiation with array of digits: a^b % 1337",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-d5-ladder-3",
               "tier": "Medium",
               "problem": "Can I Win (LC 464)",
               "cue": "Minimax with bitmask state representing chosen integers",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-d5-ladder-4",
               "tier": "Medium",
               "problem": "Beautiful Arrangement (LC 526)",
               "cue": "Bitmask DP / memoized backtracking on valid index divisibility",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-d5-ladder-5",
               "tier": "Hard",
-              "problem": "Find the Shortest Superstring (LC 943)",
-              "cue": "TSP with overlap graph: dp[mask][last] bitmask DP",
-              "target": "40 min"
+              "problem": "Egg Dropping Problem (LC 887)",
+              "cue": "Binary search or DP with k eggs and n floors: 1 + max(break, survive)",
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-d5-ladder-6",
               "tier": "Hard",
+              "problem": "Find the Shortest Superstring (LC 943)",
+              "cue": "TSP with overlap graph: dp[mask][last] bitmask DP",
+              "target": "40 min",
+              "striver180": false
+            },
+            {
+              "id": "block-d5-ladder-7",
+              "tier": "Hard",
               "problem": "Smallest Sufficient Team (LC 1125)",
               "cue": "Bitmask DP covering all required skills with minimum people",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -11010,6 +11414,7 @@
             "block-d5-ladder-4",
             "block-d5-ladder-5",
             "block-d5-ladder-6",
+            "block-d5-ladder-7",
             "block-d5-gate"
           ]
         },
@@ -11107,56 +11512,64 @@
               "tier": "Medium",
               "problem": "Design Tic-Tac-Toe (LC 348)",
               "cue": "O(1) move verification via row/col/diag counters",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-2",
               "tier": "Hard",
               "problem": "Design In-Memory File System (LC 588)",
               "cue": "Trie / Composite directory hierarchy with path parsing",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-3",
               "tier": "Medium",
               "problem": "Design Twitter (LC 355)",
               "cue": "Follower graph + merge-k sorted tweet feeds with heap",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-4",
               "tier": "Hard",
               "problem": "Design Search Autocomplete System (LC 642)",
               "cue": "Trie + historical query frequency ranking",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-5",
               "tier": "Medium",
               "problem": "Design Underground System (LC 1396)",
               "cue": "Check-in/out tracking + route average compute",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-6",
               "tier": "Medium",
               "problem": "Design Snake Game (LC 353)",
               "cue": "Deque coordinate simulation + 2D boundary collision checks",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-7",
               "tier": "Medium",
               "problem": "Design Browser History (LC 1472)",
               "cue": "Doubly-linked list or two-stack URL history traversal",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": false
             },
             {
               "id": "block-d6-ladder-8",
               "tier": "Medium",
               "problem": "Design Food Rating System (LC 2353)",
               "cue": "Hash map + SortedSet / Heap for top cuisine ratings",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -11284,35 +11697,40 @@
               "tier": "Hard",
               "problem": "Trapping Rain Water II (LC 407)",
               "cue": "3D priority queue min-heap flood-fill from boundary inward",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": true
             },
             {
               "id": "block-d7-ladder-2",
               "tier": "Hard",
               "problem": "Minimum Cost to Cut a Stick (LC 1547)",
               "cue": "Interval DP: add 0 and n, sort cuts, dp[i][j] = cost + cuts[j] - cuts[i]",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": true
             },
             {
               "id": "block-d7-ladder-3",
               "tier": "Hard",
               "problem": "Minimum Window Subsequence (LC 727)",
               "cue": "Two pointers + reverse validation for contiguous substring",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-d7-ladder-4",
               "tier": "Hard",
               "problem": "Regular Expression Matching (LC 10)",
               "cue": "2D DP handling '.' and '*' Kleene star transitions",
-              "target": "40 min"
+              "target": "40 min",
+              "striver180": false
             },
             {
               "id": "block-d7-ladder-5",
               "tier": "Hard",
               "problem": "Wildcard Matching (LC 44)",
               "cue": "2D DP / greedy two-pointer matching with '?' and '*'",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -11382,6 +11800,7 @@
         "block-d1-ladder-5",
         "block-d1-ladder-6",
         "block-d1-ladder-7",
+        "block-d1-ladder-8",
         "block-d1-gate",
         "block-d2-chk-1",
         "block-d2-chk-2",
@@ -11393,6 +11812,8 @@
         "block-d2-ladder-5",
         "block-d2-ladder-6",
         "block-d2-ladder-7",
+        "block-d2-ladder-8",
+        "block-d2-ladder-9",
         "block-d2-gate",
         "block-d3-chk-1",
         "block-d3-chk-2",
@@ -11404,6 +11825,7 @@
         "block-d3-ladder-5",
         "block-d3-ladder-6",
         "block-d3-ladder-7",
+        "block-d3-ladder-8",
         "block-d3-gate",
         "block-d4-chk-1",
         "block-d4-chk-2",
@@ -11414,6 +11836,8 @@
         "block-d4-ladder-4",
         "block-d4-ladder-5",
         "block-d4-ladder-6",
+        "block-d4-ladder-7",
+        "block-d4-ladder-8",
         "block-d4-gate",
         "block-d5-chk-1",
         "block-d5-chk-2",
@@ -11424,6 +11848,7 @@
         "block-d5-ladder-4",
         "block-d5-ladder-5",
         "block-d5-ladder-6",
+        "block-d5-ladder-7",
         "block-d5-gate",
         "block-d6-chk-1",
         "block-d6-chk-2",
@@ -11483,63 +11908,72 @@
               "tier": "Medium",
               "problem": "Longest Substring Without Repeating Characters (LC 3)",
               "cue": "Set A · Sliding window with hash map",
-              "target": "15 min"
+              "target": "15 min",
+              "striver180": true
             },
             {
               "id": "block-e1-ladder-2",
               "tier": "Medium",
               "problem": "3Sum (LC 15)",
               "cue": "Set A · Two pointers on sorted array",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-e1-ladder-3",
               "tier": "Hard",
               "problem": "Minimum Window Substring (LC 76)",
               "cue": "Set A · Sliding window frequency counter",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": false
             },
             {
               "id": "block-e1-ladder-4",
               "tier": "Medium",
               "problem": "Course Schedule II (LC 210)",
               "cue": "Set B · Kahn's topological sort",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-e1-ladder-5",
               "tier": "Medium",
               "problem": "Lowest Common Ancestor of a Binary Tree (LC 236)",
               "cue": "Set B · Postorder tree traversal",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             },
             {
               "id": "block-e1-ladder-6",
               "tier": "Hard",
               "problem": "Trapping Rain Water (LC 42)",
               "cue": "Set C · Two pointers max-left/max-right",
-              "target": "30 min"
+              "target": "30 min",
+              "striver180": true
             },
             {
               "id": "block-e1-ladder-7",
               "tier": "Hard",
               "problem": "Alien Dictionary (LC 269)",
               "cue": "Set C · Graph build + topological sort",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e1-ladder-8",
               "tier": "Medium",
               "problem": "Word Break (LC 139)",
               "cue": "Set D · 1D DP with dictionary set",
-              "target": "20 min"
+              "target": "20 min",
+              "striver180": true
             },
             {
               "id": "block-e1-ladder-9",
               "tier": "Medium",
               "problem": "Clone Graph (LC 133)",
               "cue": "Set D · BFS / DFS hash map copy",
-              "target": "25 min"
+              "target": "25 min",
+              "striver180": true
             }
           ],
           "practiceTasks": [],
@@ -11804,70 +12238,80 @@
               "tier": "Medium",
               "problem": "LLD 1 — Token Bucket Rate Limiter",
               "cue": "Sliding window + token bucket with thread safety",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-2",
               "tier": "Hard",
               "problem": "LLD 2 — LRU / LFU In-Memory Cache",
               "cue": "Doubly linked list + freq-buckets with O(1) eviction",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-3",
               "tier": "Medium",
               "problem": "LLD 3 — Multi-Floor Parking Lot System",
               "cue": "Vehicle hierarchy, spot allocation & fee strategy",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-4",
               "tier": "Hard",
               "problem": "LLD 4 — Elevator Controller Dispatcher",
               "cue": "LOOK/SCAN heuristic + heap scheduling",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-5",
               "tier": "Medium",
               "problem": "LLD 5 — Splitwise Expense Sharing System",
               "cue": "Balance sheet graph + minimum cash flow algorithm",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-6",
               "tier": "Hard",
               "problem": "LLD 6 — Chess / Board Game Engine Model",
               "cue": "Command pattern, board state & move validation",
-              "target": "35 min"
+              "target": "35 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-7",
               "tier": "Medium",
               "problem": "Mock Round 1 — Peer Coding Medium",
               "cue": "Observed single medium with live scoring rubric",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-8",
               "tier": "Hard",
               "problem": "Mock Round 2 — Coding with Follow-up Twist",
               "cue": "Medium problem + invariant-breaking twist",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-9",
               "tier": "Hard",
               "problem": "Mock Round 3 — Solo Camera-On Hard",
               "cue": "Hard problem under camera with continuous narration",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e2-ladder-10",
               "tier": "Hard",
               "problem": "Mock Round 4 — Senior Engineer Deep-Dive",
               "cue": "System architecture + project STAR deep-dive",
-              "target": "60 min"
+              "target": "60 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -12400,35 +12844,40 @@
               "tier": "Medium",
               "problem": "Day 91: ML Coding From Scratch",
               "cue": "Implement k-means, logistic regression with GD, AUC",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e3-ladder-2",
               "tier": "Medium",
               "problem": "Day 92: SQL Under Timer",
               "cue": "10 timed queries with window functions & self-joins",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e3-ladder-3",
               "tier": "Medium",
               "problem": "Day 93: ML Theory Rapid-Fire",
               "cue": "30 rapid-fire questions answered out loud",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e3-ladder-4",
               "tier": "Hard",
               "problem": "Day 94: ML System Design",
               "cue": "End-to-end recommender/search system in 45m",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e3-ladder-5",
               "tier": "Medium",
               "problem": "Day 95: Statistics & Experimentation",
               "cue": "Power calculation, CUPED variance reduction, A/B",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],
@@ -12563,56 +13012,64 @@
               "tier": "Medium",
               "problem": "Simulated Loop Round 1: Core Coding",
               "cue": "LRU Cache or Number of Islands with continuous narration",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-2",
               "tier": "Hard",
               "problem": "Simulated Loop Round 2: Coding + Twist",
               "cue": "Course Schedule II with cycle node recovery twist",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-3",
               "tier": "Hard",
               "problem": "Simulated Loop Round 3: Specialist / LLD",
               "cue": "SDE: Rate Limiter LLD · ML: k-means or RecSys Design",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-4",
               "tier": "Medium",
               "problem": "Simulated Loop Round 4: Behavioral STAR",
               "cue": "3 STAR stories strictly ≤ 90s each under interrogation",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-5",
               "tier": "Hard",
               "problem": "Day 96: Weakness Report & Ledger Sweep",
               "cue": "Replay open rows & write written gap self-assessment",
-              "target": "60 min"
+              "target": "60 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-6",
               "tier": "Hard",
               "problem": "Day 97: Targeted Repair Coding Mock",
               "cue": "Repair gap 1 and gap 2 with timed coding mock",
-              "target": "45 min"
+              "target": "45 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-7",
               "tier": "Hard",
               "problem": "Day 99: Loop Weakest Dimension Repair",
               "cue": "Two timed sets addressing the loop's weakest dimension",
-              "target": "60 min"
+              "target": "60 min",
+              "striver180": false
             },
             {
               "id": "block-e4-ladder-8",
               "tier": "Challenge",
               "problem": "Day 100: Final Graduation Gate",
               "cue": "Final ledger sweep, 6 STAR stories, graduation bar ≥ 14/20",
-              "target": "60 min"
+              "target": "60 min",
+              "striver180": false
             }
           ],
           "practiceTasks": [],

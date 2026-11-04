@@ -109,15 +109,18 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
 | Easy | Two Sum II — Input Array Is Sorted | Sorted pair, opposite ends | 12 min |
-| Easy | Valid Palindrome | Mirrored compare, skip non-alnum | 10 min |
-| Easy | Move Zeroes | Read/write pointers | 10 min |
-| Easy | Remove Duplicates from Sorted Array | Read/write with a gap | 10 min |
-| Easy | Sort Colors | Dutch flag, three regions | 15 min |
-| Medium | 3Sum | Sort + fix one + two-pointer + dedupe | 25 min |
-| Medium | Container With Most Water | Move the shorter wall | 20 min |
-| Medium | Rotate Array | Three reversals, O(1) space | 20 min |
-| Medium | Squares of a Sorted Array | Largest square at either end | 15 min |
-| Hard | Trapping Rain Water | Opposite ends with running maxima | 35 min |
+| Easy | Valid Palindrome (LC 125) | Mirrored compare, skip non-alnum | 10 min |
+| Easy | Pascal's Triangle (LC 118) | Row simulation with previous row sums | 12 min |
+| Easy | Remove Duplicates from Sorted Array (LC 26) | Read/write pointer gap | 10 min |
+| Easy | Sort Colors (LC 75) | Dutch National Flag, three regions | 15 min |
+| Medium | Set Matrix Zeroes (LC 73) | First row/col as O(1) flags | 20 min |
+| Medium | Next Permutation (LC 31) | Find pivot, swap successor, reverse tail | 20 min |
+| Medium | Rotate Image (LC 48) | Transpose matrix + reverse each row | 20 min |
+| Medium | 3Sum (LC 15) | Sort + fix one + two-pointer dedupe | 25 min |
+| Medium | Container With Most Water (LC 11) | Move the shorter wall inward | 20 min |
+| Medium | Rotate Array (LC 189) | Three reversals, O(1) space | 20 min |
+| Medium | Find the Duplicate Number (LC 287) | Floyd cycle detection on array indices | 20 min |
+| Hard | Trapping Rain Water (LC 42) | Opposite ends with running max | 35 min |
 
 > **Gate A2.** 3Sum and Trapping Rain Water solved unaided in the target time, with duplicate handling correct on the first run. You can explain why the pointer move is safe in Container With Most Water without hand-waving. You have written Rotate Array using O(1) extra space.
 
@@ -164,16 +167,16 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Two Sum | Complement lookup, one pass | 10 min |
-| Easy | Contains Duplicate | Set membership | 8 min |
-| Easy | Valid Anagram | 26-count array or Counter | 10 min |
-| Easy | Isomorphic Strings | Two-way bijection | 15 min |
-| Easy | Happy Number | Cycle detection via set | 12 min |
-| Medium | Group Anagrams | Canonical key | 20 min |
-| Medium | Subarray Sum Equals K | Prefix sum + `{0:1}` | 25 min |
-| Medium | Longest Consecutive Sequence | Start-of-run check | 25 min |
-| Medium | Continuous Subarray Sum | Prefix mod k + earliest index | 25 min |
-| Medium | LRU Cache | Hash map + doubly linked list (preview of B1) | 35 min |
+| Easy | Two Sum (LC 1) | Seen-before complement map | 10 min |
+| Easy | Valid Anagram (LC 242) | Frequency count array | 10 min |
+| Easy | Isomorphic Strings (LC 205) | Two-way character bijection maps | 15 min |
+| Medium | Group Anagrams (LC 49) | Canonical sorted key or 26-tuple | 20 min |
+| Medium | 4Sum (LC 18) | Sort + two nested loops + two pointers | 25 min |
+| Medium | Subarray Sum Equals K (LC 560) | Prefix sum + {0: 1} frequency map | 25 min |
+| Medium | Longest Consecutive Sequence (LC 128) | HashSet + start-of-sequence lookup | 25 min |
+| Medium | Largest Subarray with 0 Sum | Earliest prefix sum index map | 20 min |
+| Medium | Count Subarrays with Given XOR K | Prefix XOR running count hashmap | 25 min |
+| Medium | Continuous Subarray Sum (LC 523) | Prefix mod k + earliest index | 25 min |
 
 > **Gate A3.** Subarray Sum Equals K and Longest Consecutive Sequence written in O(n) without hints. You can state the `{0: -1}` initialisation trick and explain why it exists. You can name three different "canonical key" strategies.
 
@@ -275,16 +278,18 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Range Sum Query — Immutable | 1D prefix | 10 min |
-| Easy | Find Pivot Index | Left sum vs total minus left | 12 min |
-| Easy | Maximum Subarray | Kadane | 12 min |
-| Medium | Product of Array Except Self | Prefix × suffix, no division | 20 min |
-| Medium | Maximum Product Subarray | Track min and max | 20 min |
-| Medium | Subarray Sums Divisible by K | Prefix mod + hash | 25 min |
-| Medium | Range Sum Query 2D — Immutable | 2D inclusion–exclusion | 25 min |
-| Medium | Matrix Block Sum | 2D prefix with clamping | 25 min |
-| Medium | Contiguous Array | Map 0 to -1, prefix sum | 25 min |
-| Medium | Subarray Sum Equals K (repeat) | Spaced repeat from A3 | 15 min |
+| Easy | Range Sum Query — Immutable (LC 303) | 1D prefix sum array | 10 min |
+| Easy | Find Pivot Index (LC 724) | Left sum vs total minus left | 12 min |
+| Easy | Maximum Subarray (LC 53) | Kadane's single pass running max | 12 min |
+| Easy | Majority Element (> n/2) (LC 169) | Boyer-Moore voting algorithm | 15 min |
+| Medium | Majority Element II (> n/3) (LC 229) | Boyer-Moore two candidate counters | 20 min |
+| Medium | Product of Array Except Self (LC 238) | Prefix and suffix products, O(1) space | 20 min |
+| Medium | Maximum Product Subarray (LC 152) | Kadane tracking both min and max | 20 min |
+| Medium | Subarray Sums Divisible by K (LC 974) | Prefix mod k + frequency hashmap | 25 min |
+| Medium | Range Sum Query 2D — Immutable (LC 304) | 2D inclusion-exclusion | 25 min |
+| Medium | Contiguous Array (LC 525) | Map 0 to -1, prefix sum index map | 25 min |
+| Hard | Reverse Pairs (LC 493) | Modified merge sort split counting | 35 min |
+| Hard | Count Inversions in Array | Merge sort inversion counting | 35 min |
 
 > **Gate A5.** 2D prefix written correctly on the first attempt, including boundary clamping. Kadane reproduced from memory. You can explain why the prefix-hashmap approach subsumes the sliding window when negatives appear.
 
@@ -331,18 +336,20 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Binary Search | Exact template | 8 min |
-| Easy | Search Insert Position | Lower bound | 10 min |
-| Easy | First Bad Version | First true | 10 min |
-| Easy | Sqrt(x) | Search on answer, integers | 12 min |
-| Medium | Find First and Last Position of Element in Sorted Array | Lower + upper | 20 min |
-| Medium | Search in Rotated Sorted Array | Sorted-half test | 25 min |
-| Medium | Find Minimum in Rotated Sorted Array | Pivot search | 20 min |
-| Medium | Find Peak Element | Local monotonicity | 20 min |
-| Medium | Koko Eating Bananas | Feasibility on speed | 30 min |
-| Medium | Capacity to Ship Packages Within D Days | Feasibility on capacity | 30 min |
-| Hard | Split Array Largest Sum | Feasibility on max-sum | 35 min |
-| Hard | Median of Two Sorted Arrays | Partition invariant | 45 min |
+| Easy | Binary Search (LC 704) | Canonical invariant template | 8 min |
+| Easy | Sqrt(x) (LC 69) | Integer binary search on answer | 12 min |
+| Medium | Search in a 2D Matrix (LC 74) | Virtual 1D index mapping | 15 min |
+| Medium | Single Element in a Sorted Array (LC 540) | Halves parity check on even/odd indices | 20 min |
+| Medium | Find First and Last Position (LC 34) | Lower bound and upper bound bisection | 20 min |
+| Medium | Search in Rotated Sorted Array (LC 33) | Sorted-half monotonic test | 25 min |
+| Medium | Find Minimum in Rotated Sorted Array (LC 153) | Pivot search comparison with high | 20 min |
+| Medium | Find Peak Element (LC 162) | Gradient / local monotonicity climb | 20 min |
+| Medium | Koko Eating Bananas (LC 875) | Predicate feasibility search on speed | 30 min |
+| Hard | Allocate Minimum Number of Pages | Feasibility check on max page limit | 35 min |
+| Hard | Aggressive Cows | Feasibility distance check on sorted stalls | 35 min |
+| Hard | Matrix Median | Row-wise binary search count | 40 min |
+| Hard | K-th Element of Two Sorted Arrays | Partition invariant on two sorted arrays | 40 min |
+| Hard | Median of Two Sorted Arrays (LC 4) | Partition cut balance condition | 45 min |
 
 > **Gate A6.** Lower-bound template written from memory in 2 minutes. Two "search on the answer" problems solved where you wrote the predicate before the search. One rotated-array problem with duplicates handled. You can state why Median of Two Sorted Arrays is O(log min(m,n)) rather than O(log(m+n)).
 
@@ -444,16 +451,16 @@ Write each of these from a blank file, no reference, timed at 10 minutes each:
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Valid Palindrome II | Two pointers with one deletion | 15 min |
-| Easy | Roman to Integer | Subtractive pairs | 15 min |
-| Easy | Add Strings | Manual addition, carry | 15 min |
-| Medium | Longest Palindromic Substring | Expand around centre | 25 min |
-| Medium | Palindromic Substrings | Same, counting | 20 min |
-| Medium | Implement strStr / Find the Index of First Occurrence | KMP | 35 min |
-| Medium | Encode and Decode Strings | Length prefix | 25 min |
-| Medium | String to Integer (atoi) | Parser with clamping | 25 min |
-| Medium | Multiply Strings | Grade-school multiplication | 30 min |
-| Medium | Repeated Substring Pattern | KMP or `s in s+s` trick | 20 min |
+| Easy | Valid Palindrome II (LC 680) | Two pointers with one mismatch skip | 15 min |
+| Easy | Roman to Integer (LC 13) | Subtractive numeral pairs | 12 min |
+| Easy | Longest Common Prefix (LC 14) | Horizontal scanning or vertical scan | 15 min |
+| Medium | Reverse Words in a String (LC 151) | In-place word token reversal | 20 min |
+| Medium | String to Integer (atoi) (LC 8) | Deterministic state machine + clamping | 25 min |
+| Medium | Implement strStr / KMP (LC 28) | Longest prefix which is suffix (LPS) | 30 min |
+| Medium | Longest Palindromic Substring (LC 5) | Expand around 2n-1 potential centres | 25 min |
+| Medium | Count and Say (LC 38) | Run-length string generation | 20 min |
+| Medium | Compare Version Numbers (LC 165) | Two-pointer chunk numerical comparison | 20 min |
+| Hard | Minimum Characters to Make Palindromic | KMP LPS on s + '#' + rev(s) | 35 min |
 
 > **Gate A8.** Expand-around-centre and KMP both written from memory on the same day, and you can say which you would choose under time pressure and why. `atoi` passes the overflow cases. You can encode and decode a list containing delimiters.
 

@@ -62,16 +62,16 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Medium | Implement Trie (Prefix Tree) | Dict nodes | 25 min |
-| Medium | Design Add and Search Words | Wildcard DFS | 30 min |
-| Medium | Replace Words | Prefix walk | 25 min |
-| Medium | Restore IP Addresses | Four-segment backtracking | 30 min |
-| Medium | Palindrome Partitioning (repeat) | Cuts + check | 20 min |
-| Medium | Matchsticks to Square | Sort desc + 4 buckets | 35 min |
-| Hard | Word Search II | Trie + grid DFS | 45 min |
-| Hard | Sudoku Solver | Constraint sets | 45 min |
-| Hard | Partition to K Equal Sum Subsets | Bucket backtracking | 40 min |
-| Hard | Maximum XOR of Two Numbers in an Array | Bitwise trie | 35 min |
+| Medium | Implement Trie (Prefix Tree) (LC 208) | TrieNode with children dict and isEnd flag | 25 min |
+| Medium | Design Add and Search Words (LC 211) | Wildcard '.' branches over all children | 30 min |
+| Medium | Replace Words (LC 648) | Walk trie until shortest root prefix found | 25 min |
+| Medium | Rat in a Maze Problem | Backtracking 4-direction path discovery | 25 min |
+| Medium | M-Coloring Problem | Backtracking vertex coloring check | 25 min |
+| Medium | Word Break II (LC 140) | Trie / memoized DFS sentence construction | 35 min |
+| Hard | Sudoku Solver (LC 37) | Row, col, and 3x3 box constraint sets | 45 min |
+| Hard | Word Search II (LC 212) | Prefix trie + grid DFS with tree pruning | 45 min |
+| Hard | Partition to K Equal Sum Subsets (LC 698) | Sort descending + bucket filling DFS | 40 min |
+| Hard | Maximum XOR of Two Numbers in an Array (LC 421) | Bitwise binary trie maximum search | 35 min |
 
 > **Gate C1.** Trie, wildcard search, and Word Search II written cold. You can state why the trie makes Word Search II tractable where a per-word scan would time out. Sudoku Solver backtracks without revisiting a failed constraint twice at the same level.
 
@@ -125,20 +125,18 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Medium | Number of Islands | Grid DFS/BFS | 20 min |
-| Medium | Max Area of Island | Component size | 20 min |
-| Medium | Flood Fill | Simple DFS | 15 min |
-| Medium | Clone Graph | old→new map | 25 min |
-| Medium | Surrounded Regions | Boundary-first marking | 30 min |
-| Medium | Pacific Atlantic Water Flow | Two reverse DFS from coasts | 35 min |
-| Medium | Rotting Oranges (repeat) | Multi-source BFS | 20 min |
-| Medium | Number of Provinces | Components on adjacency matrix | 20 min |
-| Medium | Is Graph Bipartite | 2-colour BFS | 25 min |
-| Medium | Course Schedule | Cycle detection | 25 min |
-| Medium | Course Schedule II | Kahn's | 30 min |
-| Medium | Word Ladder | BFS over generated words | 40 min |
-| Hard | Alien Dictionary | Topological sort on characters | 45 min |
-| Hard | Word Ladder II (optional) | BFS + path reconstruction | 50 min |
+| Medium | Number of Islands (LC 200) | Grid DFS/BFS sink visited land cells | 20 min |
+| Medium | Max Area of Island (LC 695) | Recursive component area counting | 20 min |
+| Medium | Flood Fill (LC 733) | Connected cell color mutation DFS | 15 min |
+| Medium | Clone Graph (LC 133) | Visited hashmap mapping old node to new | 25 min |
+| Medium | Is Graph Bipartite? (LC 785) | 2-color BFS/DFS odd-cycle conflict test | 25 min |
+| Medium | Course Schedule (LC 207) | Directed cycle detection (3-state coloring) | 25 min |
+| Medium | Course Schedule II (LC 210) | Kahn's algorithm with indegree queue | 30 min |
+| Medium | Surrounded Regions (LC 130) | Reverse DFS boundary-connected marking | 30 min |
+| Medium | Pacific Atlantic Water Flow (LC 417) | Dual ocean inward reachable DFS | 35 min |
+| Medium | Word Ladder (LC 127) | BFS on intermediate wildcard word states | 40 min |
+| Hard | Strongly Connected Components (Kosaraju) | DFS postorder stack + reverse transpose DFS | 35 min |
+| Hard | Alien Dictionary (LC 269) | Lexicographical order topological sort | 45 min |
 
 > **Gate C2.** Number of Islands and Course Schedule II written cold. You can draw the three-colour state diagram for directed cycle detection and explain it without notes. Every graph answer states `O(V+E)` with V and E defined.
 
@@ -186,16 +184,16 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Medium | Number of Provinces (repeat) | DSU | 15 min |
-| Medium | Redundant Connection | First cycle edge | 25 min |
-| Medium | Accounts Merge | Union by email | 35 min |
-| Medium | Number of Connected Components in an Undirected Graph | DSU count | 20 min |
-| Medium | Evaluate Division | Weighted DSU or BFS | 40 min |
-| Medium | Most Stones Removed with Same Row or Column | Union rows/cols | 30 min |
-| Medium | Satisfiability of Equality Equations | Union equals, verify not-equals | 30 min |
-| Medium | Min Cost to Connect All Points | Prim or Kruskal | 35 min |
-| Hard | Redundant Connection II | Directed case analysis | 45 min |
-| Hard | Optimize Water Distribution in a Village | Virtual node + MST | 40 min |
+| Medium | Number of Provinces (LC 547) | DSU component counting on adjacency | 20 min |
+| Medium | Redundant Connection (LC 684) | DSU cycle detection on first closed edge | 25 min |
+| Medium | Accounts Merge (LC 721) | Union by shared email address | 35 min |
+| Medium | Number of Connected Components (LC 323) | DSU decrement on successful union | 20 min |
+| Medium | Evaluate Division (LC 399) | Weighted DSU ratios or graph BFS | 40 min |
+| Medium | MST using Prim's Algorithm | Priority queue growing tree from seed | 30 min |
+| Medium | Min Cost to Connect All Points (LC 1584) | Kruskal's algorithm with sorted edges + DSU | 35 min |
+| Medium | Satisfiability of Equality Equations (LC 990) | Union equality pairs, verify inequality | 30 min |
+| Hard | Redundant Connection II (LC 685) | Directed two-parents and cycle case logic | 45 min |
+| Hard | Optimize Water Distribution in a Village (LC 1168) | Virtual well source node + Kruskal MST | 40 min |
 
 > **Gate C3.** DSU written from memory, correctly, with both optimisations. You can explain α(n) in one sentence. Kruskal and Prim both implemented once, and you can say which you would choose for a dense graph and why.
 
@@ -244,16 +242,14 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Medium | Network Delay Time | Dijkstra | 30 min |
-| Medium | Path with Maximum Probability | Max-heap Dijkstra | 30 min |
-| Medium | Cheapest Flights Within K Stops | Bellman-Ford with K | 35 min |
-| Medium | Path with Minimum Effort | Dijkstra on max-edge | 35 min |
-| Medium | Swim in Rising Water | Binary search + BFS, or Dijkstra | 35 min |
-| Medium | Word Ladder (repeat) | BFS | 30 min |
-| Medium | 01 Matrix (repeat) | Multi-source BFS | 20 min |
-| Hard | Find the City with the Smallest Number of Neighbors | Floyd-Warshall | 35 min |
-| Hard | Minimum Cost to Reach Destination in Time | Dijkstra with state | 45 min |
-| Hard | Shortest Path in a Grid with Obstacles Elimination | BFS with (r, c, k) state | 45 min |
+| Medium | Network Delay Time / Dijkstra (LC 743) | Min-heap relaxation with dist array | 30 min |
+| Medium | Path with Maximum Probability (LC 1514) | Max-heap Dijkstra with probabilities | 30 min |
+| Medium | Cheapest Flights Within K Stops / Bellman-Ford (LC 787) | K+1 rounds edge relaxation | 35 min |
+| Medium | Path with Minimum Effort (LC 1631) | Min-heap Dijkstra on max-edge weight | 35 min |
+| Medium | Swim in Rising Water (LC 778) | Priority queue Dijkstra or binary search | 35 min |
+| Hard | Find the City / Floyd-Warshall (LC 1334) | Triple loop all-pairs shortest paths | 35 min |
+| Hard | Minimum Cost to Reach Destination in Time (LC 1928) | Dijkstra tracking (time, cost) states | 45 min |
+| Hard | Shortest Path with Obstacles Elimination (LC 1293) | 3D state BFS over (r, c, k_remaining) | 45 min |
 
 > **Gate C4.** Dijkstra written from memory with the stale-entry skip, and you can explain in one sentence why it fails on negative edges. You can map any stated problem to one of the six rows in the table within 60 seconds.
 
@@ -313,20 +309,21 @@
 
 | Tier | Problem | Cue | Target |
 |---|---|---|---|
-| Easy | Single Number | XOR | 10 min |
-| Easy | Number of 1 Bits | `x & (x-1)` | 8 min |
-| Easy | Counting Bits | DP over bits | 15 min |
-| Easy | Missing Number | XOR or sum | 10 min |
-| Medium | Jump Game | Reachability | 15 min |
-| Medium | Jump Game II | Interval BFS | 25 min |
-| Medium | Gas Station | Cumulative deficit | 25 min |
-| Medium | Partition Labels | Last occurrence | 20 min |
-| Medium | Non-overlapping Intervals (repeat) | Greedy by end | 15 min |
-| Medium | Candy | Two passes | 30 min |
-| Medium | Task Scheduler | Frequency formula | 30 min |
-| Medium | Single Number II | Bit counting mod 3 | 25 min |
-| Medium | Single Number III | Partition by a set bit | 25 min |
-| Hard | Remove Duplicate Letters | Monotonic stack + feasibility | 35 min |
+| Easy | Single Number (LC 136) | XOR cancellation: a ^ a = 0 | 10 min |
+| Easy | Number of 1 Bits (LC 191) | Brian Kernighan bit trick: x & (x - 1) | 8 min |
+| Easy | Counting Bits (LC 338) | Bit manipulation DP: dp[i] = dp[i >> 1] + (i & 1) | 15 min |
+| Easy | Assign Cookies (LC 455) | Two pointers greedy match smallest child | 10 min |
+| Medium | N Meetings in One Room | Sort by finish time, greedy selection | 15 min |
+| Medium | Minimum Platforms Required | Sort arrivals and departures, sweep line | 25 min |
+| Medium | Job Sequencing Problem | Sort by profit desc, place at latest slot | 25 min |
+| Medium | Fractional Knapsack Problem | Sort by value/weight ratio desc, greedy fill | 20 min |
+| Medium | Greedy Minimum Coins | Greedy largest denomination decrement | 15 min |
+| Medium | Jump Game (LC 55) | Running farthest reachable boundary | 15 min |
+| Medium | Jump Game II (LC 45) | Interval window boundary BFS jumps | 25 min |
+| Medium | Gas Station (LC 134) | Total fuel deficit and greedy reset start | 25 min |
+| Medium | Single Number II (LC 137) | Bit-level counting mod 3 | 25 min |
+| Medium | Single Number III (LC 260) | Total XOR + lowest set bit partition | 25 min |
+| Hard | Candy (LC 135) | Two-pass left-to-right and right-to-left | 30 min |
 
 > **Gate C5.** You can state an exchange argument for one greedy problem out loud in under 30 seconds. All five bit tricks reproduced from memory. You can name a greedy problem that requires DP instead, and say why.
 
